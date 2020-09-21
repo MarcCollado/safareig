@@ -2,10 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `Safareig`,
     author: {
-      name: `Safareig`,
-      summary: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta.`,
+      name: `Safareig FM`,
     },
-    description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta.`,
+    description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
     siteUrl: `https://www.safareig.fm`,
     social: {
       twitter: ``,
