@@ -7,7 +7,7 @@ const CardContainer = styled.div`
   /* Display & Box Model */
   overflow: hidden;
   width: 20rem;
-  height: 14.75rem;
+  height: 12rem;
   margin: 0rem auto;
   border-radius: 1.5rem;
   box-shadow: 2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18);
@@ -47,7 +47,7 @@ export default (props) => (
   <StaticQuery
     query={graphql`
       query CoverImageQuery {
-        coverImage: file(relativePath: { eq: "cover.png" }) {
+        coverImage: file(relativePath: { eq: "cover-mobile.png" }) {
           childImageSharp {
             fluid(maxWidth: 400) {
               ...GatsbyImageSharpFluid
