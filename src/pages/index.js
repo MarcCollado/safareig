@@ -2,11 +2,11 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 
 import Bio from "../components/bio";
+import Cover from "../components/cover";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Subscribe from "../components/subscribe";
 import { rhythm } from "../utils/typography";
-
-import Cover from "../components/cover";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -30,6 +30,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Cover />
+      <Subscribe />
       <Bio />
       {posts.map((post) => {
         const title = post.frontmatter.title || post.fields.slug;
