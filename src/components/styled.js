@@ -10,8 +10,11 @@ export const CardContainer = styled.div`
   overflow: hidden;
   /* Flex */
   display: flex;
+  flex-flow: ${(props) => props.flexFlow ?? "row nowrap"};
   align-items: center;
   justify-content: center;
+  /* Color */
+  background-color: ${(props) => props.color ?? "transparent"};
   /* Other */
   transition: box-shadow 0.3s ease;
 `;
