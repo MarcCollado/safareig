@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>chevron-right</title>
+    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage" transform="translate(-1259.000000, -853.000000)">
+            <g id="Comença" transform="translate(541.000000, 594.000000)">
+                <g id="Group-18" transform="translate(40.000000, 256.000000)">
+                    <g id="Group-14" transform="translate(678.000000, 3.000000)">
+                        <circle id="Oval" fill="#C7CCD0" opacity="0" cx="16" cy="16" r="12"></circle>
+                        <polyline id="Path" stroke="#C7CCD0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="14 22 19 16 14 10"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
