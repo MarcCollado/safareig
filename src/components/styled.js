@@ -17,4 +17,23 @@ export const CardContainer = styled.div`
   background-color: ${(props) => props.color ?? "transparent"};
   /* Other */
   transition: box-shadow 0.3s ease;
+
+  p {
+    margin: 0rem 1.5rem;
+  }
+`;
+
+export const CardTitle = styled.div`
+  /* Display & Box Model */
+  padding: 1.5rem;
+  /* Flex */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: flex-start;
+
+  h2 {
+    margin: 0rem 0rem 0rem 0.75rem;
+  }
 `;
