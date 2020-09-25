@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
-import { CardContainer } from "./styled";
+import { CardContainer, CardTitle } from "./styled";
 import SubscribeSvg from "../../content/assets/subscribe.svg";
 import ChevronRight from "../../content/assets/chevron-right.svg";
 
@@ -56,9 +56,12 @@ const Subscribe = ({ data }) => {
     PodcastLink(p, "#", "__podcastName__")
   );
   return (
-    <CardContainer width={20} flexFlow="column nowrap" color="#f0f5f7">
+    <CardContainer width={20} flexFlow="column nowrap" color="var(--gray)">
+      <CardTitle>
+        <SubscribeSvg />
+        <h2>Subscriu-te</h2>
+      </CardTitle>
       {generatePodcastList}
-      <SubscribeSvg />
       {/* <ImageContainer>
         <StyledImage alt="Safareig cover art" fluid={apple} />
       </ImageContainer> */}
