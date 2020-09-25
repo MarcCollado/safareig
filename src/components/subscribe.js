@@ -56,7 +56,12 @@ const Subscribe = ({ data }) => {
     PodcastLink(p, "#", "__podcastName__")
   );
   return (
-    <CardContainer width={20} flexFlow="column nowrap" color="var(--gray)">
+    <CardContainer
+      width={20}
+      plain
+      flexFlow="column nowrap"
+      color="var(--gray)"
+    >
       <CardTitle>
         <SubscribeSvg />
         <h2>Subscriu-te</h2>
