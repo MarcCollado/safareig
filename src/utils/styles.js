@@ -22,6 +22,32 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1rem;
   }
 
+  h1, h2, h3 {
+    /* font-family: SFProDisplay; */
+    font-size: 2rem;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--black);
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-family: --apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--black);
+  }
+
   @media (min-width: 576px) {
   html {
     /* Text */
