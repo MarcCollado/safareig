@@ -5,6 +5,7 @@ import Bio from "../components/bio";
 import Cover from "../components/cover";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Start from "../components/start";
 import Subscribe from "../components/subscribe";
 import { rhythm } from "../utils/typography";
 
@@ -12,26 +13,14 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes;
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    );
-  }
-
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+    <>
+      <SEO location={location} title={siteTitle} />
       <Cover />
-      <Subscribe />
       <Bio />
+      <Subscribe />
+      <Start />
+      <div>... EpisodeList ...</div>
       {posts.map((post) => {
         const title = post.frontmatter.title || post.fields.slug;
         return (
@@ -67,7 +56,7 @@ const BlogIndex = ({ data, location }) => {
           </article>
         );
       })}
-    </Layout>
+    </>
   );
 };
 
