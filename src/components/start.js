@@ -1,38 +1,8 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import styled from "styled-components";
 
 import { CardContainer, CardTitle } from "./styled";
 import StartHereSvg from "../../content/assets/start-here.svg";
-
-// Styled
-
-const StyledTitle = styled.div`
-  /* Display & Box Model */
-  height: 5rem;
-  width: 20rem;
-  padding: 0rem 1rem;
-  /* border: 1px solid black; */
-
-  /* Flex */
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: flex-start;
-`;
-
-const StyledImage = styled(Img)`
-  /* Display & Box Model */
-  width: 3rem;
-  margin-inline-start: 0.5rem;
-`;
-
-const StyledLink = styled.a`
-  /* Display & Box Model */
-  margin-inline-start: -1.5rem;
-`;
 
 // Components
 
@@ -58,6 +28,8 @@ const StartHere = ({ data }) => {
     </CardContainer>
   );
 };
+
+// GraphQL StaticQuery
 
 export default (props) => (
   <StaticQuery
