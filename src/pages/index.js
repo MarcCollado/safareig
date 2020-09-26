@@ -5,6 +5,7 @@ import Bio from "../components/bio";
 import Cover from "../components/cover";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Share from "../components/share";
 import Start from "../components/start";
 import Subscribe from "../components/subscribe";
 import { rhythm } from "../utils/typography";
@@ -21,6 +22,8 @@ const BlogIndex = ({ data, location }) => {
       <Subscribe />
       <Start />
       <div>... EpisodeList ...</div>
+      <Share />
+
       {posts.map((post) => {
         const title = post.frontmatter.title || post.fields.slug;
         return (
