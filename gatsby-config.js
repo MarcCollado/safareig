@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Safareig`,
+    title: `Safareig FM`,
     author: {
-      name: `Safareig FM`,
+      name: `Ramon Gilabert & Marc Collado`,
     },
     description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
     siteUrl: `https://www.safareig.fm`,
@@ -62,7 +62,7 @@ module.exports = {
         name: `Safareig FM`,
         short_name: `safareig.fm`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#FFFFFF`,
         theme_color: `#32C5FF`,
         display: `minimal-ui`,
         icon: `content/assets/favicon.png`,
