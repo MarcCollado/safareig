@@ -7,25 +7,30 @@ import { CardContainer, CardTitle } from "./styled";
 import SubscribeSvg from "../../content/assets/subscribe.svg";
 import ChevronRight from "../../content/assets/chevron-right.svg";
 
-// Styled
+// Styled components
 
 const PodcastContainer = styled.div`
   /* Display & Box Model */
-  height: 5rem;
+  height: 4.75rem;
   width: 20rem;
   padding: 0rem 1rem;
-  /* border: 1px solid black; */
-
   /* Flex */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   align-content: flex-start;
+
+  &:first-child {
+    margin-block-start: -0.5rem;
+  }
+
+  &:last-child {
+    margin-block-end: 0.5rem;
+  }
 `;
 
 const StyledImage = styled(Img)`
-  /* Display & Box Model */
   width: 3rem;
   margin-inline-start: 0.5rem;
 `;
@@ -35,7 +40,7 @@ const StyledLink = styled.a`
   margin-inline-start: -1.5rem;
 `;
 
-// Components
+// Main components
 
 const PodcastLink = (art, link, name) => {
   return (
@@ -73,6 +78,8 @@ const Subscribe = ({ data }) => {
     </CardContainer>
   );
 };
+
+// GraphQL StaticQuery
 
 export default (props) => (
   <StaticQuery
