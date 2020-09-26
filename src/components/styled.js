@@ -21,8 +21,14 @@ export const CardContainer = styled.div`
   /* Other */
   transition: box-shadow 0.3s ease;
 
+  /* Reset margin for the cover element */
+  &:first-child {
+    margin-block-start: 0rem;
+  }
+
+  /* Indent text within the card */
   p {
-    margin: 0rem 1.5rem;
+    padding: 0rem 1.5rem;
   }
 `;
 
@@ -36,15 +42,14 @@ export const CardTitle = styled.div`
   align-items: center;
   align-self: flex-start;
 
+  /* Make some room between the icon and the title */
   h2 {
     margin: 0rem 0rem 0rem 0.75rem;
   }
 `;
 
 export const CallToAction = styled.p`
-  /* Display & Box Model */
   margin: 0rem;
-  /* Text */
   font-weight: 600;
   color: var(--darkBlue);
 `;
