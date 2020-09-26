@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { CardContainer } from "./styled";
 
-// Styled
+// Styled components
 
 const ImageContainer = styled.div`
   /* Display & Box Model */
@@ -19,7 +19,7 @@ const StyledImage = styled(Img)`
   height: 100%;
 `;
 
-// Components
+// Main components
 
 const Cover = ({ data }) => {
   const coverImage = data.coverImage.childImageSharp.fluid;
@@ -32,7 +32,7 @@ const Cover = ({ data }) => {
   );
 };
 
-// GraphQL
+// GraphQL StaticQuery
 
 export default (props) => (
   <StaticQuery
