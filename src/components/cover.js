@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
@@ -22,7 +22,21 @@ const StyledImage = styled(Img)`
 // Main components
 
 const Cover = ({ data }) => {
-  const coverImage = data.coverImage.childImageSharp.fluid;
+  // GraphQL
+  const data = useStaticQuery(graphql`
+    query CoverImageQuery {
+      file(relativePath: { eq: "cover-mobile.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
+  const coverImage = data.file.childImageSharp.fluid;
+
   return (
     <CardContainer width={20} height={12}>
       <ImageContainer>
@@ -31,22 +45,3 @@ const Cover = ({ data }) => {
     </CardContainer>
   );
 };
-
-// GraphQL StaticQuery
-
-export default (props) => (
-  <StaticQuery
-    query={graphql`
-      query CoverImageQuery {
-        coverImage: file(relativePath: { eq: "cover-mobile.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 1024) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => <Cover data={data} {...props} />}
-  />
-);
