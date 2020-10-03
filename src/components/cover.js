@@ -21,7 +21,7 @@ const StyledImage = styled(Img)`
 
 // Main components
 
-const Cover = ({ data }) => {
+const Cover = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
@@ -45,3 +45,5 @@ const Cover = ({ data }) => {
     </CardContainer>
   );
 };
+
+export default Cover;
