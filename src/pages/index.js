@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 
 import Bio from "../components/bio";
 import Cover from "../components/cover";
+import Episode from "../components/episode";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Share from "../components/share";
@@ -10,9 +11,9 @@ import Start from "../components/start";
 import Subscribe from "../components/subscribe";
 import { rhythm } from "../utils/typography";
 
-const BlogIndex = ({ data, location }) => {
+const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+  const episodes = data.allSanityEpisode?.nodes;
 
   return (
     <>
@@ -21,49 +22,25 @@ const BlogIndex = ({ data, location }) => {
       <Bio />
       <Subscribe />
       <Start />
-      <div>... EpisodeList ...</div>
-      <Share />
-
-      {posts.map((post) => {
-        const title = post.frontmatter.title || post.fields.slug;
+      <Episode />
+      {episodes.map((episode) => {
+        const { id, title, description, releaseDate: date } = episode;
+        const path = episode.path.current;
         return (
-          <article
-            key={post.fields.slug}
-            itemScope
-            itemType="http://schema.org/Article"
-          >
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link
-                  style={{ boxShadow: `none` }}
-                  to={post.fields.slug}
-                  itemProp="url"
-                >
-                  <span itemProp="headline">{title}</span>
-                </Link>
-              </h3>
-              <small>{post.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: post.frontmatter.description || post.excerpt,
-                }}
-                itemProp="description"
-              />
-            </section>
-          </article>
+          <Episode
+            key={id}
+            title={title}
+            description={description}
+            date={date}
+          />
         );
       })}
+      <Share />
     </>
   );
 };
 
-export default BlogIndex;
+export default IndexPage;
 
 export const pageQuery = graphql`
   query {
@@ -72,16 +49,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allSanityEpisode {
       nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
+        id
+        title
+        description
+        releaseDate
+        path {
+          current
         }
       }
     }
