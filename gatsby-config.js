@@ -1,11 +1,15 @@
-module.exports = {
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env" });
+
+export default {
   siteMetadata: {
     title: `Safareig FM`,
+    description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
+    siteUrl: `https://www.safareig.fm`,
     author: {
       name: `Ramon Gilabert & Marc Collado`,
     },
-    description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
-    siteUrl: `https://www.safareig.fm`,
     social: {
       twitter: ``,
     },
@@ -49,12 +53,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -84,6 +82,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `g34v195l`,
+        dataset: `production`,
+        watchmode: true,
+        token: process.env.SANITY_TOKEN,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
