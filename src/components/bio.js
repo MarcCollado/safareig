@@ -37,7 +37,7 @@ const StyledChevron = styled(Chevron)`
 // Main components
 
 const Bio = () => {
-  // GraphQL hook
+  // GraphQL
   const data = useStaticQuery(graphql`
     query BioQuery {
       site {
@@ -49,7 +49,6 @@ const Bio = () => {
     }
   `);
 
-  // Sourced from "siteMetadata" in gatsby-config.js
   const title = data.site.siteMetadata?.title;
   const description = data.site.siteMetadata?.description;
 
