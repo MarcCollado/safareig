@@ -1,15 +1,32 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 import { CardContainer, CardTitle } from "./styled";
 import StartHereSvg from "../../content/assets/start-here.svg";
 
 // Components
 
-const StartHere = ({ data }) => {
-  // const generatePodcastList = [apple, google, spotify, overcast].map((p) =>
-  //   PodcastLink(p, "#", "__podcastName__")
-  // );
+const StartHere = () => {
+  // GraphQL
+  const data = useStaticQuery(graphql`
+    query StartHereQuery {
+      allSanityEpisode {
+        nodes {
+          id
+          title
+          description
+          releaseDate
+          isFeatured
+          path {
+            current
+          }
+        }
+      }
+    }
+  `);
+
+  const featuredEpisodes = data.allSanityEpisode?.nodes;
+
   return (
     <CardContainer width={20} flexFlow="column nowrap" color="var(--white)">
       <CardTitle>
@@ -29,28 +46,4 @@ const StartHere = ({ data }) => {
   );
 };
 
-// GraphQL StaticQuery
-
-export default (props) => (
-  <StaticQuery
-    query={graphql`
-      query StartHereQuery {
-        apple: file(relativePath: { eq: "apple-podcasts.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        google: file(relativePath: { eq: "google-podcasts.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => <StartHere data={data} {...props} />}
-  />
-);
+export default StartHere;
