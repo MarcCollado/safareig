@@ -1,11 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardContainer, CallToAction } from "./styled";
+import { CardContainer, CardTitle, CallToAction } from "./styled";
 import ShareIcon from "../../content/assets/share.svg";
 import Chevron from "../../content/assets/chevron-right-cta.svg";
 
 // Styled Components
+
+export const EpisodeDate = styled.p`
+  font-weight: 600;
+  letter-spacing: -0.75px;
+  opacity: 0.5;
+  color: var(--black);
+  /* Reset default agent margin */
+  margin-block-end: -0.5rem;
+`;
+
+const EpisodeTitle = styled.h2`
+  /* Reset default agent margin */
+  margin-block-end: 0rem;
+`;
 
 const ActionContainer = styled.div`
   /* Display & Box Model */
@@ -30,10 +44,17 @@ const StyledChevron = styled(Chevron)`
 
 // Components
 
-const Episode = ({ id, date, title, description }) => (
-  <CardContainer width={20} flexFlow="column nowrap" plain color="var(--gray)">
-    <p>{date}</p>
-    <h2>{title}</h2>
+const Episode = ({ id, date, episodeNumber, title, description }) => (
+  <CardContainer
+    width={20}
+    flexFlow="column nowrap"
+    justifyContent="flex-start"
+    alignItems="flex-start"
+    plain
+    color="var(--gray)"
+  >
+    <EpisodeDate>{date.replace(/-/g, " / ")}</EpisodeDate>
+    <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
     <p>{description}</p>
     <ActionContainer>
       <CallToAction>Escolta Episodi</CallToAction>

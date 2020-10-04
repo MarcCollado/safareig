@@ -22,14 +22,21 @@ const IndexPage = ({ data, location }) => {
       <Subscribe />
       <Start />
       {episodes.map((episode) => {
-        const { id, title, description, releaseDate: date } = episode;
+        const {
+          id,
+          episodeNumber,
+          title,
+          description,
+          releaseDate: date,
+        } = episode;
         const path = episode.path.current;
         return (
           <Episode
             key={id}
+            date={date}
+            episodeNumber={episodeNumber}
             title={title}
             description={description}
-            date={date}
           />
         );
       })}
@@ -50,9 +57,11 @@ export const pageQuery = graphql`
     allSanityEpisode {
       nodes {
         id
+        releaseDate
+        episodeNumber
         title
         description
-        releaseDate
+        isFeatured
         path {
           current
         }
