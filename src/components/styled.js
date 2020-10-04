@@ -14,42 +14,39 @@ export const CardContainer = styled.div`
   /* Flex */
   display: flex;
   flex-flow: ${(props) => props.flexFlow ?? "row nowrap"};
-  align-items: center;
-  justify-content: center;
+  justify-content: ${(props) => props.justifyContent ?? "center"};
+  align-items: ${(props) => props.alignItems ?? "center"};
   /* Color */
   background-color: ${(props) => props.color ?? "transparent"};
   /* Other */
   transition: box-shadow 0.3s ease;
-
-  /* Reset margin for the cover element */
-  &:first-child {
-    margin-block-start: 0rem;
-  }
-
   /* Indent text within the card */
-  p {
+  p,
+  h2 {
     padding: 0rem 1.5rem;
   }
 `;
 
 export const CardTitle = styled.div`
   /* Display & Box Model */
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0.5rem;
   /* Flex */
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
-
   /* Make some room between the icon and the title */
   h2 {
+    /* Reset padding from CardContainer */
+    padding: 0rem;
     margin: 0rem 0rem 0rem 0.75rem;
   }
 `;
 
 export const CallToAction = styled.p`
-  margin: 0rem;
   font-weight: 600;
   color: var(--darkBlue);
+  /* Reset default agent margin */
+  margin: 0rem;
 `;
