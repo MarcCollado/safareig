@@ -11,18 +11,16 @@ import ChevronRight from "../../content/assets/chevron-right.svg";
 
 const PodcastContainer = styled.div`
   /* Display & Box Model */
-  height: 4.75rem;
-  width: 20rem;
-  padding: 0rem 1rem;
+  width: 105%;
+  padding: 0.5rem;
   /* Flex */
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  align-content: flex-start;
 
   &:first-child {
-    margin-block-start: -0.5rem;
+    padding-block-start: 1rem;
   }
 
   &:last-child {
@@ -42,9 +40,9 @@ const StyledLink = styled.a`
 
 // Main components
 
-const PodcastLink = (art, link, name) => {
+const PodcastLink = (id, art, link, name) => {
   return (
-    <PodcastContainer>
+    <PodcastContainer key={id}>
       <StyledImage fluid={art}></StyledImage>
       <StyledLink href={link}>{name}</StyledLink>
       <ChevronRight />
@@ -58,7 +56,7 @@ const Subscribe = ({ data }) => {
   const spotify = data.spotify.childImageSharp.fluid;
   const overcast = data.overcast.childImageSharp.fluid;
   const generatePodcastList = [apple, google, spotify, overcast].map((p) =>
-    PodcastLink(p, "#", "__podcastName__")
+    PodcastLink(p.src, p, "#", "__podcastName__")
   );
   return (
     <CardContainer
