@@ -1,10 +1,9 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Bio from "../components/bio";
 import Cover from "../components/cover";
 import Episode from "../components/episode";
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Share from "../components/share";
 import Start from "../components/start";
@@ -29,7 +28,7 @@ const IndexPage = ({ data, location }) => {
           description,
           releaseDate: date,
         } = episode;
-        const path = episode.path.current;
+        // const path = episode.path.current;
         return (
           <Episode
             key={id}

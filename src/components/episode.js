@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardContainer, CardTitle, CallToAction } from "./styled";
-import ShareIcon from "../../content/assets/share.svg";
+import { CardContainer, CallToAction } from "./styled";
 import Chevron from "../../content/assets/chevron-right-cta.svg";
 
 // Styled Components
