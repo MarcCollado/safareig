@@ -10,13 +10,11 @@ const StartHere = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query StartHereQuery {
-      allSanityEpisode {
+      allSanityEpisode(filter: { isFeatured: { eq: true } }, limit: 3) {
         nodes {
           id
+          episodeNumber
           title
-          description
-          releaseDate
-          isFeatured
           path {
             current
           }
@@ -37,11 +35,9 @@ const StartHere = () => {
         És difícil començar a escoltar un podcast, i sempre hi ha episodis que
         són més bons. Nosaltres et recomanem aquests:
       </p>
-      <ul>
-        <li>Featured 1</li>
-        <li>Featured 2</li>
-        <li>Featured 3</li>
-      </ul>
+      {featuredEpisodes.map((episode) => (
+        <p>{`${episode.episodeNumber}: ${episode.title}`}</p>
+      ))}
     </CardContainer>
   );
 };
