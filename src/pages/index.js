@@ -9,7 +9,6 @@ import SEO from "../components/seo";
 import Share from "../components/share";
 import Start from "../components/start";
 import Subscribe from "../components/subscribe";
-import { rhythm } from "../utils/typography";
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -22,7 +21,6 @@ const IndexPage = ({ data, location }) => {
       <Bio />
       <Subscribe />
       <Start />
-      <Episode />
       {episodes.map((episode) => {
         const { id, title, description, releaseDate: date } = episode;
         const path = episode.path.current;

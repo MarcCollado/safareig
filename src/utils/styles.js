@@ -23,8 +23,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2, h3 {
-    /* font-family: SFProDisplay; */
-    font-size: 2rem;
+    font-family: --apple-system, sans-serif;
+    font-size: 1.75rem;
     font-weight: 900;
     font-stretch: normal;
     font-style: normal;
@@ -49,7 +49,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   @media (min-width: 576px) {
-  html {
+    html {
     /* Text */
     font-size: 16px;
     }
