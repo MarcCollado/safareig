@@ -20,8 +20,9 @@ const PodcastItemContainer = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  transition: all 250ms ease-in-out;
 
-  & :hover {
+  &:hover {
     background-color: var(--white);
   }
 `;
@@ -33,8 +34,12 @@ const StyledImage = styled(Img)`
 
 const StyledLink = styled.p`
   font-weight: 600;
-  margin-inline-start: -1.5rem;
+  margin-inline-start: -2rem;
   opacity: 0.95;
+`;
+
+const StyledChevron = styled(ChevronRight)`
+  width: 1.5rem;
 `;
 
 // Main components
@@ -44,7 +49,7 @@ const PodcastLink = (id, art, link, name) => {
     <PodcastItemContainer key={id}>
       <StyledImage fluid={art}></StyledImage>
       <StyledLink href={link}>{name}</StyledLink>
-      <ChevronRight />
+      <StyledChevron />
     </PodcastItemContainer>
   );
 };
