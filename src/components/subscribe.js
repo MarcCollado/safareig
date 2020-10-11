@@ -9,7 +9,7 @@ import ChevronRight from "../../content/assets/chevron-right.svg";
 
 // Styled components
 
-const PodcastContainer = styled.div`
+const PodcastItemContainer = styled.div`
   /* Display & Box Model */
   width: 105%;
   padding: 0.5rem;
@@ -19,11 +19,11 @@ const PodcastContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  &:first-child {
+  & :first-child {
     padding-block-start: 1rem;
   }
 
-  &:last-child {
+  & :last-child {
     margin-block-end: 0.5rem;
   }
 `;
@@ -34,7 +34,6 @@ const StyledImage = styled(Img)`
 `;
 
 const StyledLink = styled.a`
-  /* Display & Box Model */
   margin-inline-start: -1.5rem;
 `;
 
@@ -42,11 +41,11 @@ const StyledLink = styled.a`
 
 const PodcastLink = (id, art, link, name) => {
   return (
-    <PodcastContainer key={id}>
+    <PodcastItemContainer key={id}>
       <StyledImage fluid={art}></StyledImage>
       <StyledLink href={link}>{name}</StyledLink>
       <ChevronRight />
-    </PodcastContainer>
+    </PodcastItemContainer>
   );
 };
 
