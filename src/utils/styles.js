@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
     max-width: 1440px;
     /* Text */
     font-size: 16px;
+    background-color: #fafbfc;
   }
 
   body {
