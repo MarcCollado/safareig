@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardContainer, CardTitle, CallToAction } from "./styled";
+import {
+  CardFeatured,
+  CardTitle,
+  SimpleLinkContainer,
+  SimpleLink,
+} from "./styled";
 import ShareIcon from "../../content/assets/share.svg";
 import Chevron from "../../content/assets/chevron-right-cta.svg";
 
@@ -31,7 +36,7 @@ const StyledChevron = styled(Chevron)`
 // Components
 
 const Share = () => (
-  <CardContainer width={20} flexFlow="column nowrap" color="var(--white)">
+  <CardFeatured width={17} flexFlow="column nowrap" feat>
     <CardTitle>
       <ShareIcon />
       <h2>Fes Safareig</h2>
@@ -40,13 +45,11 @@ const Share = () => (
       Tens algun tema a suggerir? Vols ajudar-nos amb el podcast? Tens feedback
       general? No dubtis en contactar i començar el Safareig.
     </p>
-    <ActionContainer>
-      <CallToAction>Segueix-nos</CallToAction>
+    <SimpleLinkContainer>
+      <SimpleLink>Contacta a Safareig</SimpleLink>
       <StyledChevron />
-      <CallToAction>Contacta'ns</CallToAction>
-      <StyledChevron />
-    </ActionContainer>
-  </CardContainer>
+    </SimpleLinkContainer>
+  </CardFeatured>
 );
 
 export default Share;
