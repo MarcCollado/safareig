@@ -94,3 +94,24 @@ export const CardFeatured = styled.div`
     }
   }
 `;
+
+// CARD EPISODE
+
+export const CardEpisode = styled(CardFeatured)`
+  background-color: "var(--gray)";
+
+  &:hover {
+    box-shadow: none;
+    background-color: var(--white);
+
+    & div svg:last-child {
+      transform: rotate(90deg);
+    }
+  }
+`;
+
+// CARD COVER
+
+export const CardCover = styled(CardContainer)`
+  padding: 0rem;
+`;
