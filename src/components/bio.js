@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
-import { CallToAction } from "./styled";
+import { SimpleLinkContainer, SimpleLink } from "./styled";
 import Chevron from "../../content/assets/chevron-right-cta.svg";
 
 // Styled components
@@ -12,14 +12,12 @@ const BioContainer = styled.div`
   margin: 1.5rem auto;
 `;
 
-const LinkContainer = styled.div`
+const LinksContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  align-items: center;
-  align-self: flex-start;
-
-  & p:last-of-type {
+  // Add some extra room in case there are two link items
+  & div:last-child {
     margin-inline-start: 1.5rem;
   }
 `;
@@ -51,12 +49,16 @@ const Bio = () => {
     <BioContainer>
       <h1>{title}</h1>
       <p>{description}</p>
-      <LinkContainer>
-        <CallToAction>Segueix-nos</CallToAction>
-        <StyledChevron />
-        <CallToAction>Contacta'ns</CallToAction>
-        <StyledChevron />
-      </LinkContainer>
+      <LinksContainer>
+        <SimpleLinkContainer>
+          <SimpleLink>Segueix-nos</SimpleLink>
+          <StyledChevron />
+        </SimpleLinkContainer>
+        <SimpleLinkContainer>
+          <SimpleLink>Contacta'ns</SimpleLink>
+          <StyledChevron className="slide" />
+        </SimpleLinkContainer>
+      </LinksContainer>
     </BioContainer>
   );
 };
