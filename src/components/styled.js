@@ -62,9 +62,6 @@ export const CardContainer = styled.div`
   /* Other */
   transition: box-shadow 0.3s ease;
   /* Indent text within the card */
-  p {
-    padding: 0rem 1.5rem;
-  }
 `;
 
 export const CallToAction = styled.p`
