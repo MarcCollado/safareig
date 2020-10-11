@@ -56,7 +56,7 @@ const Bio = () => {
         </SimpleLinkContainer>
         <SimpleLinkContainer>
           <SimpleLink>Contacta'ns</SimpleLink>
-          <StyledChevron className="slide" />
+          <StyledChevron />
         </SimpleLinkContainer>
       </LinksContainer>
     </BioContainer>
