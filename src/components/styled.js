@@ -44,6 +44,29 @@ export const CardTitle = styled.div`
   }
 `;
 
+export const SimpleLinkContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: flex-start;
+
+  & > svg {
+    transition: all 250ms ease-in-out;
+  }
+
+  &:hover > svg {
+    transform: translateX(0.25rem);
+  }
+`;
+
+export const SimpleLink = styled.p`
+  font-weight: 600;
+  color: var(--darkBlue);
+  /* Reset default agent margin */
+  margin: 0rem;
+`;
+
 export const CallToAction = styled.p`
   font-weight: 600;
   color: var(--darkBlue);
