@@ -12,19 +12,17 @@ import ChevronRight from "../../content/assets/chevron-right.svg";
 const PodcastItemContainer = styled.div`
   /* Display & Box Model */
   width: 105%;
-  padding: 0.5rem;
+  height: 4rem;
+  margin-block-start: 0.25rem;
+  border-radius: 1rem;
   /* Flex */
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
-  & :first-child {
-    padding-block-start: 1rem;
-  }
-
-  & :last-child {
-    margin-block-end: 0.5rem;
+  & :hover {
+    background-color: var(--white);
   }
 `;
 
@@ -33,8 +31,10 @@ const StyledImage = styled(Img)`
   margin-inline-start: 0.5rem;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled.p`
+  font-weight: 600;
   margin-inline-start: -1.5rem;
+  opacity: 0.95;
 `;
 
 // Main components
@@ -55,23 +55,20 @@ const Subscribe = ({ data }) => {
   const spotify = data.spotify.childImageSharp.fluid;
   const overcast = data.overcast.childImageSharp.fluid;
   const generatePodcastList = [apple, google, spotify, overcast].map((p) =>
-    PodcastLink(p.src, p, "#", "__podcastName__")
+    PodcastLink(p.src, p, "#", "Apple Podcasts")
   );
   return (
     <CardContainer
-      width={20}
-      plain
+      width={17}
       flexFlow="column nowrap"
       color="var(--gray)"
+      plain
     >
       <CardTitle>
         <SubscribeSvg />
         <h2>Subscriu-te</h2>
       </CardTitle>
       {generatePodcastList}
-      {/* <ImageContainer>
-        <StyledImage alt="Safareig cover art" fluid={apple} />
-      </ImageContainer> */}
     </CardContainer>
   );
 };
