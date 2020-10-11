@@ -10,23 +10,23 @@ import ChevronRight from "../../content/assets/chevron-right.svg";
 
 const FeatEpisodeContainer = styled.div`
   /* Display & Box Model */
-  width: 100%;
+  width: 105%;
+  margin-block-start: 0.25rem;
+  border-radius: 1rem;
   /* Flex */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  transition: all 250ms ease-in-out;
 
-  &:last-child {
-    margin-block-end: 1rem;
+  &:hover {
+    background-color: var(--gray);
   }
 
   & h3 {
-    padding-inline-start: 1.5rem;
-  }
-
-  & :last-child {
-    padding-inline-end: 1.5rem;
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 0.5rem;
   }
 `;
 
@@ -56,7 +56,7 @@ const StartHere = () => {
   const featuredEpisodes = data.allSanityEpisode?.nodes;
 
   return (
-    <CardContainer width={20} flexFlow="column nowrap" color="var(--white)">
+    <CardContainer width={17} flexFlow="column nowrap" color="var(--white)">
       <CardTitle>
         <StartHereSvg />
         <h2>Comença Aquí</h2>
