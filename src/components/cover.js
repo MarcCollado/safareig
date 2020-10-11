@@ -3,18 +3,16 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
-import { CardContainer } from "./styled";
+import { CardCover } from "./styled";
 
 // Styled components
 
 const ImageContainer = styled.div`
-  /* Display & Box Model */
   width: 100%;
   height: 100%;
 `;
 
 const StyledImage = styled(Img)`
-  /* Display & Box Model */
   width: 100%;
   height: 100%;
 `;
@@ -38,11 +36,11 @@ const Cover = () => {
   const coverImage = data.file.childImageSharp.fluid;
 
   return (
-    <CardContainer width={20} height={12}>
+    <CardCover width={20} height={12}>
       <ImageContainer>
         <StyledImage alt="Safareig cover art" fluid={coverImage} />
       </ImageContainer>
-    </CardContainer>
+    </CardCover>
   );
 };
 
