@@ -37,6 +37,10 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.25rem;
   }
 
+  h3 {
+    font-size: 1rem;
+  }
+
   p {
     font-family: --apple-system, sans-serif;
     font-size: 1rem;
