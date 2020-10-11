@@ -8,28 +8,23 @@ import Chevron from "../../content/assets/chevron-right-cta.svg";
 // Styled components
 
 const BioContainer = styled.div`
-  /* Mimic CardContainer properties */
   width: 20rem;
   margin: 1.5rem auto;
 `;
 
-const ActionContainer = styled.div`
-  /* Flex */
+const LinkContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
 
-  p {
-    &:last-of-type {
-      margin-inline-start: 1.5rem;
-    }
+  & p:last-of-type {
+    margin-inline-start: 1.5rem;
   }
 `;
 
 const StyledChevron = styled(Chevron)`
-  /* Display & Box Model */
   max-height: 0.75rem;
   margin-inline-start: 0.5rem;
 `;
@@ -56,12 +51,12 @@ const Bio = () => {
     <BioContainer>
       <h1>{title}</h1>
       <p>{description}</p>
-      <ActionContainer>
+      <LinkContainer>
         <CallToAction>Segueix-nos</CallToAction>
         <StyledChevron />
         <CallToAction>Contacta'ns</CallToAction>
         <StyledChevron />
-      </ActionContainer>
+      </LinkContainer>
     </BioContainer>
   );
 };
