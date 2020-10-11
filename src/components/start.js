@@ -1,8 +1,38 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
 
 import { CardContainer, CardTitle } from "./styled";
 import StartHereSvg from "../../content/assets/start-here.svg";
+import ChevronRight from "../../content/assets/chevron-right.svg";
+
+// Styled components
+
+const FeatEpisodeContainer = styled.div`
+  /* Display & Box Model */
+  width: 100%;
+  /* Flex */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &:last-child {
+    margin-block-end: 1rem;
+  }
+
+  & h3 {
+    padding-inline-start: 1.5rem;
+  }
+
+  & :last-child {
+    padding-inline-end: 1.5rem;
+  }
+`;
+
+const StyledChevron = styled(ChevronRight)`
+  width: 1.5rem;
+`;
 
 // Components
 
@@ -36,7 +66,10 @@ const StartHere = () => {
         són més bons. Nosaltres et recomanem aquests:
       </p>
       {featuredEpisodes.map((episode) => (
-        <p>{`${episode.episodeNumber}: ${episode.title}`}</p>
+        <FeatEpisodeContainer>
+          <h3>{`${episode.episodeNumber}: ${episode.title}`}</h3>
+          <StyledChevron />
+        </FeatEpisodeContainer>
       ))}
     </CardContainer>
   );
