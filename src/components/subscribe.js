@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
@@ -54,13 +54,34 @@ const PodcastLink = (id, art, link, name) => {
   );
 };
 
-const Subscribe = ({ data }) => {
-  const apple = data.apple.childImageSharp.fluid;
-  const google = data.google.childImageSharp.fluid;
-  const spotify = data.spotify.childImageSharp.fluid;
-  const overcast = data.overcast.childImageSharp.fluid;
-  const generatePodcastList = [apple, google, spotify, overcast].map((p) =>
-    PodcastLink(p.src, p, "#", "Apple Podcasts")
+const Subscribe = () => {
+  // GraphQL
+  const data = useStaticQuery(graphql`
+    {
+      allSanityPlayer(sort: { fields: sort, order: ASC }) {
+        nodes {
+          id
+          name
+          url
+          icon {
+            asset {
+              fluid {
+                sizes
+                src
+                srcSet
+                base64
+                aspectRatio
+                srcSetWebp
+                srcWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  const generatePodcastList = data.allSanityPlayer?.nodes.map((p) =>
+    PodcastLink(p.id, p.icon.asset.fluid, p.url, p.name)
   );
   return (
     <CardContainer
@@ -78,42 +99,4 @@ const Subscribe = ({ data }) => {
   );
 };
 
-// GraphQL StaticQuery
-
-export default (props) => (
-  <StaticQuery
-    query={graphql`
-      query SubscribeQuery {
-        apple: file(relativePath: { eq: "apple-podcasts.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        google: file(relativePath: { eq: "google-podcasts.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        spotify: file(relativePath: { eq: "rss-feed.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        overcast: file(relativePath: { eq: "overcast.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => <Subscribe data={data} {...props} />}
-  />
-);
+export default Subscribe;
