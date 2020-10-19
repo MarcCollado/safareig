@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
-import { CardContainer, CardTitle } from "./styled";
+import { CardStart, CardTitle } from "./styled";
 import StartHereSvg from "../../content/assets/start-here.svg";
 import ChevronRight from "../../content/assets/chevron-right.svg";
 
@@ -56,7 +56,7 @@ const StartHere = () => {
   const featuredEpisodes = data.allSanityEpisode?.nodes;
 
   return (
-    <CardContainer flexFlow="column nowrap">
+    <CardStart flexFlow="column nowrap">
       <CardTitle>
         <StartHereSvg />
         <h2>Comença Aquí</h2>
@@ -71,7 +71,7 @@ const StartHere = () => {
           <StyledChevron />
         </FeatEpisodeContainer>
       ))}
-    </CardContainer>
+    </CardStart>
   );
 };
 
