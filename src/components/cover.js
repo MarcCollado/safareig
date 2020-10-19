@@ -3,9 +3,26 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
-import { CardCover } from "./styled";
+import { CardContainer } from "./styled";
 
 // Styled components
+
+export const CardCover = styled(CardContainer)`
+  width: 20rem;
+  padding: 0rem;
+
+  @media (min-width: 576px) {
+    width: 22.5rem;
+  }
+
+  @media (min-width: 768px) {
+    // Turn it into a square
+  }
+
+  @media (min-width: 1024px) {
+    // Turn it into a square
+  }
+`;
 
 const ImageContainer = styled.div`
   width: 100%;
@@ -36,7 +53,7 @@ const Cover = () => {
   const coverImage = data.file.childImageSharp.fluid;
 
   return (
-    <CardCover width={20} height={12}>
+    <CardCover>
       <ImageContainer>
         <StyledImage alt="Safareig cover art" fluid={coverImage} />
       </ImageContainer>
