@@ -65,6 +65,16 @@ export const CardContainer = styled.div`
     width: ${(props) =>
       props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
   }
+
+  @media (min-width: 768px) {
+    width: ${(props) =>
+      props.width ? `${props.width}rem` : "var(--cardSizeSmall)"};
+  }
+
+  @media (min-width: 1024px) {
+    width: ${(props) =>
+      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+  }
 `;
 
 // CARD FEATURED
@@ -80,6 +90,20 @@ export const CardFeatured = styled(CardContainer)`
   }
 `;
 
+// CARD START
+// start.js
+export const CardStart = styled(CardContainer)`
+  @media (min-width: 768px) {
+    width: ${(props) =>
+      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+  }
+
+  @media (min-width: 1024px) {
+    width: ${(props) =>
+      props.width ? `${props.width}rem` : "var(--cardSizeLarge)"};
+  }
+`;
+
 // CARD EPISODE
 // episode.js
 export const CardEpisode = styled(CardContainer)`
@@ -90,5 +114,15 @@ export const CardEpisode = styled(CardContainer)`
     & div svg:last-child {
       transform: rotate(90deg);
     }
+  }
+
+  @media (min-width: 768px) {
+    width: ${(props) =>
+      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+  }
+
+  @media (min-width: 1024px) {
+    width: ${(props) =>
+      props.width ? `${props.width}rem` : "var(--cardSizeLarge)"};
   }
 `;
