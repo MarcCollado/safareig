@@ -28,7 +28,7 @@ const StyledChevron = styled(Chevron)`
 // Components
 
 const Episode = ({ id, date, episodeNumber, title, description }) => (
-  <CardEpisode width={17} flexFlow="column nowrap" alignItems="flex-start">
+  <CardEpisode flexFlow="column nowrap" alignItems="flex-start">
     <EpisodeDate>{date.replace(/-/g, " / ")}</EpisodeDate>
     <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
     <p>{description}</p>
