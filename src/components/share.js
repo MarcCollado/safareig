@@ -21,7 +21,7 @@ const StyledChevron = styled(Chevron)`
 // Components
 
 const Share = () => (
-  <CardFeatured width={17} flexFlow="column nowrap">
+  <CardFeatured flexFlow="column nowrap">
     <CardTitle>
       <ShareIcon />
       <h2>Fes Safareig</h2>

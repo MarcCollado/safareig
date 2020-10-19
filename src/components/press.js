@@ -21,7 +21,7 @@ const StyledChevron = styled(Chevron)`
 // Components
 
 const Press = () => (
-  <CardFeatured width={17} flexFlow="column nowrap" flat>
+  <CardFeatured flexFlow="column nowrap" flat>
     <CardTitle>
       <PressKitIcon />
       <h2>Press Kit</h2>

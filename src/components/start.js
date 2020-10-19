@@ -56,7 +56,7 @@ const StartHere = () => {
   const featuredEpisodes = data.allSanityEpisode?.nodes;
 
   return (
-    <CardContainer width={17} flexFlow="column nowrap">
+    <CardContainer flexFlow="column nowrap">
       <CardTitle>
         <StartHereSvg />
         <h2>Comença Aquí</h2>
