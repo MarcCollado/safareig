@@ -39,10 +39,11 @@ export const SimpleLink = styled.p`
 `;
 
 // CARD CONTAINER
-// subscribe.js and start.js
+// subscribe.js, follow.js, and start.js
 export const CardContainer = styled.div`
   /* Display & Box Model */
-  width: ${(props) => props.width}rem;
+  width: ${(props) =>
+    props.width ? `${props.width}rem` : "var(--cardSizeSmall)"};
   height: ${(props) => props.height}rem;
   margin: 1.5rem auto;
   border-radius: 1.5rem;
@@ -59,10 +60,15 @@ export const CardContainer = styled.div`
   background-color: ${(props) => (props.flat ? "var(--gray)" : "var(--white)")};
   /* Other */
   transition: all 250ms ease-in-out;
+
+  @media (min-width: 576px) {
+    width: ${(props) =>
+      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+  }
 `;
 
 // CARD FEATURED
-// share.js
+// share.js and press.js
 export const CardFeatured = styled(CardContainer)`
   &:hover {
     box-shadow: none;
@@ -85,10 +91,4 @@ export const CardEpisode = styled(CardContainer)`
       transform: rotate(90deg);
     }
   }
-`;
-
-// CARD COVER
-
-export const CardCover = styled(CardContainer)`
-  padding: 0rem;
 `;
