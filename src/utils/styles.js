@@ -8,6 +8,9 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #FFBD01;
     --blue: #32C5FF;
     --darkBlue: #002CFC;
+    --cardSizeSmall: 17rem;
+    --cardSizeMedium: 20rem;
+    --cardSizeLarge: 40rem;
   }
 
   html {
