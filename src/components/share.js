@@ -12,21 +12,6 @@ import Chevron from "../../content/assets/chevron-right-cta.svg";
 
 // Styled Components
 
-const ActionContainer = styled.div`
-  /* Display & Box Model */
-  margin-bottom: 1.5rem;
-  /* Flex */
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-self: flex-start;
-  p {
-    margin-inline-start: 1.5rem;
-    padding: 0rem;
-  }
-`;
-
 const StyledChevron = styled(Chevron)`
   /* Display & Box Model */
   max-height: 0.75rem;
@@ -36,7 +21,7 @@ const StyledChevron = styled(Chevron)`
 // Components
 
 const Share = () => (
-  <CardFeatured width={17} flexFlow="column nowrap" feat>
+  <CardFeatured width={17} flexFlow="column nowrap">
     <CardTitle>
       <ShareIcon />
       <h2>Fes Safareig</h2>
