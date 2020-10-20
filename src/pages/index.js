@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Bio from "../components/bio";
 import Cover from "../components/cover";
 import Episode from "../components/episode";
+import Footer from "../components/footer";
 import Press from "../components/press";
 import SEO from "../components/seo";
 import Share from "../components/share";
@@ -42,6 +43,7 @@ const IndexPage = ({ data, location }) => {
       })}
       <Share />
       <Press />
+      <Footer />
     </>
   );
 };
