@@ -4,8 +4,13 @@ import "normalize.css";
 
 import GlobalStyles from "../utils/styles";
 
-const GlobalContainer = styled.div`
+const GlobalContainer = styled.main`
   margin: 1.5rem auto;
+  /* Flex */
+  // display: flex;
+  // flex-flow: column nowrap;
+  // justify-content: flex-start;
+  // align-items: flex-start;
 `;
 
 const Layout = ({ location, title, children }) => {
@@ -17,15 +22,10 @@ const Layout = ({ location, title, children }) => {
     // Actions for the rest of pages
   }
   return (
-    <GlobalContainer>
+    <>
       <GlobalStyles />
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
-    </GlobalContainer>
+      <GlobalContainer>{children}</GlobalContainer>
+    </>
   );
 };
 
