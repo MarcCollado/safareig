@@ -1,17 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>press-kit</title>
-    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Homepage" transform="translate(-152.000000, -2067.000000)">
-            <g id="Press-Kit" transform="translate(110.000000, 2031.000000)">
-                <g id="Group-12" transform="translate(40.000000, 34.000000)">
-                    <g id="chat-1" transform="translate(2.000000, 2.000000)">
-                        <rect id="bound" x="5" y="6" width="20" height="20"></rect>
-                        <polygon id="Path-75" fill="#FFFFFF" fill-rule="nonzero" points="9.16666667 18.5 7.5 23.9166667 12.9166667 22.25"></polygon>
-                        <path d="M16.25,23.5 C11.8777457,23.5 8.33333333,19.9555876 8.33333333,15.5833333 C8.33333333,11.2110791 11.8777457,7.66666667 16.25,7.66666667 C20.6222542,7.66666667 24.1666667,11.2110791 24.1666667,15.5833333 C24.1666667,19.9555876 20.6222542,23.5 16.25,23.5 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="18" cy="18" r="18" fill="#00DDB3"/>
+<path d="M12.1667 20.5L10.5 25.9167L15.9167 24.25L12.1667 20.5Z" fill="white"/>
+<path d="M19.2497 25.5001C14.8774 25.5001 11.333 21.9557 11.333 17.5834C11.333 13.2112 14.8774 9.66675 19.2497 9.66675C23.6219 9.66675 27.1663 13.2112 27.1663 17.5834C27.1663 21.9557 23.6219 25.5001 19.2497 25.5001Z" fill="white"/>
 </svg>
