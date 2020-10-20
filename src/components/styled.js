@@ -39,7 +39,7 @@ export const SimpleLink = styled.p`
 `;
 
 // CARD CONTAINER
-// subscribe.js, follow.js, and start.js
+// subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
   /* Display & Box Model */
   width: ${(props) =>
