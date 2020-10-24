@@ -31,13 +31,28 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3 {
     font-family: --apple-system, sans-serif;
-    font-size: 1.75rem;
     font-weight: 900;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
     color: var(--black);
+  }
+
+  h1 {
+    font-size: 2rem;
+
+    @media (min-width: 576px) {
+      font-size: 2.25rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 3rem;
+    }
   }
 
   h2 {
@@ -59,21 +74,21 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
   }
 
-  @media (min-width: var(--mobile)) {
+  @media (min-width: 576px) {
     html {
     /* Text */
     font-size: 16px;
     }
   }
 
-  @media (min-width: var(--tablet)) {
+  @media (min-width: 768px) {
     html {
       /* Text */
       font-size: 17px;
     }
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (min-width: 1024px) {
     html {
       /* Text */
       font-size: 17px;
