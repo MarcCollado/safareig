@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // Styled components
 
 const FooterContainer = styled.footer`
   width: 20rem;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
   text-align: center;
 `;
 

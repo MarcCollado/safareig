@@ -1,15 +1,15 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import { SimpleLinkContainer, SimpleLink } from "./styled";
-import Chevron from "../../content/assets/chevron-right-cta.svg";
+import { SimpleLinkContainer, SimpleLink } from './styled';
+import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Styled components
 
 const BioContainer = styled.div`
   width: 20rem;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
 `;
 
 const LinksContainer = styled.div`
