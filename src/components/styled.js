@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CardTitle = styled.div`
   /* Display & Box Model */
@@ -43,37 +43,37 @@ export const SimpleLink = styled.p`
 export const CardContainer = styled.div`
   /* Display & Box Model */
   width: ${(props) =>
-    props.width ? `${props.width}rem` : "var(--cardSizeSmall)"};
+    props.width ? `${props.width}rem` : 'var(--cardSizeSmall)'};
   height: ${(props) => props.height}rem;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
   border-radius: 1.5rem;
   box-shadow: ${(props) =>
-    props.flat ? "none" : "2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)"};
+    props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
   padding: 1rem 1.5rem 1.5rem;
   overflow: hidden;
   /* Flex */
   display: flex;
-  flex-flow: ${(props) => props.flexFlow ?? "row nowrap"};
-  justify-content: ${(props) => props.justifyContent ?? "center"};
-  align-items: ${(props) => props.alignItems ?? "center"};
+  flex-flow: ${(props) => props.flexFlow ?? 'row nowrap'};
+  justify-content: ${(props) => props.justifyContent ?? 'center'};
+  align-items: ${(props) => props.alignItems ?? 'center'};
   /* Color */
-  background-color: ${(props) => (props.flat ? "var(--gray)" : "var(--white)")};
+  background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
   /* Other */
   transition: all 250ms ease-in-out;
 
   @media (min-width: 576px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
   }
 
   @media (min-width: 768px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : "var(--cardSizeSmall)"};
+      props.width ? `${props.width}rem` : 'var(--cardSizeSmall)'};
   }
 
   @media (min-width: 1024px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
   }
 `;
 
@@ -95,12 +95,12 @@ export const CardFeatured = styled(CardContainer)`
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
   }
 
   @media (min-width: 1024px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : "var(--cardSizeLarge)"};
+      props.width ? `${props.width}rem` : 'var(--cardSizeLarge)'};
   }
 `;
 
@@ -118,11 +118,11 @@ export const CardEpisode = styled(CardContainer)`
 
   @media (min-width: 768px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : "var(--cardSizeMedium)"};
+      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
   }
 
   @media (min-width: 1024px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : "var(--cardSizeLarge)"};
+      props.width ? `${props.width}rem` : 'var(--cardSizeLarge)'};
   }
 `;
