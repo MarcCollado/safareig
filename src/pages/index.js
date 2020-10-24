@@ -1,15 +1,15 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Bio from "../components/bio";
-import Cover from "../components/cover";
-import Episode from "../components/episode";
-import Footer from "../components/footer";
-import Press from "../components/press";
-import SEO from "../components/seo";
-import Share from "../components/share";
-import Start from "../components/start";
-import Subscribe from "../components/subscribe";
+import Bio from '../components/bio';
+import Cover from '../components/cover';
+import Episode from '../components/episode';
+import Footer from '../components/footer';
+import Press from '../components/press';
+import SEO from '../components/seo';
+import Share from '../components/share';
+import Start from '../components/start';
+import Subscribe from '../components/subscribe';
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;

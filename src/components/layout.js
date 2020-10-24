@@ -1,17 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import "normalize.css";
+import React from 'react';
+import 'normalize.css';
 
-import GlobalStyles from "../utils/styles";
-
-const GlobalContainer = styled.main`
-  margin: 1.5rem auto;
-  /* Flex */
-  // display: flex;
-  // flex-flow: column nowrap;
-  // justify-content: flex-start;
-  // align-items: flex-start;
-`;
+import GlobalStyles from '../utils/styles';
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -24,7 +14,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <>
       <GlobalStyles />
-      <GlobalContainer>{children}</GlobalContainer>
+      {children}
     </>
   );
 };
