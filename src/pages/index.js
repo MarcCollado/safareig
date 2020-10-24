@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -11,6 +12,17 @@ import Share from '../components/share';
 import Start from '../components/start';
 import Subscribe from '../components/subscribe';
 
+const HeaderContainer = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+  }
+`;
+
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const episodes = data.allSanityEpisode?.nodes;
@@ -18,8 +30,10 @@ const IndexPage = ({ data, location }) => {
   return (
     <>
       <SEO location={location} title={siteTitle} />
-      <Cover />
-      <Bio />
+      <HeaderContainer>
+        <Cover />
+        <Bio />
+      </HeaderContainer>
       <Subscribe />
       <Start />
       {episodes.map((episode) => {
