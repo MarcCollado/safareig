@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -11,6 +11,9 @@ const GlobalStyles = createGlobalStyle`
     --cardSizeSmall: 17rem;
     --cardSizeMedium: 20rem;
     --cardSizeLarge: 40rem;
+    --mobile: 576px;
+    --tablet: 768px;
+    --desktop: 1024px;
   }
 
   html {
@@ -56,21 +59,21 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
   }
 
-  @media (min-width: 576px) {
+  @media (min-width: var(--mobile)) {
     html {
     /* Text */
     font-size: 16px;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: var(--tablet)) {
     html {
       /* Text */
       font-size: 17px;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: var(--desktop)) {
     html {
       /* Text */
       font-size: 17px;
