@@ -1,9 +1,9 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import styled from "styled-components";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 
-import { CardContainer } from "./styled";
+import { CardContainer } from './styled';
 
 // Styled components
 
@@ -17,10 +17,14 @@ export const CardCover = styled(CardContainer)`
 
   @media (min-width: 768px) {
     // Turn it into a square
+    width: 18rem;
+    height: 18rem;
   }
 
   @media (min-width: 1024px) {
     // Turn it into a square
+    width: 20rem;
+    height: 20rem;
   }
 `;
 
@@ -47,6 +51,13 @@ const Cover = () => {
           }
         }
       }
+      # desktopCover: file(relativePath: { eq: "cover-desktop.png" }) {
+      #   childImageSharp {
+      #     fluid(maxWidth: 1024) {
+      #       ...GatsbyImageSharpFluid
+      #     }
+      #   }
+      # }
     }
   `);
 

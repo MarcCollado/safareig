@@ -10,6 +10,18 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 const BioContainer = styled.div`
   width: 20rem;
   margin: 1rem auto;
+
+  @media (min-width: 576px) {
+    width: 22.5rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 23rem;
+  }
+
+  @media (min-width: 1024px) {
+    width: 27rem;
+  }
 `;
 
 const LinksContainer = styled.div`
@@ -19,6 +31,25 @@ const LinksContainer = styled.div`
   // Add some extra room in case there are two link items
   & div:last-child {
     margin-inline-start: 1.5rem;
+  }
+`;
+
+const Description = styled.p`
+  margin-block-start: -0.75rem; // Correct for h1' block margin
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  @media (min-width: 576px) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-block-start: -1rem; // Correct for h1' block margin
+  }
+
+  @media (min-width: 1024px) {
+    margin-block-start: -1.5rem; // Correct for h1' block margin
+    font-size: 1.75rem;
   }
 `;
 
@@ -48,7 +79,7 @@ const Bio = () => {
   return (
     <BioContainer>
       <h1>{title}</h1>
-      <p>{description}</p>
+      <Description>{description}</Description>
       <LinksContainer>
         <SimpleLinkContainer>
           <SimpleLink>Segueix-nos</SimpleLink>
