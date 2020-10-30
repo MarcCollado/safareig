@@ -17,14 +17,9 @@ export const CardCover = styled(CardContainer)`
   }
 
   @media (min-width: 768px) {
-    width: 18rem; // Turn it into a square
-    height: 16.5rem;
+    width: 17.5rem; // Turn it into a square
+    height: 16rem;
     padding-top: 1.5rem; // Move it dow
-  }
-
-  @media (min-width: 1024px) {
-    width: 20rem;
-    height: 18.5rem;
   }
 `;
 
