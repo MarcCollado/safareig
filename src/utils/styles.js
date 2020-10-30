@@ -8,9 +8,11 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #FFBD01;
     --blue: #32C5FF;
     --darkBlue: #002CFC;
-    --cardSizeSmall: 17rem;
-    --cardSizeMedium: 20rem;
-    --cardSizeLarge: 40rem;
+    --cardSizeXS: 15.5rem;
+    --cardSizeS: 17rem;
+    --cardSizeM: 20rem;
+    --cardSizeL: 25rem;
+    --cardSizeXL: 37.5rem;
     --mobile: 576px;
     --tablet: 768px;
     --desktop: 1024px;
@@ -19,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     /* Display & Box Model */
     min-width: 320px;
-    max-width: 1440px;
+    max-width: 1280px;
     /* Text */
     font-size: 16px;
     background-color: #fafbfc;
