@@ -1,11 +1,11 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import styled from "styled-components";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 
-import { CardContainer, CardTitle } from "./styled";
-import SubscribeSvg from "../../content/assets/subscribe.svg";
-import ChevronRight from "../../content/assets/chevron-right.svg";
+import { CardContainer, CardTitle } from './styled';
+import SubscribeSvg from '../../content/assets/subscribe.svg';
+import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
 
@@ -25,6 +25,9 @@ const PodcastItemContainer = styled.div`
   &:hover {
     background-color: var(--white);
   }
+  @media (min-width: 768px) {
+    margin-inline-end: 0.25rem;
+  }
 `;
 
 const StyledImage = styled(Img)`
@@ -34,8 +37,12 @@ const StyledImage = styled(Img)`
 
 const StyledLink = styled.p`
   font-weight: 600;
-  margin-inline-start: -2rem;
+  margin-inline-start: -1rem;
   opacity: 0.95;
+
+  @media (min-width: 768px) {
+    margin-inline-start: 0;
+  }
 `;
 
 const StyledChevron = styled(ChevronRight)`
