@@ -42,8 +42,7 @@ export const SimpleLink = styled.p`
 // subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
   /* Display & Box Model */
-  width: ${(props) =>
-    props.width ? `${props.width}rem` : 'var(--cardSizeSmall)'};
+  width: ${(props) => (props.width ? `${props.width}rem` : 'var(--cardSizeS)')};
   height: ${(props) => props.height}rem;
   margin: 1rem auto;
   border-radius: 1.5rem;
@@ -63,17 +62,19 @@ export const CardContainer = styled.div`
 
   @media (min-width: 576px) {
     width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
+      props.width ? `${props.width}rem` : 'var(--cardSizeM)'};
   }
 
   @media (min-width: 768px) {
-    width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeSmall)'};
+    min-width: var(--cardSizeXS);
+    width: 32.5vw;
+    max-width: var(--cardSizeM);
   }
 
   @media (min-width: 1024px) {
-    width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
+    min-width: var(--cardSizeS);
+    width: inherit;
+    max-width: var(--cardSizeM);
   }
 `;
 
@@ -94,19 +95,20 @@ export const CardFeatured = styled(CardContainer)`
 // start.js
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
-    width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
+    min-width: var(--cardSizeM);
+    width: 40vw;
+    max-width: var(--cardSizeL);
   }
 
   @media (min-width: 1024px) {
-    width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeLarge)'};
-  }
+    min-width: var(--cardSizeL);
+    width: 45vw;
+    max-width: var(--cardSizeXL);
 `;
 
 // CARD EPISODE
 // episode.js
-export const CardEpisode = styled(CardContainer)`
+export const CardEpisode = styled(CardStart)`
   &:hover {
     box-shadow: none;
     background-color: var(--white);
@@ -114,15 +116,5 @@ export const CardEpisode = styled(CardContainer)`
     & div svg:last-child {
       transform: rotate(90deg);
     }
-  }
-
-  @media (min-width: 768px) {
-    width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeMedium)'};
-  }
-
-  @media (min-width: 1024px) {
-    width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeLarge)'};
   }
 `;
