@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Styled components
 
 const FooterContainer = styled.footer`
-  width: 20rem;
+  width: 100%;
   margin: 1rem auto;
   text-align: center;
 `;
