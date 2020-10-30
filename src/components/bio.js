@@ -9,18 +9,22 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 const BioContainer = styled.div`
   width: 20rem;
-  margin: 1rem auto;
+  margin: 0rem auto;
 
   @media (min-width: 576px) {
     width: 22.5rem;
   }
 
   @media (min-width: 768px) {
-    width: 23rem;
+    width: auto;
+    // The min width to fit into 5 lines
+    min-width: 22.5rem;
+    // The max width to fit into 4 lines
+    max-width: 50%;
   }
 
   @media (min-width: 1024px) {
-    width: 27rem;
+    max-width: 55.5%;
   }
 `;
 
