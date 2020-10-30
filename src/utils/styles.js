@@ -76,6 +76,7 @@ const GlobalStyles = createGlobalStyle`
 
   @media (min-width: 576px) {
     html {
+    margin: auto;
     /* Text */
     font-size: 16px;
     }
