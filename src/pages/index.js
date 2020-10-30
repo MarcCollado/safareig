@@ -13,13 +13,20 @@ import Start from '../components/start';
 import Subscribe from '../components/subscribe';
 
 const HeaderContainer = styled.div`
+  margin-block-end: 1.5rem;
+
+  @media (min-width: 576px) {
+    margin-block-end: 2rem;
+  }
+
   @media (min-width: 768px) {
+    margin: 1rem 1rem 2rem;
     display: flex;
     flex-flow: row-reverse nowrap;
-    align-items: center;
   }
 
   @media (min-width: 1024px) {
+    margin: 2rem;
   }
 `;
 
