@@ -96,30 +96,28 @@ const IndexPage = ({ data, location }) => {
           <Share />
           <Press />
         </LeftColumn>
-        <RightColumn>
-          <DesktopEpisodesContainer>
-            <Start />
-            {episodes.map((episode) => {
-              const {
-                id,
-                episodeNumber,
-                title,
-                description,
-                releaseDate: date,
-              } = episode;
-              // const path = episode.path.current;
-              return (
-                <Episode
-                  key={id}
-                  date={date}
-                  episodeNumber={episodeNumber}
-                  title={title}
-                  description={description}
-                />
-              );
-            })}
-          </DesktopEpisodesContainer>
-        </RightColumn>
+        <DesktopEpisodesContainer>
+          <Start />
+          {episodes.map((episode) => {
+            const {
+              id,
+              episodeNumber,
+              title,
+              description,
+              releaseDate: date,
+            } = episode;
+            // const path = episode.path.current;
+            return (
+              <Episode
+                key={id}
+                date={date}
+                episodeNumber={episodeNumber}
+                title={title}
+                description={description}
+              />
+            );
+          })}
+        </DesktopEpisodesContainer>
         <Footer />
       </MainContainer>
     </>
