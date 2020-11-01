@@ -17,15 +17,26 @@ const scaleAndRotate = keyframes`
 `;
 
 export const CardCover = styled(CardContainer)`
-  max-width: calc(450px - 1rem);
+  width: clamp(calc(320px - 4rem), 75vw, 425px);
   padding: 0rem;
+  margin-block-end: 1rem;
   transform: scale(1) rotate(-2deg);
   animation: ${scaleAndRotate} 2s ease-in-out 0s infinite alternate;
 
+  @media (min-width: 576px) {
+    margin-block-end: 2rem;
+  }
+
   @media (min-width: 768px) {
-    width: 17.5rem; // Turn it into a square
-    height: 16rem;
-    padding-top: 1.5rem; // Move it dow
+    width: clamp(240px, 27vw, 270px);
+    height: clamp(240px, 27vw, 270px);
+    margin: 0rem;
+  }
+
+  @media (min-width: 1024px) {
+    width: clamp(260px, 24vw, 310px);
+    height: clamp(260px, 24vw, 310px);
+    margin-inline-end: 2.5rem;
   }
 `;
 

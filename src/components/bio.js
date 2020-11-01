@@ -11,15 +11,11 @@ const BioContainer = styled.div`
   width: clamp(calc(320px - 4rem), 78.5vw, calc(450px + 1rem));
 
   @media (min-width: 768px) {
-    width: auto;
-    // The min width to fit into 5 lines
-    min-width: 22.5rem;
-    // The max width to fit into 4 lines
-    max-width: 50%;
+    width: clamp(380px, 52vw, 710px);
   }
 
   @media (min-width: 1024px) {
-    max-width: 55.5%;
+    margin-inline-start: 2rem;
   }
 `;
 
@@ -53,7 +49,12 @@ const Description = styled.p`
 
 const StyledChevron = styled(Chevron)`
   max-height: 0.75rem;
+  margin-block-start: 3px;
   margin-inline-start: 0.5rem;
+
+  @media (min-width: 1024px) {
+    margin-inline-start: 1rem;
+  }
 `;
 
 // Main components
