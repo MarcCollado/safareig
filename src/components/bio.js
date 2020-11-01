@@ -13,10 +13,6 @@ const BioContainer = styled.div`
   @media (min-width: 768px) {
     width: clamp(380px, 52vw, 710px);
   }
-
-  @media (min-width: 1024px) {
-    margin-inline-start: 2rem;
-  }
 `;
 
 const LinksContainer = styled.div`
