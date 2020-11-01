@@ -10,43 +10,46 @@ import ChevronRight from '../../content/assets/chevron-right.svg';
 // Styled components
 
 const PodcastItemContainer = styled.div`
-  /* Display & Box Model */
-  width: 105%;
+  width: 90%;
   height: 4rem;
-  margin-block-start: 0.25rem;
+  padding-inline-start: 0.25rem;
+  padding-inline-end: 0.25rem;
   border-radius: 1rem;
-  /* Flex */
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   transition: all 250ms ease-in-out;
+
+  & p {
+    margin-inline-start: 1.5rem;
+  }
+
+  &:last-child {
+    margin-block-end: 1rem;
+  }
 
   &:hover {
     background-color: var(--white);
   }
+
   @media (min-width: 768px) {
     margin-inline-end: 0.25rem;
   }
 `;
 
 const StyledImage = styled(Img)`
-  width: 3rem;
+  width: 2.75rem;
   margin-inline-start: 0.5rem;
-`;
 
-const StyledLink = styled.p`
-  font-weight: 600;
-  margin-inline-start: -1rem;
-  opacity: 0.95;
-
-  @media (min-width: 768px) {
-    margin-inline-start: 0;
+  @media (min-width: 576px) {
+    width: 3rem;
   }
 `;
 
 const StyledChevron = styled(ChevronRight)`
   width: 1.5rem;
+  margin-inline-start: auto;
 `;
 
 // Main components
@@ -55,7 +58,7 @@ const PodcastLink = (id, art, link, name) => {
   return (
     <PodcastItemContainer key={id}>
       <StyledImage fluid={art}></StyledImage>
-      <StyledLink href={link}>{name}</StyledLink>
+      <p href={link}>{name}</p>
       <StyledChevron />
     </PodcastItemContainer>
   );
