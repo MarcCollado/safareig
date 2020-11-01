@@ -1,10 +1,10 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import { CardStart, CardTitle } from "./styled";
-import StartHereSvg from "../../content/assets/start-here.svg";
-import ChevronRight from "../../content/assets/chevron-right.svg";
+import { CardStart, CardTitle } from './styled';
+import StartHereSvg from '../../content/assets/start-here.svg';
+import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
 
@@ -66,7 +66,7 @@ const StartHere = () => {
         són més bons. Nosaltres et recomanem aquests:
       </p>
       {featuredEpisodes.map((episode) => (
-        <FeatEpisodeContainer>
+        <FeatEpisodeContainer key={episode.id}>
           <h3>{`${episode.episodeNumber}: ${episode.title}`}</h3>
           <StyledChevron />
         </FeatEpisodeContainer>
