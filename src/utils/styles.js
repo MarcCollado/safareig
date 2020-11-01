@@ -1,3 +1,4 @@
+import 'typeface-inter';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -19,21 +20,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    /* Display & Box Model */
-    min-width: 320px;
-    max-width: 1280px;
-    /* Text */
+    width: clamp(320px, 100%, 1440px);
     font-size: 16px;
     background-color: #fafbfc;
   }
 
-  body {
-    font-size: 1rem;
-  }
-
   h1, h2, h3 {
-    font-family: --apple-system, sans-serif;
-    font-weight: 900;
+    font-family: inter, sans-serif;
+    font-weight: 700;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -59,6 +53,10 @@ const GlobalStyles = createGlobalStyle`
 
   h2 {
     font-size: 1.25rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   h3 {
@@ -66,36 +64,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    font-family: --apple-system, sans-serif;
+    font-family: inter, sans-serif;
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: 400;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.5;
     letter-spacing: normal;
     color: var(--black);
-  }
-
-  @media (min-width: 576px) {
-    html {
-    margin: auto;
-    /* Text */
-    font-size: 16px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    html {
-      /* Text */
-      font-size: 17px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    html {
-      /* Text */
-      font-size: 17px;
-    }
   }
 
   /* .gatsby-image-wrapper img[src*=base64\\,] {
