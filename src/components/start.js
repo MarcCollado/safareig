@@ -9,29 +9,37 @@ import ChevronRight from '../../content/assets/chevron-right.svg';
 // Styled components
 
 const FeatEpisodeContainer = styled.div`
-  /* Display & Box Model */
-  width: 105%;
-  margin-block-start: 0.25rem;
+  width: 90%;
+  height: 4rem;
+  padding-inline-start: 0.25rem;
+  padding-inline-end: 0.25rem;
   border-radius: 1rem;
-  /* Flex */
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   transition: all 250ms ease-in-out;
+
+  & h3 {
+    margin-inline-start: 0.75rem;
+  }
+
+  &:last-child {
+    margin-block-end: 1rem;
+  }
 
   &:hover {
     background-color: var(--gray);
   }
 
-  & h3 {
-    padding-inline-start: 0.75rem;
-    padding-inline-end: 0.5rem;
+  @media (min-width: 768px) {
+    margin-inline-end: 0.25rem;
   }
 `;
 
 const StyledChevron = styled(ChevronRight)`
   width: 1.5rem;
+  margin-inline-start: auto;
 `;
 
 // Components
