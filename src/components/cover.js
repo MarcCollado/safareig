@@ -17,15 +17,10 @@ const scaleAndRotate = keyframes`
 `;
 
 export const CardCover = styled(CardContainer)`
-  width: 20rem;
+  max-width: calc(450px - 1rem);
   padding: 0rem;
-  background-color: var(--blue);
   transform: scale(1) rotate(-2deg);
   animation: ${scaleAndRotate} 2s ease-in-out 0s infinite alternate;
-
-  @media (min-width: 576px) {
-    width: 22.5rem;
-  }
 
   @media (min-width: 768px) {
     width: 17.5rem; // Turn it into a square
