@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     width: clamp(320px, 100%, 1440px);
     font-size: 16px;
+    margin: 0rem auto;
     background-color: #fafbfc;
   }
 

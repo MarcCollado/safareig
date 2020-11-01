@@ -12,21 +12,36 @@ import Share from '../components/share';
 import Start from '../components/start';
 import Subscribe from '../components/subscribe';
 
-const HeaderContainer = styled.div`
-  margin-block-end: 1.5rem;
+const GlobalContainer = styled.div`
+  margin: 2.5rem auto; // Move down and center the content
 
   @media (min-width: 576px) {
-    margin-block-end: 2rem;
-  }
-
-  @media (min-width: 768px) {
-    margin: 1rem 1rem 2rem;
-    display: flex;
-    flex-flow: row-reverse nowrap;
+    margin: 3rem auto;
   }
 
   @media (min-width: 1024px) {
-    margin: 2rem;
+    margin: 3.5rem auto;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 5rem auto;
+  }
+`;
+
+const HeaderContainer = styled.div`
+  margin-block-end: 2rem; // Set some room below
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    margin: 1rem 1rem 2rem;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-around;
+  }
+
+  @media (min-width: 1024px) {
+    /* margin: 2rem; */
   }
 `;
 
@@ -40,8 +55,6 @@ const MainContainer = styled.div`
 `;
 
 const LeftColumn = styled.div``;
-
-const RightColumn = styled.div``;
 
 const MobileEpisodesContainer = styled.div`
   display: block;
@@ -62,13 +75,13 @@ const IndexPage = ({ data, location }) => {
   const episodes = data.allSanityEpisode?.nodes;
 
   return (
-    <>
+    <GlobalContainer>
       <SEO location={location} title={siteTitle} />
       <HeaderContainer>
         <Cover />
         <Bio />
       </HeaderContainer>
-      <MainContainer>
+      {/* <MainContainer>
         <LeftColumn>
           <Subscribe />
           <MobileEpisodesContainer>
@@ -119,8 +132,8 @@ const IndexPage = ({ data, location }) => {
           })}
         </DesktopEpisodesContainer>
         <Footer />
-      </MainContainer>
-    </>
+      </MainContainer> */}
+    </GlobalContainer>
   );
 };
 

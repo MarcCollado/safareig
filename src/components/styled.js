@@ -32,19 +32,24 @@ export const SimpleLinkContainer = styled.div`
 `;
 
 export const SimpleLink = styled.p`
+  font-size: 1rem;
   font-weight: 600;
   color: var(--darkBlue);
   /* Reset default agent margin */
   margin: 0rem;
+
+  @media (min-width: 576px) {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
+  }
 `;
 
 // CARD CONTAINER
 // subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
-  /* Display & Box Model */
-  width: ${(props) => (props.width ? `${props.width}rem` : 'var(--cardSizeS)')};
-  height: ${(props) => props.height}rem;
-  margin: 1rem auto;
   border-radius: 1.5rem;
   box-shadow: ${(props) =>
     props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
@@ -60,21 +65,10 @@ export const CardContainer = styled.div`
   /* Other */
   transition: all 250ms ease-in-out;
 
-  @media (min-width: 576px) {
-    width: ${(props) =>
-      props.width ? `${props.width}rem` : 'var(--cardSizeM)'};
-  }
-
   @media (min-width: 768px) {
-    min-width: var(--cardSizeXS);
-    width: 32.5vw;
-    max-width: var(--cardSizeM);
   }
 
   @media (min-width: 1024px) {
-    min-width: var(--cardSizeS);
-    width: inherit;
-    max-width: var(--cardSizeM);
   }
 `;
 
