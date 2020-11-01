@@ -8,12 +8,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Styled components
 
 const BioContainer = styled.div`
-  width: 20rem;
-  margin: 0rem auto;
-
-  @media (min-width: 576px) {
-    width: 22.5rem;
-  }
+  width: clamp(calc(320px - 4rem), 78.5vw, calc(450px + 1rem));
 
   @media (min-width: 768px) {
     width: auto;
@@ -39,9 +34,8 @@ const LinksContainer = styled.div`
 `;
 
 const Description = styled.p`
-  margin-block-start: -0.75rem; // Correct for h1' block margin
+  margin-block-start: -0.5rem; // Correct for h1' block margin
   font-size: 1.25rem;
-  line-height: 1.5;
 
   @media (min-width: 576px) {
     font-size: 1.5rem;
