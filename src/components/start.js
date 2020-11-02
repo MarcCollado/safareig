@@ -21,7 +21,7 @@ const FeatEpisodeContainer = styled.div`
   transition: all 250ms ease-in-out;
 
   & h3 {
-    margin-inline-start: 0.75rem;
+    margin-inline-start: 0.25rem;
   }
 
   &:last-child {
