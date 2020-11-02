@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 
 export const CardTitle = styled.div`
-  /* Display & Box Model */
-  & h2 {
-    margin-inline-start: 1rem;
+  & svg {
+    margin: 1.5rem 0.75rem 1.5rem 1.5rem;
   }
-  /* Flex */
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
+
+  @media (min-width: 1024px) {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    & h2 {
+      margin: 0rem 0rem 1.25rem 3rem;
+    }
+
+    & svg {
+      margin: 2rem 0rem 1.5rem 3rem;
+    }
+  }
 `;
 
 // SIMPLE LINK
@@ -50,10 +59,12 @@ export const SimpleLink = styled.p`
 // CARD CONTAINER
 // subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
+  /* Display & Box Model */
+  width: clamp(calc(320px - 3rem), 77vw, 450px);
   border-radius: 1.5rem;
+  margin-block-end: 1.5rem;
   box-shadow: ${(props) =>
     props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
-  padding: 1rem 1.5rem 1.5rem;
   overflow: hidden;
   /* Flex */
   display: flex;
@@ -65,7 +76,19 @@ export const CardContainer = styled.div`
   /* Other */
   transition: all 250ms ease-in-out;
 
+  & > p {
+    margin: 0rem 1.5rem 1rem;
+  }
+
+  @media (min-width: 576px) {
+    & > p {
+      max-width: 90%;
+    }
+  }
+
   @media (min-width: 768px) {
+    width: clamp(280px, 32vw, 390px);
+    margin-block-end: 1.75rem;
   }
 
   @media (min-width: 1024px) {
@@ -89,15 +112,12 @@ export const CardFeatured = styled(CardContainer)`
 // start.js
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
-    min-width: var(--cardSizeM);
-    width: 40vw;
-    max-width: var(--cardSizeL);
+    width: clamp(400px, 52.5vw, 540px);
   }
 
   @media (min-width: 1024px) {
-    min-width: var(--cardSizeL);
-    width: 45vw;
-    max-width: var(--cardSizeXL);
+    width: clamp(500px, 55vw, 790px);
+  }
 `;
 
 // CARD EPISODE
