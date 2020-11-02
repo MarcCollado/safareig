@@ -29,32 +29,42 @@ const GlobalContainer = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  margin-block-end: 2rem; // Set some room below
+  margin-block-end: 2rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 
   @media (min-width: 768px) {
-    margin: 1rem 1rem 2rem;
+    margin-inline-start: 1rem;
+    margin-inline-end: 1rem;
     flex-flow: row-reverse nowrap;
     justify-content: space-around;
   }
 
   @media (min-width: 1024px) {
-    /* margin: 2rem; */
+    margin-inline-start: 2rem;
+    margin-inline-end: 2.5rem;
   }
 `;
 
 const MainContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
   @media (min-width: 768px) {
-    margin: 0rem 1rem;
-    display: flex;
+    margin-inline-start: 1rem;
+    margin-inline-end: 1rem;
     flex-flow: row wrap;
     justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 1024px) {
+    margin-inline-start: 2rem;
+    margin-inline-end: 2.5rem;
   }
 `;
-
-const LeftColumn = styled.div``;
 
 const MobileEpisodesContainer = styled.div`
   display: block;
@@ -74,6 +84,28 @@ const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const episodes = data.allSanityEpisode?.nodes;
 
+  const renderEpisodes = (episodes) => {
+    return episodes.map((episode) => {
+      const {
+        id,
+        episodeNumber,
+        title,
+        description,
+        releaseDate: date,
+      } = episode;
+      // const path = episode.path.current;
+      return (
+        <Episode
+          key={id}
+          date={date}
+          episodeNumber={episodeNumber}
+          title={title}
+          description={description}
+        />
+      );
+    });
+  };
+
   return (
     <GlobalContainer>
       <SEO location={location} title={siteTitle} />
@@ -81,58 +113,22 @@ const IndexPage = ({ data, location }) => {
         <Cover />
         <Bio />
       </HeaderContainer>
-      {/* <MainContainer>
-        <LeftColumn>
+      <MainContainer>
+        <div>
           <Subscribe />
           <MobileEpisodesContainer>
             <Start />
-            {episodes.map((episode) => {
-              const {
-                id,
-                episodeNumber,
-                title,
-                description,
-                releaseDate: date,
-              } = episode;
-              // const path = episode.path.current;
-              return (
-                <Episode
-                  key={id}
-                  date={date}
-                  episodeNumber={episodeNumber}
-                  title={title}
-                  description={description}
-                />
-              );
-            })}
+            {renderEpisodes(episodes)}
           </MobileEpisodesContainer>
           <Share />
           <Press />
-        </LeftColumn>
+        </div>
         <DesktopEpisodesContainer>
           <Start />
-          {episodes.map((episode) => {
-            const {
-              id,
-              episodeNumber,
-              title,
-              description,
-              releaseDate: date,
-            } = episode;
-            // const path = episode.path.current;
-            return (
-              <Episode
-                key={id}
-                date={date}
-                episodeNumber={episodeNumber}
-                title={title}
-                description={description}
-              />
-            );
-          })}
+          {renderEpisodes(episodes)}
         </DesktopEpisodesContainer>
         <Footer />
-      </MainContainer> */}
+      </MainContainer>
     </GlobalContainer>
   );
 };
