@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { CardEpisode, SimpleLinkContainer, SimpleLink } from "./styled";
-import Chevron from "../../content/assets/chevron-right-cta.svg";
+import { CardEpisode, SimpleLinkContainer, SimpleLink } from './styled';
+import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Styled Components
 
@@ -20,21 +20,16 @@ const EpisodeTitle = styled.h2`
   margin-block-end: 0rem;
 `;
 
-const StyledChevron = styled(Chevron)`
-  height: 0.75rem;
-  margin-inline-start: 0.5rem;
-`;
-
 // Components
 
 const Episode = ({ id, date, episodeNumber, title, description }) => (
   <CardEpisode flexFlow="column nowrap" alignItems="flex-start">
-    <EpisodeDate>{date.replace(/-/g, " / ")}</EpisodeDate>
+    <EpisodeDate>{date.replace(/-/g, ' / ')}</EpisodeDate>
     <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
     <p>{description}</p>
     <SimpleLinkContainer>
       <SimpleLink>Escolta Episodi</SimpleLink>
-      <StyledChevron />
+      <Chevron />
     </SimpleLinkContainer>
   </CardEpisode>
 );
