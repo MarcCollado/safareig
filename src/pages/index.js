@@ -61,8 +61,13 @@ const MainContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    margin-inline-start: 2rem;
-    margin-inline-end: 2.5rem;
+    margin-inline-start: 2.5rem;
+    margin-inline-end: 3rem;
+  }
+
+  @media (min-width: 1280px) {
+    margin-inline-start: 4rem;
+    margin-inline-end: 5rem;
   }
 `;
 
