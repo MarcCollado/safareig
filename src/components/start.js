@@ -9,10 +9,8 @@ import ChevronRight from '../../content/assets/chevron-right.svg';
 // Styled components
 
 const FeatEpisodeContainer = styled.div`
-  width: 90%;
+  width: 100%;
   height: 4rem;
-  padding-inline-start: 0.25rem;
-  padding-inline-end: 0.25rem;
   border-radius: 1rem;
   display: flex;
   flex-flow: row nowrap;
@@ -21,14 +19,12 @@ const FeatEpisodeContainer = styled.div`
   transition: all 250ms ease-in-out;
 
   & h3 {
-    margin-inline-start: 0.25rem;
-  }
-
-  &:last-child {
-    margin-block-end: 1rem;
+    margin-inline-start: 0.25rem; // indent
   }
 
   &:hover {
+    padding-inline-start: 0.5rem; // magnify hover
+    padding-inline-end: 0.5rem;
     background-color: var(--gray);
   }
 
@@ -39,7 +35,7 @@ const FeatEpisodeContainer = styled.div`
 
 const StyledChevron = styled(ChevronRight)`
   width: 1.5rem;
-  margin-inline-start: auto;
+  margin-inline-start: auto; // float right
 `;
 
 // Components

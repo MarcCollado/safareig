@@ -9,12 +9,15 @@ import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
 
+const Spacer = styled.div`
+  margin-block-start: 0.75rem; // separate from h2
+`;
+
 const PodcastItemContainer = styled.div`
-  width: 90%;
+  width: 100%;
   height: 4rem;
-  padding-inline-start: 0.25rem;
-  padding-inline-end: 0.25rem;
   border-radius: 1rem;
+
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -22,14 +25,12 @@ const PodcastItemContainer = styled.div`
   transition: all 250ms ease-in-out;
 
   & p {
-    margin-inline-start: 1.5rem;
-  }
-
-  &:last-child {
-    margin-block-end: 1rem;
+    margin-inline-start: 1.25rem;
   }
 
   &:hover {
+    padding-inline-start: 0.5rem; // magnify hover
+    padding-inline-end: 0.5rem;
     background-color: var(--white);
   }
 
@@ -40,7 +41,7 @@ const PodcastItemContainer = styled.div`
 
 const StyledImage = styled(Img)`
   width: 2.75rem;
-  margin-inline-start: 0.5rem;
+  margin-inline-start: 0.25rem; // indent
 
   @media (min-width: 576px) {
     width: 3rem;
@@ -49,7 +50,7 @@ const StyledImage = styled(Img)`
 
 const StyledChevron = styled(ChevronRight)`
   width: 1.5rem;
-  margin-inline-start: auto;
+  margin-inline-start: auto; // float right
 `;
 
 // Main components
@@ -99,6 +100,7 @@ const Subscribe = () => {
         <SubscribeSvg />
         <h2>Subscriu-te</h2>
       </CardTitle>
+      <Spacer />
       {generatePodcastList}
     </CardContainer>
   );
