@@ -1,24 +1,19 @@
 import styled from 'styled-components';
 
 export const CardTitle = styled.div`
-  & svg {
-    margin: 1.5rem 0.75rem 1.5rem 1.5rem;
-  }
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   align-self: flex-start;
 
-  @media (min-width: 1024px) {
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    & h2 {
-      margin: 0rem 0rem 1.25rem 3rem;
-    }
+  & svg {
+    margin-inline-end: 0.75rem; // separate from the h2
+  }
 
-    & svg {
-      margin: 2rem 0rem 1.5rem 3rem;
-    }
+  @media (min-width: 1024px) {
+    margin-block-end: -0.75rem; // correct h2 margin
+    flex-flow: column nowrap; // display svg on top of h2
+    align-items: flex-start;
   }
 `;
 
@@ -30,29 +25,33 @@ export const SimpleLinkContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
-  // SVG Chevron imported in the rendered component
+
   & > svg {
+    max-height: 0.75rem;
+    margin-block-start: 2px;
+    margin-inline-start: 0.5rem;
     transition: all 250ms ease-in-out;
   }
 
   &:hover > svg {
     transform: translateX(0.25rem);
   }
+
+  @media (min-width: 1024px) {
+    & > svg {
+      margin-inline-start: 1rem;
+    }
+  }
 `;
 
 export const SimpleLink = styled.p`
+  margin: 0rem;
   font-size: 1rem;
   font-weight: 600;
   color: var(--darkBlue);
-  /* Reset default agent margin */
-  margin: 0rem;
-
-  @media (min-width: 576px) {
-    font-size: 1.25rem;
-  }
 
   @media (min-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 `;
 
@@ -60,7 +59,8 @@ export const SimpleLink = styled.p`
 // subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
   /* Display & Box Model */
-  width: clamp(calc(320px - 3rem), 77vw, 450px);
+  width: clamp(calc(320px - 6rem), 77vw, calc(450px - 3rem));
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
   border-radius: 1.5rem;
   margin-block-end: 1.5rem;
   box-shadow: ${(props) =>
@@ -76,22 +76,20 @@ export const CardContainer = styled.div`
   /* Other */
   transition: all 250ms ease-in-out;
 
-  & > p {
-    margin: 0rem 1.5rem 1rem;
-  }
-
   @media (min-width: 576px) {
     & > p {
-      max-width: 90%;
+      max-width: 97.5%;
     }
   }
 
   @media (min-width: 768px) {
-    width: clamp(280px, 32vw, 390px);
+    width: clamp(225px, 29.5vw, 300px);
     margin-block-end: 1.75rem;
   }
 
   @media (min-width: 1024px) {
+    padding: 2.5rem;
+    width: clamp(280px, 22.5vw, 350px);
   }
 `;
 
@@ -112,11 +110,11 @@ export const CardFeatured = styled(CardContainer)`
 // start.js
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
-    width: clamp(400px, 52.5vw, 540px);
+    width: clamp(350px, 45vw, 500px);
   }
 
   @media (min-width: 1024px) {
-    width: clamp(500px, 55vw, 790px);
+    width: clamp(450px, 42.5vw, 700px);
   }
 `;
 
