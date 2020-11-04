@@ -43,16 +43,6 @@ const Description = styled.p`
   }
 `;
 
-const StyledChevron = styled(Chevron)`
-  max-height: 0.75rem;
-  margin-block-start: 3px;
-  margin-inline-start: 0.5rem;
-
-  @media (min-width: 1024px) {
-    margin-inline-start: 1rem;
-  }
-`;
-
 // Main components
 
 const Bio = () => {
@@ -78,11 +68,11 @@ const Bio = () => {
       <LinksContainer>
         <SimpleLinkContainer>
           <SimpleLink>Segueix-nos</SimpleLink>
-          <StyledChevron />
+          <Chevron />
         </SimpleLinkContainer>
         <SimpleLinkContainer>
           <SimpleLink>Contacta'ns</SimpleLink>
-          <StyledChevron />
+          <Chevron />
         </SimpleLinkContainer>
       </LinksContainer>
     </BioContainer>

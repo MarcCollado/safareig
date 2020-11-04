@@ -1,22 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
 
 import {
   CardFeatured,
   CardTitle,
   SimpleLinkContainer,
   SimpleLink,
-} from "./styled";
-import ShareIcon from "../../content/assets/share.svg";
-import Chevron from "../../content/assets/chevron-right-cta.svg";
-
-// Styled Components
-
-const StyledChevron = styled(Chevron)`
-  /* Display & Box Model */
-  max-height: 0.75rem;
-  margin-inline-start: 0.5rem;
-`;
+} from './styled';
+import ShareIcon from '../../content/assets/share.svg';
+import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Components
 
@@ -32,7 +23,7 @@ const Share = () => (
     </p>
     <SimpleLinkContainer>
       <SimpleLink>Contacta a Safareig</SimpleLink>
-      <StyledChevron />
+      <Chevron />
     </SimpleLinkContainer>
   </CardFeatured>
 );
