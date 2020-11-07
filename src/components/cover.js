@@ -34,8 +34,8 @@ export const CardCover = styled(CardContainer)`
   }
 
   @media (min-width: 1024px) {
-    width: clamp(260px, 24vw, 310px);
-    height: clamp(260px, 24vw, 310px);
+    width: clamp(260px, 23vw, 290px);
+    height: clamp(260px, 23vw, 290px);
   }
 `;
 
