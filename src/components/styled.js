@@ -60,7 +60,7 @@ export const SimpleLink = styled.p`
 export const CardContainer = styled.div`
   /* Display & Box Model */
   width: clamp(calc(320px - 6rem), 77vw, calc(450px - 3rem));
-  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  padding: 0.75rem 1.5rem 1.5rem 1.5rem;
   border-radius: 1.5rem;
   margin-block-end: 1.5rem;
   box-shadow: ${(props) =>
@@ -83,13 +83,21 @@ export const CardContainer = styled.div`
   }
 
   @media (min-width: 768px) {
-    width: clamp(225px, 29.5vw, 300px);
+    width: clamp(225px, 29vw, 300px);
     margin-block-end: 1.75rem;
+
+    & > p {
+      margin-block-start: 0.5rem;
+    }
   }
 
   @media (min-width: 1024px) {
+    width: clamp(275px, 22vw, 350px);
     padding: 2.5rem;
-    width: clamp(280px, 22.5vw, 350px);
+
+    & > p {
+      margin-block-start: 0.75rem;
+    }
   }
 `;
 
@@ -110,11 +118,11 @@ export const CardFeatured = styled(CardContainer)`
 // start.js
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
-    width: clamp(350px, 45vw, 500px);
+    width: clamp(340px, 47vw, 525px);
   }
 
   @media (min-width: 1024px) {
-    width: clamp(450px, 42.5vw, 700px);
+    width: clamp(445px, 42vw, 700px);
   }
 `;
 
