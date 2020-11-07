@@ -53,10 +53,18 @@ const GlobalStyles = createGlobalStyle`
     @media (min-width: 768px) {
       font-size: 1.5rem;
     }
+
+    @media (min-width: 1024px) {
+      font-size: 26px;
+    }
   }
 
   h3 {
     font-size: 1rem;
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
   }
 
   p {
@@ -68,6 +76,10 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     letter-spacing: normal;
     color: var(--black);
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
   }
 
   /* .gatsby-image-wrapper img[src*=base64\\,] {
