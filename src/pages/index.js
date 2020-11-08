@@ -91,16 +91,18 @@ const DesktopEpisodesContainer = styled.div`
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const episodes = data.allSanityEpisode?.nodes;
+  const episodes = data.allFeedSafareigFm?.nodes;
+  const totalCount = data.allFeedSafareigFm?.totalCount;
 
   const renderEpisodes = (episodes) => {
-    return episodes.map((episode) => {
+    return episodes.map((episode, i) => {
+      const episodeNumber = totalCount - i;
       const {
         id,
-        episodeNumber,
         title,
-        description,
-        releaseDate: date,
+        // content: descriptionHtml,
+        contentSnippet: description,
+        isoDate: date,
       } = episode;
       // const path = episode.path.current;
       return (
@@ -110,6 +112,7 @@ const IndexPage = ({ data, location }) => {
           episodeNumber={episodeNumber}
           title={title}
           description={description}
+          // descriptionHtml={descriptionHtml}
         />
       );
     });
@@ -151,16 +154,34 @@ export const pageQuery = graphql`
         title
       }
     }
-    allSanityEpisode {
+    allFeedSafareigFm {
       nodes {
         id
-        releaseDate
-        episodeNumber
         title
+        content
+        contentSnippet
+        isoDate(formatString: "YYYY / MM / DD")
+      }
+      totalCount
+    }
+    allFeedSafareigFmMeta {
+      nodes {
+        id
+        # title
         description
-        isFeatured
-        path {
-          current
+        copyright
+        language
+        link
+        itunes {
+          author
+          categories
+          image
+          explicit
+        }
+        image {
+          link
+          # title
+          url
         }
       }
     }
