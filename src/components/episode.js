@@ -24,7 +24,7 @@ const EpisodeTitle = styled.h2`
 
 const Episode = ({ id, date, episodeNumber, title, description }) => (
   <CardEpisode flexFlow="column nowrap" alignItems="flex-start">
-    <EpisodeDate>{date.replace(/-/g, ' / ')}</EpisodeDate>
+    <EpisodeDate>{date}</EpisodeDate>
     <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
     <p>{description}</p>
     <SimpleLinkContainer>
