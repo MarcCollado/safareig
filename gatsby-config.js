@@ -45,7 +45,7 @@ export default {
       // https://github.com/mottox2/gatsby-source-rss-feed
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `https://media.rss.com/mindyourbusiness/feed.xml`,
+        url: `https://media.rss.com/safareig/feed.xml`,
         name: `SafareigFm`,
         // https://github.com/bobby-brennan/rss-parser#readme
         // parserOption: {
