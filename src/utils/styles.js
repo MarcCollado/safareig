@@ -19,6 +19,8 @@ const GlobalStyles = createGlobalStyle`
     font-size: 16px;
     margin: 0rem auto;
     background-color: #fafbfc;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3 {
