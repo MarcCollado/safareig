@@ -1,6 +1,6 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
-dotenv.config({ path: ".env" });
+dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
@@ -11,17 +11,10 @@ export default {
       name: `Ramon Gilabert & Marc Collado`,
     },
     social: {
-      twitter: ``,
+      twitter: `https://twitter.com/safareigfm`,
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,12 +32,6 @@ export default {
               maxWidth: 590,
             },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
@@ -54,6 +41,20 @@ export default {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-feed`,
+    {
+      // https://github.com/mottox2/gatsby-source-rss-feed
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://media.rss.com/mindyourbusiness/feed.xml`,
+        name: `SafareigFm`,
+        // https://github.com/bobby-brennan/rss-parser#readme
+        // parserOption: {
+        //   customFields: {
+        //     item: ['itunes:order'],
+        //   },
+        // },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -68,7 +69,7 @@ export default {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: /assets/,
