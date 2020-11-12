@@ -23,7 +23,7 @@ const EpisodeTitle = styled.h2`
 // Components
 
 const Episode = ({ id, date, episodeNumber, title, description }) => (
-  <CardEpisode flexFlow="column nowrap" alignItems="flex-start">
+  <CardEpisode flexFlow="column nowrap" alignItems="flex-start" flat>
     <EpisodeDate>{date}</EpisodeDate>
     <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
     <p>{description}</p>
