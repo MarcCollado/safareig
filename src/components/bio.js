@@ -8,7 +8,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Styled components
 
 const BioContainer = styled.div`
-  width: clamp(calc(320px - 4rem), 78.5vw, calc(450px + 1rem));
+  width: clamp(calc(320px - 3rem), 100%, 450px);
 
   @media (min-width: 768px) {
     width: clamp(380px, 52vw, 710px);
