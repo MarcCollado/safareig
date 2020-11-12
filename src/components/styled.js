@@ -66,6 +66,8 @@ export const CardContainer = styled.div`
   box-shadow: ${(props) =>
     props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
   overflow: hidden;
+  z-index: ${(props) => (props.flat ? -1 : 999)};
+  position: ${(props) => (props.flat ? 'static' : 'relative')};
   /* Flex */
   display: flex;
   flex-flow: ${(props) => props.flexFlow ?? 'row nowrap'};
@@ -107,6 +109,8 @@ export const CardFeatured = styled(CardContainer)`
   &:hover {
     box-shadow: none;
     background-color: var(--white);
+    position: relative;
+    z-index: -1;
 
     & div svg:last-child {
       transform: translateX(0.25rem);
@@ -129,9 +133,15 @@ export const CardStart = styled(CardContainer)`
 // CARD EPISODE
 // episode.js
 export const CardEpisode = styled(CardStart)`
+  position: static;
+  z-index: -1;
+
   &:hover {
     box-shadow: none;
     background-color: var(--white);
+    box-shadow: 2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 999;
 
     & div svg:last-child {
       transform: rotate(90deg);
