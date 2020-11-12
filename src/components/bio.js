@@ -27,7 +27,8 @@ const LinksContainer = styled.div`
 
 const Description = styled.p`
   margin-block-start: -0.5rem; // Correct for h1' block margin
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.67;
 
   @media (min-width: 576px) {
     font-size: 1.5rem;
