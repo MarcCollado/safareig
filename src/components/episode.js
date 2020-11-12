@@ -7,7 +7,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Styled Components
 
 export const EpisodeDate = styled.p`
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: -1px;
   opacity: 0.5;
   color: var(--black);
