@@ -66,8 +66,8 @@ export const CardContainer = styled.div`
   box-shadow: ${(props) =>
     props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
   overflow: hidden;
-  z-index: ${(props) => (props.flat ? -1 : 999)};
   position: ${(props) => (props.flat ? 'static' : 'relative')};
+  z-index: ${(props) => (props.flat ? -1 : 999)};
   /* Flex */
   display: flex;
   flex-flow: ${(props) => props.flexFlow ?? 'row nowrap'};
@@ -96,6 +96,7 @@ export const CardContainer = styled.div`
   @media (min-width: 1024px) {
     width: clamp(275px, 22vw, 350px);
     padding: 2.5rem;
+    margin-block-end: 3rem;
 
     & > p {
       margin-block-start: 0.75rem;

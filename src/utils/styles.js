@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3 {
     font-family: inter, sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -34,11 +34,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 2rem;
-
-    @media (min-width: 576px) {
-      font-size: 2.25rem;
-    }
+    font-size: 1.75rem;
 
     @media (min-width: 768px) {
       font-size: 2.5rem;
@@ -50,6 +46,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h2 {
+    font-weight: bold;
     font-size: 1.25rem;
 
     @media (min-width: 768px) {
