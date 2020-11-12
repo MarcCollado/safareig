@@ -109,8 +109,6 @@ export const CardFeatured = styled(CardContainer)`
   &:hover {
     box-shadow: none;
     background-color: var(--white);
-    position: relative;
-    z-index: -1;
 
     & div svg:last-child {
       transform: translateX(0.25rem);
