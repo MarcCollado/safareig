@@ -59,8 +59,7 @@ export const SimpleLink = styled.p`
 // subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
   /* Display & Box Model */
-  width: clamp(calc(320px - 6rem), 77vw, calc(450px - 3rem));
-  padding: 0.75rem 1.5rem 1.5rem 1.5rem;
+  width: clamp(272px, 100%, 455px);
   border-radius: 1.5rem;
   margin-block-end: 1.5rem;
   box-shadow: ${(props) =>
@@ -77,12 +76,6 @@ export const CardContainer = styled.div`
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
   /* Other */
   transition: all 250ms ease-in-out;
-
-  @media (min-width: 576px) {
-    & > p {
-      max-width: 97.5%;
-    }
-  }
 
   @media (min-width: 768px) {
     width: clamp(225px, 29vw, 300px);
