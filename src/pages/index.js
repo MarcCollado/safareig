@@ -13,18 +13,19 @@ import Start from '../components/start';
 import Subscribe from '../components/subscribe';
 
 const GlobalContainer = styled.div`
-  margin: 2.5rem auto; // Move down and center the content
-
-  @media (min-width: 576px) {
-    margin: 3rem auto;
-  }
+  // width: 100%;
+  max-width: 1180px;
+  margin: 2rem 1.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 
   @media (min-width: 768px) {
-    margin: 2rem auto;
+    margin: 2rem;
   }
 
   @media (min-width: 1024px) {
-    margin: 4.5rem auto;
+    margin: 7rem 8rem;
   }
 `;
 
@@ -35,19 +36,8 @@ const HeaderContainer = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    margin-inline-start: 1rem;
-    margin-inline-end: 1rem;
     flex-flow: row-reverse nowrap;
-    justify-content: space-around;
-  }
-
-  @media (min-width: 1024px) {
-    margin-inline-start: 2.5rem;
-    margin-inline-end: 2.5rem;
-  }
-
-  @media (min-width: 1280px) {
-    margin: 4rem;
+    justify-content: space-between;
   }
 `;
 
@@ -57,26 +47,23 @@ const MainContainer = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    margin-inline-start: 1.5rem;
-    margin-inline-end: 1.5rem;
     flex-flow: row wrap;
     justify-content: space-around;
-    align-items: flex-start;
-  }
-
-  @media (min-width: 1024px) {
-    margin-inline-start: 3rem;
-    margin-inline-end: 2.75rem;
-  }
-
-  @media (min-width: 1280px) {
-    margin-inline-start: 5rem;
-    margin-inline-end: 5.5rem;
+    justify-content: space-between;
   }
 `;
 
+const LeftPanelContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+`;
+
 const MobileEpisodesContainer = styled.div`
-  display: block;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
   @media (min-width: 768px) {
     display: none;
   }
@@ -104,14 +91,20 @@ const IndexPage = ({ data, location }) => {
         contentSnippet: description,
         isoDate: date,
       } = episode;
+
+      const showNotesIndex = description.indexOf('Show notes:');
+      const showNotes = description.substring(showNotesIndex + 12);
+      const showDescription = description.substring(0, showNotesIndex - 1);
+
       // const path = episode.path.current;
+
       return (
         <Episode
           key={id}
           date={date}
           episodeNumber={episodeNumber}
           title={title}
-          description={description}
+          description={showDescription}
           // descriptionHtml={descriptionHtml}
         />
       );
@@ -126,7 +119,7 @@ const IndexPage = ({ data, location }) => {
         <Bio />
       </HeaderContainer>
       <MainContainer>
-        <div>
+        <LeftPanelContainer>
           <Subscribe />
           <MobileEpisodesContainer>
             <Start />
@@ -134,7 +127,7 @@ const IndexPage = ({ data, location }) => {
           </MobileEpisodesContainer>
           <Share />
           <Press />
-        </div>
+        </LeftPanelContainer>
         <DesktopEpisodesContainer>
           <Start />
           {renderEpisodes(episodes)}
