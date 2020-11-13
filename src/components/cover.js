@@ -17,25 +17,15 @@ const scaleAndRotate = keyframes`
 `;
 
 export const CardCover = styled(CardContainer)`
-  width: clamp(calc(320px - 4rem), 75vw, 425px);
-  padding: 0rem;
-  margin-block-end: 1rem;
+  width: clamp(272px, 100%, 455px);
+  margin-block-end: 2rem;
   transform: scale(1) rotate(-2deg);
   animation: ${scaleAndRotate} 2s ease-in-out 0s infinite alternate;
 
-  @media (min-width: 576px) {
-    margin-block-end: 2rem;
-  }
-
   @media (min-width: 768px) {
-    width: clamp(240px, 27vw, 270px);
-    height: clamp(240px, 27vw, 270px);
-    margin: 0rem;
-  }
-
-  @media (min-width: 1024px) {
-    width: clamp(260px, 23vw, 290px);
-    height: clamp(260px, 23vw, 290px);
+    width: clamp(280px, 100%, 390px);
+    height: clamp(280px, 100%, 390px);
+    margin-inline-start: 1rem;
   }
 `;
 

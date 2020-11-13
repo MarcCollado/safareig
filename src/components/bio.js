@@ -8,10 +8,11 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Styled components
 
 const BioContainer = styled.div`
-  width: clamp(calc(320px - 3rem), 100%, 450px);
+  width: clamp(272px, 100%, 455px);
 
   @media (min-width: 768px) {
-    width: clamp(380px, 52vw, 710px);
+    width: clamp(400px, 100%, 710px);
+    margin-inline-end: 1rem;
   }
 `;
 
@@ -26,21 +27,20 @@ const LinksContainer = styled.div`
 `;
 
 const Description = styled.p`
-  margin-block-start: -0.5rem; // Correct for h1' block margin
+  margin-block-start: 0.75rem; // Correct <p> default block margin
   font-size: 1.125rem;
   line-height: 1.67;
 
   @media (min-width: 576px) {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
   }
 
   @media (min-width: 768px) {
-    margin-block-start: -1rem; // Correct for h1' block margin
+    font-size: 1.125rem;
   }
 
   @media (min-width: 1024px) {
-    margin-block-start: -1.5rem; // Correct for h1' block margin
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 `;
 
