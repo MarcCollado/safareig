@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2, h3 {
+    margin: 0rem; // Reset font margins
     font-family: inter, sans-serif;
     font-weight: 800;
     font-stretch: normal;
@@ -37,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.75rem;
 
     @media (min-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
     @media (min-width: 1024px) {
