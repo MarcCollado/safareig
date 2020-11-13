@@ -24,7 +24,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2, h3 {
-    margin: 0rem; // Reset font margins
+    // reset default margins
+    margin: 0rem;
     font-family: inter, sans-serif;
     font-weight: 800;
     font-stretch: normal;
@@ -60,6 +61,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h3 {
+    font-weight: bold;
     font-size: 1rem;
 
     @media (min-width: 1024px) {
@@ -76,6 +78,22 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     letter-spacing: normal;
     color: var(--black);
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+  }
+
+  a {
+    font-family: inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--black);
+    text-decoration: none;
 
     @media (min-width: 1024px) {
       font-size: 18px;
