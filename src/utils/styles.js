@@ -49,23 +49,27 @@ const GlobalStyles = createGlobalStyle`
 
   h2 {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 20px;
 
     @media (min-width: 768px) {
-      font-size: 1.5rem;
+      font-size: 16px;
     }
 
     @media (min-width: 1024px) {
-      font-size: 26px;
+      font-size: 20px;
     }
   }
 
   h3 {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
 
     @media (min-width: 1024px) {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
 
@@ -80,7 +84,7 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
 
     @media (min-width: 1024px) {
-      font-size: 18px;
+      font-size: 1.25rem;
     }
   }
 
