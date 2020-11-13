@@ -18,6 +18,7 @@ const scaleAndRotate = keyframes`
 
 export const CardCover = styled(CardContainer)`
   width: clamp(272px, 100%, 455px);
+  // space from BioContainer below
   margin-block-end: 2rem;
   transform: scale(1) rotate(-2deg);
   animation: ${scaleAndRotate} 2s ease-in-out 0s infinite alternate;
@@ -25,6 +26,9 @@ export const CardCover = styled(CardContainer)`
   @media (min-width: 768px) {
     width: clamp(280px, 100%, 390px);
     height: clamp(280px, 100%, 390px);
+    // BioContainer is no longer below
+    margin-block-start: 0rem;
+    // 1/2 inner space from BioContainer
     margin-inline-start: 1rem;
   }
 `;
