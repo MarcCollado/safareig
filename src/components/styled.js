@@ -7,13 +7,26 @@ export const CardTitle = styled.div`
   align-self: flex-start;
 
   & svg {
-    margin-inline-end: 0.75rem; // separate from the h2
+    width: 2rem;
+    // separate icon from the h2
+    margin-inline-end: 0.75rem;
   }
 
-  @media (min-width: 1024px) {
-    margin-block-end: -0.75rem; // correct h2 margin
+  @media (min-width: 768px) {
     flex-flow: column nowrap; // display svg on top of h2
     align-items: flex-start;
+
+    & svg {
+      width: 1.75rem;
+      margin-block-end: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    & svg {
+      width: 2.25rem;
+      margin-block-end: 1.25rem;
+    }
   }
 `;
 
@@ -56,11 +69,21 @@ export const SimpleLink = styled.p`
 `;
 
 // CARD CONTAINER
+
+export const InnerCardContainer = styled.div`
+  margin: 1.5rem;
+
+  @media (min-width: 1024px) {
+    margin: 2.25rem 2.5rem;
+  }
+`;
+
 // subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
   /* Display & Box Model */
   width: clamp(272px, 100%, 455px);
   border-radius: 1.5rem;
+  // space between cards
   margin-block-end: 1.5rem;
   box-shadow: ${(props) =>
     props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
@@ -78,22 +101,12 @@ export const CardContainer = styled.div`
   transition: all 250ms ease-in-out;
 
   @media (min-width: 768px) {
-    width: clamp(225px, 29vw, 300px);
+    width: clamp(280px, 100%, 390px);
     margin-block-end: 1.75rem;
-
-    & > p {
-      margin-block-start: 0.5rem;
-    }
   }
 
   @media (min-width: 1024px) {
-    width: clamp(275px, 22vw, 350px);
-    padding: 2.5rem;
     margin-block-end: 3rem;
-
-    & > p {
-      margin-block-start: 0.75rem;
-    }
   }
 `;
 
@@ -114,11 +127,7 @@ export const CardFeatured = styled(CardContainer)`
 // start.js
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
-    width: clamp(340px, 47vw, 525px);
-  }
-
-  @media (min-width: 1024px) {
-    width: clamp(445px, 42vw, 700px);
+    width: clamp(400px, 100%, 745px);
   }
 `;
 
