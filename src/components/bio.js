@@ -12,7 +12,12 @@ const BioContainer = styled.div`
 
   @media (min-width: 768px) {
     width: clamp(400px, 100%, 710px);
+    // 1/2 inner space from CardCover
     margin-inline-end: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin-inline-end: 2rem;
   }
 `;
 
@@ -20,24 +25,32 @@ const LinksContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  // Add some extra room in case there are two link items
+
+  // add space when there are two link items
   & div:last-child {
     margin-inline-start: 1.5rem;
+  }
+
+  & svg {
+    width: 4px;
+  }
+
+  & svg path {
+    stroke-width: 4;
+  }
+
+  @media (min-width: 1024px) {
+    & svg {
+      width: 5px;
+    }
   }
 `;
 
 const Description = styled.p`
-  margin-block-start: 0.75rem; // Correct <p> default block margin
+  // correct for <p> default block margin
+  margin-block-start: 0.75rem;
   font-size: 1.125rem;
   line-height: 1.67;
-
-  @media (min-width: 576px) {
-    font-size: 1.125rem;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 1.125rem;
-  }
 
   @media (min-width: 1024px) {
     font-size: 1.5rem;
