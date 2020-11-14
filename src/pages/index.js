@@ -15,7 +15,7 @@ import Subscribe from '../components/subscribe';
 const GlobalContainer = styled.div`
   // width: 100%;
   max-width: 1180px;
-  margin: 2rem 1.5rem;
+  margin: 1.5rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -25,6 +25,10 @@ const GlobalContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
+    margin: 4rem;
+  }
+
+  @media (min-width: 1280px) {
     margin: 7rem 8rem;
   }
 `;
@@ -47,8 +51,8 @@ const MainContainer = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    flex-flow: row wrap;
-    justify-content: space-around;
+    flex-flow: row nowrap;
+    align-items: flex-start;
     justify-content: space-between;
   }
 `;
@@ -57,6 +61,17 @@ const LeftPanelContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+
+  @media (min-width: 768px) {
+    // width: clamp(280px, 100%, 390px);
+    // 1/2 space from DesktopEpisodeContainer
+    margin-inline-end: 0.75rem;
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    margin-inline-end: 1.375rem;
+  }
 `;
 
 const MobileEpisodesContainer = styled.div`
@@ -71,8 +86,16 @@ const MobileEpisodesContainer = styled.div`
 
 const DesktopEpisodesContainer = styled.div`
   display: none;
+
   @media (min-width: 768px) {
+    // width: clamp(400px, 100%, 745px);
+    // 1/2 inner space from LeftPanelContainer
+    margin-inline-start: 0.75rem;
     display: block;
+  }
+
+  @media (min-width: 1024px) {
+    margin-inline-start: 1.375rem;
   }
 `;
 
@@ -132,8 +155,8 @@ const IndexPage = ({ data, location }) => {
           <Start />
           {renderEpisodes(episodes)}
         </DesktopEpisodesContainer>
-        <Footer />
       </MainContainer>
+      <Footer />
     </GlobalContainer>
   );
 };
