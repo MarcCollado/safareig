@@ -2,34 +2,28 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { CardStart, CardTitle } from './styled';
+import { CardStart, CardTitle, InnerCardContainer } from './styled';
 import StartHereSvg from '../../content/assets/start-here.svg';
 import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
 
 const FeatEpisodeContainer = styled.div`
-  width: 100%;
   height: 4rem;
+  // make some room at both ends for the hover
+  padding-inline-start: 0.75rem;
+  padding-inline-end: 0.75rem;
   border-radius: 1rem;
+  margin-inline-start: -0.75rem;
+  margin-inline-end: -0.75rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
   transition: all 250ms ease-in-out;
 
-  & h3 {
-    margin-inline-start: 0.25rem; // indent
-  }
-
   &:hover {
-    padding-inline-start: 0.5rem; // magnify hover
-    padding-inline-end: 0.5rem;
     background-color: var(--gray);
-  }
-
-  @media (min-width: 768px) {
-    margin-inline-end: 0.25rem;
   }
 `;
 
@@ -61,20 +55,24 @@ const StartHere = () => {
 
   return (
     <CardStart flexFlow="column nowrap">
-      <CardTitle>
-        <StartHereSvg />
-        <h2>Comença Aquí</h2>
-      </CardTitle>
-      <p>
-        És difícil començar a escoltar un podcast, i sempre hi ha episodis que
-        són més bons. Nosaltres et recomanem aquests:
-      </p>
-      {featuredEpisodes.map((episode) => (
-        <FeatEpisodeContainer key={episode.id}>
-          <h3>{`${episode.episodeNumber}: ${episode.title}`}</h3>
-          <StyledChevron />
-        </FeatEpisodeContainer>
-      ))}
+      <InnerCardContainer>
+        <CardTitle>
+          <StartHereSvg />
+          <h2>Comença Aquí</h2>
+        </CardTitle>
+        <p>
+          És difícil començar a escoltar un podcast, i sempre hi ha episodis que
+          són més bons. Nosaltres et recomanem aquests:
+        </p>
+        {featuredEpisodes.map((episode) => (
+          <FeatEpisodeContainer key={episode.id}>
+            <p style={{ fontWeight: 'bold' }}>
+              {`${episode.episodeNumber}: ${episode.title}`}
+            </p>
+            <StyledChevron />
+          </FeatEpisodeContainer>
+        ))}
+      </InnerCardContainer>
     </CardStart>
   );
 };
