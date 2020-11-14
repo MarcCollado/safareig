@@ -3,23 +3,28 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { CardContainer, CardTitle } from './styled';
+import { CardContainer, CardTitle, InnerCardContainer } from './styled';
 import SubscribeSvg from '../../content/assets/subscribe.svg';
 import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
 
-const Spacer = styled.div`
-  margin-block-start: 0.75rem; // separate from h2
+const SubscribeTitle = styled(CardTitle)`
+  // space from podcast items since there is no <p> block margin
+  margin-block-end: 1rem;
 `;
 
 const PodcastItemContainer = styled.div`
-  width: 100%;
   height: 4rem;
+  // make some room at both ends for the hover
+  padding-inline-start: 0.75rem;
+  padding-inline-end: 0.75rem;
   border-radius: 1rem;
-
+  margin-inline-start: -0.75rem;
+  margin-inline-end: -0.75rem;
   display: flex;
   flex-flow: row nowrap;
+  flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
   transition: all 250ms ease-in-out;
@@ -29,18 +34,12 @@ const PodcastItemContainer = styled.div`
   }
 
   &:hover {
-    padding-inline-start: 0.5rem; // magnify hover
-    padding-inline-end: 0.5rem;
     background-color: var(--white);
-  }
-
-  @media (min-width: 768px) {
-    margin-inline-end: 0.25rem;
   }
 `;
 
 const StyledImage = styled(Img)`
-  width: 2.75rem;
+  width: 40px;
   margin-inline-start: 0.25rem; // indent
 
   @media (min-width: 576px) {
@@ -96,12 +95,13 @@ const Subscribe = () => {
   );
   return (
     <CardContainer flexFlow="column nowrap" flat>
-      <CardTitle>
-        <SubscribeSvg />
-        <h2>Subscriu-te</h2>
-      </CardTitle>
-      <Spacer />
-      {generatePodcastList}
+      <InnerCardContainer>
+        <SubscribeTitle>
+          <SubscribeSvg />
+          <h2>Subscriu-te</h2>
+        </SubscribeTitle>
+        {generatePodcastList}
+      </InnerCardContainer>
     </CardContainer>
   );
 };
