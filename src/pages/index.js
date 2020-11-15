@@ -110,14 +110,15 @@ const IndexPage = ({ data, location }) => {
       const {
         id,
         title,
-        // content: descriptionHtml,
+        content: descriptionHtml,
         contentSnippet: description,
         isoDate: date,
       } = episode;
 
-      const showNotesIndex = description.indexOf('Show notes:');
-      const showNotes = description.substring(showNotesIndex + 12);
-      const showDescription = description.substring(0, showNotesIndex - 1);
+      const descriptionIndex = description.indexOf('Show notes:');
+      const showDescription = description.substring(0, descriptionIndex - 1);
+      const showNotesIndex = descriptionHtml.indexOf('<p><strong>Show');
+      const showNotes = descriptionHtml.substring(showNotesIndex);
 
       // const path = episode.path.current;
 
@@ -128,7 +129,7 @@ const IndexPage = ({ data, location }) => {
           episodeNumber={episodeNumber}
           title={title}
           description={showDescription}
-          // descriptionHtml={descriptionHtml}
+          showNotes={showNotes}
         />
       );
     });
