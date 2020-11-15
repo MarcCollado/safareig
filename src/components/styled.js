@@ -90,7 +90,7 @@ export const CardContainer = styled.div`
     props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
   overflow: hidden;
   position: ${(props) => (props.flat ? 'static' : 'relative')};
-  z-index: ${(props) => (props.flat ? -1 : 999)};
+  z-index: ${(props) => (props.flat ? 1 : 999)};
   /* Flex */
   display: flex;
   flex-flow: ${(props) => props.flexFlow ?? 'row nowrap'};
@@ -136,7 +136,7 @@ export const CardStart = styled(CardContainer)`
 // episode.js
 export const CardEpisode = styled(CardStart)`
   position: static;
-  z-index: -1;
+  z-index: 1;
 
   &:hover {
     box-shadow: none;
