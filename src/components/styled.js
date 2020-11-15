@@ -13,7 +13,8 @@ export const CardTitle = styled.div`
   }
 
   @media (min-width: 768px) {
-    flex-flow: column nowrap; // display svg on top of h2
+    // display svg on top of h2
+    flex-flow: column nowrap;
     align-items: flex-start;
 
     & svg {

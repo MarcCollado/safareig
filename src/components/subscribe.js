@@ -9,11 +9,6 @@ import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
 
-const SubscribeTitle = styled(CardTitle)`
-  // space from podcast items since there is no <p> block margin
-  margin-block-end: 1rem;
-`;
-
 const PodcastItemContainer = styled.div`
   height: 4rem;
   // make some room at both ends for the hover
@@ -24,13 +19,12 @@ const PodcastItemContainer = styled.div`
   margin-inline-end: -0.75rem;
   display: flex;
   flex-flow: row nowrap;
-  flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
   transition: all 250ms ease-in-out;
 
   & p {
-    margin-inline-start: 1.25rem;
+    margin-inline-start: 1rem;
   }
 
   &:hover {
@@ -48,19 +42,22 @@ const StyledImage = styled(Img)`
 `;
 
 const StyledChevron = styled(ChevronRight)`
-  width: 1.5rem;
-  margin-inline-start: auto; // float right
+  width: 1.75rem;
+  // float right
+  margin-inline-start: auto;
 `;
 
 // Main components
 
 const PodcastLink = (id, art, link, name) => {
   return (
-    <PodcastItemContainer key={id}>
-      <StyledImage fluid={art}></StyledImage>
-      <p href={link}>{name}</p>
-      <StyledChevron />
-    </PodcastItemContainer>
+    <a href={link}>
+      <PodcastItemContainer key={id}>
+        <StyledImage fluid={art}></StyledImage>
+        <p>{name}</p>
+        <StyledChevron />
+      </PodcastItemContainer>
+    </a>
   );
 };
 
@@ -96,10 +93,14 @@ const Subscribe = () => {
   return (
     <CardContainer flexFlow="column nowrap" flat>
       <InnerCardContainer>
-        <SubscribeTitle>
+        <CardTitle>
           <SubscribeSvg />
           <h2>Subscriu-te</h2>
-        </SubscribeTitle>
+        </CardTitle>
+        <p>
+          Emporta't el Safareig allà on vulguis i no et perdis el següent
+          episodi.
+        </p>
         {generatePodcastList}
       </InnerCardContainer>
     </CardContainer>

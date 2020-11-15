@@ -27,7 +27,7 @@ const LinksContainer = styled.div`
   justify-content: flex-start;
 
   // add space when there are two link items
-  & div:last-child {
+  & a:last-child {
     margin-inline-start: 1.5rem;
   }
 
@@ -80,14 +80,18 @@ const Bio = () => {
       <h1>{title}</h1>
       <Description>{description}</Description>
       <LinksContainer>
-        <SimpleLinkContainer>
-          <SimpleLink>Segueix-nos</SimpleLink>
-          <Chevron />
-        </SimpleLinkContainer>
-        <SimpleLinkContainer>
-          <SimpleLink>Contacta'ns</SimpleLink>
-          <Chevron />
-        </SimpleLinkContainer>
+        <a href={'https://twitter.com/safareigfm'}>
+          <SimpleLinkContainer>
+            <SimpleLink>Segueix-nos</SimpleLink>
+            <Chevron />
+          </SimpleLinkContainer>
+        </a>
+        <a href={'mailto:fes@safareig.fm'}>
+          <SimpleLinkContainer>
+            <SimpleLink>Contacta'ns</SimpleLink>
+            <Chevron />
+          </SimpleLinkContainer>
+        </a>
       </LinksContainer>
     </BioContainer>
   );
