@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
@@ -32,20 +33,54 @@ export const EpisodeTitle = styled.h3`
   margin-block-end: -0.25rem;
 `;
 
+export const ShowNotes = styled.div`
+  margin-block-end: 2rem;
+  display: ${(props) => (props.show ? 'block' : 'none')};
+
+  @media (min-width: 1024px) {
+    margin-block-end: 3rem;
+  }
+
+  & a {
+    font-weight: 600;
+    color: var(--darkBlue);
+  }
+
+  & ul {
+    padding-inline-start: 1.5rem;
+  }
+`;
+
 // Components
 
-const Episode = ({ id, date, episodeNumber, title, description }) => (
-  <CardEpisode flexFlow="column nowrap" alignItems="flex-start" flat>
-    <InnerCardContainer>
-      <EpisodeDate>{date}</EpisodeDate>
-      <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
-      <p>{description}</p>
-      <SimpleLinkContainer>
-        <SimpleLink>Escolta Episodi</SimpleLink>
-        <Chevron />
-      </SimpleLinkContainer>
-    </InnerCardContainer>
-  </CardEpisode>
-);
+const Episode = ({
+  id,
+  date,
+  episodeNumber,
+  title,
+  description,
+  showNotes,
+}) => {
+  const [unFold, setUnFold] = useState(false);
+  return (
+    <CardEpisode flexFlow="column nowrap" alignItems="flex-start" flat>
+      <Link to={'/'} onClick={() => setUnFold(!unFold)}>
+        <InnerCardContainer>
+          <EpisodeDate>{date}</EpisodeDate>
+          <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
+          <p>{description}</p>
+          <ShowNotes
+            show={unFold}
+            dangerouslySetInnerHTML={{ __html: showNotes }}
+          ></ShowNotes>
+          <SimpleLinkContainer>
+            <SimpleLink>Escolta Episodi</SimpleLink>
+            <Chevron />
+          </SimpleLinkContainer>
+        </InnerCardContainer>
+      </Link>
+    </CardEpisode>
+  );
+};
 
 export default Episode;
