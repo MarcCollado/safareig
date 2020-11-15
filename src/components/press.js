@@ -14,20 +14,22 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 const Press = () => (
   <CardFeatured flexFlow="column nowrap" flat>
-    <InnerCardContainer>
-      <CardTitle>
-        <PressKitIcon />
-        <h2>Press Kit</h2>
-      </CardTitle>
-      <p>
-        Hem preparat la descripció de Safareig i un recull d'imatges sobre el
-        podcast perquè et sigui fàcil començar a escriure.
-      </p>
-      <SimpleLinkContainer>
-        <SimpleLink>Descarrega'l</SimpleLink>
-        <Chevron />
-      </SimpleLinkContainer>
-    </InnerCardContainer>
+    <a href={'#'}>
+      <InnerCardContainer>
+        <CardTitle>
+          <PressKitIcon />
+          <h2>Press Kit</h2>
+        </CardTitle>
+        <p>
+          Hem preparat la descripció de Safareig i un recull d'imatges sobre el
+          podcast perquè et sigui fàcil començar a escriure.
+        </p>
+        <SimpleLinkContainer>
+          <SimpleLink>Descarrega'l</SimpleLink>
+          <Chevron />
+        </SimpleLinkContainer>
+      </InnerCardContainer>
+    </a>
   </CardFeatured>
 );
 
