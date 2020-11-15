@@ -100,7 +100,7 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
 
     @media (min-width: 1024px) {
-      font-size: 18px;
+      font-size: 1.25rem;
     }
   }
 
