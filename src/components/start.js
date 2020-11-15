@@ -28,11 +28,25 @@ const FeatEpisodeContainer = styled.div`
 `;
 
 const StyledChevron = styled(ChevronRight)`
-  width: 1.5rem;
-  margin-inline-start: auto; // float right
+  width: 1.75rem;
+  // float right
+  margin-inline-start: auto;
 `;
 
-// Components
+// Main components
+
+const EpisodeLink = (episode) => {
+  return (
+    <a href={'#'}>
+      <FeatEpisodeContainer key={episode.id}>
+        <p style={{ fontWeight: 'bold' }}>
+          {`${episode.episodeNumber}: ${episode.title}`}
+        </p>
+        <StyledChevron />
+      </FeatEpisodeContainer>
+    </a>
+  );
+};
 
 const StartHere = () => {
   // GraphQL
@@ -51,7 +65,9 @@ const StartHere = () => {
     }
   `);
 
-  const featuredEpisodes = data.allSanityEpisode?.nodes;
+  const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) =>
+    EpisodeLink(e)
+  );
 
   return (
     <CardStart flexFlow="column nowrap">
@@ -64,14 +80,7 @@ const StartHere = () => {
           És difícil començar a escoltar un podcast, i sempre hi ha episodis que
           són més bons. Nosaltres et recomanem aquests:
         </p>
-        {featuredEpisodes.map((episode) => (
-          <FeatEpisodeContainer key={episode.id}>
-            <p style={{ fontWeight: 'bold' }}>
-              {`${episode.episodeNumber}: ${episode.title}`}
-            </p>
-            <StyledChevron />
-          </FeatEpisodeContainer>
-        ))}
+        {generateFeaturedEpisodesList}
       </InnerCardContainer>
     </CardStart>
   );
