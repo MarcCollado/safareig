@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --darkBlue: #002CFC;
     --mobile: 576px;
     --tablet: 768px;
-    --desktop: 1024px;
+    --desktop: 1080px;
   }
 
   html {
@@ -42,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: 2rem;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
       font-size: 3rem;
     }
   }
@@ -55,7 +55,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: 16px;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
       font-size: 20px;
     }
   }
@@ -68,7 +68,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: 16px;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
       font-size: 20px;
     }
   }
@@ -83,7 +83,7 @@ const GlobalStyles = createGlobalStyle`
     letter-spacing: normal;
     color: var(--black);
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
       font-size: 1.25rem;
     }
   }
@@ -99,7 +99,7 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
     text-decoration: none;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
       font-size: 1.25rem;
     }
   }

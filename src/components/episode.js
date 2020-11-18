@@ -23,7 +23,7 @@ export const EpisodeDate = styled.p`
     font-size: 14px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     font-size: 18px;
   }
 `;
@@ -37,7 +37,7 @@ export const ShowNotes = styled.div`
   margin-block-end: 2rem;
   display: ${(props) => (props.show ? 'block' : 'none')};
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     margin-block-end: 3rem;
   }
 

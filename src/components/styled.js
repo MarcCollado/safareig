@@ -51,7 +51,7 @@ export const SimpleLinkContainer = styled.div`
     transform: translateX(0.25rem);
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     & > svg {
       margin-inline-start: 1rem;
     }
@@ -64,7 +64,7 @@ export const SimpleLink = styled.p`
   font-weight: 600;
   color: var(--darkBlue);
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     font-size: 1.25rem;
   }
 `;
@@ -74,7 +74,7 @@ export const SimpleLink = styled.p`
 export const InnerCardContainer = styled.div`
   margin: 1.5rem;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     margin: 2.25rem 2.5rem;
   }
 `;
@@ -106,7 +106,7 @@ export const CardContainer = styled.div`
     margin-block-end: 1.75rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     margin-block-end: 3rem;
   }
 `;

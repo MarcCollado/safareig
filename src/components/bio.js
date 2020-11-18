@@ -16,7 +16,7 @@ const BioContainer = styled.div`
     margin-inline-end: 1rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     margin-inline-end: 2rem;
   }
 `;
@@ -39,7 +39,7 @@ const LinksContainer = styled.div`
     stroke-width: 4;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     & svg {
       width: 5px;
     }
@@ -52,7 +52,7 @@ const Description = styled.p`
   font-size: 1.125rem;
   line-height: 1.67;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     font-size: 1.5rem;
   }
 `;

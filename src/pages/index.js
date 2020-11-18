@@ -24,8 +24,8 @@ const GlobalContainer = styled.div`
     margin: 2rem;
   }
 
-  @media (min-width: 1024px) {
-    margin: 4rem;
+  @media (min-width: 1080px) {
+    margin: 3.5rem;
   }
 
   @media (min-width: 1280px) {
@@ -63,13 +63,13 @@ const LeftPanelContainer = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    // width: clamp(280px, 100%, 390px);
+    min-width: 280px;
     // 1/2 space from DesktopEpisodeContainer
     margin-inline-end: 0.75rem;
     display: block;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     margin-inline-end: 1.375rem;
   }
 `;
@@ -88,13 +88,13 @@ const DesktopEpisodesContainer = styled.div`
   display: none;
 
   @media (min-width: 768px) {
-    // width: clamp(400px, 100%, 745px);
+    min-width: 400px;
     // 1/2 inner space from LeftPanelContainer
     margin-inline-start: 0.75rem;
     display: block;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1080px) {
     margin-inline-start: 1.375rem;
   }
 `;
