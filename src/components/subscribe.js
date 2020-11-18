@@ -15,8 +15,7 @@ const PodcastItemContainer = styled.div`
   padding-inline-start: 0.75rem;
   padding-inline-end: 0.75rem;
   border-radius: 1rem;
-  margin-inline-start: -0.75rem;
-  margin-inline-end: -0.75rem;
+  margin: -0.15rem -0.75rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -30,14 +29,17 @@ const PodcastItemContainer = styled.div`
   &:hover {
     background-color: var(--white);
   }
+
+  @media (min-width: 1080px) {
+    margin-block-end: 1.25rem;
+  }
 `;
 
 const StyledImage = styled(Img)`
   width: 40px;
-  margin-inline-start: 0.25rem; // indent
 
-  @media (min-width: 576px) {
-    width: 3rem;
+  @media (min-width: 1080px) {
+    width: 56px;
   }
 `;
 
