@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Bio from '../components/bio';
 import Cover from '../components/cover';
 import Episode from '../components/episode';
+import Follow from '../components/follow';
 import Footer from '../components/footer';
 import Press from '../components/press';
 import SEO from '../components/seo';
@@ -150,6 +151,7 @@ const IndexPage = ({ data, location }) => {
             {renderEpisodes(episodes)}
           </MobileEpisodesContainer>
           <Share />
+          <Follow />
           <Press />
         </LeftPanelContainer>
         <DesktopEpisodesContainer>
