@@ -13,7 +13,6 @@ import Start from '../components/start';
 import Subscribe from '../components/subscribe';
 
 const GlobalContainer = styled.div`
-  // width: 100%;
   max-width: 1180px;
   margin: 1.5rem;
   display: flex;
@@ -102,17 +101,18 @@ const DesktopEpisodesContainer = styled.div`
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const episodes = data.allFeedSafareigFm?.nodes;
-  const totalCount = data.allFeedSafareigFm?.totalCount;
+  // const totalCount = data.allFeedSafareigFm?.totalCount;
 
   const renderEpisodes = (episodes) => {
     return episodes.map((episode, i) => {
-      const episodeNumber = totalCount - i;
+      // const episodeNumber = totalCount - i;
       const {
         id,
         title,
         content: descriptionHtml,
         contentSnippet: description,
         isoDate: date,
+        itunes: itunes,
       } = episode;
 
       const descriptionIndex = description.indexOf('Show notes:');
@@ -126,7 +126,7 @@ const IndexPage = ({ data, location }) => {
         <Episode
           key={id}
           date={date}
-          episodeNumber={episodeNumber}
+          episodeNumber={itunes.episode}
           title={title}
           description={showDescription}
           showNotes={showNotes}
@@ -171,16 +171,21 @@ export const pageQuery = graphql`
         title
       }
     }
-    allFeedSafareigFm {
+    # Episodes
+    allFeedSafareigFm(sort: { order: DESC, fields: itunes___episode }) {
       nodes {
         id
         title
         content
         contentSnippet
         isoDate(formatString: "YYYY / MM / DD")
+        itunes {
+          episode
+        }
       }
       totalCount
     }
+    # Podcast
     allFeedSafareigFmMeta {
       nodes {
         id
