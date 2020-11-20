@@ -113,7 +113,7 @@ const IndexPage = ({ data, location }) => {
         content: descriptionHtml,
         contentSnippet: description,
         isoDate: date,
-        itunes: itunes,
+        itunes: { episode: episodeNumber },
       } = episode;
 
       const descriptionIndex = description.indexOf('Show notes:');
@@ -127,7 +127,7 @@ const IndexPage = ({ data, location }) => {
         <Episode
           key={id}
           date={date}
-          episodeNumber={itunes.episode}
+          episodeNumber={episodeNumber}
           title={title}
           description={showDescription}
           showNotes={showNotes}
