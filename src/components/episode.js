@@ -35,7 +35,7 @@ export const EpisodeTitle = styled.h3`
 
 export const ShowNotes = styled.div`
   margin-block-end: 2rem;
-  display: ${(props) => (props.show ? 'block' : 'none')};
+  display: ${(props) => (props.hideShowNotes ? 'none' : 'block')};
 
   @media (min-width: 1080px) {
     margin-block-end: 3rem;
@@ -61,16 +61,16 @@ const Episode = ({
   description,
   showNotes,
 }) => {
-  const [unFold, setUnFold] = useState(false);
+  const [folded, setFolded] = useState(true);
   return (
-    <CardEpisode flexFlow="column nowrap" alignItems="flex-start" flat>
-      <Link to={'/'} onClick={() => setUnFold(!unFold)}>
+    <CardEpisode flexFlow="column nowrap" alignItems="flex-start" flat={folded}>
+      <Link to={'/'} onClick={() => setFolded(!folded)}>
         <InnerCardContainer>
           <EpisodeDate>{date}</EpisodeDate>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{description}</p>
           <ShowNotes
-            show={unFold}
+            hideShowNotes={folded}
             dangerouslySetInnerHTML={{ __html: showNotes }}
           ></ShowNotes>
           <SimpleLinkContainer>
