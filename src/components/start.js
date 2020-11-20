@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
 import { CardStart, CardTitle, InnerCardContainer } from './styled';
@@ -37,14 +37,14 @@ const StyledChevron = styled(ChevronRight)`
 
 const EpisodeLink = (episode) => {
   return (
-    <a href={'#'}>
-      <FeatEpisodeContainer key={episode.id}>
+    <Link to={'/'} key={episode.id}>
+      <FeatEpisodeContainer>
         <p style={{ fontWeight: 'bold' }}>
           {`${episode.episodeNumber}: ${episode.title}`}
         </p>
         <StyledChevron />
       </FeatEpisodeContainer>
-    </a>
+    </Link>
   );
 };
 
