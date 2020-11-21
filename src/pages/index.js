@@ -101,6 +101,7 @@ const DesktopEpisodesContainer = styled.div`
 
 const IndexPage = ({ data, location }) => {
   const [moveCardsDown, setMoveCardsDown] = useState(false);
+  const [episodeRef, setEpisodeRef] = useState(0);
 
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const episodes = data.allFeedSafareigFm?.nodes;
@@ -110,7 +111,6 @@ const IndexPage = ({ data, location }) => {
     return episodes.map((episode, i) => {
       // const episodeNumber = totalCount - i;
       const {
-        id,
         title,
         content: descriptionHtml,
         contentSnippet: description,
@@ -124,11 +124,9 @@ const IndexPage = ({ data, location }) => {
       const showNotesIndex = descriptionHtml.indexOf('<p><strong>Show');
       const showNotes = descriptionHtml.substring(showNotesIndex);
 
-      // const path = episode.path.current;
-
       return (
         <Episode
-          key={id}
+          key={episodeNumber}
           date={date}
           episodeNumber={episodeNumber}
           title={title}
@@ -138,7 +136,10 @@ const IndexPage = ({ data, location }) => {
           cardHandler={(status) => {
             setMoveCardsDown(status);
           }}
-          cardStatus={moveCardsDown}
+          episodeRef={episodeRef}
+          episodeRefHandler={(number) => {
+            setEpisodeRef(number);
+          }}
         />
       );
     });
@@ -146,7 +147,6 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <GlobalContainer>
-      <p>{moveCardsDown ? 'true' : 'false'}</p>
       <SEO location={location} title={siteTitle} />
       <HeaderContainer>
         <Cover />
@@ -185,7 +185,6 @@ export const pageQuery = graphql`
     # Episodes
     allFeedSafareigFm(sort: { order: DESC, fields: itunes___episode }) {
       nodes {
-        id
         title
         content
         contentSnippet

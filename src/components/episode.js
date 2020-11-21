@@ -82,24 +82,30 @@ const ShowNotes = styled.div`
 // Components
 
 const Episode = ({
-  id,
   date,
   episodeNumber,
   title,
   description,
   audioFile,
   showNotes,
+  episodeRef,
+  episodeRefHandler,
   cardHandler,
-  cardStatus,
 }) => {
   const [expand, setExpand] = useState(false);
 
   useEffect(() => {
-    // when shrinking a card, reset rest of cards down
-    //
-    // when expanding a card, set rest of cards down
-    //
-  });
+    if (expand) {
+      // flag the expanded card to parent component
+      episodeRefHandler(parseInt(episodeNumber));
+      // move the rest of cards down
+      cardHandler(true);
+    } else if (!expand && parseInt(episodeNumber) === episodeRef) {
+      // reset both states
+      episodeRefHandler(0);
+      cardHandler(false);
+    }
+  }, [expand]);
 
   return (
     <CardEpisode
