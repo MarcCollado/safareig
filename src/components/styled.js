@@ -81,24 +81,22 @@ export const InnerCardContainer = styled.div`
 
 // subscribe.js, follow.js, and *start.js*
 export const CardContainer = styled.div`
-  /* Display & Box Model */
   width: clamp(272px, 100%, 455px);
   border-radius: 1.5rem;
-  // space between cards
   margin-block-end: 1.5rem;
-  box-shadow: ${(props) =>
-    props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
   overflow: hidden;
-  position: ${(props) => (props.flat ? 'static' : 'relative')};
-  z-index: ${(props) => (props.flat ? 1 : 999)};
-  /* Flex */
   display: flex;
   flex-flow: ${(props) => props.flexFlow ?? 'row nowrap'};
   justify-content: ${(props) => props.justifyContent ?? 'center'};
   align-items: ${(props) => props.alignItems ?? 'center'};
-  /* Color */
+
+  // Default card state
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
-  /* Other */
+  box-shadow: ${(props) =>
+    props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
+  position: ${(props) => (props.flat ? 'static' : 'relative')};
+  z-index: ${(props) => (props.flat ? 1 : 999)};
+
   transition: all 250ms ease-in-out;
 
   @media (min-width: 768px) {
@@ -129,24 +127,5 @@ export const CardFeatured = styled(CardContainer)`
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
     width: clamp(400px, 100%, 745px);
-  }
-`;
-
-// CARD EPISODE
-// episode.js
-export const CardEpisode = styled(CardStart)`
-  position: static;
-  z-index: 1;
-
-  &:hover {
-    box-shadow: none;
-    background-color: var(--white);
-    box-shadow: 2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18);
-    position: relative;
-    z-index: 999;
-
-    & div svg:last-child {
-      transform: rotate(90deg);
-    }
   }
 `;
