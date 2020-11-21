@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
@@ -100,6 +100,8 @@ const DesktopEpisodesContainer = styled.div`
 `;
 
 const IndexPage = ({ data, location }) => {
+  const [moveCardsDown, setMoveCardsDown] = useState(false);
+
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const episodes = data.allFeedSafareigFm?.nodes;
   // const totalCount = data.allFeedSafareigFm?.totalCount;
@@ -114,6 +116,7 @@ const IndexPage = ({ data, location }) => {
         contentSnippet: description,
         isoDate: date,
         itunes: { episode: episodeNumber },
+        enclosure: { url: audioFile },
       } = episode;
 
       const descriptionIndex = description.indexOf('Show notes:');
@@ -130,7 +133,12 @@ const IndexPage = ({ data, location }) => {
           episodeNumber={episodeNumber}
           title={title}
           description={showDescription}
+          audioFile={audioFile}
           showNotes={showNotes}
+          cardHandler={(status) => {
+            setMoveCardsDown(status);
+          }}
+          cardStatus={moveCardsDown}
         />
       );
     });
@@ -138,6 +146,7 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <GlobalContainer>
+      <p>{moveCardsDown ? 'true' : 'false'}</p>
       <SEO location={location} title={siteTitle} />
       <HeaderContainer>
         <Cover />
@@ -183,6 +192,9 @@ export const pageQuery = graphql`
         isoDate(formatString: "YYYY / MM / DD")
         itunes {
           episode
+        }
+        enclosure {
+          url
         }
       }
       totalCount
