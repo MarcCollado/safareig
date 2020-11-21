@@ -13,7 +13,9 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Styled Components
 
 const CardEpisode = styled(CardStart)`
-  position: static;
+  background-color: ${(props) =>
+    props.expand ? 'var(--white)' : 'var(--gray)'};
+  position: ${(props) => (props.expand ? 'relative' : 'static')};
   z-index: ${(props) => (props.expand ? '999' : '1')};
 
   & div svg:last-child {
