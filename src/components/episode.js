@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
-  CardEpisode,
+  CardStart,
   InnerCardContainer,
   SimpleLinkContainer,
   SimpleLink,
@@ -12,7 +12,28 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Styled Components
 
-export const EpisodeDate = styled.p`
+const CardEpisode = styled(CardStart)`
+  position: static;
+  z-index: ${(props) => (props.expand ? '999' : '1')};
+
+  & div svg:last-child {
+    transform: rotate(${(props) => (props.expand ? '-90deg' : '0deg')});
+  }
+
+  &:hover {
+    box-shadow: none;
+    background-color: var(--white);
+    box-shadow: 2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 999;
+
+    & div svg:last-child {
+      transform: rotate(${(props) => (props.expand ? '-90deg' : '90deg')});
+    }
+  }
+`;
+
+const EpisodeDate = styled.p`
   margin: 0rem;
   font-weight: bold;
   letter-spacing: -1px;
@@ -28,12 +49,12 @@ export const EpisodeDate = styled.p`
   }
 `;
 
-export const EpisodeTitle = styled.h3`
+const EpisodeTitle = styled.h3`
   margin-block-start: 1rem;
   margin-block-end: -0.25rem;
 `;
 
-export const ShowNotes = styled.div`
+const ShowNotes = styled.div`
   margin-block-end: 2rem;
   display: ${(props) => (props.hideShowNotes ? 'none' : 'block')};
 
@@ -61,24 +82,33 @@ const Episode = ({
   description,
   showNotes,
 }) => {
-  const [folded, setFolded] = useState(true);
+  const [expand, setExpand] = useState(false);
   return (
-    <CardEpisode flexFlow="column nowrap" alignItems="flex-start" flat={folded}>
-      <Link to={'/'} onClick={() => setFolded(!folded)}>
-        <InnerCardContainer>
+    <CardEpisode
+      flexFlow="column nowrap"
+      alignItems="flex-start"
+      flat={!expand}
+      expand={expand}
+    >
+      <InnerCardContainer>
+        <Link to={'/'} onClick={() => setExpand(!expand)}>
           <EpisodeDate>{date}</EpisodeDate>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{description}</p>
-          <ShowNotes
-            hideShowNotes={folded}
-            dangerouslySetInnerHTML={{ __html: showNotes }}
-          ></ShowNotes>
+        </Link>
+        <ShowNotes
+          hideShowNotes={!expand}
+          dangerouslySetInnerHTML={{ __html: showNotes }}
+        ></ShowNotes>
+        <Link to={'/'} onClick={() => setExpand(!expand)}>
           <SimpleLinkContainer>
-            <SimpleLink>Escolta Episodi</SimpleLink>
+            <SimpleLink>
+              {!expand ? `Escolta Episodi` : `Tancar Episodi`}
+            </SimpleLink>
             <Chevron />
           </SimpleLinkContainer>
-        </InnerCardContainer>
-      </Link>
+        </Link>
+      </InnerCardContainer>
     </CardEpisode>
   );
 };
