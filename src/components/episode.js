@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
@@ -54,9 +54,16 @@ const EpisodeTitle = styled.h3`
   margin-block-end: -0.25rem;
 `;
 
+const Audio = styled.audio`
+  width: 100%;
+  margin-block-start: 1.5rem;
+  margin-block-end: 1.5rem;
+  display: ${(props) => (props.hide ? 'none' : 'block')};
+`;
+
 const ShowNotes = styled.div`
   margin-block-end: 2rem;
-  display: ${(props) => (props.hideShowNotes ? 'none' : 'block')};
+  display: ${(props) => (props.hide ? 'none' : 'block')};
 
   @media (min-width: 1080px) {
     margin-block-end: 3rem;
@@ -80,9 +87,20 @@ const Episode = ({
   episodeNumber,
   title,
   description,
+  audioFile,
   showNotes,
+  cardHandler,
+  cardStatus,
 }) => {
   const [expand, setExpand] = useState(false);
+
+  useEffect(() => {
+    // when shrinking a card, reset rest of cards down
+    //
+    // when expanding a card, set rest of cards down
+    //
+  });
+
   return (
     <CardEpisode
       flexFlow="column nowrap"
@@ -96,8 +114,14 @@ const Episode = ({
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{description}</p>
         </Link>
+        <Audio
+          hide={!expand}
+          controls
+          src={audioFile}
+          type="audio/mpeg"
+        ></Audio>
         <ShowNotes
-          hideShowNotes={!expand}
+          hide={!expand}
           dangerouslySetInnerHTML={{ __html: showNotes }}
         ></ShowNotes>
         <Link to={'/'} onClick={() => setExpand(!expand)}>
