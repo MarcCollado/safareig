@@ -11,7 +11,7 @@ const BioContainer = styled.div`
   width: clamp(272px, 100%, 455px);
 
   @media (min-width: 768px) {
-    width: clamp(400px, 100%, 710px);
+    width: clamp(400px, 100%, 730px);
     // 1/2 inner space from CardCover
     margin-inline-end: 1rem;
   }
