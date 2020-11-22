@@ -90,21 +90,22 @@ const Episode = ({
   description,
   audioFile,
   showNotes,
-  episodeRef,
-  episodeRefHandler,
+  expandedEpisodeRef,
+  setExpandedEpisodeRef,
   cardHandler,
 }) => {
   const [expand, setExpand] = useState(false);
 
   useEffect(() => {
     if (expand) {
+      // episodeRef.current.scrollIntoView();
       // flag the expanded card to parent component
-      episodeRefHandler(parseInt(episodeNumber));
+      setExpandedEpisodeRef(parseInt(episodeNumber));
       // move the rest of cards down
       cardHandler(true);
-    } else if (!expand && parseInt(episodeNumber) === episodeRef) {
+    } else if (!expand && parseInt(episodeNumber) === expandedEpisodeRef) {
       // reset both states
-      episodeRefHandler(0);
+      setExpandedEpisodeRef(0);
       cardHandler(false);
     }
   }, [expand]);
