@@ -17,7 +17,7 @@ const scaleAndRotate = keyframes`
 `;
 
 export const CardCover = styled(CardContainer)`
-  width: clamp(272px, 100%, 455px);
+  width: clamp(270px, 100%, 430px);
   // space from BioContainer below
   margin-block-end: 2rem;
   transform: scale(1) rotate(-2deg);
@@ -39,7 +39,7 @@ const Cover = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
-      file(relativePath: { eq: "cover-mobile.jpg" }) {
+      mobileCover: file(relativePath: { eq: "cover-mobile.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
@@ -55,11 +55,17 @@ const Cover = () => {
       }
     }
   `);
-
+  const sources = [
+    data.mobileCover.childImageSharp.fluid,
+    {
+      ...data.desktopCover.childImageSharp.fluid,
+      media: `(min-width: 768px)`,
+    },
+  ];
   return (
     <CardCover>
       <Img
-        fluid={data.file.childImageSharp.fluid}
+        fluid={sources}
         alt="Safareig cover image"
         style={{ width: '100%', height: '100%' }}
       />
