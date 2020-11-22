@@ -101,7 +101,7 @@ const DesktopEpisodesContainer = styled.div`
 
 const IndexPage = ({ data, location }) => {
   const [moveCardsDown, setMoveCardsDown] = useState(false);
-  const [episodeRef, setEpisodeRef] = useState(0);
+  const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
 
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const episodes = data.allFeedSafareigFm?.nodes;
@@ -136,9 +136,9 @@ const IndexPage = ({ data, location }) => {
           cardHandler={(status) => {
             setMoveCardsDown(status);
           }}
-          episodeRef={episodeRef}
-          episodeRefHandler={(number) => {
-            setEpisodeRef(number);
+          expandedEpisodeRef={expandedEpisodeRef}
+          setExpandedEpisodeRef={(number) => {
+            setExpandedEpisodeRef(number);
           }}
         />
       );
