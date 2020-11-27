@@ -1,6 +1,4 @@
-export const fluid = (i, j) => {
-  const minWidth = 768;
-  const maxWidth = 1440;
+export const fluid = (i, j, minWidth = 768, maxWidth = 1440) => {
   const widthRatio = minWidth / maxWidth;
 
   const b = (i - widthRatio * j) / (1 - widthRatio);
