@@ -44,11 +44,7 @@ const EpisodeDate = styled.p`
   color: var(--black);
 
   @media (min-width: 768px) {
-    font-size: 14px;
-  }
-
-  @media (min-width: 1080px) {
-    font-size: 18px;
+    font-size: ${fluid(14, 18)};
   }
 `;
 
@@ -97,15 +93,22 @@ const Episode = ({
   const [expand, setExpand] = useState(false);
 
   useEffect(() => {
-    if (expand) {
-      // episodeRef.current.scrollIntoView();
-      // flag the expanded card to parent component
-      setExpandedEpisodeRef(parseInt(episodeNumber));
-    } else if (!expand && parseInt(episodeNumber) === expandedEpisodeRef) {
-      // reset state
-      setExpandedEpisodeRef(0);
+    const thisEpNum = parseInt(episodeNumber);
+    const expEpRef = expandedEpisodeRef;
+    if (!expand && expEpRef === thisEpNum) {
+      setExpand(true);
+    } else if (expEpRef !== thisEpNum) {
+      setExpand(false);
     }
-  }, [expand]);
+  }, [setExpandedEpisodeRef]);
+
+  const handleOnClick = () => {
+    if (!expand) {
+      setExpandedEpisodeRef(parseInt(episodeNumber));
+    } else {
+      setExpandedEpisodeRef(parseInt(0));
+    }
+  };
 
   return (
     <CardEpisode
@@ -115,7 +118,7 @@ const Episode = ({
       expand={expand}
     >
       <InnerCardContainer>
-        <Link to={'/'} onClick={() => setExpand(!expand)}>
+        <Link to={'/'} onClick={() => handleOnClick()}>
           <EpisodeDate>{date}</EpisodeDate>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{description}</p>
@@ -130,7 +133,7 @@ const Episode = ({
           hide={!expand}
           dangerouslySetInnerHTML={{ __html: showNotes }}
         ></ShowNotes>
-        <Link to={'/'} onClick={() => setExpand(!expand)}>
+        <Link to={'/'} onClick={() => handleOnClick()}>
           <SimpleLinkContainer>
             <SimpleLink>
               {!expand ? `Escolta Episodi` : `Tancar Episodi`}
