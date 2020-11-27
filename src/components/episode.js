@@ -92,7 +92,6 @@ const Episode = ({
   showNotes,
   expandedEpisodeRef,
   setExpandedEpisodeRef,
-  cardHandler,
 }) => {
   const [expand, setExpand] = useState(false);
 
@@ -101,12 +100,9 @@ const Episode = ({
       // episodeRef.current.scrollIntoView();
       // flag the expanded card to parent component
       setExpandedEpisodeRef(parseInt(episodeNumber));
-      // move the rest of cards down
-      cardHandler(true);
     } else if (!expand && parseInt(episodeNumber) === expandedEpisodeRef) {
-      // reset both states
+      // reset state
       setExpandedEpisodeRef(0);
-      cardHandler(false);
     }
   }, [expand]);
 
