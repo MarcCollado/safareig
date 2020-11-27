@@ -12,6 +12,7 @@ import SEO from '../components/seo';
 import Share from '../components/share';
 import Start from '../components/start';
 import Subscribe from '../components/subscribe';
+import { fluid } from '../utils/fluid';
 
 const GlobalContainer = styled.div`
   max-width: 1180px;
@@ -21,15 +22,7 @@ const GlobalContainer = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    margin: 2rem;
-  }
-
-  @media (min-width: 1080px) {
-    margin: 3.5rem;
-  }
-
-  @media (min-width: 1280px) {
-    margin: 7rem 8rem;
+    margin: ${fluid(32, 112)};
   }
 `;
 
@@ -65,12 +58,8 @@ const LeftPanelContainer = styled.div`
   @media (min-width: 768px) {
     min-width: 280px;
     // 1/2 space from DesktopEpisodeContainer
-    margin-inline-end: 0.75rem;
+    margin-inline-end: ${fluid(12, 22)};
     display: block;
-  }
-
-  @media (min-width: 1080px) {
-    margin-inline-end: 1.375rem;
   }
 `;
 
@@ -90,17 +79,12 @@ const DesktopEpisodesContainer = styled.div`
   @media (min-width: 768px) {
     min-width: 400px;
     // 1/2 inner space from LeftPanelContainer
-    margin-inline-start: 0.75rem;
+    margin-inline-start: ${fluid(12, 22)};
     display: block;
-  }
-
-  @media (min-width: 1080px) {
-    margin-inline-start: 1.375rem;
   }
 `;
 
 const IndexPage = ({ data, location }) => {
-  const [moveCardsDown, setMoveCardsDown] = useState(false);
   const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
 
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -133,9 +117,6 @@ const IndexPage = ({ data, location }) => {
           description={showDescription}
           audioFile={audioFile}
           showNotes={showNotes}
-          cardHandler={(status) => {
-            setMoveCardsDown(status);
-          }}
           expandedEpisodeRef={expandedEpisodeRef}
           setExpandedEpisodeRef={(number) => {
             setExpandedEpisodeRef(number);
