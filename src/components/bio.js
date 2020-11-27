@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { SimpleLinkContainer, SimpleLink } from './styled';
 import Chevron from '../../content/assets/chevron-right-cta.svg';
+import { fluid } from '../utils/fluid';
 
 // Styled components
 
@@ -13,11 +14,7 @@ const BioContainer = styled.div`
   @media (min-width: 768px) {
     width: clamp(400px, 100%, 730px);
     // 1/2 inner space from CardCover
-    margin-inline-end: 1rem;
-  }
-
-  @media (min-width: 1080px) {
-    margin-inline-end: 2rem;
+    margin-inline-end: ${fluid(16, 32)};
   }
 `;
 
@@ -49,8 +46,13 @@ const LinksContainer = styled.div`
 const Description = styled.p`
   // correct for <p> default block margin
   margin-block-start: 0.75rem;
-  font-size: 1.125rem;
+  // wrap "català" on iPhone viewport
+  font-size: 1.08rem;
   line-height: 1.67;
+
+  @media (min-width: 576px) {
+    font-size: 1.125rem;
+  }
 
   @media (min-width: 1080px) {
     font-size: 1.5rem;
