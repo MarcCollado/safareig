@@ -9,6 +9,7 @@ import {
   SimpleLink,
 } from './styled';
 import Chevron from '../../content/assets/chevron-right-cta.svg';
+import { fluid } from '../utils/fluid';
 
 // Styled Components
 
@@ -67,8 +68,8 @@ const ShowNotes = styled.div`
   margin-block-end: 2rem;
   display: ${(props) => (props.hide ? 'none' : 'block')};
 
-  @media (min-width: 1080px) {
-    margin-block-end: 3rem;
+  @media (min-width: 768px) {
+    margin-block-end: ${fluid(32, 44)};
   }
 
   & a {

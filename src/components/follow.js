@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { CardContainer, CardTitle, InnerCardContainer } from './styled';
 import FollowSvg from '../../content/assets/follow.svg';
 import ChevronRight from '../../content/assets/chevron-right.svg';
+import { fluid } from '../utils/fluid';
 
 // Styled components
 
@@ -29,9 +30,9 @@ const TwitterItemContainer = styled.div`
     background-color: var(--white);
   }
 
-  @media (min-width: 1080px) {
-    margin-block-end: 1.25rem;
-    padding: 0.5rem 0.75rem;
+  @media (min-width: 768px) {
+    margin-block-end: ${fluid(0, 22)};
+    padding: ${fluid(4, 8)} ${fluid(12, 12)};
   }
 `;
 
@@ -39,9 +40,9 @@ const StyledAvatar = styled(Img)`
   width: 50px;
   border-radius: 50px;
 
-  @media (min-width: 1080px) {
-    width: 64px;
-    border-radius: 64px;
+  @media (min-width: 768px) {
+    width: ${fluid(52, 64)};
+    border-radius: ${fluid(52, 64)};
   }
 `;
 

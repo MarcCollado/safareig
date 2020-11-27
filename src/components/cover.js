@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
 
 import { CardContainer } from './styled';
+import { fluid } from '../utils/fluid';
 
 // Styled components
 
@@ -29,7 +30,7 @@ export const CardCover = styled(CardContainer)`
     // BioContainer is no longer below
     margin-block-start: 0rem;
     // 1/2 inner space from BioContainer
-    margin-inline-start: 1rem;
+    margin-inline-start: ${fluid(16, 32)};
   }
 `;
 

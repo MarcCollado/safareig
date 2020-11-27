@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { fluid } from '../utils/fluid';
+
 export const CardTitle = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -51,9 +53,9 @@ export const SimpleLinkContainer = styled.div`
     transform: translateX(0.25rem);
   }
 
-  @media (min-width: 1080px) {
+  @media (min-width: 768px) {
     & > svg {
-      margin-inline-start: 1rem;
+      margin-inline-start: ${fluid(8, 16)};
     }
   }
 `;
@@ -74,8 +76,8 @@ export const SimpleLink = styled.p`
 export const InnerCardContainer = styled.div`
   margin: 1.5rem;
 
-  @media (min-width: 1080px) {
-    margin: 2.25rem 2.5rem;
+  @media (min-width: 768px) {
+    margin: ${fluid(24, 36)} ${fluid(24, 40)};
   }
 `;
 
@@ -101,11 +103,7 @@ export const CardContainer = styled.div`
 
   @media (min-width: 768px) {
     width: clamp(280px, 100%, 390px);
-    margin-block-end: 1.75rem;
-  }
-
-  @media (min-width: 1080px) {
-    margin-block-end: 3rem;
+    margin-block-end: ${fluid(24, 48)};
   }
 `;
 
