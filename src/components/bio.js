@@ -46,17 +46,8 @@ const LinksContainer = styled.div`
 const Description = styled.p`
   // correct for <p> default block margin
   margin-block-start: 0.75rem;
-  // wrap "català" on iPhone viewport
-  font-size: 1.08rem;
+  font-size: ${fluid(17, 24, 576)};
   line-height: 1.67;
-
-  @media (min-width: 576px) {
-    font-size: 1.125rem;
-  }
-
-  @media (min-width: 1080px) {
-    font-size: 1.5rem;
-  }
 `;
 
 // Main components
