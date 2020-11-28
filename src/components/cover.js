@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
 
-import { CardContainer } from './styled';
 import { fluid } from '../utils/fluid';
 
 // Styled components
@@ -17,10 +16,12 @@ const scaleAndRotate = keyframes`
   }
 `;
 
-export const CardCover = styled(CardContainer)`
+export const CardCover = styled.div`
   width: clamp(270px, 100%, 430px);
   // space from BioContainer below
   margin-block-end: 2rem;
+  border-radius: ${fluid(24, 32)};
+  overflow: hidden;
   transform: scale(1) rotate(-2deg);
   animation: ${scaleAndRotate} 2s ease-in-out 0s infinite alternate;
 
