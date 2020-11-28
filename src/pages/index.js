@@ -164,7 +164,7 @@ export const pageQuery = graphql`
       }
     }
     # Episodes
-    allFeedSafareigFm(sort: { order: DESC, fields: itunes___episode }) {
+    allFeedSafareigFm(sort: { order: DESC, fields: isoDate }) {
       nodes {
         title
         content
