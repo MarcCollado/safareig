@@ -14,7 +14,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 const Press = () => (
   <CardFeatured flexFlow="column nowrap" flat>
-    <a href={'#'}>
+    <a href="https://www.icloud.com/iclouddrive/0iobVuMuVWWs5pBiSTMLbtvgQ">
       <InnerCardContainer>
         <CardTitle>
           <PressKitIcon />
