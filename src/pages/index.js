@@ -118,15 +118,15 @@ const IndexPage = ({ data, location }) => {
         <LeftPanelContainer>
           <Subscribe />
           <MobileEpisodesContainer>
-            <Start />
+            <Start down={expandedEpisodeRef !== 0} />
             {renderEpisodes(episodes)}
           </MobileEpisodesContainer>
-          <Share />
+          <Share down={expandedEpisodeRef !== 0} />
           <Follow />
           <Press />
         </LeftPanelContainer>
         <DesktopEpisodesContainer>
-          <Start />
+          <Start down={expandedEpisodeRef !== 0} />
           {renderEpisodes(episodes)}
         </DesktopEpisodesContainer>
       </MainContainer>
