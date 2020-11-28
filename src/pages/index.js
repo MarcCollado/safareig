@@ -12,25 +12,19 @@ import SEO from '../components/seo';
 import Share from '../components/share';
 import Start from '../components/start';
 import Subscribe from '../components/subscribe';
+import { FlexCenter } from '../components/styled';
 import { fluid } from '../utils/fluid';
 
-const GlobalContainer = styled.div`
-  max-width: 1180px;
+const GlobalContainer = styled(FlexCenter)`
   margin: 1.5rem;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
 
   @media (min-width: 768px) {
     margin: ${fluid(32, 112)};
   }
 `;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled(FlexCenter)`
   margin-block-end: 2rem;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
 
   @media (min-width: 768px) {
     flex-flow: row-reverse nowrap;
@@ -38,11 +32,7 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const MainContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-
+const MainContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     flex-flow: row nowrap;
     align-items: flex-start;
@@ -50,11 +40,7 @@ const MainContainer = styled.div`
   }
 `;
 
-const LeftPanelContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-
+const LeftPanelContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     min-width: 280px;
     // 1/2 space from DesktopEpisodeContainer
@@ -63,21 +49,16 @@ const LeftPanelContainer = styled.div`
   }
 `;
 
-const MobileEpisodesContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-
+const MobileEpisodesContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     display: none;
   }
 `;
 
-const DesktopEpisodesContainer = styled.div`
+const DesktopEpisodesContainer = styled(FlexCenter)`
   display: none;
 
   @media (min-width: 768px) {
-    min-width: 400px;
     // 1/2 inner space from LeftPanelContainer
     margin-inline-start: ${fluid(12, 22)};
     display: block;
