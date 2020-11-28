@@ -22,6 +22,11 @@ export const CardCover = styled.div`
   margin-block-end: 2rem;
   border-radius: ${fluid(24, 32)};
   overflow: hidden;
+  box-shadow: 2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18);
+  position: relative;
+  z-index: 1000;
+  transition: all 400ms ease-in-out;
+
   transform: scale(1) rotate(-2deg);
   animation: ${scaleAndRotate} 2s ease-in-out 0s infinite alternate;
 
