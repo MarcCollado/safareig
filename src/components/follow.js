@@ -41,8 +41,8 @@ const StyledAvatar = styled(Img)`
   border-radius: 50px;
 
   @media (min-width: 768px) {
-    width: ${fluid(52, 64)};
-    border-radius: ${fluid(52, 64)};
+    width: ${fluid(50, 64)};
+    border-radius: ${fluid(50, 64)};
   }
 `;
 
@@ -105,7 +105,7 @@ const Follow = () => {
     TwitterLink(p.id, p.avatar.asset.fluid, p.twitterHandle, p.name)
   );
   return (
-    <CardContainer flexFlow="column nowrap" flat>
+    <CardContainer flat>
       <InnerCardContainer>
         <CardTitle>
           <FollowSvg />
