@@ -48,7 +48,7 @@ const EpisodeLink = (episode) => {
   );
 };
 
-const StartHere = () => {
+const StartHere = ({ down }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query StartHereQuery {
@@ -70,7 +70,7 @@ const StartHere = () => {
   );
 
   return (
-    <CardStart flexFlow="column nowrap">
+    <CardStart down={down}>
       <InnerCardContainer>
         <CardTitle>
           <StartHereSvg />

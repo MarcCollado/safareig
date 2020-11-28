@@ -12,8 +12,8 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Components
 
-const Share = () => (
-  <CardFeatured flexFlow="column nowrap">
+const Share = ({ down }) => (
+  <CardFeatured down={down}>
     <a href={'mailto:fes@safareig.fm'}>
       <InnerCardContainer>
         <CardTitle>
