@@ -2,43 +2,12 @@ import styled from 'styled-components';
 
 import { fluid } from '../utils/fluid';
 
-// LAYOUT
+// LAYOUT BLOCKS
 
 export const FlexCenter = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-`;
-
-export const CardTitle = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  align-self: flex-start;
-
-  & svg {
-    width: 2rem;
-    // separate icon from the h2
-    margin-inline-end: 0.75rem;
-  }
-
-  @media (min-width: 768px) {
-    // display svg on top of h2
-    flex-flow: column nowrap;
-    align-items: flex-start;
-
-    & svg {
-      width: 1.75rem;
-      margin-block-end: 1rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    & svg {
-      width: 2.25rem;
-      margin-block-end: 1.25rem;
-    }
-  }
 `;
 
 // SIMPLE LINK
@@ -74,40 +43,59 @@ export const SimpleLink = styled.p`
   font-weight: 600;
   color: var(--darkBlue);
 
-  @media (min-width: 1080px) {
-    font-size: 1.25rem;
+  @media (min-width: 768px) {
+    font-size: ${fluid(16, 20)};
   }
 `;
 
-// CARD CONTAINER
+// CARD COMPONENT
+
+export const CardTitle = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-self: flex-start;
+
+  & svg {
+    width: 2rem;
+    // separate icon from the h2
+    margin-inline-end: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    // display svg on top of h2
+    flex-flow: column nowrap;
+    align-items: flex-start;
+
+    & svg {
+      width: ${fluid(28, 36)};
+      margin-block-end: ${fluid(16, 20)};
+    }
+  }
+`;
 
 export const InnerCardContainer = styled.div`
   margin: 1.5rem;
 
   @media (min-width: 768px) {
-    margin: ${fluid(24, 36)} ${fluid(24, 40)};
+    margin: ${fluid(24, 36)};
   }
 `;
 
-// subscribe.js, follow.js, and *start.js*
-export const CardContainer = styled.div`
+// CARD CONTAINER
+// Used by subscribe, follow, start
+export const CardContainer = styled(FlexCenter)`
   width: clamp(272px, 100%, 455px);
-  border-radius: 1.5rem;
+  border-radius: ${fluid(24, 32)};
   margin-block-end: 1.5rem;
-  overflow: hidden;
-  display: flex;
-  flex-flow: ${(props) => props.flexFlow ?? 'row nowrap'};
-  justify-content: ${(props) => props.justifyContent ?? 'center'};
-  align-items: ${(props) => props.alignItems ?? 'center'};
-
-  // Default card state
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
   box-shadow: ${(props) =>
-    props.flat ? 'none' : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
-  position: ${(props) => (props.flat ? 'static' : 'relative')};
-  z-index: ${(props) => (props.flat ? 1 : 999)};
-
-  transition: all 250ms ease-in-out;
+    props.flat || props.down
+      ? 'none'
+      : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
+  position: ${(props) => (props.flat || props.down ? 'static' : 'relative')};
+  z-index: ${(props) => (props.flat || props.down ? 1 : 999)};
+  transition: all 400ms ease-in-out;
 
   @media (min-width: 768px) {
     width: clamp(280px, 100%, 390px);
@@ -116,7 +104,7 @@ export const CardContainer = styled.div`
 `;
 
 // CARD FEATURED
-// share.js and press.js
+// Used by share, press
 export const CardFeatured = styled(CardContainer)`
   &:hover {
     box-shadow: none;
