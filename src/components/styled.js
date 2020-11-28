@@ -2,6 +2,14 @@ import styled from 'styled-components';
 
 import { fluid } from '../utils/fluid';
 
+// LAYOUT
+
+export const FlexCenter = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+`;
+
 export const CardTitle = styled.div`
   display: flex;
   flex-flow: row nowrap;
