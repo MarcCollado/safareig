@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { Element, scroller } from 'react-scroll';
+import scrollToElement from 'scroll-to-element';
 
 import {
   CardStart,
@@ -92,6 +92,7 @@ const Episode = ({
   setExpandedEpisodeRef,
 }) => {
   const [expand, setExpand] = useState(false);
+  const episodeRef = useRef();
 
   useEffect(() => {
     const thisEpNum = parseInt(episodeNumber);
@@ -101,21 +102,19 @@ const Episode = ({
     } else if (expEpRef !== thisEpNum) {
       setExpand(false);
     }
-  }, [setExpandedEpisodeRef]);
+  }, [setExpandedEpisodeRef, expandedEpisodeRef, episodeNumber, expand]);
 
   const handleOnClick = () => {
     if (!expand) {
       setExpandedEpisodeRef(parseInt(episodeNumber));
-      setTimeout(
-        () =>
-          scroller.scrollTo(episodeNumber, {
-            duration: 1500,
-            delay: 50,
-            smooth: true,
-            offset: -16,
-          }),
-        25
-      );
+      setTimeout(() => {
+        scrollToElement(episodeRef.current, {
+          offset: -16,
+          // ease options: https://github.com/component/ease
+          ease: 'inOutCube',
+          duration: 1500,
+        });
+      }, 10);
     } else {
       setExpandedEpisodeRef(parseInt(0));
     }
@@ -127,34 +126,33 @@ const Episode = ({
       alignItems="flex-start"
       flat={!expand}
       expand={expand}
+      ref={episodeRef}
     >
-      <Element name={episodeNumber}>
-        <InnerCardContainer>
-          <Link to={'/'} onClick={() => handleOnClick()}>
-            <EpisodeDate>{date}</EpisodeDate>
-            <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
-            <p>{description}</p>
-          </Link>
-          <Audio
-            hide={!expand}
-            controls
-            src={audioFile}
-            type="audio/mpeg"
-          ></Audio>
-          <ShowNotes
-            hide={!expand}
-            dangerouslySetInnerHTML={{ __html: showNotes }}
-          ></ShowNotes>
-          <Link to={'/'} onClick={() => handleOnClick()}>
-            <SimpleLinkContainer>
-              <SimpleLink>
-                {!expand ? `Escolta Episodi` : `Tancar Episodi`}
-              </SimpleLink>
-              <Chevron />
-            </SimpleLinkContainer>
-          </Link>
-        </InnerCardContainer>
-      </Element>
+      <InnerCardContainer>
+        <Link to={'/'} onClick={() => handleOnClick()}>
+          <EpisodeDate>{date}</EpisodeDate>
+          <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
+          <p>{description}</p>
+        </Link>
+        <Audio
+          hide={!expand}
+          controls
+          src={audioFile}
+          type="audio/mpeg"
+        ></Audio>
+        <ShowNotes
+          hide={!expand}
+          dangerouslySetInnerHTML={{ __html: showNotes }}
+        ></ShowNotes>
+        <Link to={'/'} onClick={() => handleOnClick()}>
+          <SimpleLinkContainer>
+            <SimpleLink>
+              {!expand ? `Escolta Episodi` : `Tancar Episodi`}
+            </SimpleLink>
+            <Chevron />
+          </SimpleLinkContainer>
+        </Link>
+      </InnerCardContainer>
     </CardEpisode>
   );
 };
