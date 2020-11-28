@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { Element, scroller } from 'react-scroll';
 
 import {
   CardStart,
@@ -105,6 +106,16 @@ const Episode = ({
   const handleOnClick = () => {
     if (!expand) {
       setExpandedEpisodeRef(parseInt(episodeNumber));
+      setTimeout(
+        () =>
+          scroller.scrollTo(episodeNumber, {
+            duration: 1500,
+            delay: 50,
+            smooth: true,
+            offset: -16,
+          }),
+        25
+      );
     } else {
       setExpandedEpisodeRef(parseInt(0));
     }
@@ -117,31 +128,33 @@ const Episode = ({
       flat={!expand}
       expand={expand}
     >
-      <InnerCardContainer>
-        <Link to={'/'} onClick={() => handleOnClick()}>
-          <EpisodeDate>{date}</EpisodeDate>
-          <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
-          <p>{description}</p>
-        </Link>
-        <Audio
-          hide={!expand}
-          controls
-          src={audioFile}
-          type="audio/mpeg"
-        ></Audio>
-        <ShowNotes
-          hide={!expand}
-          dangerouslySetInnerHTML={{ __html: showNotes }}
-        ></ShowNotes>
-        <Link to={'/'} onClick={() => handleOnClick()}>
-          <SimpleLinkContainer>
-            <SimpleLink>
-              {!expand ? `Escolta Episodi` : `Tancar Episodi`}
-            </SimpleLink>
-            <Chevron />
-          </SimpleLinkContainer>
-        </Link>
-      </InnerCardContainer>
+      <Element name={episodeNumber}>
+        <InnerCardContainer>
+          <Link to={'/'} onClick={() => handleOnClick()}>
+            <EpisodeDate>{date}</EpisodeDate>
+            <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
+            <p>{description}</p>
+          </Link>
+          <Audio
+            hide={!expand}
+            controls
+            src={audioFile}
+            type="audio/mpeg"
+          ></Audio>
+          <ShowNotes
+            hide={!expand}
+            dangerouslySetInnerHTML={{ __html: showNotes }}
+          ></ShowNotes>
+          <Link to={'/'} onClick={() => handleOnClick()}>
+            <SimpleLinkContainer>
+              <SimpleLink>
+                {!expand ? `Escolta Episodi` : `Tancar Episodi`}
+              </SimpleLink>
+              <Chevron />
+            </SimpleLinkContainer>
+          </Link>
+        </InnerCardContainer>
+      </Element>
     </CardEpisode>
   );
 };
