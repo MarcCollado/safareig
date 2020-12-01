@@ -40,7 +40,7 @@ const EpisodeLink = (episode) => {
   return (
     <Link to={'/'} key={episode.id}>
       <FeatEpisodeContainer>
-        <p style={{ fontWeight: 'bold' }}>
+        <p style={{ fontWeight: '600' }}>
           {`${episode.episodeNumber}: ${episode.title}`}
         </p>
         <StyledChevron />
