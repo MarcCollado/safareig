@@ -111,9 +111,7 @@ const Follow = () => {
           <FollowSvg />
           <h2>Segueix als Hosts</h2>
         </CardTitle>
-        <p>
-          Nos siguis tímid, connecta amb nosaltres, i fem Safareig tots plegats.
-        </p>
+        <p>No siguis tímid, connecta amb nosaltres i fem Safareig plegats.</p>
         {generateHostsList}
       </InnerCardContainer>
     </CardContainer>
