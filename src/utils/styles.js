@@ -1,6 +1,13 @@
 import 'typeface-inter';
 import { createGlobalStyle } from 'styled-components';
 
+/* font-weight
+  h1: 800
+  h2 & h3: 600
+  p & a: 400
+  pods & feats & links: p & 600
+*/
+
 const GlobalStyles = createGlobalStyle`
   :root {
     --white: #FFFFFF;
@@ -48,7 +55,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h2 {
-    font-weight: bold;
+    font-weight: 800;
     font-size: 20px;
 
     @media (min-width: 768px) {
@@ -61,7 +68,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h3 {
-    font-weight: bold;
+    font-weight: 800;
     font-size: 20px;
 
     @media (min-width: 768px) {
