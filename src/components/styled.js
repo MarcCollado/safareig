@@ -120,6 +120,6 @@ export const CardFeatured = styled(CardContainer)`
 // start.js
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
-    width: clamp(400px, 100%, 745px);
+    width: clamp(400px, 100%, 780px);
   }
 `;
