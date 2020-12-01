@@ -31,6 +31,7 @@ const StyledChevron = styled(ChevronRight)`
   width: 1.75rem;
   // float right
   margin-inline-start: auto;
+  margin-inline-end: -0.25rem;
 `;
 
 // Main components
