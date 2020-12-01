@@ -17,6 +17,10 @@ import { fluid } from '../utils/fluid';
 const CardEpisode = styled(CardStart)`
   background-color: ${(props) =>
     props.expand ? 'var(--white)' : 'var(--gray)'};
+  box-shadow: ${(props) =>
+    props.expand
+      ? '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'
+      : 'none'};
   position: ${(props) => (props.expand ? 'relative' : 'static')};
   z-index: ${(props) => (props.expand ? '999' : '1')};
 
@@ -25,11 +29,9 @@ const CardEpisode = styled(CardStart)`
   }
 
   &:hover {
-    box-shadow: none;
     background-color: var(--white);
-    box-shadow: 2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18);
     position: relative;
-    z-index: 999;
+    z-index: 998;
 
     & div svg:last-child {
       transform: rotate(${(props) => (props.expand ? '-90deg' : '90deg')});
