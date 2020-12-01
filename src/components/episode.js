@@ -41,7 +41,7 @@ const CardEpisode = styled(CardStart)`
 
 const EpisodeDate = styled.p`
   margin: 0rem;
-  font-weight: bold;
+  font-weight: 800;
   letter-spacing: -1px;
   opacity: 0.5;
   color: var(--black);
