@@ -43,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     @media (min-width: 1080px) {
-      font-size: 3rem;
+      font-size: 4rem;
     }
   }
 
