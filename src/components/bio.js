@@ -46,8 +46,12 @@ const LinksContainer = styled.div`
 const Description = styled.p`
   // correct for <p> default block margin
   margin-block-start: 0.75rem;
-  font-size: ${fluid(17, 24, 576)};
+  font-size: ${fluid(17, 28, 576)};
   line-height: 1.67;
+
+  @media (min-width: 768px) {
+    line-height: 1.5;
+  }
 `;
 
 // Main components
