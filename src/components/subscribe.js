@@ -25,6 +25,7 @@ const PodcastItemContainer = styled.div`
 
   & p {
     margin-inline-start: 1rem;
+    font-weight: 600;
   }
 
   &:hover {
