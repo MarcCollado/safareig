@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 
 /* font-weight
   h1: 800
-  h2 & h3: 600
-  p & a: 400
+  h2: 700
+  p: 400
   pods & feats & links: p & 600
 */
 
@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3 {
+  h1, h2 {
     // reset default margins
     margin: 0rem;
     font-family: inter, sans-serif;
@@ -43,32 +43,19 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 1.75rem;
+    font-size: 28rem;
 
     @media (min-width: 768px) {
-      font-size: 2rem;
+      font-size: 32px;
     }
 
     @media (min-width: 1080px) {
-      font-size: 4rem;
+      font-size: 56px;
     }
   }
 
   h2 {
-    font-weight: 800;
-    font-size: 20px;
-
-    @media (min-width: 768px) {
-      font-size: 16px;
-    }
-
-    @media (min-width: 1080px) {
-      font-size: 20px;
-    }
-  }
-
-  h3 {
-    font-weight: 800;
+    font-weight: 700;
     font-size: 20px;
 
     @media (min-width: 768px) {
