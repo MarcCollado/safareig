@@ -22,6 +22,10 @@ const FeatEpisodeContainer = styled.div`
   align-items: center;
   transition: all 250ms ease-in-out;
 
+  & p {
+    font-weight: 600;
+  }
+
   &:hover {
     background-color: var(--gray);
   }
@@ -40,9 +44,7 @@ const EpisodeLink = (episode) => {
   return (
     <Link to={'/'} key={episode.id}>
       <FeatEpisodeContainer>
-        <p style={{ fontWeight: '600' }}>
-          {`${episode.episodeNumber}: ${episode.title}`}
-        </p>
+        <p>{`${episode.episodeNumber}: ${episode.title}`}</p>
         <StyledChevron />
       </FeatEpisodeContainer>
     </Link>
