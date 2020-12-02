@@ -51,7 +51,7 @@ const EpisodeDate = styled.p`
   }
 `;
 
-const EpisodeTitle = styled.h3`
+const EpisodeTitle = styled.h2`
   margin-block-start: 1rem;
   margin-block-end: -0.25rem;
 `;
@@ -106,9 +106,9 @@ const Episode = ({
     }
   }, [setExpandedEpisodeRef, expandedEpisodeRef, episodeNumber, expand]);
 
-  const handleOnClick = () => {
+  const handleOnClick = (n = episodeNumber) => {
     if (!expand) {
-      setExpandedEpisodeRef(parseInt(episodeNumber));
+      setExpandedEpisodeRef(parseInt(n));
       setTimeout(() => {
         scrollToElement(episodeRef.current, {
           offset: -16,
