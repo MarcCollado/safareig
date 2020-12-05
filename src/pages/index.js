@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -12,63 +11,20 @@ import SEO from '../components/seo';
 import Share from '../components/share';
 import Start from '../components/start';
 import Subscribe from '../components/subscribe';
-import { FlexCenter } from '../components/styled';
-import { fluid } from '../utils/fluid';
-
-const GlobalContainer = styled(FlexCenter)`
-  margin: 1.5rem;
-
-  @media (min-width: 768px) {
-    margin: ${fluid(32, 112)};
-  }
-`;
-
-const HeaderContainer = styled(FlexCenter)`
-  margin-block-end: 2rem;
-
-  @media (min-width: 768px) {
-    flex-flow: row-reverse nowrap;
-    justify-content: space-between;
-  }
-`;
-
-const MainContainer = styled(FlexCenter)`
-  @media (min-width: 768px) {
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-`;
-
-const LeftPanelContainer = styled(FlexCenter)`
-  @media (min-width: 768px) {
-    min-width: 280px;
-    // 1/2 space from DesktopEpisodeContainer
-    margin-inline-end: ${fluid(12, 22)};
-    display: block;
-  }
-`;
-
-const MobileEpisodesContainer = styled(FlexCenter)`
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
-const DesktopEpisodesContainer = styled(FlexCenter)`
-  display: none;
-
-  @media (min-width: 768px) {
-    // 1/2 inner space from LeftPanelContainer
-    margin-inline-start: ${fluid(12, 22)};
-    display: block;
-  }
-`;
+import {
+  GlobalContainer,
+  HeaderContainer,
+  MainContainer,
+  LeftPanelContainer,
+  MobileEpisodesContainer,
+  DesktopEpisodesContainer,
+} from '../utils/containers';
 
 const IndexPage = ({ data, location }) => {
   const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
 
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const siteTitle =
+    data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
   const episodes = data.allFeedSafareigFm?.nodes;
   // const totalCount = data.allFeedSafareigFm?.totalCount;
 
