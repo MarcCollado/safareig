@@ -1,16 +1,9 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ pageTitle, pageDescription, meta }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,6 +11,12 @@ const SEO = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
+            image
+            siteUrl
+            author {
+              name
+            }
+            language
             social {
               twitter
             }
@@ -25,67 +24,55 @@ const SEO = ({ description, lang, meta, title }) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const title = pageTitle || site.siteMetadata?.title;
+  const description = pageDescription || site.siteMetadata?.description;
+  const image = site.siteMetadata?.image;
+  const url = site.siteMetadata?.siteUrl;
+  const author = site.siteMetadata?.author.name;
+  const language = site.siteMetadata?.language || `ca`;
+  const twitter = site.siteMetadata?.social.twitter;
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
+        // HTML TAGS — https://gist.github.com/whitingx/3840905
+        { name: `description`, content: description },
+        { name: `image`, content: image },
+        { name: `language`, content: language },
+        { name: `url`, content: url },
+        { name: `author`, content: author },
+
+        // OG TAGS — https://opengraphprotocol.org
+        { property: `og:url`, content: url },
+        { property: `og:title`, content: title },
+        { property: `og:description`, content: description },
+        { property: `og:image`, content: image },
+        { property: `og:type`, content: `website` },
+
+        // TWITTER CARD
+        { name: `twitter:card`, content: `summary_large_image` },
+        { name: `twitter:creator`, content: twitter },
+        { name: `twitter:title`, content: title },
+        { name: `twitter:description`, content: description },
+        { name: `twitter:image`, content: image },
       ].concat(meta)}
     />
-  )
-}
+  );
+};
 
 SEO.defaultProps = {
-  lang: `en`,
+  pageTitle: `Safareig | El teu podcast en català`,
+  pageDescription: ``,
   meta: [],
-  description: ``,
-}
+};
 
 SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
+  pageTitle: PropTypes.string.isRequired,
+  pageDescription: PropTypes.string.isRequired,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
+};
 
-export default SEO
+export default SEO;
