@@ -65,7 +65,7 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <GlobalContainer>
-      <SEO location={location} title={siteTitle} />
+      <SEO location={location} pageTitle={siteTitle} />
       <HeaderContainer>
         <Cover />
         <Bio />
