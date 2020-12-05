@@ -62,28 +62,33 @@ const Bio = () => {
     query BioQuery {
       site {
         siteMetadata {
-          title
+          header
           description
+          social {
+            twitter
+            email
+          }
         }
       }
     }
   `);
 
-  const title = data.site.siteMetadata?.title;
+  const header = data.site.siteMetadata?.header;
   const description = data.site.siteMetadata?.description;
-
+  const twitter = data.site.siteMetadata?.social.twitter;
+  const email = data.site.siteMetadata?.social.email;
   return (
     <BioContainer>
-      <h1>{title}</h1>
+      <h1>{header}</h1>
       <Description>{description}</Description>
       <LinksContainer>
-        <a href={'https://twitter.com/safareigfm'}>
+        <a href={twitter}>
           <SimpleLinkContainer>
             <SimpleLink>Segueix-nos</SimpleLink>
             <Chevron />
           </SimpleLinkContainer>
         </a>
-        <a href={'mailto:fes@safareig.fm'}>
+        <a href={`mailto:${email}`}>
           <SimpleLinkContainer>
             <SimpleLink>Contacta'ns</SimpleLink>
             <Chevron />
