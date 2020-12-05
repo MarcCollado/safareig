@@ -43,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 28rem;
+    font-size: 28px;
 
     @media (min-width: 768px) {
       font-size: 32px;
