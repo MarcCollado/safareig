@@ -4,14 +4,18 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: `Safareig FM`,
+    header: `Safareig`,
+    title: `Safareig | El teu podcast en català`,
     description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
+    image: `content/assets/meta.png`,
     siteUrl: `https://www.safareig.fm`,
     author: {
       name: `Ramon Gilabert & Marc Collado`,
     },
+    language: `ca`,
     social: {
       twitter: `https://twitter.com/safareigfm`,
+      email: `fes@safareig.fm`,
     },
   },
   plugins: [
@@ -58,8 +62,8 @@ export default {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Safareig FM`,
-        short_name: `safareig.fm`,
+        name: `Safareig | El teu podcast en català`,
+        short_name: `Safareig`,
         start_url: `/`,
         background_color: `#FFFFFF`,
         theme_color: `#32C5FF`,
