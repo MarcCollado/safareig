@@ -28,7 +28,7 @@ const SEO = ({ pageTitle, pageDescription, meta }) => {
 
   const title = pageTitle || site.siteMetadata?.title;
   const description = pageDescription || site.siteMetadata?.description;
-  const image = `https://www.safareig.co/meta.png`;
+  const image = `${site.siteMetadata?.siteUrl}/meta.png`;
   const url = site.siteMetadata?.siteUrl;
   const author = site.siteMetadata?.author.name;
   const language = site.siteMetadata?.language || `ca`;
