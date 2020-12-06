@@ -60,6 +60,20 @@ export default {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'G-RGG07X5FP0',
+        head: false,
+        // anonymize: true,
+        // respectDNT: true,
+        // exclude: ["/**/*", "/"],
+        // optimizeId: 'LE_OPTIMIZE_TRACKING_ID',
+        // experimentId: 'GOOGLE_EXPERIMENT_ID',
+        // variationId: 'GOOGLE_OPTIMIZE_VARIATION_ID',
+        defer: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Safareig | El teu podcast en català`,
@@ -71,6 +85,8 @@ export default {
         icon: `content/assets/favicon.png`,
       },
     },
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-react-svg',
@@ -90,8 +106,5 @@ export default {
         token: process.env.SANITY_TOKEN,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
