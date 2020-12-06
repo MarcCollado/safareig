@@ -15,7 +15,7 @@ export default {
     language: `ca`,
     social: {
       twitter: `https://twitter.com/safareigfm`,
-      email: `fes@safareig.fm`,
+      email: `fem@safareig.fm`,
     },
   },
   plugins: [
