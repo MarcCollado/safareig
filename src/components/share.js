@@ -14,7 +14,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 const Share = ({ down }) => (
   <CardFeatured down={down}>
-    <a href={'mailto:fes@safareig.fm'}>
+    <a href={'mailto:fem@safareig.fm'}>
       <InnerCardContainer>
         <CardTitle>
           <ShareIcon />
