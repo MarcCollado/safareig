@@ -62,7 +62,12 @@ const StyledChevron = styled(ChevronRight)`
 
 const TwitterLink = (id, avatar, twitterHandle, name) => {
   return (
-    <a href={`https://twitter.com/${twitterHandle}`} key={id}>
+    <a
+      href={`https://twitter.com/${twitterHandle}`}
+      target="_blank"
+      rel="noreferrer"
+      key={id}
+    >
       <TwitterItemContainer>
         <StyledAvatar fluid={avatar}></StyledAvatar>
         <div>

@@ -144,7 +144,12 @@ const Episode = ({
         ></Audio>
         <ShowNotes
           hide={!expand}
-          dangerouslySetInnerHTML={{ __html: showNotes }}
+          dangerouslySetInnerHTML={{
+            __html: showNotes.replace(
+              /href/g,
+              "target='_blank' rel='noreferrer' href"
+            ),
+          }}
         ></ShowNotes>
         <Link to={'/'} onClick={() => handleOnClick()}>
           <SimpleLinkContainer>

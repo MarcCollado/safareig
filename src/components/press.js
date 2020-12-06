@@ -14,7 +14,11 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 const Press = () => (
   <CardFeatured flat>
-    <a href="https://www.icloud.com/iclouddrive/0iobVuMuVWWs5pBiSTMLbtvgQ">
+    <a
+      href="https://www.icloud.com/iclouddrive/0iobVuMuVWWs5pBiSTMLbtvgQ"
+      target="_blank"
+      rel="noreferrer"
+    >
       <InnerCardContainer>
         <CardTitle>
           <PressKitIcon />

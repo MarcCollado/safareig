@@ -82,7 +82,7 @@ const Bio = () => {
       <h1>{header}</h1>
       <Description>{description}</Description>
       <LinksContainer>
-        <a href={twitter}>
+        <a href={twitter} target="_blank" rel="noreferrer">
           <SimpleLinkContainer>
             <SimpleLink>Segueix-nos</SimpleLink>
             <Chevron />

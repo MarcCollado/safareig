@@ -56,7 +56,7 @@ const StyledChevron = styled(ChevronRight)`
 
 const PodcastLink = (id, art, link, name) => {
   return (
-    <a href={link} key={id}>
+    <a href={link} target="_blank" rel="noreferrer" key={id}>
       <PodcastItemContainer>
         <StyledImage fluid={art}></StyledImage>
         <p>{name}</p>
