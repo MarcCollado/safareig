@@ -62,7 +62,7 @@ export default {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'G-RGG07X5FP0',
+        trackingId: 'UA-184751048-1',
         head: false,
         // anonymize: true,
         // respectDNT: true,
