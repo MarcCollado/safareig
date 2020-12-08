@@ -30,24 +30,14 @@ export const MainContainer = styled(FlexCenter)`
 export const LeftPanelContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     min-width: 280px;
-    // 1/2 space from DesktopEpisodeContainer
+    // 1/2 space from EpisodeContainer
     margin-inline-end: ${fluid(12, 22)};
-    display: block;
   }
 `;
 
-export const MobileEpisodesContainer = styled(FlexCenter)`
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
-export const DesktopEpisodesContainer = styled(FlexCenter)`
-  display: none;
-
+export const EpisodesContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     // 1/2 inner space from LeftPanelContainer
     margin-inline-start: ${fluid(12, 22)};
-    display: block;
   }
 `;
