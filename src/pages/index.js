@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+import { useMediaQuery } from 'react-responsive';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -16,13 +17,12 @@ import {
   HeaderContainer,
   MainContainer,
   LeftPanelContainer,
-  MobileEpisodesContainer,
-  DesktopEpisodesContainer,
+  EpisodesContainer,
 } from '../utils/containers';
 
 const IndexPage = ({ data, location }) => {
   const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
-
+  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const siteTitle =
     data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
   const episodes = data.allFeedSafareigFm?.nodes;
@@ -73,7 +73,23 @@ const IndexPage = ({ data, location }) => {
       <MainContainer>
         <LeftPanelContainer>
           <Subscribe />
-          <MobileEpisodesContainer>
+          {!isDesktop && (
+            <EpisodesContainer>
+              <Start
+                down={expandedEpisodeRef !== 0}
+                setExpandedEpisodeRef={(number) => {
+                  setExpandedEpisodeRef(number);
+                }}
+              />
+              {renderEpisodes(episodes)}
+            </EpisodesContainer>
+          )}
+          <Share down={expandedEpisodeRef !== 0} />
+          <Follow />
+          <Press />
+        </LeftPanelContainer>
+        {isDesktop && (
+          <EpisodesContainer>
             <Start
               down={expandedEpisodeRef !== 0}
               setExpandedEpisodeRef={(number) => {
@@ -81,20 +97,8 @@ const IndexPage = ({ data, location }) => {
               }}
             />
             {renderEpisodes(episodes)}
-          </MobileEpisodesContainer>
-          <Share down={expandedEpisodeRef !== 0} />
-          <Follow />
-          <Press />
-        </LeftPanelContainer>
-        <DesktopEpisodesContainer>
-          <Start
-            down={expandedEpisodeRef !== 0}
-            setExpandedEpisodeRef={(number) => {
-              setExpandedEpisodeRef(number);
-            }}
-          />
-          {renderEpisodes(episodes)}
-        </DesktopEpisodesContainer>
+          </EpisodesContainer>
+        )}
       </MainContainer>
       <Footer />
     </GlobalContainer>
