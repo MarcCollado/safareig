@@ -40,18 +40,7 @@ const StyledChevron = styled(ChevronRight)`
 
 // Main components
 
-const EpisodeLink = (episode) => {
-  return (
-    <Link to={'/'} key={episode.id}>
-      <FeatEpisodeContainer>
-        <p>{`${episode.episodeNumber}: ${episode.title}`}</p>
-        <StyledChevron />
-      </FeatEpisodeContainer>
-    </Link>
-  );
-};
-
-const StartHere = ({ down }) => {
+const StartHere = ({ down, setExpandedEpisodeRef }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query StartHereQuery {
@@ -68,9 +57,18 @@ const StartHere = ({ down }) => {
     }
   `);
 
-  const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) =>
-    EpisodeLink(e)
-  );
+  const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) => {
+    return (
+      <Link to={'/'} key={e.id} onClick={() => handleOnClick(e.episodeNumber)}>
+        <FeatEpisodeContainer>
+          <p>{`${e.episodeNumber}: ${e.title}`}</p>
+          <StyledChevron />
+        </FeatEpisodeContainer>
+      </Link>
+    );
+  });
+
+  const handleOnClick = (n) => setExpandedEpisodeRef(parseInt(n));
 
   return (
     <CardStart down={down}>
