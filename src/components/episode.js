@@ -29,9 +29,12 @@ const CardEpisode = styled(CardStart)`
   }
 
   &:hover {
-    background-color: var(--white);
-    position: relative;
-    z-index: 998;
+    // Handle touch for mobile
+    @media (min-width: 768px) {
+      background-color: var(--white);
+      position: relative;
+      z-index: 998;
+    }
 
     & div svg:last-child {
       transform: rotate(${(props) => (props.expand ? '-90deg' : '90deg')});
@@ -101,25 +104,31 @@ const Episode = ({
     const expEpRef = expandedEpisodeRef;
     if (!expand && expEpRef === thisEpNum) {
       setExpand(true);
+      handleScroll();
     } else if (expEpRef !== thisEpNum) {
       setExpand(false);
     }
   }, [setExpandedEpisodeRef, expandedEpisodeRef, episodeNumber, expand]);
 
+  const handleScroll = (duration = 1500, offset = -16) => {
+    const ref = episodeRef.current;
+    return setTimeout(() => {
+      scrollToElement(ref, {
+        offset: offset,
+        // ease options: https://github.com/component/ease
+        ease: 'inOutCube',
+        duration: duration,
+      });
+    }, 10);
+  };
+
   const handleOnClick = (n = episodeNumber) => {
     if (!expand) {
       setExpandedEpisodeRef(parseInt(n));
-      setTimeout(() => {
-        scrollToElement(episodeRef.current, {
-          offset: -16,
-          // ease options: https://github.com/component/ease
-          ease: 'inOutCube',
-          duration: 1500,
-        });
-      }, 10);
     } else {
       setExpandedEpisodeRef(parseInt(0));
     }
+    handleScroll();
   };
 
   return (
