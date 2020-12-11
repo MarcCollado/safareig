@@ -83,7 +83,7 @@ export const InnerCardContainer = styled.div`
 `;
 
 // CARD CONTAINER
-// Used by subscribe, follow, start
+// Used by subscribe, follow, *start*
 export const CardContainer = styled(FlexCenter)`
   width: clamp(272px, 100%, 455px);
   border-radius: ${fluid(24, 32)};
@@ -95,7 +95,7 @@ export const CardContainer = styled(FlexCenter)`
       : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
   position: ${(props) => (props.flat || props.down ? 'static' : 'relative')};
   z-index: ${(props) => (props.flat || props.down ? 1 : 999)};
-  transition: all 400ms ease-in-out;
+  transition: all 500ms ease-in-out;
 
   @media (min-width: 768px) {
     width: clamp(280px, 100%, 390px);
@@ -119,7 +119,7 @@ export const CardFeatured = styled(CardContainer)`
 `;
 
 // CARD START
-// start.js
+// Used by start, *episode*
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
     width: clamp(400px, 100%, 780px);
