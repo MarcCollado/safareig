@@ -44,7 +44,11 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query StartHereQuery {
-      allSanityEpisode(filter: { isFeatured: { eq: true } }, limit: 3) {
+      allSanityEpisode(
+        filter: { isFeatured: { eq: true } }
+        sort: { fields: episodeNumber, order: DESC }
+        limit: 3
+      ) {
         nodes {
           id
           episodeNumber
