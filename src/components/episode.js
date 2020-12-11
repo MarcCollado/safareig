@@ -150,6 +150,7 @@ const Episode = ({
           controls
           src={audioFile}
           type="audio/mpeg"
+          preload="none"
         ></Audio>
         <ShowNotes
           hide={!expand}
