@@ -109,7 +109,7 @@ const Episode = ({
     }
   }, [setExpandedEpisodeRef, expandedEpisodeRef, episodeNumber, expand]);
 
-  const handleScroll = (duration = 1500, offset = -16) => {
+  const handleScroll = (duration = 1000, offset = -16) => {
     const ref = episodeRef.current;
     return setTimeout(() => {
       scrollToElement(ref, {
