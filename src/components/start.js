@@ -26,8 +26,10 @@ const FeatEpisodeContainer = styled.div`
     font-weight: 600;
   }
 
-  &:hover {
-    background-color: var(--gray);
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: var(--gray);
+    }
   }
 `;
 

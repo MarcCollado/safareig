@@ -26,13 +26,13 @@ const TwitterItemContainer = styled.div`
     margin-inline-start: 1rem;
   }
 
-  &:hover {
-    background-color: var(--white);
-  }
-
   @media (min-width: 768px) {
     margin-block-end: ${fluid(0, 22)};
     padding: ${fluid(4, 8)} ${fluid(12, 12)};
+
+    &:hover {
+      background-color: var(--white);
+    }
   }
 `;
 
@@ -72,7 +72,7 @@ const TwitterLink = (id, avatar, twitterHandle, name) => {
         <StyledAvatar fluid={avatar}></StyledAvatar>
         <div>
           <p>{name}</p>
-          <TwitterHandle>{twitterHandle}</TwitterHandle>
+          <TwitterHandle>{`@${twitterHandle}`}</TwitterHandle>
         </div>
         <StyledChevron />
       </TwitterItemContainer>

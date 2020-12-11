@@ -28,12 +28,12 @@ const PodcastItemContainer = styled.div`
     font-weight: 600;
   }
 
-  &:hover {
-    background-color: var(--white);
-  }
-
   @media (min-width: 768px) {
     margin-block-end: ${fluid(0, 20)};
+
+    &:hover {
+      background-color: var(--white);
+    }
   }
 `;
 

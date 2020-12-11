@@ -26,13 +26,13 @@ export const SimpleLinkContainer = styled.div`
     transition: all 250ms ease-in-out;
   }
 
-  &:hover > svg {
-    transform: translateX(0.25rem);
-  }
-
   @media (min-width: 768px) {
     & > svg {
       margin-inline-start: ${fluid(8, 16)};
+    }
+
+    &:hover > svg {
+      transform: translateX(0.25rem);
     }
   }
 `;
@@ -106,12 +106,14 @@ export const CardContainer = styled(FlexCenter)`
 // CARD FEATURED
 // Used by share, press
 export const CardFeatured = styled(CardContainer)`
-  &:hover {
-    box-shadow: none;
-    background-color: var(--white);
+  @media (min-width: 768px) {
+    &:hover {
+      box-shadow: none;
+      background-color: var(--white);
 
-    & div svg:last-child {
-      transform: translateX(0.25rem);
+      & div svg:last-child {
+        transform: translateX(0.25rem);
+      }
     }
   }
 `;

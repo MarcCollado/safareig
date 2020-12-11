@@ -28,16 +28,15 @@ const CardEpisode = styled(CardStart)`
     transform: rotate(${(props) => (props.expand ? '-90deg' : '0deg')});
   }
 
-  &:hover {
-    // Handle touch for mobile
-    @media (min-width: 768px) {
+  @media (min-width: 768px) {
+    &:hover {
       background-color: var(--white);
       position: relative;
       z-index: 998;
-    }
 
-    & div svg:last-child {
-      transform: rotate(${(props) => (props.expand ? '-90deg' : '90deg')});
+      & div svg:last-child {
+        transform: rotate(${(props) => (props.expand ? '-90deg' : '90deg')});
+      }
     }
   }
 `;
