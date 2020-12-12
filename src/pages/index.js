@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
+import { useLocation } from '@reach/router';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -20,8 +21,25 @@ import {
   EpisodesContainer,
 } from '../utils/containers';
 
-const IndexPage = ({ data, location }) => {
+const usePrevious = (value) => {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+};
+
+const IndexPage = ({ data }) => {
   const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
+  const location = useLocation();
+  const prevLocation = usePrevious(location);
+
+  useEffect(() => {
+    if (location !== prevLocation) {
+      console.log(location.hash);
+    }
+  }, [location, prevLocation]);
+
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const siteTitle =
     data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
