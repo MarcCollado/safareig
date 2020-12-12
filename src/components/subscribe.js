@@ -100,7 +100,7 @@ const Subscribe = () => {
       <InnerCardContainer>
         <CardTitle>
           <SubscribeSvg />
-          <h2>Subscriu-te</h2>
+          <h2>Subscriu-te a Safareig</h2>
         </CardTitle>
         <p>
           Emporta't el Safareig allà on vulguis i no et perdis el següent

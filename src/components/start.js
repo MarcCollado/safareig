@@ -81,7 +81,7 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
       <InnerCardContainer>
         <CardTitle>
           <StartHereSvg />
-          <h2>Comença Aquí</h2>
+          <h2>Comença Escoltant Aquests Episodis</h2>
         </CardTitle>
         <p>
           És difícil començar a escoltar un podcast, i sempre hi ha episodis que
