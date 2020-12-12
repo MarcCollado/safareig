@@ -93,6 +93,12 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
     text-decoration: none;
 
+    @media (min-width: 768px) {
+    &:hover {
+        color: var(--darkBlue)
+      }
+    }
+
     @media (min-width: 1080px) {
       font-size: 1.25rem;
     }
