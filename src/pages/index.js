@@ -34,11 +34,11 @@ const IndexPage = ({ data }) => {
   const location = useLocation();
   const prevLocation = usePrevious(location);
 
-  useEffect(() => {
-    if (location !== prevLocation) {
-      console.log(location.hash);
-    }
-  }, [location, prevLocation]);
+  // useEffect(() => {
+  //   if (location !== prevLocation) {
+  //     console.log(location.hash);
+  //   }
+  // }, [location, prevLocation]);
 
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const siteTitle =
