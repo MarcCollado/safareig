@@ -1,5 +1,5 @@
-# safareig
+# Safareig
 
-El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta.
+[![readme-cover](./static/meta.png)](https://www.safareig.fm/)
 
-Sanity GraphQL API: `https://g34v195l.api.sanity.io/v1/graphql/production/default`
+El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.
