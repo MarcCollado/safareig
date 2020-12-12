@@ -95,7 +95,7 @@ export const CardContainer = styled(FlexCenter)`
       : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
   position: ${(props) => (props.flat || props.down ? 'static' : 'relative')};
   z-index: ${(props) => (props.flat || props.down ? 1 : 999)};
-  transition: all 500ms ease-in-out;
+  transition: all 300ms ease;
 
   @media (min-width: 768px) {
     width: clamp(280px, 100%, 390px);
