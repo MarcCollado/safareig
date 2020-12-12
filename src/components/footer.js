@@ -26,7 +26,11 @@ const Footer = () => (
     <InLineText>Safareig © {new Date().getFullYear()}</InLineText>
     <br />
     <InLineText>Explora el </InLineText>
-    <InLineLink href="https://github.com/MarcCollado/safareig">
+    <InLineLink
+      target="_blank"
+      rel="noreferrer"
+      href="https://github.com/MarcCollado/safareig"
+    >
       codi de la pàgina
     </InLineLink>
   </FooterContainer>
