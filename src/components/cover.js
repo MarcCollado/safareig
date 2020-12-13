@@ -28,7 +28,7 @@ export const CardCover = styled.div`
   transition: all 300ms ease;
 
   transform: scale(1) rotate(-2deg);
-  animation: ${scaleAndRotate} 2s ease-in-out 0s infinite alternate;
+  animation: ${scaleAndRotate} 4s ease-in-out 0s infinite alternate;
 
   @media (min-width: 768px) {
     width: clamp(280px, 100%, 390px);
