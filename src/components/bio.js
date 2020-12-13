@@ -44,6 +44,10 @@ const LinksContainer = styled.div`
   }
 `;
 
+const BioLinkContainer = styled(SimpleLinkContainer)`
+  padding-block-start: 0px;
+`;
+
 const Description = styled.p`
   // correct for <p> default block margin
   margin-block-start: 0.75rem;
@@ -84,16 +88,16 @@ const Bio = () => {
       <Description>{description}</Description>
       <LinksContainer>
         <a href={twitter} target="_blank" rel="noreferrer">
-          <SimpleLinkContainer>
+          <BioLinkContainer>
             <SimpleLink>Segueix-nos</SimpleLink>
             <Chevron />
-          </SimpleLinkContainer>
+          </BioLinkContainer>
         </a>
         <a href={`mailto:${email}`}>
-          <SimpleLinkContainer>
+          <BioLinkContainer>
             <SimpleLink>Contacta'ns</SimpleLink>
             <Chevron />
-          </SimpleLinkContainer>
+          </BioLinkContainer>
         </a>
       </LinksContainer>
     </BioContainer>

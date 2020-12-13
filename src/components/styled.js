@@ -18,6 +18,7 @@ export const SimpleLinkContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
+  padding-block-start: ${fluid(12, 16)};
 
   & > svg {
     height: auto;
