@@ -102,7 +102,7 @@ const IndexPage = ({ data }) => {
               {renderEpisodes(episodes)}
             </EpisodesContainer>
           )}
-          <Share down={expandedEpisodeRef !== 0} />
+          <Share />
           <Follow />
           <Press />
         </LeftPanelContainer>
