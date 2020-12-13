@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 import { CardStart, CardTitle, InnerCardContainer } from './styled';
@@ -76,12 +77,16 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
 
   const handleOnClick = (n) => setExpandedEpisodeRef(parseInt(n));
 
+  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+
   return (
     <CardStart down={down}>
       <InnerCardContainer>
         <CardTitle>
           <StartHereSvg />
-          <h2>Comença Escoltant Aquests Capítols</h2>
+          <h2>
+            {isDesktop ? `Comença Escoltant Aquests Capítols` : `Comença Aquí`}
+          </h2>
         </CardTitle>
         <p>
           És difícil començar a escoltar un podcast, i sempre hi ha capítols que
