@@ -47,8 +47,7 @@ const StyledAvatar = styled(Img)`
 `;
 
 const TwitterHandle = styled.p`
-  margin-block-start: -1rem;
-  font-size: smaller;
+  margin-block-start: ${fluid(-16, -20)};
   opacity: 0.6;
 `;
 
