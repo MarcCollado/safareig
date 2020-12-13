@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import favicon from '../../static/favicon.png';
+
 const SEO = ({ pageTitle, pageDescription, meta }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -59,7 +61,9 @@ const SEO = ({ pageTitle, pageDescription, meta }) => {
         { name: `twitter:description`, content: description },
         { name: `twitter:image`, content: image },
       ].concat(meta)}
-    />
+    >
+      <link rel="icon" type="image/png" href={favicon} />
+    </Helmet>
   );
 };
 
