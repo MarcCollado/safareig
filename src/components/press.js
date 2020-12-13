@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  CardFeatured,
+  CardRegular,
   CardTitle,
   InnerCardContainer,
   SimpleLinkContainer,
@@ -13,7 +13,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Components
 
 const Press = () => (
-  <CardFeatured flat>
+  <CardRegular>
     <a
       href="https://www.icloud.com/iclouddrive/0iobVuMuVWWs5pBiSTMLbtvgQ"
       target="_blank"
@@ -34,7 +34,7 @@ const Press = () => (
         </SimpleLinkContainer>
       </InnerCardContainer>
     </a>
-  </CardFeatured>
+  </CardRegular>
 );
 
 export default Press;

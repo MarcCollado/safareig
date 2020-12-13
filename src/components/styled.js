@@ -114,10 +114,12 @@ export const CardContainer = styled(FlexCenter)`
 
 // CARD FEATURED
 // Used by share, press
-export const CardFeatured = styled(CardContainer)`
+export const CardRegular = styled(CardContainer)`
+  background-color: var(--gray);
+  box-shadow: none;
+
   @media (min-width: 768px) {
     &:hover {
-      box-shadow: none;
       background-color: var(--white);
 
       & div svg:last-child {

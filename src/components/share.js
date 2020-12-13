@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  CardFeatured,
+  CardRegular,
   CardTitle,
   InnerCardContainer,
   SimpleLinkContainer,
@@ -13,7 +13,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Components
 
 const Share = () => (
-  <CardFeatured flat>
+  <CardRegular>
     <a href={'mailto:fem@safareig.fm'}>
       <InnerCardContainer>
         <CardTitle>
@@ -30,7 +30,7 @@ const Share = () => (
         </SimpleLinkContainer>
       </InnerCardContainer>
     </a>
-  </CardFeatured>
+  </CardRegular>
 );
 
 export default Share;
