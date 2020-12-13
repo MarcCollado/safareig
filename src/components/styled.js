@@ -68,7 +68,7 @@ export const CardTitle = styled.div`
   margin-block-end: -6px; // Reset default p block-start margin
 
   & svg {
-    width: 2rem;
+    width: 28px;
     // separate icon from the h2
     margin-inline-end: 0.75rem;
   }
