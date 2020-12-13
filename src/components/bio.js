@@ -29,16 +29,17 @@ const LinksContainer = styled.div`
   }
 
   & svg {
-    width: 4px;
+    height: auto;
+    width: 5px;
   }
 
   & svg path {
     stroke-width: 4;
   }
 
-  @media (min-width: 1080px) {
+  @media (min-width: 768px) {
     & svg {
-      width: 5px;
+      width: 6px;
     }
   }
 `;

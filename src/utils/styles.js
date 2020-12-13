@@ -4,7 +4,8 @@ import { createGlobalStyle } from 'styled-components';
 /* font-weight
   h1: 800
   h2: 700
-  p: 400
+  date: p & 700
+  p & a: 400
   pods & feats & links: p & 600
 */
 

@@ -81,10 +81,10 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
       <InnerCardContainer>
         <CardTitle>
           <StartHereSvg />
-          <h2>Comença Escoltant Aquests Episodis</h2>
+          <h2>Comença Escoltant Aquests Capítols</h2>
         </CardTitle>
         <p>
-          És difícil començar a escoltar un podcast, i sempre hi ha episodis que
+          És difícil començar a escoltar un podcast, i sempre hi ha capítols que
           són més bons. Nosaltres et recomanem aquests:
         </p>
         {generateFeaturedEpisodesList}

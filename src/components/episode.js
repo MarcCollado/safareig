@@ -43,7 +43,7 @@ const CardEpisode = styled(CardStart)`
 
 const EpisodeDate = styled.p`
   margin: 0rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -1px;
   opacity: 0.5;
   color: var(--black);
@@ -163,7 +163,7 @@ const Episode = ({
         <Link to={'/'} onClick={() => handleOnClick()}>
           <SimpleLinkContainer>
             <SimpleLink>
-              {!expand ? `Escolta Episodi` : `Tancar Episodi`}
+              {!expand ? `Escoltar Capítol` : `Tancar Capítol`}
             </SimpleLink>
             <Chevron />
           </SimpleLinkContainer>

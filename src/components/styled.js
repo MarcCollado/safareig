@@ -20,15 +20,24 @@ export const SimpleLinkContainer = styled.div`
   align-self: flex-start;
 
   & > svg {
-    max-height: 0.75rem;
+    height: auto;
+    width: 5px;
+  }
+
+  & > svg path {
+    stroke-width: 4;
+  }
+
+  & > svg {
     margin-block-start: 2px;
-    margin-inline-start: 0.5rem;
+    margin-inline-start: 8px;
     transition: all 250ms ease-in-out;
   }
 
   @media (min-width: 768px) {
     & > svg {
-      margin-inline-start: ${fluid(8, 16)};
+      width: 6px;
+      margin-inline-start: ${fluid(8, 12)};
     }
 
     &:hover > svg {
