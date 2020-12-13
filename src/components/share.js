@@ -13,7 +13,7 @@ import Chevron from '../../content/assets/chevron-right-cta.svg';
 // Components
 
 const Share = ({ down }) => (
-  <CardFeatured down={down}>
+  <CardFeatured flat down={down}>
     <a href={'mailto:fem@safareig.fm'}>
       <InnerCardContainer>
         <CardTitle>
