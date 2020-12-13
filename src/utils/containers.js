@@ -41,3 +41,18 @@ export const EpisodesContainer = styled(FlexCenter)`
     margin-inline-start: ${fluid(12, 22)};
   }
 `;
+
+export const MobileEpisodesContainer = styled(FlexCenter)`
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const DesktopEpisodesContainer = styled(FlexCenter)`
+  display: none;
+  @media (min-width: 768px) {
+    // 1/2 inner space from LeftPanelContainer
+    margin-inline-start: ${fluid(12, 22)};
+    display: block;
+  }
+`;
