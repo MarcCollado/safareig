@@ -55,7 +55,7 @@ const EpisodeDate = styled.p`
 
 const EpisodeTitle = styled.h2`
   margin-block-start: 1rem;
-  margin-block-end: -0.25rem;
+  margin-block-end: -6px; // Reset default p block-start margin
 `;
 
 const Audio = styled.audio`

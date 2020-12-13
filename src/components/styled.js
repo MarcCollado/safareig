@@ -65,6 +65,7 @@ export const CardTitle = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   align-self: flex-start;
+  margin-block-end: -6px; // Reset default p block-start margin
 
   & svg {
     width: 2rem;
