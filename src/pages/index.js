@@ -24,16 +24,14 @@ import {
 const IndexPage = ({ data, location }) => {
   const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
   const [isReady, setIsReady] = useState(false);
+  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
-  const isDesktop = useMediaQuery({ minDeviceWidth: 768 });
+  useEffect(() => setIsReady(true), []);
+
   const siteTitle =
     data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
   const episodes = data.allFeedSafareigFm?.nodes;
   // const totalCount = data.allFeedSafareigFm?.totalCount;
-
-  useEffect(() => {
-    setIsReady(true);
-  }, []);
 
   const renderEpisodes = (episodes) => {
     return episodes.map((episode, i) => {
@@ -70,7 +68,7 @@ const IndexPage = ({ data, location }) => {
     });
   };
 
-  const renderResponsivePage = (isDesktop) => {
+  const renderResponsiveUI = (isDesktop) => {
     return isDesktop ? (
       <>
         <LeftPanelContainer>
@@ -102,7 +100,6 @@ const IndexPage = ({ data, location }) => {
             />
             {renderEpisodes(episodes)}
           </EpisodesContainer>
-          )
           <Share />
           <Follow />
           <Press />
@@ -111,17 +108,7 @@ const IndexPage = ({ data, location }) => {
     );
   };
 
-  return isReady ? (
-    <GlobalContainer>
-      <SEO location={location} pageTitle={siteTitle} />
-      <HeaderContainer>
-        <Cover />
-        <Bio />
-      </HeaderContainer>
-      <MainContainer>{renderResponsivePage(isDesktop)}</MainContainer>
-      <Footer />
-    </GlobalContainer>
-  ) : (
+  return (
     <GlobalContainer>
       <SEO location={location} pageTitle={siteTitle} />
       <HeaderContainer>
@@ -129,15 +116,19 @@ const IndexPage = ({ data, location }) => {
         <Bio />
       </HeaderContainer>
       <MainContainer>
-        <Loader
-          type="Audio"
-          color="#32C5FF"
-          height={100}
-          width={100}
-          timeout={5000}
-        />
+        {isReady ? (
+          renderResponsiveUI(isDesktop)
+        ) : (
+          <Loader
+            type="Audio"
+            color="#32C5FF"
+            height={150}
+            width={250}
+            timeout={5000}
+          />
+        )}
       </MainContainer>
-      <Footer />
+      {isReady && <Footer />}
     </GlobalContainer>
   );
 };
