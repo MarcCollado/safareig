@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
-// import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
+// import Loader from 'react-loader-spinner';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -17,22 +18,20 @@ import {
   HeaderContainer,
   MainContainer,
   LeftPanelContainer,
-  // EpisodesContainer,
-  MobileEpisodesContainer,
-  DesktopEpisodesContainer,
+  EpisodesContainer,
 } from '../utils/containers';
 
 const IndexPage = ({ data, location }) => {
   const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
-  // const isDesktop = useMediaQuery({ minDeviceWidth: 768 });
+  const [isReady, setIsReady] = useState(false);
+  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+
+  useEffect(() => setIsReady(true), []);
+
   const siteTitle =
     data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
   const episodes = data.allFeedSafareigFm?.nodes;
   // const totalCount = data.allFeedSafareigFm?.totalCount;
-
-  // useEffect(() => {
-  //   renderResponsivePage(isDesktop);
-  // }, [isDesktop]);
 
   const renderEpisodes = (episodes) => {
     return episodes.map((episode, i) => {
@@ -69,80 +68,16 @@ const IndexPage = ({ data, location }) => {
     });
   };
 
-  // const renderResponsivePage = (isDesktop) => {
-  //   return isDesktop ? (
-  //     <MainContainer>
-  //       <LeftPanelContainer>
-  //         <Subscribe />
-  //         <Share />
-  //         <Follow />
-  //         <Press />
-  //       </LeftPanelContainer>
-  //       <EpisodesContainer>
-  //         <Start
-  //           down={expandedEpisodeRef !== 0}
-  //           setExpandedEpisodeRef={(number) => {
-  //             setExpandedEpisodeRef(number);
-  //           }}
-  //         />
-  //         {renderEpisodes(episodes)}
-  //       </EpisodesContainer>
-  //     </MainContainer>
-  //   ) : (
-  //     <MainContainer>
-  //       <LeftPanelContainer>
-  //         <Subscribe />
-  //         <EpisodesContainer>
-  //           <Start
-  //             down={expandedEpisodeRef !== 0}
-  //             setExpandedEpisodeRef={(number) => {
-  //               setExpandedEpisodeRef(number);
-  //             }}
-  //           />
-  //           {renderEpisodes(episodes)}
-  //         </EpisodesContainer>
-  //         )
-  //         <Share />
-  //         <Follow />
-  //         <Press />
-  //       </LeftPanelContainer>
-  //     </MainContainer>
-  //   );
-  // };
-
-  return (
-    // <GlobalContainer>
-    //   <SEO location={location} pageTitle={siteTitle} />
-    //   <HeaderContainer>
-    //     <Cover />
-    //     <Bio />
-    //   </HeaderContainer>
-    //   {renderResponsivePage(isDesktop)}
-    //   <Footer />
-    // </GlobalContainer>
-    <GlobalContainer>
-      <SEO location={location} pageTitle={siteTitle} />
-      <HeaderContainer>
-        <Cover />
-        <Bio />
-      </HeaderContainer>
-      <MainContainer>
+  const renderResponsiveUI = (isDesktop) => {
+    return isDesktop ? (
+      <>
         <LeftPanelContainer>
           <Subscribe />
-          <MobileEpisodesContainer>
-            <Start
-              down={expandedEpisodeRef !== 0}
-              setExpandedEpisodeRef={(number) => {
-                setExpandedEpisodeRef(number);
-              }}
-            />
-            {renderEpisodes(episodes)}
-          </MobileEpisodesContainer>
           <Share />
           <Follow />
           <Press />
         </LeftPanelContainer>
-        <DesktopEpisodesContainer>
+        <EpisodesContainer>
           <Start
             down={expandedEpisodeRef !== 0}
             setExpandedEpisodeRef={(number) => {
@@ -150,9 +85,38 @@ const IndexPage = ({ data, location }) => {
             }}
           />
           {renderEpisodes(episodes)}
-        </DesktopEpisodesContainer>
-      </MainContainer>
-      <Footer />
+        </EpisodesContainer>
+      </>
+    ) : (
+      <>
+        <LeftPanelContainer>
+          <Subscribe />
+          <EpisodesContainer>
+            <Start
+              down={expandedEpisodeRef !== 0}
+              setExpandedEpisodeRef={(number) => {
+                setExpandedEpisodeRef(number);
+              }}
+            />
+            {renderEpisodes(episodes)}
+          </EpisodesContainer>
+          <Share />
+          <Follow />
+          <Press />
+        </LeftPanelContainer>
+      </>
+    );
+  };
+
+  return (
+    <GlobalContainer>
+      <SEO location={location} pageTitle={siteTitle} />
+      <HeaderContainer>
+        <Cover />
+        <Bio />
+      </HeaderContainer>
+      <MainContainer>{isReady && renderResponsiveUI(isDesktop)}</MainContainer>
+      {isReady && <Footer />}
     </GlobalContainer>
   );
 };

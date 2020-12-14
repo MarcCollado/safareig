@@ -36,6 +36,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-loader-spinner": "^3.1.14",
     "react-responsive": "^8.2.0",
     "scroll-to-element": "^2.0.3",
     "styled-components": "^5.2.1",
@@ -46,7 +47,7 @@
     "prettier": "2.2.1"
   },
   "scripts": {
-    "build": "NODE_OPTIONS=\"-r esm\" gatsby build",
+    "build": "NODE_OPTIONS=\"-r esm\" GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "NODE_OPTIONS=\"-r esm\" gatsby develop -p 8010",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
