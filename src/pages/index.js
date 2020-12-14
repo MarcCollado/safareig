@@ -24,7 +24,7 @@ import {
 
 const IndexPage = ({ data, location }) => {
   const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+  const isDesktop = useMediaQuery({ minDeviceWidth: 768 });
   const siteTitle =
     data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
   const episodes = data.allFeedSafareigFm?.nodes;
