@@ -31,7 +31,7 @@ const IndexPage = ({ data, location }) => {
   // const totalCount = data.allFeedSafareigFm?.totalCount;
 
   useEffect(() => {
-    renderPage(isDesktop);
+    renderResponsivePage(isDesktop);
   }, [isDesktop]);
 
   const renderEpisodes = (episodes) => {
