@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import scrollToElement from 'scroll-to-element';
+import { useMediaQuery } from 'react-responsive';
 
 import {
   CardStart,
@@ -95,6 +96,7 @@ const Episode = ({
   expandedEpisodeRef,
   setExpandedEpisodeRef,
 }) => {
+  const isDesktop = useMediaQuery({ minDeviceWidth: 768 });
   const [expand, setExpand] = useState(false);
   const episodeRef = useRef();
 
@@ -103,7 +105,7 @@ const Episode = ({
     const expEpRef = expandedEpisodeRef;
     if (!expand && expEpRef === thisEpNum) {
       setExpand(true);
-      handleScroll();
+      isDesktop && handleScroll();
     } else if (expEpRef !== thisEpNum) {
       setExpand(false);
     }
@@ -127,7 +129,7 @@ const Episode = ({
     } else {
       setExpandedEpisodeRef(parseInt(0));
     }
-    handleScroll();
+    isDesktop && handleScroll();
   };
 
   return (
