@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
@@ -29,6 +29,10 @@ const IndexPage = ({ data, location }) => {
     data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
   const episodes = data.allFeedSafareigFm?.nodes;
   // const totalCount = data.allFeedSafareigFm?.totalCount;
+
+  useEffect(() => {
+    renderPage(isDesktop);
+  }, [isDesktop]);
 
   const renderEpisodes = (episodes) => {
     return episodes.map((episode, i) => {
@@ -65,7 +69,57 @@ const IndexPage = ({ data, location }) => {
     });
   };
 
+  const renderResponsivePage = (isDesktop) => {
+    return isDesktop ? (
+      <MainContainer>
+        <LeftPanelContainer>
+          <Subscribe />
+          <Share />
+          <Follow />
+          <Press />
+        </LeftPanelContainer>
+        <EpisodesContainer>
+          <Start
+            down={expandedEpisodeRef !== 0}
+            setExpandedEpisodeRef={(number) => {
+              setExpandedEpisodeRef(number);
+            }}
+          />
+          {renderEpisodes(episodes)}
+        </EpisodesContainer>
+      </MainContainer>
+    ) : (
+      <MainContainer>
+        <LeftPanelContainer>
+          <Subscribe />
+          <EpisodesContainer>
+            <Start
+              down={expandedEpisodeRef !== 0}
+              setExpandedEpisodeRef={(number) => {
+                setExpandedEpisodeRef(number);
+              }}
+            />
+            {renderEpisodes(episodes)}
+          </EpisodesContainer>
+          )
+          <Share />
+          <Follow />
+          <Press />
+        </LeftPanelContainer>
+      </MainContainer>
+    );
+  };
+
   return (
+    <GlobalContainer>
+      <SEO location={location} pageTitle={siteTitle} />
+      <HeaderContainer>
+        <Cover />
+        <Bio />
+      </HeaderContainer>
+      {renderResponsivePage(isDesktop)}
+      <Footer />
+    </GlobalContainer>
     // <GlobalContainer>
     //   <SEO location={location} pageTitle={siteTitle} />
     //   <HeaderContainer>
@@ -100,52 +154,6 @@ const IndexPage = ({ data, location }) => {
     //   </MainContainer>
     //   <Footer />
     // </GlobalContainer>
-    <GlobalContainer>
-      <SEO location={location} pageTitle={siteTitle} />
-      <HeaderContainer>
-        <Cover />
-        <Bio />
-      </HeaderContainer>
-      {isDesktop ? (
-        <MainContainer>
-          <LeftPanelContainer>
-            <Subscribe />
-            <Share />
-            <Follow />
-            <Press />
-          </LeftPanelContainer>
-          <EpisodesContainer>
-            <Start
-              down={expandedEpisodeRef !== 0}
-              setExpandedEpisodeRef={(number) => {
-                setExpandedEpisodeRef(number);
-              }}
-            />
-            {renderEpisodes(episodes)}
-          </EpisodesContainer>
-        </MainContainer>
-      ) : (
-        <MainContainer>
-          <LeftPanelContainer>
-            <Subscribe />
-            <EpisodesContainer>
-              <Start
-                down={expandedEpisodeRef !== 0}
-                setExpandedEpisodeRef={(number) => {
-                  setExpandedEpisodeRef(number);
-                }}
-              />
-              {renderEpisodes(episodes)}
-            </EpisodesContainer>
-            )
-            <Share />
-            <Follow />
-            <Press />
-          </LeftPanelContainer>
-        </MainContainer>
-      )}
-      <Footer />
-    </GlobalContainer>
   );
 };
 
