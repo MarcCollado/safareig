@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
-import Loader from 'react-loader-spinner';
+// import Loader from 'react-loader-spinner';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -115,19 +115,7 @@ const IndexPage = ({ data, location }) => {
         <Cover />
         <Bio />
       </HeaderContainer>
-      <MainContainer>
-        {isReady ? (
-          renderResponsiveUI(isDesktop)
-        ) : (
-          <Loader
-            type="Audio"
-            color="#32C5FF"
-            height={150}
-            width={250}
-            timeout={5000}
-          />
-        )}
-      </MainContainer>
+      <MainContainer>{isReady && renderResponsiveUI(isDesktop)}</MainContainer>
       {isReady && <Footer />}
     </GlobalContainer>
   );
