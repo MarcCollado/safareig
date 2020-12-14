@@ -46,7 +46,7 @@
     "prettier": "2.2.1"
   },
   "scripts": {
-    "build": "NODE_OPTIONS=\"-r esm\" gatsby build",
+    "build": "NODE_OPTIONS=\"-r esm\" GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "NODE_OPTIONS=\"-r esm\" gatsby develop -p 8010",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
