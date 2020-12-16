@@ -52,8 +52,7 @@ const TwitterHandle = styled.p`
 `;
 
 const StyledChevron = styled(ChevronRight)`
-  width: 1.75rem;
-  // float right
+  height: auto;
   margin-inline-start: auto;
 `;
 
