@@ -3,20 +3,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import { SimpleLinkContainer, SimpleLink } from './styled';
+import { BioContainer } from '../utils/containers';
 import Chevron from '../../content/assets/chevron-right-cta.svg';
 import { fluid } from '../utils/fluid';
 
 // Styled components
-
-const BioContainer = styled.div`
-  width: clamp(272px, 100%, 455px);
-
-  @media (min-width: 768px) {
-    width: clamp(400px, 100%, 730px);
-    // 1/2 inner space from CardCover
-    margin-inline-end: ${fluid(16, 32)};
-  }
-`;
 
 const LinksContainer = styled.div`
   display: flex;
@@ -42,10 +33,6 @@ const LinksContainer = styled.div`
       width: 6px;
     }
   }
-`;
-
-const BioLinkContainer = styled(SimpleLinkContainer)`
-  padding-block-start: 0px;
 `;
 
 const Description = styled.p`
@@ -88,16 +75,16 @@ const Bio = () => {
       <Description>{description}</Description>
       <LinksContainer>
         <a href={twitter} target="_blank" rel="noreferrer">
-          <BioLinkContainer>
+          <SimpleLinkContainer>
             <SimpleLink>Segueix-nos</SimpleLink>
             <Chevron />
-          </BioLinkContainer>
+          </SimpleLinkContainer>
         </a>
         <a href={`mailto:${email}`}>
-          <BioLinkContainer>
+          <SimpleLinkContainer>
             <SimpleLink>Contacta'ns</SimpleLink>
             <Chevron />
-          </BioLinkContainer>
+          </SimpleLinkContainer>
         </a>
       </LinksContainer>
     </BioContainer>
