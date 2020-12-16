@@ -51,3 +51,30 @@ export const EpisodesContainer = styled(FlexCenter)`
     margin-inline-start: ${fluid(12, 22)};
   }
 `;
+
+export const FeaturedLinkContainer = styled.div`
+  // make some room at both ends for the hover
+  padding-inline-start: 12px;
+  padding-inline-end: 12px;
+  border-radius: 1rem;
+  margin-inline-start: -12px;
+  margin-inline-end: -12px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  transition: all 250ms ease-in-out;
+
+  & p {
+    margin-block-start: 12px;
+    margin-block-end: 12px;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: ${(props) =>
+        props.flat ? 'var(--white)' : 'var(--gray)'};
+    }
+  }
+`;
