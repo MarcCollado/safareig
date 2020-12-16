@@ -16,22 +16,7 @@ const LinksContainer = styled.div`
 
   // add space when there are two link items
   & a:last-child {
-    margin-inline-start: 1.5rem;
-  }
-
-  & svg {
-    height: auto;
-    width: 5px;
-  }
-
-  & svg path {
-    stroke-width: 4;
-  }
-
-  @media (min-width: 768px) {
-    & svg {
-      width: 6px;
-    }
+    margin-inline-start: 24px;
   }
 `;
 
