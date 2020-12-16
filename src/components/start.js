@@ -4,35 +4,11 @@ import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 import { CardStart, CardTitle, InnerCardContainer } from './styled';
+import { FeaturedLinkContainer } from '../utils/containers';
 import StartHereSvg from '../../content/assets/start-here.svg';
 import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
-
-const FeatEpisodeContainer = styled.div`
-  height: 4rem;
-  // make some room at both ends for the hover
-  padding-inline-start: 0.75rem;
-  padding-inline-end: 0.75rem;
-  border-radius: 1rem;
-  margin-inline-start: -0.75rem;
-  margin-inline-end: -0.75rem;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  transition: all 250ms ease-in-out;
-
-  & p {
-    font-weight: 600;
-  }
-
-  @media (min-width: 768px) {
-    &:hover {
-      background-color: var(--gray);
-    }
-  }
-`;
 
 const StyledChevron = styled(ChevronRight)`
   width: 1.75rem;
@@ -67,10 +43,10 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
   const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) => {
     return (
       <Link to={'/'} key={e.id} onClick={() => handleOnClick(e.episodeNumber)}>
-        <FeatEpisodeContainer>
+        <FeaturedLinkContainer>
           <p>{`${e.episodeNumber}: ${e.title}`}</p>
           <StyledChevron />
-        </FeatEpisodeContainer>
+        </FeaturedLinkContainer>
       </Link>
     );
   });
