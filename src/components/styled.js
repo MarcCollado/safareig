@@ -12,13 +12,11 @@ export const FlexCenter = styled.div`
 
 // SIMPLE LINK
 
+// Blue links w/ SVG arrows
 export const SimpleLinkContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  align-items: center;
-  align-self: flex-start;
-  padding-block-start: ${fluid(12, 16)};
 
   & > svg {
     height: auto;
@@ -42,14 +40,20 @@ export const SimpleLinkContainer = styled.div`
     }
 
     &:hover > svg {
-      transform: translateX(0.25rem);
+      transform: translateX(4px);
     }
   }
 `;
 
+// CTAs for cards — separate from main content
+export const CardLinkContainer = styled(SimpleLinkContainer)`
+  padding-block-start: ${fluid(12, 16)};
+`;
+
+// Text within blue links
 export const SimpleLink = styled.p`
-  margin: 0rem;
-  font-size: 1rem;
+  margin: 0px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--darkBlue);
 
@@ -60,6 +64,7 @@ export const SimpleLink = styled.p`
 
 // CARD COMPONENT
 
+// Contains the SVG and the h2
 export const CardTitle = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -70,7 +75,7 @@ export const CardTitle = styled.div`
   & svg {
     width: 28px;
     // separate icon from the h2
-    margin-inline-end: 0.75rem;
+    margin-inline-end: 12px;
   }
 
   @media (min-width: 768px) {
