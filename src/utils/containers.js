@@ -19,6 +19,16 @@ export const HeaderContainer = styled(FlexCenter)`
   }
 `;
 
+export const BioContainer = styled.div`
+  width: clamp(272px, 100%, 455px);
+
+  @media (min-width: 768px) {
+    width: clamp(400px, 100%, 730px);
+    // 1/2 inner space from CardCover
+    margin-inline-end: ${fluid(16, 32)};
+  }
+`;
+
 export const MainContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     flex-flow: row nowrap;
@@ -39,20 +49,5 @@ export const EpisodesContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     // 1/2 inner space from LeftPanelContainer
     margin-inline-start: ${fluid(12, 22)};
-  }
-`;
-
-export const MobileEpisodesContainer = styled(FlexCenter)`
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
-export const DesktopEpisodesContainer = styled(FlexCenter)`
-  display: none;
-  @media (min-width: 768px) {
-    // 1/2 inner space from LeftPanelContainer
-    margin-inline-start: ${fluid(12, 22)};
-    display: block;
   }
 `;
