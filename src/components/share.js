@@ -4,7 +4,7 @@ import {
   CardRegular,
   CardTitle,
   InnerCardContainer,
-  SimpleLinkContainer,
+  CardLinkContainer,
   SimpleLink,
 } from './styled';
 import ShareIcon from '../../content/assets/share.svg';
@@ -24,10 +24,10 @@ const Share = () => (
           Tens algun tema a suggerir? Vols ajudar-nos amb el podcast? Tens
           feedback general? No dubtis en contactar i començar el Safareig.
         </p>
-        <SimpleLinkContainer>
+        <CardLinkContainer>
           <SimpleLink>Contacta a Safareig</SimpleLink>
           <Chevron />
-        </SimpleLinkContainer>
+        </CardLinkContainer>
       </InnerCardContainer>
     </a>
   </CardRegular>

@@ -4,7 +4,7 @@ import {
   CardRegular,
   CardTitle,
   InnerCardContainer,
-  SimpleLinkContainer,
+  CardLinkContainer,
   SimpleLink,
 } from './styled';
 import PressKitIcon from '../../content/assets/press-kit.svg';
@@ -28,10 +28,10 @@ const Press = () => (
           Hem preparat la descripció de Safareig i un recull d'imatges sobre el
           podcast perquè et sigui fàcil començar a escriure.
         </p>
-        <SimpleLinkContainer>
+        <CardLinkContainer>
           <SimpleLink>Descarrega'l</SimpleLink>
           <Chevron />
-        </SimpleLinkContainer>
+        </CardLinkContainer>
       </InnerCardContainer>
     </a>
   </CardRegular>

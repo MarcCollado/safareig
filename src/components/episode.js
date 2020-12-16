@@ -6,7 +6,7 @@ import scrollToElement from 'scroll-to-element';
 import {
   CardStart,
   InnerCardContainer,
-  SimpleLinkContainer,
+  CardLinkContainer,
   SimpleLink,
 } from './styled';
 import Chevron from '../../content/assets/chevron-right-cta.svg';
@@ -161,12 +161,12 @@ const Episode = ({
           }}
         ></ShowNotes>
         <Link to={'/'} onClick={() => handleOnClick()}>
-          <SimpleLinkContainer>
+          <CardLinkContainer>
             <SimpleLink>
               {!expand ? `Escoltar Capítol` : `Tancar Capítol`}
             </SimpleLink>
             <Chevron />
-          </SimpleLinkContainer>
+          </CardLinkContainer>
         </Link>
       </InnerCardContainer>
     </CardEpisode>
