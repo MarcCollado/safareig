@@ -1,14 +1,10 @@
 import React from 'react';
 
-import {
-  CardRegular,
-  CardTitle,
-  InnerCardContainer,
-  CardLinkContainer,
-  SimpleLink,
-} from './styled';
+import { CardRegular, CardTitle, InnerCardContainer } from './styled';
+import Chevron from '../styled/chevron';
+import { CardLinkContainer, SimpleLink } from '../styled/link';
+
 import PressKitIcon from '../../content/assets/press-kit.svg';
-import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Components
 
@@ -30,7 +26,7 @@ const Press = () => (
         </p>
         <CardLinkContainer>
           <SimpleLink>Descarrega'l</SimpleLink>
-          <Chevron />
+          <Chevron color="blue" />
         </CardLinkContainer>
       </InnerCardContainer>
     </a>

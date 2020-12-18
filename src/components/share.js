@@ -1,14 +1,10 @@
 import React from 'react';
 
-import {
-  CardRegular,
-  CardTitle,
-  InnerCardContainer,
-  CardLinkContainer,
-  SimpleLink,
-} from './styled';
+import { CardRegular, CardTitle, InnerCardContainer } from './styled';
+import Chevron from '../styled/chevron';
+import { SimpleLink, CardLinkContainer } from '../styled/link';
+
 import ShareIcon from '../../content/assets/share.svg';
-import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Components
 
@@ -26,7 +22,7 @@ const Share = () => (
         </p>
         <CardLinkContainer>
           <SimpleLink>Contacta a Safareig</SimpleLink>
-          <Chevron />
+          <Chevron color="blue" />
         </CardLinkContainer>
       </InnerCardContainer>
     </a>

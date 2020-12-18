@@ -2,9 +2,9 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { SimpleLinkContainer, SimpleLink } from './styled';
+import Chevron from '../styled/chevron';
+import { SimpleLinkContainer, SimpleLink } from '../styled/link';
 import { BioContainer } from '../utils/containers';
-import Chevron from '../../content/assets/chevron-right-cta.svg';
 import { fluid } from '../utils/fluid';
 
 // Styled components
@@ -62,13 +62,13 @@ const Bio = () => {
         <a href={twitter} target="_blank" rel="noreferrer">
           <SimpleLinkContainer>
             <SimpleLink>Segueix-nos</SimpleLink>
-            <Chevron />
+            <Chevron color="blue" />
           </SimpleLinkContainer>
         </a>
         <a href={`mailto:${email}`}>
           <SimpleLinkContainer>
             <SimpleLink>Contacta'ns</SimpleLink>
-            <Chevron />
+            <Chevron color="blue" />
           </SimpleLinkContainer>
         </a>
       </LinksContainer>
