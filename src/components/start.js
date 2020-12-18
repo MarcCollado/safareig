@@ -4,13 +4,14 @@ import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 import { CardStart, CardTitle, InnerCardContainer } from './styled';
+import Chevron from '../styled/chevron';
 import { FeaturedLinkContainer } from '../utils/containers';
+
 import StartHereSvg from '../../content/assets/start-here.svg';
-import ChevronRight from '../../content/assets/chevron-right.svg';
 
 // Styled components
 
-const StyledChevron = styled(ChevronRight)`
+const StyledChevron = styled(Chevron)`
   width: 1.75rem;
   // float right
   margin-inline-start: auto;

@@ -4,9 +4,10 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import { CardContainer, CardTitle, InnerCardContainer } from './styled';
-import FollowSvg from '../../content/assets/follow.svg';
-import ChevronRight from '../../content/assets/chevron-right.svg';
+import Chevron from '../styled/chevron';
 import { fluid } from '../utils/fluid';
+
+import FollowSvg from '../../content/assets/follow.svg';
 
 // Styled components
 
@@ -51,7 +52,7 @@ const TwitterHandle = styled.p`
   opacity: 0.6;
 `;
 
-const StyledChevron = styled(ChevronRight)`
+const StyledChevron = styled(Chevron)`
   height: auto;
   margin-inline-start: auto;
 `;

@@ -3,13 +3,9 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import scrollToElement from 'scroll-to-element';
 
-import {
-  CardStart,
-  InnerCardContainer,
-  CardLinkContainer,
-  SimpleLink,
-} from './styled';
-import Chevron from '../../content/assets/chevron-right-cta.svg';
+import { CardStart, InnerCardContainer } from './styled';
+import Chevron from '../styled/chevron';
+import { CardLinkContainer, SimpleLink } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 // Styled Components
@@ -165,7 +161,7 @@ const Episode = ({
             <SimpleLink>
               {!expand ? `Escoltar Capítol` : `Tancar Capítol`}
             </SimpleLink>
-            <Chevron />
+            <Chevron color="blue" />
           </CardLinkContainer>
         </Link>
       </InnerCardContainer>
