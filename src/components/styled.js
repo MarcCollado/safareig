@@ -10,61 +10,9 @@ export const FlexCenter = styled.div`
   align-items: center;
 `;
 
-// SIMPLE LINK
-
-// Blue links w/ SVG arrows
-export const SimpleLinkContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-
-  & > svg {
-    height: auto;
-    width: 5px;
-  }
-
-  & > svg path {
-    stroke-width: 4;
-  }
-
-  & > svg {
-    margin-block-start: 2px;
-    margin-inline-start: 8px;
-    transition: all 250ms ease-in-out;
-  }
-
-  @media (min-width: 768px) {
-    & > svg {
-      width: 6px;
-      margin-inline-start: ${fluid(8, 12)};
-    }
-
-    &:hover > svg {
-      transform: translateX(4px);
-    }
-  }
-`;
-
-// CTAs for cards — separate from main content
-export const CardLinkContainer = styled(SimpleLinkContainer)`
-  padding-block-start: ${fluid(12, 16)};
-`;
-
-// Text within blue links
-export const SimpleLink = styled.p`
-  margin: 0px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--darkBlue);
-
-  @media (min-width: 768px) {
-    font-size: ${fluid(16, 20)};
-  }
-`;
-
 // CARD COMPONENT
 
-// Contains the SVG and the h2
+// Contains the SVG icon and the h2
 export const CardTitle = styled.div`
   display: flex;
   flex-flow: row nowrap;
