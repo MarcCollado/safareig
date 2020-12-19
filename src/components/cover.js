@@ -9,10 +9,10 @@ import { fluid } from '../utils/fluid';
 
 const scaleAndRotate = keyframes`
   0% {
-    transform: scale(1) rotate(-2deg);
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -2deg);
   }
   100% {
-    transform: scale(1.05) rotate(3deg);
+    transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 3deg);
   }
 `;
 
@@ -27,7 +27,7 @@ export const CardCover = styled.div`
   z-index: 1000;
   transition: all 300ms ease;
 
-  transform: scale(1) rotate(-2deg);
+  transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -2deg);
   animation: ${scaleAndRotate} 4s ease-in-out 0s infinite alternate;
 
   @media (min-width: 768px) {
