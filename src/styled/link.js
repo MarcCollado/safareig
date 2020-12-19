@@ -69,6 +69,7 @@ export const SimpleLinkComposer = ({ href, text }) => {
 
 export const FeaturedLinkContainer = styled.div`
   margin: 12px 0px;
+  margin-block-start: ${(props) => (props.flat ? '12px' : '24px')};
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -81,6 +82,7 @@ export const FeaturedLinkContainer = styled.div`
   & p {
     margin: 0px 0px 0px 16px;
     margin-inline-start: ${(props) => (props.flat ? '16px' : '0px')};
+    margin-inline-end: ${(props) => (props.flat ? '0px' : '4px')};
   }
 
   & svg {
