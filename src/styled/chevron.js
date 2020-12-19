@@ -8,6 +8,8 @@ const Chevron = ({ color }) => {
   return color === 'blue' ? <BlueChevron /> : <GrayChevron />;
 };
 
-const styledChevron = styled(Chevron)``;
+const styledChevron = styled(Chevron)`
+  // Chevron svg styles controlled through Featured & Simple LinkContainer
+`;
 
 export default styledChevron;

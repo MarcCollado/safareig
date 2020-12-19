@@ -67,4 +67,56 @@ export const SimpleLinkComposer = ({ href, text }) => {
   );
 };
 
-export const composeFeaturedLink = (image = false) => {};
+export const FeaturedLinkContainer = styled.div`
+  margin: 12px 0px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  &:last-child {
+    margin-block-end: 0px;
+  }
+
+  & p {
+    margin: 0px 0px 0px 16px;
+    margin-inline-start: ${(props) => (props.flat ? '16px' : '0px')};
+  }
+
+  & svg {
+    height: auto;
+    width: 5px;
+    margin-block-start: 2px;
+    margin-inline-start: auto;
+
+    path {
+      stroke-width: 4;
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin: 0px -12px;
+    border-radius: 16px;
+    padding: 12px 12px;
+
+    & svg {
+      width: 6px;
+    }
+
+    &:hover {
+      background-color: ${(props) =>
+        props.flat ? 'var(--white)' : 'var(--gray)'};
+    }
+  }
+`;
+
+export const FeaturedLink = styled.p`
+  font-weight: 500;
+`;
+
+export const ComposeFeaturedLink = ({ children, flat }) => (
+  <FeaturedLinkContainer flat={flat}>
+    {children}
+    <Chevron color="gray" />
+  </FeaturedLinkContainer>
+);
