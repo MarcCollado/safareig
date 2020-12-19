@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
 
 import { CardStart, CardTitle, InnerCardContainer } from './styled';
 import {
