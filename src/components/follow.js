@@ -4,38 +4,12 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import { CardContainer, CardTitle, InnerCardContainer } from './styled';
-import Chevron from '../styled/chevron';
+import { FeaturedLink as HostName, ComposeFeaturedLink } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 import FollowSvg from '../../content/assets/follow.svg';
 
 // Styled components
-
-const TwitterItemContainer = styled.div`
-  height: 4rem;
-  // make some room at both ends for the hover
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  margin: -0.15rem -0.75rem;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  transition: all 250ms ease-in-out;
-
-  & p {
-    margin-inline-start: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    margin-block-end: ${fluid(0, 22)};
-    padding: ${fluid(4, 8)} ${fluid(12, 12)};
-
-    &:hover {
-      background-color: var(--white);
-    }
-  }
-`;
 
 const StyledAvatar = styled(Img)`
   width: 50px;
@@ -48,13 +22,7 @@ const StyledAvatar = styled(Img)`
 `;
 
 const TwitterHandle = styled.p`
-  margin-block-start: ${fluid(-16, -20)};
   opacity: 0.6;
-`;
-
-const StyledChevron = styled(Chevron)`
-  height: auto;
-  margin-inline-start: auto;
 `;
 
 // Main components
@@ -67,14 +35,13 @@ const TwitterLink = (id, avatar, twitterHandle, name) => {
       rel="noreferrer"
       key={id}
     >
-      <TwitterItemContainer>
+      <ComposeFeaturedLink flat>
         <StyledAvatar fluid={avatar}></StyledAvatar>
         <div>
-          <p>{name}</p>
+          <HostName>{name}</HostName>
           <TwitterHandle>{`@${twitterHandle}`}</TwitterHandle>
         </div>
-        <StyledChevron />
-      </TwitterItemContainer>
+      </ComposeFeaturedLink>
     </a>
   );
 };
@@ -105,6 +72,7 @@ const Follow = () => {
       }
     }
   `);
+
   const generateHostsList = data.allSanityHost?.nodes.map((p) =>
     TwitterLink(p.id, p.avatar.asset.fluid, p.twitterHandle, p.name)
   );

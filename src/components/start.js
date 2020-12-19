@@ -4,19 +4,12 @@ import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 import { CardStart, CardTitle, InnerCardContainer } from './styled';
-import Chevron from '../styled/chevron';
-import { FeaturedLinkContainer } from '../utils/containers';
+import {
+  FeaturedLink as EpisodeName,
+  ComposeFeaturedLink,
+} from '../styled/link';
 
 import StartHereSvg from '../../content/assets/start-here.svg';
-
-// Styled components
-
-const StyledChevron = styled(Chevron)`
-  width: 1.75rem;
-  // float right
-  margin-inline-start: auto;
-  margin-inline-end: -0.25rem;
-`;
 
 // Main components
 
@@ -44,10 +37,9 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
   const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) => {
     return (
       <Link to={'/'} key={e.id} onClick={() => handleOnClick(e.episodeNumber)}>
-        <FeaturedLinkContainer>
-          <p>{`${e.episodeNumber}: ${e.title}`}</p>
-          <StyledChevron />
-        </FeaturedLinkContainer>
+        <ComposeFeaturedLink>
+          <EpisodeName>{`${e.episodeNumber}: ${e.title}`}</EpisodeName>
+        </ComposeFeaturedLink>
       </Link>
     );
   });
