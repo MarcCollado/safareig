@@ -78,7 +78,7 @@ export const CardRegular = styled(CardContainer)`
       background-color: var(--white);
 
       & div svg:last-child {
-        transform: translateX(0.25rem);
+        transform: translate3d(4px, 0px, 0px);
       }
     }
   }
