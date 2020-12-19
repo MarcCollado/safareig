@@ -39,7 +39,7 @@ const TwitterLink = (id, avatar, twitterHandle, name) => {
         <StyledAvatar fluid={avatar}></StyledAvatar>
         <div>
           <HostName>{name}</HostName>
-          <TwitterHandle>{`@${twitterHandle}`}</TwitterHandle>
+          <TwitterHandle>{`@${twitterHandle.toLowerCase()}`}</TwitterHandle>
         </div>
       </ComposeFeaturedLink>
     </a>
