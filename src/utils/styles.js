@@ -2,11 +2,11 @@ import 'typeface-inter';
 import { createGlobalStyle } from 'styled-components';
 
 /* font-weight
-  h1: 800
-  h2: 700
-  date: p & 700
-  p & a: 400
-  pods & feats & links: p & 600
+  800: <h1/>
+  700: <h2>CardTitle</h2>, <p>EpisodeDate</p>
+  600: <p>SimpleLink</p>, <a>ShowNotes</a>
+  500: <p>FeaturedLink</p>
+  400: <a/>, <p/>
 */
 
 const GlobalStyles = createGlobalStyle`
