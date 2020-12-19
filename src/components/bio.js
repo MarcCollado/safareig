@@ -21,11 +21,12 @@ const LinksContainer = styled.div`
 
 const Description = styled.p`
   // correct for <p> default block margin
-  margin-block-start: 0.75rem;
+  margin-block-start: 12px;
   font-size: ${fluid(17, 28, 576)};
   line-height: 1.67;
 
   @media (min-width: 768px) {
+    padding-inline-end: ${fluid(4, 24)};
     line-height: 1.5;
   }
 `;
