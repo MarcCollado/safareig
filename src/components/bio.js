@@ -2,8 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import Chevron from '../styled/chevron';
-import { SimpleLinkContainer, SimpleLink } from '../styled/link';
+import { SimpleLinkComposer } from '../styled/link';
 import { BioContainer } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
@@ -14,7 +13,7 @@ const LinksContainer = styled.div`
   flex-flow: row nowrap;
   justify-content: flex-start;
 
-  // add space when there are two link items
+  // add space when there are two link items inline
   & a:last-child {
     margin-inline-start: 24px;
   }
@@ -59,18 +58,8 @@ const Bio = () => {
       <h1>{header}</h1>
       <Description>{description}</Description>
       <LinksContainer>
-        <a href={twitter} target="_blank" rel="noreferrer">
-          <SimpleLinkContainer>
-            <SimpleLink>Segueix-nos</SimpleLink>
-            <Chevron color="blue" />
-          </SimpleLinkContainer>
-        </a>
-        <a href={`mailto:${email}`}>
-          <SimpleLinkContainer>
-            <SimpleLink>Contacta'ns</SimpleLink>
-            <Chevron color="blue" />
-          </SimpleLinkContainer>
-        </a>
+        <SimpleLinkComposer href={twitter} text="Segueix-nos" />
+        <SimpleLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
       </LinksContainer>
     </BioContainer>
   );

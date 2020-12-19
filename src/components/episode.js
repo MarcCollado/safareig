@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import scrollToElement from 'scroll-to-element';
 
 import { CardStart, InnerCardContainer } from './styled';
-import Chevron from '../styled/chevron';
-import { CardLinkContainer, SimpleLink } from '../styled/link';
+import { SimpleLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 // Styled Components
@@ -21,7 +20,12 @@ const CardEpisode = styled(CardStart)`
   z-index: ${(props) => (props.expand ? '999' : '1')};
 
   & div svg:last-child {
-    transform: rotate(${(props) => (props.expand ? '-90deg' : '0deg')});
+    transform: rotate3d(
+      0,
+      0,
+      1,
+      ${(props) => (props.expand ? '-90deg' : '0deg')}
+    );
   }
 
   @media (min-width: 768px) {
@@ -31,7 +35,12 @@ const CardEpisode = styled(CardStart)`
       z-index: 998;
 
       & div svg:last-child {
-        transform: rotate(${(props) => (props.expand ? '-90deg' : '90deg')});
+        transform: rotate3d(
+          0,
+          0,
+          1,
+          ${(props) => (props.expand ? '-90deg' : '90deg')}
+        );
       }
     }
   }
@@ -157,12 +166,7 @@ const Episode = ({
           }}
         ></ShowNotes>
         <Link to={'/'} onClick={() => handleOnClick()}>
-          <CardLinkContainer>
-            <SimpleLink>
-              {!expand ? `Escoltar Capítol` : `Tancar Capítol`}
-            </SimpleLink>
-            <Chevron color="blue" />
-          </CardLinkContainer>
+          <SimpleLinkComposer text={!expand ? `Escoltar Capítol` : `Tancar`} />
         </Link>
       </InnerCardContainer>
     </CardEpisode>
