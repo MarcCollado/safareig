@@ -1,5 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
 
+import Chevron from '../styled/chevron';
 import { fluid } from '../utils/fluid';
 
 // Blue links w/ SVG arrows
@@ -25,8 +27,9 @@ export const SimpleLinkContainer = styled.div`
       width: 6px;
     }
 
+    // Animations inside cards are controlled in the Card component
     &:hover > svg {
-      transform: translateX(4px);
+      transform: translate3d(4px, 0px, 0px);
     }
   }
 `;
@@ -47,3 +50,21 @@ export const SimpleLink = styled.p`
 export const CardLinkContainer = styled(SimpleLinkContainer)`
   padding-block-start: ${fluid(12, 16)};
 `;
+
+export const SimpleLinkComposer = ({ href, text }) => {
+  return href ? (
+    <a href={href} target="_blank" rel="noreferrer">
+      <SimpleLinkContainer>
+        <SimpleLink>{text}</SimpleLink>
+        <Chevron color="blue" />
+      </SimpleLinkContainer>
+    </a>
+  ) : (
+    <CardLinkContainer>
+      <SimpleLink>{text}</SimpleLink>
+      <Chevron color="blue" />
+    </CardLinkContainer>
+  );
+};
+
+export const composeFeaturedLink = (image = false) => {};
