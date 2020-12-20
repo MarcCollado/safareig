@@ -76,7 +76,7 @@ const Subscribe = () => {
           <SubscribeSvg />
           <h2>{isDesktop ? `Subscriu-te a Safareig` : `Subscriu-te`}</h2>
         </CardTitle>
-        <p>Des d'allà on siguis, sigues el primer en escoltar Safareig.</p>
+        <p>Des d'allà on siguis, sigues el primer en escoltar-nos.</p>
         {generatePodcastList}
       </InnerCardContainer>
     </CardContainer>
