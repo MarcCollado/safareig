@@ -12,10 +12,7 @@ import { fluid } from '../utils/fluid';
 const CardEpisode = styled(CardStart)`
   background-color: ${(props) =>
     props.expand ? 'var(--white)' : 'var(--gray)'};
-  box-shadow: ${(props) =>
-    props.expand
-      ? '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'
-      : 'none'};
+  box-shadow: ${(props) => (props.expand ? 'var(--boxShadow)' : 'none')};
   position: ${(props) => (props.expand ? 'relative' : 'static')};
   z-index: ${(props) => (props.expand ? '999' : '1')};
 
@@ -47,7 +44,7 @@ const CardEpisode = styled(CardStart)`
 `;
 
 const EpisodeDate = styled.p`
-  margin: 0rem;
+  margin: 0px;
   font-weight: 700;
   letter-spacing: -1px;
   opacity: 0.5;
@@ -59,19 +56,19 @@ const EpisodeDate = styled.p`
 `;
 
 const EpisodeTitle = styled.h2`
-  margin-block-start: 1rem;
+  margin-block-start: 16px;
   margin-block-end: -6px; // Reset default p block-start margin
 `;
 
 const Audio = styled.audio`
   width: 100%;
-  margin-block-start: 1.5rem;
-  margin-block-end: 1.5rem;
+  margin-block-start: 24px;
+  margin-block-end: 24px;
   display: ${(props) => (props.hide ? 'none' : 'block')};
 `;
 
 const ShowNotes = styled.div`
-  margin-block-end: 2rem;
+  margin-block-end: 32px;
   display: ${(props) => (props.hide ? 'none' : 'block')};
 
   @media (min-width: 768px) {
@@ -84,7 +81,7 @@ const ShowNotes = styled.div`
   }
 
   & ul {
-    padding-inline-start: 1.5rem;
+    padding-inline-start: 24px;
   }
 `;
 

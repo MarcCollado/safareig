@@ -39,7 +39,7 @@ export const CardTitle = styled.div`
 `;
 
 export const InnerCardContainer = styled.div`
-  margin: 1.5rem;
+  margin: 24px;
 
   @media (min-width: 768px) {
     margin: ${fluid(24, 36)};
@@ -51,12 +51,10 @@ export const InnerCardContainer = styled.div`
 export const CardContainer = styled(FlexCenter)`
   width: clamp(272px, 100%, 455px);
   border-radius: ${fluid(24, 32)};
-  margin-block-end: 1.5rem;
+  margin-block-end: 24px;
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
   box-shadow: ${(props) =>
-    props.flat || props.down
-      ? 'none'
-      : '2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18)'};
+    props.flat || props.down ? 'none' : 'var(--boxShadow)'};
   position: ${(props) => (props.flat || props.down ? 'static' : 'relative')};
   z-index: ${(props) => (props.flat || props.down ? 1 : 999)};
   transition: all 300ms ease;

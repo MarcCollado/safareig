@@ -19,10 +19,10 @@ const scaleAndRotate = keyframes`
 export const CardCover = styled.div`
   width: clamp(270px, 100%, 430px);
   // space from BioContainer below
-  margin-block-end: 2rem;
+  margin-block-end: 32px;
   border-radius: ${fluid(24, 32)};
   overflow: hidden;
-  box-shadow: 2rem 6.25rem 3.75rem -3.25rem rgba(0, 0, 0, 0.18);
+  box-shadow: var(--boxShadow);
   position: relative;
   z-index: 1000;
   transition: all 300ms ease;
@@ -34,7 +34,7 @@ export const CardCover = styled.div`
     width: clamp(280px, 100%, 390px);
     height: clamp(280px, 100%, 390px);
     // BioContainer is no longer below
-    margin-block-start: 0rem;
+    margin-block-start: 0px;
     // 1/2 inner space from BioContainer
     margin-inline-start: ${fluid(16, 32)};
   }
