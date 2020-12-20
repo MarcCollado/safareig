@@ -1,8 +1,6 @@
 import 'typeface-inter';
 import { createGlobalStyle } from 'styled-components';
 
-import { fluid } from '../utils/fluid';
-
 /* font-weight
   800: <h1/>
   700: <h2>CardTitle</h2>, <p>EpisodeDate</p>
@@ -50,7 +48,15 @@ const GlobalStyles = createGlobalStyle`
     font-size: 28px;
 
     @media (min-width: 768px) {
-      font-size: ${fluid(32, 56)};
+      font-size: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 42px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 56px;
     }
   }
 
@@ -59,7 +65,15 @@ const GlobalStyles = createGlobalStyle`
     font-size: 20px;
 
     @media (min-width: 768px) {
-      font-size: ${fluid(16, 20)};
+      font-size: 16px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 20px;
     }
   }
 
@@ -74,7 +88,15 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
 
     @media (min-width: 768px) {
-      font-size: ${fluid(16, 20)};
+      font-size: 16px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 20px;
     }
   }
 
@@ -90,14 +112,21 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
 
     @media (min-width: 768px) {
-    font-size: ${fluid(16, 20)};
+      font-size: 16px;
 
-    &:hover {
+      &:hover {
         color: var(--darkBlue)
       }
     }
-  }
 
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 20px;
+    }
+  }
   /* .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: pixelated;
   } */
