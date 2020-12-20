@@ -74,6 +74,14 @@ export default {
       },
     },
     {
+      resolve: '@sentry/gatsby',
+      options: {
+        dsn:
+          'https://d090893262b643eca5c2379948f66eed@o326719.ingest.sentry.io/5564542',
+        autoSessionTracking: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Safareig | El teu podcast en català`,
