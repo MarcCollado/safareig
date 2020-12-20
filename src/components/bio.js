@@ -51,7 +51,7 @@ const Bio = () => {
   `);
 
   const header = data.site.siteMetadata?.header;
-  const description = data.site.siteMetadata?.description;
+  // const description = data.site.siteMetadata?.description;
   const twitter = data.site.siteMetadata?.social.twitter;
   const email = data.site.siteMetadata?.social.email;
   return (
