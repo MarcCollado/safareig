@@ -3,7 +3,7 @@ import { FlexCenter } from '../components/styled';
 import { fluid } from '../utils/fluid';
 
 export const GlobalContainer = styled(FlexCenter)`
-  margin: 1.5rem;
+  margin: 24px;
 
   @media (min-width: 768px) {
     margin: ${fluid(32, 112)};
@@ -11,7 +11,7 @@ export const GlobalContainer = styled(FlexCenter)`
 `;
 
 export const HeaderContainer = styled(FlexCenter)`
-  margin-block-end: 2rem;
+  margin-block-end: 32px;
 
   @media (min-width: 768px) {
     flex-flow: row-reverse nowrap;
