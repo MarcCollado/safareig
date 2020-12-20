@@ -5,13 +5,13 @@ import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
   width: 100%;
-  margin: 1rem auto;
+  margin: 16px auto;
   text-align: center;
 `;
 
 const InLineText = styled.p`
   display: inline-block;
-  margin: 0.25rem;
+  margin: 4px;
   opacity: 0.3;
 `;
 

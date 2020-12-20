@@ -2,11 +2,11 @@ import 'typeface-inter';
 import { createGlobalStyle } from 'styled-components';
 
 /* font-weight
-  h1: 800
-  h2: 700
-  date: p & 700
-  p & a: 400
-  pods & feats & links: p & 600
+  800: <h1/>
+  700: <h2>CardTitle</h2>, <p>EpisodeDate</p>
+  600: <p>SimpleLink</p>, <a>ShowNotes</a>
+  500: <p>FeaturedLink</p>
+  400: <a/>, <p/>
 */
 
 const GlobalStyles = createGlobalStyle`
@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #FFBD01;
     --blue: #32C5FF;
     --darkBlue: #002CFC;
+    --boxShadow: 32px 100px 60px -52px rgba(0, 0, 0, 0.18);
     --mobile: 576px;
     --tablet: 768px;
     --desktop: 1080px;
@@ -25,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     width: clamp(320px, 100%, 1440px);
     font-size: 16px;
-    margin: 0rem auto;
+    margin: 0px auto;
     background-color: #fafbfc;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -33,7 +34,7 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2 {
     // reset default margins
-    margin: 0rem;
+    margin: 0px;
     font-family: inter, sans-serif;
     font-weight: 800;
     font-stretch: normal;
@@ -50,7 +51,11 @@ const GlobalStyles = createGlobalStyle`
       font-size: 32px;
     }
 
-    @media (min-width: 1080px) {
+    @media (min-width: 1024px) {
+      font-size: 42px;
+    }
+
+    @media (min-width: 1280px) {
       font-size: 56px;
     }
   }
@@ -63,14 +68,18 @@ const GlobalStyles = createGlobalStyle`
       font-size: 16px;
     }
 
-    @media (min-width: 1080px) {
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1280px) {
       font-size: 20px;
     }
   }
 
   p {
     font-family: inter, sans-serif;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
     font-stretch: normal;
     font-style: normal;
@@ -78,14 +87,22 @@ const GlobalStyles = createGlobalStyle`
     letter-spacing: normal;
     color: var(--black);
 
-    @media (min-width: 1080px) {
-      font-size: 1.25rem;
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 20px;
     }
   }
 
   a {
     font-family: inter, sans-serif;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
     font-stretch: normal;
     font-style: normal;
@@ -95,16 +112,21 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
 
     @media (min-width: 768px) {
-    &:hover {
+      font-size: 16px;
+
+      &:hover {
         color: var(--darkBlue)
       }
     }
 
-    @media (min-width: 1080px) {
-      font-size: 1.25rem;
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 20px;
     }
   }
-
   /* .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: pixelated;
   } */

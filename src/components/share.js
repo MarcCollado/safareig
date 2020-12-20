@@ -1,14 +1,9 @@
 import React from 'react';
 
-import {
-  CardRegular,
-  CardTitle,
-  InnerCardContainer,
-  SimpleLinkContainer,
-  SimpleLink,
-} from './styled';
+import { CardRegular, CardTitle, InnerCardContainer } from './styled';
+import { SimpleLinkComposer } from '../styled/link';
+
 import ShareIcon from '../../content/assets/share.svg';
-import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Components
 
@@ -24,10 +19,7 @@ const Share = () => (
           Tens algun tema a suggerir? Vols ajudar-nos amb el podcast? Tens
           feedback general? No dubtis en contactar i començar el Safareig.
         </p>
-        <SimpleLinkContainer>
-          <SimpleLink>Contacta a Safareig</SimpleLink>
-          <Chevron />
-        </SimpleLinkContainer>
+        <SimpleLinkComposer text="Contacta a Safareig" />
       </InnerCardContainer>
     </a>
   </CardRegular>

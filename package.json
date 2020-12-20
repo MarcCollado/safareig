@@ -2,7 +2,7 @@
   "name": "Safareig",
   "private": true,
   "description": "El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Safareig Inc. <fem@safareig.fm>",
   "license": "MIT",
   "repository": {

@@ -1,14 +1,9 @@
 import React from 'react';
 
-import {
-  CardRegular,
-  CardTitle,
-  InnerCardContainer,
-  SimpleLinkContainer,
-  SimpleLink,
-} from './styled';
+import { CardRegular, CardTitle, InnerCardContainer } from './styled';
+import { SimpleLinkComposer } from '../styled/link';
+
 import PressKitIcon from '../../content/assets/press-kit.svg';
-import Chevron from '../../content/assets/chevron-right-cta.svg';
 
 // Components
 
@@ -28,10 +23,7 @@ const Press = () => (
           Hem preparat la descripció de Safareig i un recull d'imatges sobre el
           podcast perquè et sigui fàcil començar a escriure.
         </p>
-        <SimpleLinkContainer>
-          <SimpleLink>Descarrega'l</SimpleLink>
-          <Chevron />
-        </SimpleLinkContainer>
+        <SimpleLinkComposer text="Descarrega'l" />
       </InnerCardContainer>
     </a>
   </CardRegular>
