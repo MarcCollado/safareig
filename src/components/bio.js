@@ -26,7 +26,7 @@ const Description = styled.p`
   line-height: 1.67;
 
   @media (min-width: 768px) {
-    padding-inline-end: ${fluid(4, 24)};
+    padding-inline-end: ${fluid(0, 24, 1080)};
     line-height: 1.5;
   }
 `;
@@ -57,7 +57,11 @@ const Bio = () => {
   return (
     <BioContainer>
       <h1>{header}</h1>
-      <Description>{description}</Description>
+      <Description>
+        El teu aperitiu setmanal on analitzem com la tecnologia està canviant la
+        societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament
+        en&nbsp;català.
+      </Description>
       <LinksContainer>
         <SimpleLinkComposer href={twitter} text="Segueix-nos" />
         <SimpleLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
