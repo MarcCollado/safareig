@@ -111,7 +111,7 @@ const Episode = ({
     }
   }, [expandedEpisodeRef, expand]);
 
-  const handleScroll = (duration = 1000, offset = -16) => {
+  const handleScroll = (duration = 1500, offset = -16) => {
     const ref = episodeRef.current;
     return setTimeout(() => {
       scrollToElement(ref, {
@@ -123,7 +123,8 @@ const Episode = ({
     }, 10);
   };
 
-  const handleOnClick = (n = episodeNumber) => {
+  const handleOnClick = (e, n = episodeNumber) => {
+    e.preventDefault();
     if (!expand) {
       setExpandedEpisodeRef(parseInt(n));
     } else {
@@ -141,11 +142,11 @@ const Episode = ({
       ref={episodeRef}
     >
       <InnerCardContainer>
-        <Link to={'/'} onClick={() => handleOnClick()}>
+        <a href={'#'} onClick={(e) => handleOnClick(e)}>
           <EpisodeDate>{date}</EpisodeDate>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{description}</p>
-        </Link>
+        </a>
         <Audio
           hide={!expand}
           controls
@@ -162,9 +163,9 @@ const Episode = ({
             ),
           }}
         ></ShowNotes>
-        <Link to={'/'} onClick={() => handleOnClick()}>
+        <a href={'#'} onClick={(e) => handleOnClick(e)}>
           <SimpleLinkComposer text={!expand ? `Escoltar Capítol` : `Tancar`} />
-        </Link>
+        </a>
       </InnerCardContainer>
     </CardEpisode>
   );
