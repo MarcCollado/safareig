@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import styled from 'styled-components';
 import scrollToElement from 'scroll-to-element';
 
