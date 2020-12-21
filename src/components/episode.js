@@ -142,7 +142,7 @@ const Episode = ({
       ref={episodeRef}
     >
       <InnerCardContainer>
-        <a href={'#'} onClick={(e) => handleOnClick(e)}>
+        <a href={'/'} onClick={(e) => handleOnClick(e)}>
           <EpisodeDate>{date}</EpisodeDate>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{description}</p>
@@ -163,7 +163,7 @@ const Episode = ({
             ),
           }}
         ></ShowNotes>
-        <a href={'#'} onClick={(e) => handleOnClick(e)}>
+        <a href={'/'} onClick={(e) => handleOnClick(e)}>
           <SimpleLinkComposer text={!expand ? `Escoltar Capítol` : `Tancar`} />
         </a>
       </InnerCardContainer>
