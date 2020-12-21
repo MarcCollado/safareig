@@ -74,6 +74,14 @@ export default {
       },
     },
     {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        includeInDevelopment: false,
+        id: 2167877,
+        sv: 6,
+      },
+    },
+    {
       resolve: '@sentry/gatsby',
       options: {
         dsn:
