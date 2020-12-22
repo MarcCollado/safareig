@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import { FlexCenter } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
-// LAYOUT BLOCKS
-
-// CARD COMPONENT
-
 // Contains the SVG icon and the h2
 export const CardTitle = styled.div`
   display: flex;
@@ -41,9 +37,7 @@ export const InnerCardContainer = styled.div`
   }
 `;
 
-// CARD CONTAINER
-// Used by subscribe, follow, *start*
-export const CardContainer = styled(FlexCenter)`
+export const Card = styled(FlexCenter)`
   border-radius: ${fluid(24, 32)};
   margin-block-end: 24px;
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
@@ -58,9 +52,8 @@ export const CardContainer = styled(FlexCenter)`
   }
 `;
 
-// CARD FEATURED
-// Used by share, press
-export const CardRegular = styled(CardContainer)`
+// Used by share.js, press.js
+export const FlatCard = styled(Card)`
   background-color: var(--gray);
   box-shadow: none;
 
@@ -72,13 +65,5 @@ export const CardRegular = styled(CardContainer)`
         transform: translate3d(4px, 0px, 0px);
       }
     }
-  }
-`;
-
-// CARD START
-// Used by start, *episode*
-export const CardStart = styled(CardContainer)`
-  @media (min-width: 768px) {
-    width: 100%;
   }
 `;

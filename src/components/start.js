@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
-import { Card, CardTitle, InnerCardContainer } from './styled';
+import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
 import {
   FeaturedLink as EpisodeName,
   ComposeFeaturedLink,

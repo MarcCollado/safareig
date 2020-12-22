@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FlatCard, CardTitle, InnerCardContainer } from './styled';
+import { FlatCard, CardTitle, InnerCardContainer } from '../styled/cards';
 import { SimpleLinkComposer } from '../styled/link';
 
 import PressKitIcon from '../../content/assets/press-kit.svg';

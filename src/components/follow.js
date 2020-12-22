@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { Card, CardTitle, InnerCardContainer } from './styled';
+import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
 import { FeaturedLink as HostName, ComposeFeaturedLink } from '../styled/link';
 import { fluid } from '../utils/fluid';
 

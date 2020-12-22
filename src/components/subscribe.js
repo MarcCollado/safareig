@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { Card, CardTitle, InnerCardContainer } from './styled';
+import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
 import {
   FeaturedLink as PodcastProvider,
   ComposeFeaturedLink,

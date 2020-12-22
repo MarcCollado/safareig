@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import scrollToElement from 'scroll-to-element';
 
-import { Card, InnerCardContainer } from './styled';
+import { Card, InnerCardContainer } from '../styled/cards';
 import { SimpleLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
