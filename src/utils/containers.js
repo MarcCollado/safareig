@@ -48,6 +48,7 @@ export const MainContainer = styled(FlexCenter)`
 
 export const LeftPanelContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
+    min-width: 279px;
     width: clamp(279px, 100%, 389px);
     // 1/2 space from EpisodeContainer
     margin-inline-end: ${fluid(12, 22)};
@@ -56,6 +57,7 @@ export const LeftPanelContainer = styled(FlexCenter)`
 
 export const EpisodesContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
+    min-width: 401px;
     width: clamp(401px, 100%, 746px);
     // 1/2 inner space from LeftPanelContainer
     margin-inline-start: ${fluid(12, 22)};
