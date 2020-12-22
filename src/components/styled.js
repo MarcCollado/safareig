@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
+import { FlexCenter } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
 // LAYOUT BLOCKS
-
-export const FlexCenter = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-`;
 
 // CARD COMPONENT
 
@@ -49,7 +44,6 @@ export const InnerCardContainer = styled.div`
 // CARD CONTAINER
 // Used by subscribe, follow, *start*
 export const CardContainer = styled(FlexCenter)`
-  width: clamp(272px, 100%, 455px);
   border-radius: ${fluid(24, 32)};
   margin-block-end: 24px;
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
