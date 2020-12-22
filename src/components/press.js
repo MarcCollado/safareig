@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CardRegular, CardTitle, InnerCardContainer } from './styled';
+import { FlatCard, CardTitle, InnerCardContainer } from './styled';
 import { SimpleLinkComposer } from '../styled/link';
 
 import PressKitIcon from '../../content/assets/press-kit.svg';
@@ -8,7 +8,7 @@ import PressKitIcon from '../../content/assets/press-kit.svg';
 // Components
 
 const Press = () => (
-  <CardRegular>
+  <FlatCard>
     <a
       href="https://www.icloud.com/iclouddrive/0iobVuMuVWWs5pBiSTMLbtvgQ"
       target="_blank"
@@ -26,7 +26,7 @@ const Press = () => (
         <SimpleLinkComposer text="Descarrega'l" />
       </InnerCardContainer>
     </a>
-  </CardRegular>
+  </FlatCard>
 );
 
 export default Press;

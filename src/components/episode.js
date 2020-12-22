@@ -3,13 +3,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import scrollToElement from 'scroll-to-element';
 
-import { CardStart, InnerCardContainer } from './styled';
+import { Card, InnerCardContainer } from './styled';
 import { SimpleLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 // Styled Components
 
-const CardEpisode = styled(CardStart)`
+const CardEpisode = styled(Card)`
   background-color: ${(props) =>
     props.expand ? 'var(--white)' : 'var(--gray)'};
   box-shadow: ${(props) => (props.expand ? 'var(--boxShadow)' : 'none')};

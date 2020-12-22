@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { CardContainer, CardTitle, InnerCardContainer } from './styled';
+import { Card, CardTitle, InnerCardContainer } from './styled';
 import {
   FeaturedLink as PodcastProvider,
   ComposeFeaturedLink,
@@ -70,7 +70,7 @@ const Subscribe = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
   return (
-    <CardContainer flat>
+    <Card flat>
       <InnerCardContainer>
         <CardTitle>
           <SubscribeSvg />
@@ -79,7 +79,7 @@ const Subscribe = () => {
         <p>Des d'allà on siguis, sigues el primer en escoltar-nos.</p>
         {generatePodcastList}
       </InnerCardContainer>
-    </CardContainer>
+    </Card>
   );
 };
 

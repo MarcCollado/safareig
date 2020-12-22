@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
-import { CardStart, CardTitle, InnerCardContainer } from './styled';
+import { Card, CardTitle, InnerCardContainer } from './styled';
 import {
   FeaturedLink as EpisodeName,
   ComposeFeaturedLink,
@@ -48,7 +48,7 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
   return (
-    <CardStart down={down}>
+    <Card down={down}>
       <InnerCardContainer>
         <CardTitle>
           <StartHereSvg />
@@ -62,7 +62,7 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
         </p>
         {generateFeaturedEpisodesList}
       </InnerCardContainer>
-    </CardStart>
+    </Card>
   );
 };
 

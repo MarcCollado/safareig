@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CardRegular, CardTitle, InnerCardContainer } from './styled';
+import { FlatCard, CardTitle, InnerCardContainer } from './styled';
 import { SimpleLinkComposer } from '../styled/link';
 
 import ShareIcon from '../../content/assets/share.svg';
@@ -8,7 +8,7 @@ import ShareIcon from '../../content/assets/share.svg';
 // Components
 
 const Share = () => (
-  <CardRegular>
+  <FlatCard>
     <a href={'mailto:fem@safareig.fm'}>
       <InnerCardContainer>
         <CardTitle>
@@ -19,7 +19,7 @@ const Share = () => (
         <SimpleLinkComposer text="Contacta a Safareig" />
       </InnerCardContainer>
     </a>
-  </CardRegular>
+  </FlatCard>
 );
 
 export default Share;

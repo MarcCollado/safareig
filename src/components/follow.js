@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { CardContainer, CardTitle, InnerCardContainer } from './styled';
+import { Card, CardTitle, InnerCardContainer } from './styled';
 import { FeaturedLink as HostName, ComposeFeaturedLink } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
@@ -77,7 +77,7 @@ const Follow = () => {
     TwitterLink(p.id, p.avatar.asset.fluid, p.twitterHandle, p.name)
   );
   return (
-    <CardContainer flat>
+    <Card flat>
       <InnerCardContainer>
         <CardTitle>
           <FollowSvg />
@@ -86,7 +86,7 @@ const Follow = () => {
         <p>No siguis tímid, connecta amb nosaltres i fem Safareig.</p>
         {generateHostsList}
       </InnerCardContainer>
-    </CardContainer>
+    </Card>
   );
 };
 
