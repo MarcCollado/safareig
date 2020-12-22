@@ -15,10 +15,7 @@ const Share = () => (
           <ShareIcon />
           <h2>Fes Safareig</h2>
         </CardTitle>
-        <p>
-          Tens algun tema a suggerir? Vols ajudar-nos amb el podcast? Tens
-          feedback general? No dubtis en contactar i començar el Safareig.
-        </p>
+        <p>Tens algun tema a suggerir? No dubtis en contactar-nos.</p>
         <SimpleLinkComposer text="Contacta a Safareig" />
       </InnerCardContainer>
     </a>
