@@ -60,7 +60,6 @@ export const CardContainer = styled(FlexCenter)`
   transition: all 300ms ease;
 
   @media (min-width: 768px) {
-    width: clamp(280px, 100%, 390px);
     margin-block-end: ${fluid(24, 48)};
   }
 `;
@@ -86,6 +85,6 @@ export const CardRegular = styled(CardContainer)`
 // Used by start, *episode*
 export const CardStart = styled(CardContainer)`
   @media (min-width: 768px) {
-    width: clamp(400px, 100%, 780px);
+    width: 100%;
   }
 `;
