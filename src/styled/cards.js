@@ -13,13 +13,11 @@ export const CardTitle = styled.div`
 
   & svg {
     width: 28px;
-    // separate icon from the h2
-    margin-inline-end: 12px;
+    margin-inline-end: 12px; // Separate icon from the h2
   }
 
   @media (min-width: 768px) {
-    // display svg on top of h2
-    flex-flow: column nowrap;
+    flex-flow: column nowrap; // Display icon on top of h2
     align-items: flex-start;
 
     & svg {
