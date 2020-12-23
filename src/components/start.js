@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
@@ -35,15 +35,22 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
 
   const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) => {
     return (
-      <Link to={'/'} key={e.id} onClick={() => handleOnClick(e.episodeNumber)}>
+      <a
+        href={'/'}
+        key={e.id}
+        onClick={(el) => handleOnClick(el, e.episodeNumber)}
+      >
         <ComposeFeaturedLink>
           <EpisodeName>{`${e.episodeNumber}: ${e.title}`}</EpisodeName>
         </ComposeFeaturedLink>
-      </Link>
+      </a>
     );
   });
 
-  const handleOnClick = (n) => setExpandedEpisodeRef(parseInt(n));
+  const handleOnClick = (e, n) => {
+    e.preventDefault();
+    setExpandedEpisodeRef(parseInt(n));
+  };
 
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
