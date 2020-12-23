@@ -46,6 +46,9 @@ export const Card = styled(FlexCenter)`
   transition: all 300ms ease;
 
   @media (min-width: 768px) {
+    min-width: 279px;
+    width: 100%;
+    max-width: 389px;
     margin-block-end: ${fluid(24, 48)};
   }
 `;
@@ -63,5 +66,13 @@ export const FlatCard = styled(Card)`
         transform: translate3d(4px, 0px, 0px);
       }
     }
+  }
+`;
+
+export const EpisodeCard = styled(Card)`
+  @media (min-width: 768px) {
+    min-width: 401px;
+    width: 100%;
+    max-width: 746px;
   }
 `;
