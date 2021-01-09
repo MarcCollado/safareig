@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 // import Loader from 'react-loader-spinner';
 
@@ -51,19 +51,24 @@ const IndexPage = ({ data, location }) => {
       const showNotes = descriptionHtml.substring(showNotesIndex);
 
       return (
-        <Episode
+        <Link
           key={episodeNumber}
-          date={date}
-          episodeNumber={episodeNumber}
-          title={title}
-          description={showDescription}
-          audioFile={audioFile}
-          showNotes={showNotes}
-          expandedEpisodeRef={expandedEpisodeRef}
-          setExpandedEpisodeRef={(number) => {
-            setExpandedEpisodeRef(number);
-          }}
-        />
+          to={`/${episodeNumber}`}
+          state={{ episode: episodeNumber }}
+        >
+          <Episode
+            date={date}
+            episodeNumber={episodeNumber}
+            title={title}
+            description={showDescription}
+            audioFile={audioFile}
+            showNotes={showNotes}
+            expandedEpisodeRef={expandedEpisodeRef}
+            setExpandedEpisodeRef={(number) => {
+              setExpandedEpisodeRef(number);
+            }}
+          />
+        </Link>
       );
     });
   };
