@@ -19,6 +19,7 @@ export default {
     },
   },
   plugins: [
+    // FILESYSTEM
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,6 +27,8 @@ export default {
         name: `assets`,
       },
     },
+    `gatsby-plugin-feed`,
+    // MARKDOWN
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -42,9 +45,9 @@ export default {
         ],
       },
     },
+    // IMAGES & ASSETS
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
     {
       // https://github.com/mottox2/gatsby-source-rss-feed
       resolve: `gatsby-source-rss-feed`,
@@ -59,6 +62,39 @@ export default {
         // },
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `g34v195l`,
+        dataset: `production`,
+        watchmode: true,
+        token: process.env.SANITY_TOKEN,
+      },
+    },
+    // OFFLINE
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Safareig | El teu podcast en català`,
+        short_name: `Safareig`,
+        start_url: `/`,
+        background_color: `#FFFFFF`,
+        theme_color: `#32C5FF`,
+        display: `minimal-ui`,
+        icon: `content/assets/favicon.png`,
+      },
+    },
+    // UTILS & HELPERS
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -89,38 +125,7 @@ export default {
         autoSessionTracking: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Safareig | El teu podcast en català`,
-        short_name: `Safareig`,
-        start_url: `/`,
-        background_color: `#FFFFFF`,
-        theme_color: `#32C5FF`,
-        display: `minimal-ui`,
-        icon: `content/assets/favicon.png`,
-      },
-    },
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /assets/,
-        },
-      },
-    },
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-source-sanity`,
-      options: {
-        projectId: `g34v195l`,
-        dataset: `production`,
-        watchmode: true,
-        token: process.env.SANITY_TOKEN,
-      },
-    },
   ],
 };
