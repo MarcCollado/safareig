@@ -43,7 +43,6 @@ const EpisodePage = ({ data, location }) => {
       itunes: { episode: episodeNumber },
       enclosure: { url: audioFile },
     } = episode[0];
-    console.log(location);
     const descriptionIndex = description.indexOf('Show notes:');
     const showDescription = description.substring(0, descriptionIndex - 1);
     const showNotesIndex = descriptionHtml.indexOf('<p><strong>Show');
