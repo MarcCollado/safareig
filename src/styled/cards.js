@@ -46,9 +46,9 @@ export const Card = styled(FlexCenter)`
   transition: all 300ms ease;
 
   @media (min-width: 768px) {
-    min-width: 279px;
+    min-width: 270px;
     width: 100%;
-    max-width: 389px;
+    max-width: 409px;
     margin-block-end: ${fluid(24, 48)};
   }
 `;
@@ -71,8 +71,8 @@ export const FlatCard = styled(Card)`
 
 export const EpisodeCard = styled(Card)`
   @media (min-width: 768px) {
-    min-width: 401px;
+    min-width: 410px;
     width: 100%;
-    max-width: 746px;
+    max-width: 726px;
   }
 `;
