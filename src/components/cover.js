@@ -22,10 +22,11 @@ export const CardCover = styled.div`
   margin-block-end: 32px;
   border-radius: ${fluid(24, 32)};
   overflow: hidden;
-  box-shadow: var(--boxShadow);
-  position: relative;
-  z-index: 1000;
-  transition: all 300ms ease;
+  box-shadow: ${(props) => (props.float ? 'var(--boxShadow)' : 'none')};
+  position: ${(props) => (props.float ? 'relative' : 'static')};
+  z-index: ${(props) => (props.float ? 999 : 1)};
+
+  transition: ${(props) => (props.float ? 'all 300ms ease' : 'none')};
 
   transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -2deg);
   animation: ${scaleAndRotate} 4s ease-in-out 0s infinite alternate;
@@ -42,7 +43,7 @@ export const CardCover = styled.div`
 
 // Main components
 
-const Cover = () => {
+const Cover = ({ float }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
@@ -70,7 +71,7 @@ const Cover = () => {
     },
   ];
   return (
-    <CardCover>
+    <CardCover float={float}>
       <Link to="/">
         <Img
           fluid={sources}
