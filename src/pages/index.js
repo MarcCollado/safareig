@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
-// import Loader from 'react-loader-spinner';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
-import Episode from '../components/episode';
+import EpisodeLink from '../components/episode-link';
 import Follow from '../components/follow';
 import Footer from '../components/footer';
 import Press from '../components/press';
@@ -22,7 +21,6 @@ import {
 } from '../utils/containers';
 
 const IndexPage = ({ data, location }) => {
-  const [expandedEpisodeRef, setExpandedEpisodeRef] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
@@ -31,44 +29,27 @@ const IndexPage = ({ data, location }) => {
   const siteTitle =
     data.site.siteMetadata?.title || `Safareig | El teu podcast en català`;
   const episodes = data.allFeedSafareigFm?.nodes;
-  // const totalCount = data.allFeedSafareigFm?.totalCount;
 
   const renderEpisodes = (episodes) => {
     return episodes.map((episode, i) => {
-      // const episodeNumber = totalCount - i;
       const {
         title,
-        content: descriptionHtml,
         contentSnippet: description,
         isoDate: date,
         itunes: { episode: episodeNumber },
-        enclosure: { url: audioFile },
       } = episode;
 
       const descriptionIndex = description.indexOf('Show notes:');
       const showDescription = description.substring(0, descriptionIndex - 1);
-      const showNotesIndex = descriptionHtml.indexOf('<p><strong>Show');
-      const showNotes = descriptionHtml.substring(showNotesIndex);
 
       return (
-        <Link
+        <EpisodeLink
           key={episodeNumber}
-          to={`/${episodeNumber}`}
-          state={{ episode: episodeNumber }}
-        >
-          <Episode
-            date={date}
-            episodeNumber={episodeNumber}
-            title={title}
-            description={showDescription}
-            audioFile={audioFile}
-            showNotes={showNotes}
-            expandedEpisodeRef={expandedEpisodeRef}
-            setExpandedEpisodeRef={(number) => {
-              setExpandedEpisodeRef(number);
-            }}
-          />
-        </Link>
+          date={date}
+          episodeNumber={episodeNumber}
+          title={title}
+          description={showDescription}
+        />
       );
     });
   };
@@ -83,12 +64,7 @@ const IndexPage = ({ data, location }) => {
           <Press />
         </LeftPanelContainer>
         <EpisodesContainer>
-          <Start
-            down={expandedEpisodeRef !== 0}
-            setExpandedEpisodeRef={(number) => {
-              setExpandedEpisodeRef(number);
-            }}
-          />
+          <Start />
           {renderEpisodes(episodes)}
         </EpisodesContainer>
       </>
@@ -97,12 +73,7 @@ const IndexPage = ({ data, location }) => {
         <LeftPanelContainer>
           <Subscribe />
           <EpisodesContainer>
-            <Start
-              down={expandedEpisodeRef !== 0}
-              setExpandedEpisodeRef={(number) => {
-                setExpandedEpisodeRef(number);
-              }}
-            />
+            <Start />
             {renderEpisodes(episodes)}
           </EpisodesContainer>
           <Share />
@@ -117,7 +88,7 @@ const IndexPage = ({ data, location }) => {
     <GlobalContainer>
       <SEO location={location} pageTitle={siteTitle} />
       <HeaderContainer>
-        <Cover />
+        <Cover float={true} />
         <Bio />
       </HeaderContainer>
       <MainContainer>{isReady && renderResponsiveUI(isDesktop)}</MainContainer>
@@ -139,17 +110,13 @@ export const pageQuery = graphql`
     allFeedSafareigFm(sort: { order: DESC, fields: isoDate }) {
       nodes {
         title
-        content
+
         contentSnippet
         isoDate(formatString: "YYYY / MM / DD")
         itunes {
           episode
         }
-        enclosure {
-          url
-        }
       }
-      totalCount
     }
     # Podcast
     allFeedSafareigFmMeta {
