@@ -27,7 +27,6 @@ export default {
         name: `assets`,
       },
     },
-    `gatsby-plugin-feed`,
     // MARKDOWN
     {
       resolve: `gatsby-transformer-remark`,
