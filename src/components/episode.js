@@ -7,34 +7,6 @@ import { fluid } from '../utils/fluid';
 
 // Styled Components
 
-const CardEpisode = styled(EpisodeCard)`
-  background-color: ${(props) =>
-    props.expand ? 'var(--white)' : 'var(--gray)'};
-  box-shadow: ${(props) => (props.expand ? 'var(--boxShadow)' : 'none')};
-
-  & div svg:last-child {
-    transform: rotate3d(
-      0,
-      0,
-      1,
-      ${(props) => (props.expand ? '-90deg' : '0deg')}
-    );
-  }
-
-  @media (min-width: 768px) {
-    &:hover {
-      & div svg:last-child {
-        transform: rotate3d(
-          0,
-          0,
-          1,
-          ${(props) => (props.expand ? '-90deg' : '90deg')}
-        );
-      }
-    }
-  }
-`;
-
 const EpisodeDate = styled.p`
   margin: 0px;
   font-weight: 700;
@@ -88,11 +60,10 @@ const Episode = ({
   showNotes,
 }) => {
   return (
-    <CardEpisode
+    <EpisodeCard
       flexFlow="column nowrap"
       alignItems="flex-start"
-      flat={false}
-      expand={true}
+      featured={true}
     >
       <InnerCardContainer>
         <EpisodeDate>{date}</EpisodeDate>
@@ -112,10 +83,9 @@ const Episode = ({
             ),
           }}
         ></ShowNotes>
-
         <SimpleLinkComposer text={`Tancar`} />
       </InnerCardContainer>
-    </CardEpisode>
+    </EpisodeCard>
   );
 };
 
