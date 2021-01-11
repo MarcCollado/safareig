@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #FFBD01;
     --blue: #32C5FF;
     --darkBlue: #002CFC;
-    --boxShadow: 32px 100px 60px -52px rgba(0, 0, 0, 0.18);
+    --boxShadow: 80px 140px 130px -60px rgba(0, 0, 0, 0.25);
     --mobile: 576px;
     --tablet: 768px;
     --desktop: 1080px;
