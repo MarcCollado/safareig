@@ -16,17 +16,25 @@ const scaleAndRotate = keyframes`
   }
 `;
 
-export const CardCover = styled.div`
-  width: clamp(270px, 100%, 430px);
-  // space from BioContainer below
-  margin-block-end: 32px;
+const EpisodeCover = styled.div`
+  // Shares CSS properties with Cards
+  width: 100%;
+  margin-block-end: 24px;
   border-radius: ${fluid(24, 32)};
   overflow: hidden;
-  box-shadow: ${(props) => (props.float ? 'var(--boxShadow)' : 'none')};
-  position: ${(props) => (props.float ? 'relative' : 'static')};
-  z-index: ${(props) => (props.float ? 999 : 1)};
 
-  transition: ${(props) => (props.float ? 'all 300ms ease' : 'none')};
+  @media (min-width: 768px) {
+    margin-block-end: ${fluid(24, 48)};
+  }
+`;
+
+const HomeCover = styled(EpisodeCover)`
+  // Mobile: add space from BioContainer below
+  margin-block-end: 32px;
+  box-shadow: var(--boxShadow);
+  z-index: 999;
+
+  transition: all 300ms ease;
 
   transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -2deg);
   animation: ${scaleAndRotate} 4s ease-in-out 0s infinite alternate;
@@ -43,7 +51,7 @@ export const CardCover = styled.div`
 
 // Main components
 
-const Cover = ({ float }) => {
+const Cover = ({ location }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
@@ -70,8 +78,16 @@ const Cover = ({ float }) => {
       media: `(min-width: 768px)`,
     },
   ];
-  return (
-    <CardCover float={float}>
+  return location === '/' ? (
+    <HomeCover>
+      <Img
+        fluid={sources}
+        alt="Safareig cover image"
+        style={{ width: '100%', height: '100%' }}
+      />
+    </HomeCover>
+  ) : (
+    <EpisodeCover>
       <Link to="/">
         <Img
           fluid={sources}
@@ -79,7 +95,7 @@ const Cover = ({ float }) => {
           style={{ width: '100%', height: '100%' }}
         />
       </Link>
-    </CardCover>
+    </EpisodeCover>
   );
 };
 
