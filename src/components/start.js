@@ -1,6 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 import { EpisodeCard, CardTitle, InnerCardContainer } from '../styled/cards';
 import {
@@ -12,7 +11,7 @@ import StartHereSvg from '../../content/assets/start-here.svg';
 
 // Main components
 
-const StartHere = ({ down, setExpandedEpisodeRef }) => {
+const StartHere = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query StartHereQuery {
@@ -35,33 +34,20 @@ const StartHere = ({ down, setExpandedEpisodeRef }) => {
 
   const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) => {
     return (
-      <a
-        href={'/'}
-        key={e.id}
-        onClick={(el) => handleOnClick(el, e.episodeNumber)}
-      >
+      <Link to={`/${e.episodeNumber}`} key={e.id}>
         <ComposeFeaturedLink>
           <EpisodeName>{`${e.episodeNumber}: ${e.title}`}</EpisodeName>
         </ComposeFeaturedLink>
-      </a>
+      </Link>
     );
   });
 
-  const handleOnClick = (e, n) => {
-    e.preventDefault();
-    setExpandedEpisodeRef(parseInt(n));
-  };
-
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
-
   return (
-    <EpisodeCard down={down}>
+    <EpisodeCard featured={true}>
       <InnerCardContainer>
         <CardTitle>
           <StartHereSvg />
-          <h2>
-            {isDesktop ? `Comença Escoltant Aquests Capítols` : `Comença Aquí`}
-          </h2>
+          <h2>Comença Aquí</h2>
         </CardTitle>
         <p>
           És difícil començar a escoltar un podcast, i sempre hi ha capítols que
