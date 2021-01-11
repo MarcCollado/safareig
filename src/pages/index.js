@@ -88,7 +88,7 @@ const IndexPage = ({ data, location }) => {
     <GlobalContainer>
       <SEO location={location} pageTitle={siteTitle} />
       <HeaderContainer>
-        <Cover float={true} />
+        <Cover location={location.pathname} />
         <Bio />
       </HeaderContainer>
       <MainContainer>{isReady && renderResponsiveUI(isDesktop)}</MainContainer>

@@ -46,7 +46,7 @@ const EpisodePage = ({ pageContext, location }) => {
     return isDesktop ? (
       <>
         <LeftPanelContainer>
-          <Cover float={false} />
+          <Cover location={location.pathname} />
           <Subscribe />
           <Share />
           <Follow />
@@ -60,7 +60,7 @@ const EpisodePage = ({ pageContext, location }) => {
     ) : (
       <>
         <LeftPanelContainer>
-          <Cover float={false} />
+          <Cover location={location.pathname} />
           <EpisodesContainer>
             {renderEpisode(pageContext)}
             <Start />
