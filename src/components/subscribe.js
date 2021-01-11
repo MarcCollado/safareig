@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
@@ -67,14 +66,12 @@ const Subscribe = () => {
     PodcastLink(p.id, p.icon.asset.fluid, p.url, p.name)
   );
 
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
-
   return (
     <Card flat>
       <InnerCardContainer>
         <CardTitle>
           <SubscribeSvg />
-          <h2>{isDesktop ? `Subscriu-te a Safareig` : `Subscriu-te`}</h2>
+          <h2>Subscriu-te</h2>
         </CardTitle>
         <p>Des d'allà on siguis, sigues el primer en escoltar-nos.</p>
         {generatePodcastList}
