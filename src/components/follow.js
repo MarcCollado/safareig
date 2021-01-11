@@ -50,7 +50,7 @@ const Follow = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     {
-      allSanityHost {
+      allSanityHost(sort: { fields: name, order: ASC }, limit: 3) {
         nodes {
           id
           name
