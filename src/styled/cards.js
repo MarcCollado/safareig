@@ -36,13 +36,10 @@ export const InnerCardContainer = styled.div`
 `;
 
 export const Card = styled(FlexCenter)`
-  border-radius: ${fluid(24, 32)};
   margin-block-end: 24px;
-  background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
-  box-shadow: ${(props) =>
-    props.flat || props.down ? 'none' : 'var(--boxShadow)'};
-  position: ${(props) => (props.flat || props.down ? 'static' : 'relative')};
-  z-index: ${(props) => (props.flat || props.down ? 1 : 999)};
+  border-radius: ${fluid(24, 32)};
+  background-color: ${(props) =>
+    props.featured ? 'var(--white)' : 'var(--gray)'};
   transition: all 300ms ease;
 
   @media (min-width: 768px) {
@@ -55,9 +52,6 @@ export const Card = styled(FlexCenter)`
 
 // Used by share.js, press.js
 export const FlatCard = styled(Card)`
-  background-color: var(--gray);
-  box-shadow: none;
-
   @media (min-width: 768px) {
     &:hover {
       background-color: var(--white);
@@ -74,5 +68,17 @@ export const EpisodeCard = styled(Card)`
     min-width: 410px;
     width: 100%;
     max-width: 726px;
+  }
+`;
+
+export const EpisodeLinkCard = styled(EpisodeCard)`
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: var(--white);
+
+      & div svg:last-child {
+        transform: translate3d(4px, 0px, 0px);
+      }
+    }
   }
 `;
