@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { SimpleLinkComposer } from '../styled/link';
+import { FeaturedLinkComposer } from '../styled/link';
 import { BioContainer } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
@@ -63,8 +63,8 @@ const Bio = () => {
         en&nbsp;català.
       </Description>
       <LinksContainer>
-        <SimpleLinkComposer href={twitter} text="Segueix-nos" />
-        <SimpleLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
+        <FeaturedLinkComposer href={twitter} text="Segueix-nos" />
+        <FeaturedLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
       </LinksContainer>
     </BioContainer>
   );

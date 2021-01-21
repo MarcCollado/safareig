@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
-import { FeaturedLink as HostName, ComposeFeaturedLink } from '../styled/link';
+import { RichLinkText as HostName, RichLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 import FollowSvg from '../../content/assets/follow.svg';
@@ -35,13 +35,13 @@ const TwitterLink = (id, avatar, twitterHandle, name) => {
       rel="noreferrer"
       key={id}
     >
-      <ComposeFeaturedLink flat>
+      <RichLinkComposer flat>
         <StyledAvatar fluid={avatar}></StyledAvatar>
         <div>
           <HostName>{name}</HostName>
           <TwitterHandle>{`@${twitterHandle.toLowerCase()}`}</TwitterHandle>
         </div>
-      </ComposeFeaturedLink>
+      </RichLinkComposer>
     </a>
   );
 };

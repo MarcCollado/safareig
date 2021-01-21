@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import { EpisodeLinkCard, InnerCardContainer } from '../styled/cards';
-import { SimpleLinkComposer } from '../styled/link';
+import { FeaturedLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 // Styled Components
@@ -35,7 +35,7 @@ const EpisodeLink = ({ date, episodeNumber, title, description }) => {
           <EpisodeDate>{date}</EpisodeDate>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{description}</p>
-          <SimpleLinkComposer text={`Escoltar Capítol`} />
+          <FeaturedLinkComposer text={`Escoltar Capítol`} />
         </InnerCardContainer>
       </EpisodeLinkCard>
     </Link>

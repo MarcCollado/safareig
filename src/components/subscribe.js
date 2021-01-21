@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
 import {
-  FeaturedLink as PodcastProvider,
-  ComposeFeaturedLink,
+  RichLinkText as PodcastProvider,
+  RichLinkComposer,
 } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
@@ -27,10 +27,10 @@ const StyledImage = styled(Img)`
 const PodcastLink = (id, art, link, name) => {
   return (
     <a href={link} target="_blank" rel="noreferrer" key={id}>
-      <ComposeFeaturedLink flat>
+      <RichLinkComposer flat>
         <StyledImage fluid={art}></StyledImage>
         <PodcastProvider>{name}</PodcastProvider>
-      </ComposeFeaturedLink>
+      </RichLinkComposer>
     </a>
   );
 };
