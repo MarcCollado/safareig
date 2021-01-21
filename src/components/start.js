@@ -2,10 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
 import { EpisodeCard, CardTitle, InnerCardContainer } from '../styled/cards';
-import {
-  FeaturedLink as EpisodeName,
-  ComposeFeaturedLink,
-} from '../styled/link';
+import { RichLinkText as EpisodeName, RichLinkComposer } from '../styled/link';
 
 import StartHereSvg from '../../content/assets/start-here.svg';
 
@@ -35,9 +32,9 @@ const StartHere = () => {
   const generateFeaturedEpisodesList = data.allSanityEpisode?.nodes.map((e) => {
     return (
       <Link to={`/${e.episodeNumber}`} key={e.id}>
-        <ComposeFeaturedLink>
+        <RichLinkComposer>
           <EpisodeName>{`${e.episodeNumber}: ${e.title}`}</EpisodeName>
-        </ComposeFeaturedLink>
+        </RichLinkComposer>
       </Link>
     );
   });
