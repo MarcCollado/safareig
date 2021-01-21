@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import { EpisodeCard, InnerCardContainer } from '../styled/cards';
-import { SimpleLinkComposer } from '../styled/link';
+import { FeaturedLinkComposer, PillLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 // Styled Components
@@ -49,6 +50,18 @@ const ShowNotes = styled.div`
   }
 `;
 
+const LinksContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  // add space when there are two link items inline
+  & a:last-child {
+    margin-inline-start: ${fluid(24, 32)};
+  }
+`;
+
 // Components
 
 const Episode = ({
@@ -59,6 +72,21 @@ const Episode = ({
   audioFile,
   showNotes,
 }) => {
+  // GraphQL
+  const data = useStaticQuery(graphql`
+    query EpisodeQuery {
+      site {
+        siteMetadata {
+          social {
+            email
+          }
+        }
+      }
+    }
+  `);
+
+  const email = data.site.siteMetadata?.social.email;
+
   return (
     <EpisodeCard
       flexFlow="column nowrap"
@@ -83,7 +111,12 @@ const Episode = ({
             ),
           }}
         ></ShowNotes>
-        <SimpleLinkComposer text={`Tancar`} />
+        <LinksContainer>
+          <Link to="/">
+            <PillLinkComposer text="Comparteix" />
+          </Link>
+          <FeaturedLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
+        </LinksContainer>
       </InnerCardContainer>
     </EpisodeCard>
   );
