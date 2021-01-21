@@ -5,7 +5,7 @@ import Chevron from '../styled/chevron';
 import { fluid } from '../utils/fluid';
 
 // Blue links w/ SVG arrows
-export const SimpleLinkContainer = styled.div`
+const FeaturedLinkContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -34,40 +34,35 @@ export const SimpleLinkContainer = styled.div`
   }
 `;
 
-// Text inside SimpleLinkContainer
-export const SimpleLink = styled.p`
-  margin: 0px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--darkBlue);
-
-  @media (min-width: 768px) {
-    font-size: ${fluid(16, 20)};
-  }
-`;
-
-// Special CTAs for cards — separated from main content
-export const CardLinkContainer = styled(SimpleLinkContainer)`
+// Featured links inside cards
+const CardLinkContainer = styled(FeaturedLinkContainer)`
   padding-block-start: ${fluid(12, 16)};
 `;
 
-export const SimpleLinkComposer = ({ href, text }) => {
+// Text inside FeaturedLinkContainer
+export const FeaturedLinkText = styled.p`
+  margin: 0px;
+  font-weight: 600;
+  color: var(--darkBlue);
+`;
+
+export const FeaturedLinkComposer = ({ href, text }) => {
   return href ? (
     <a href={href} target="_blank" rel="noreferrer">
-      <SimpleLinkContainer>
-        <SimpleLink>{text}</SimpleLink>
+      <FeaturedLinkContainer>
+        <FeaturedLinkText>{text}</FeaturedLinkText>
         <Chevron color="blue" />
-      </SimpleLinkContainer>
+      </FeaturedLinkContainer>
     </a>
   ) : (
     <CardLinkContainer>
-      <SimpleLink>{text}</SimpleLink>
+      <FeaturedLinkText>{text}</FeaturedLinkText>
       <Chevron color="blue" />
     </CardLinkContainer>
   );
 };
 
-export const FeaturedLinkContainer = styled.div`
+const RichLinkContainer = styled.div`
   margin: 12px 0px;
   margin-block-start: ${(props) => (props.flat ? '12px' : '24px')};
   display: flex;
@@ -112,13 +107,27 @@ export const FeaturedLinkContainer = styled.div`
   }
 `;
 
-export const FeaturedLink = styled.p`
+export const RichLinkText = styled.p`
   font-weight: 500;
 `;
 
-export const ComposeFeaturedLink = ({ children, flat }) => (
-  <FeaturedLinkContainer flat={flat}>
+export const RichLinkComposer = ({ children, flat }) => (
+  <RichLinkContainer flat={flat}>
     {children}
     <Chevron color="gray" />
-  </FeaturedLinkContainer>
+  </RichLinkContainer>
 );
+
+const PillText = styled.button`
+  border: none;
+  border-radius: 32px;
+  padding: 8px 24px;
+  display: inline-block;
+  transition: all 250ms ease-in-out;
+
+  @media (min-width: 768px) {
+    padding: ${fluid(8, 16)} 24px;
+  }
+`;
+
+export const PillLinkComposer = ({ href, text }) => <PillText>{text}</PillText>;
