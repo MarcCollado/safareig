@@ -27,9 +27,20 @@ const FeaturedLinkContainer = styled.div`
       width: 6px;
     }
 
-    // Animations inside cards are controlled in the Card component
+    // Blue text color on hover
+    &:hover > p {
+      color: var(--darkBlue);
+    }
+
+    // Slide arrow on hover
+    // Links inside cards are controlled in the Card component itself
     &:hover > svg {
       transform: translate3d(4px, 0px, 0px);
+    }
+
+    // Arrow turns blue (if text was black) on hover
+    &:hover > svg > path {
+      stroke: var(--darkBlue);
     }
   }
 `;
@@ -43,18 +54,21 @@ const CardLinkContainer = styled(FeaturedLinkContainer)`
 export const FeaturedLinkText = styled.p`
   margin: 0px;
   font-weight: 600;
-  color: var(--darkBlue);
+  color: ${(props) =>
+    props.color === 'black' ? 'var(--black)' : 'var(--darkBlue)'};
 `;
 
-export const FeaturedLinkComposer = ({ href, text }) => {
+export const FeaturedLinkComposer = ({ color, href, text }) => {
+  // color can be either 'black' or 'blue'
   return href ? (
     <a href={href} target="_blank" rel="noreferrer">
       <FeaturedLinkContainer>
-        <FeaturedLinkText>{text}</FeaturedLinkText>
-        <Chevron color="blue" />
+        <FeaturedLinkText color={color}>{text}</FeaturedLinkText>
+        <Chevron color={color} />
       </FeaturedLinkContainer>
     </a>
   ) : (
+    // CardLink defaults to blue
     <CardLinkContainer>
       <FeaturedLinkText>{text}</FeaturedLinkText>
       <Chevron color="blue" />
@@ -111,7 +125,8 @@ export const RichLinkText = styled.p`
   font-weight: 500;
 `;
 
-export const RichLinkComposer = ({ children, flat }) => (
+export const RichLinkComposer = ({ color, children, flat }) => (
+  // RickLink defaults to gray
   <RichLinkContainer flat={flat}>
     {children}
     <Chevron color="gray" />
