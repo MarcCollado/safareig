@@ -115,7 +115,11 @@ const Episode = ({
           <Link to="/">
             <PillLinkComposer text="Comparteix" />
           </Link>
-          <FeaturedLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
+          <FeaturedLinkComposer
+            color="black"
+            href={`mailto:${email}`}
+            text="Contacta'ns"
+          />
         </LinksContainer>
       </InnerCardContainer>
     </EpisodeCard>
