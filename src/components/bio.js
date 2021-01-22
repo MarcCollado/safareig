@@ -1,8 +1,8 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { FeaturedLinkComposer } from '../styled/link';
+import { PillLinkComposer, FeaturedLinkComposer } from '../styled/link';
 import { BioContainer } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
@@ -12,10 +12,11 @@ const LinksContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+  align-items: center;
 
   // add space when there are two link items inline
   & a:last-child {
-    margin-inline-start: 24px;
+    margin-inline-start: ${fluid(24, 32)};
   }
 `;
 
@@ -40,7 +41,6 @@ const Bio = () => {
       site {
         siteMetadata {
           header
-          description
           social {
             twitter
             email
@@ -51,9 +51,8 @@ const Bio = () => {
   `);
 
   const header = data.site.siteMetadata?.header;
-  // const description = data.site.siteMetadata?.description;
   const twitter = data.site.siteMetadata?.social.twitter;
-  const email = data.site.siteMetadata?.social.email;
+
   return (
     <BioContainer>
       <h1>{header}</h1>
@@ -63,8 +62,10 @@ const Bio = () => {
         en&nbsp;català.
       </Description>
       <LinksContainer>
-        <FeaturedLinkComposer href={twitter} text="Segueix-nos" />
-        <FeaturedLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
+        <Link to="/">
+          <PillLinkComposer text="Escolta'ns" />
+        </Link>
+        <FeaturedLinkComposer color="black" href={twitter} text="Segueix-nos" />
       </LinksContainer>
     </BioContainer>
   );
