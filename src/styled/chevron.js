@@ -3,9 +3,17 @@ import styled from 'styled-components';
 
 import BlueChevron from '../../content/assets/chevron-blue.svg';
 import GrayChevron from '../../content/assets/chevron-gray.svg';
+import BlackChevron from '../../content/assets/chevron-black.svg';
 
 const Chevron = ({ color }) => {
-  return color === 'blue' ? <BlueChevron /> : <GrayChevron />;
+  switch (color) {
+    case 'gray':
+      return <GrayChevron />;
+    case 'black':
+      return <BlackChevron />;
+    default:
+      return <BlueChevron />;
+  }
 };
 
 const styledChevron = styled(Chevron)`
