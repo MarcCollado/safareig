@@ -3,6 +3,69 @@ import styled from 'styled-components';
 import { FlexCenter } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
+export const InnerCardContainer = styled.div`
+  margin: 24px;
+
+  @media (min-width: 768px) {
+    margin: ${fluid(24, 36)};
+  }
+`;
+
+export const Card = styled(FlexCenter)`
+  margin-block-end: 24px;
+  border-radius: ${fluid(24, 32)};
+  background-color: var(--gray);
+  transition: all 300ms ease;
+
+  // Sets its own width >576px
+  @media (min-width: 768px) {
+    min-width: 270px;
+    width: 100%;
+    max-width: 409px;
+    margin-block-end: ${fluid(24, 48)};
+  }
+`;
+
+// Used by share.js, press.js
+export const FlatCard = styled(Card)`
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: var(--white);
+
+      // Controls the arrow link
+      & div svg:last-child {
+        transform: translate3d(4px, 0px, 0px);
+      }
+    }
+  }
+`;
+
+export const EpisodeCard = styled(Card)`
+  background-color: var(--white);
+
+  // Sets its own width >576px
+  @media (min-width: 768px) {
+    min-width: 410px;
+    width: 100%;
+    max-width: 726px;
+  }
+`;
+
+export const EpisodeLinkCard = styled(EpisodeCard)`
+  background-color: var(--gray);
+
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: var(--white);
+
+      // Controls the arrow link
+      & div svg:last-child {
+        transform: translate3d(4px, 0px, 0px);
+      }
+    }
+  }
+`;
+
 // Contains the SVG icon and the h2
 export const CardTitle = styled.div`
   display: flex;
@@ -23,62 +86,6 @@ export const CardTitle = styled.div`
     & svg {
       width: ${fluid(28, 36)};
       margin-block-end: ${fluid(16, 20)};
-    }
-  }
-`;
-
-export const InnerCardContainer = styled.div`
-  margin: 24px;
-
-  @media (min-width: 768px) {
-    margin: ${fluid(24, 36)};
-  }
-`;
-
-export const Card = styled(FlexCenter)`
-  margin-block-end: 24px;
-  border-radius: ${fluid(24, 32)};
-  background-color: ${(props) =>
-    props.featured ? 'var(--white)' : 'var(--gray)'};
-  transition: all 300ms ease;
-
-  @media (min-width: 768px) {
-    min-width: 270px;
-    width: 100%;
-    max-width: 409px;
-    margin-block-end: ${fluid(24, 48)};
-  }
-`;
-
-// Used by share.js, press.js
-export const FlatCard = styled(Card)`
-  @media (min-width: 768px) {
-    &:hover {
-      background-color: var(--white);
-
-      & div svg:last-child {
-        transform: translate3d(4px, 0px, 0px);
-      }
-    }
-  }
-`;
-
-export const EpisodeCard = styled(Card)`
-  @media (min-width: 768px) {
-    min-width: 410px;
-    width: 100%;
-    max-width: 726px;
-  }
-`;
-
-export const EpisodeLinkCard = styled(EpisodeCard)`
-  @media (min-width: 768px) {
-    &:hover {
-      background-color: var(--white);
-
-      & div svg:last-child {
-        transform: translate3d(4px, 0px, 0px);
-      }
     }
   }
 `;
