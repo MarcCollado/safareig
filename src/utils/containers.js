@@ -12,7 +12,7 @@ export const GlobalContainer = styled(FlexCenter)`
   margin: 24px;
 
   @media (min-width: 768px) {
-    margin: ${fluid(32, 112)};
+    margin: ${fluid(24, 132)};
   }
 `;
 
@@ -54,13 +54,13 @@ export const LeftPanelContainer = styled(FlexCenter)`
   // Cards within the container set container's width
   // w/ the exception of EpisodeCover, that defaults to 100%
   @media (min-width: 768px) {
-    margin-inline-end: ${fluid(12, 21)}; // 1/2 space from EpisodesContainer
+    margin-inline-end: ${fluid(12, 20)}; // 1/2 space from EpisodesContainer
   }
 `;
 
 export const EpisodesContainer = styled(FlexCenter)`
   // Cards within the container set container's width
   @media (min-width: 768px) {
-    margin-inline-start: ${fluid(12, 21)}; // 1/2 space from LeftPanelContainer
+    margin-inline-start: ${fluid(12, 20)}; // 1/2 space from LeftPanelContainer
   }
 `;

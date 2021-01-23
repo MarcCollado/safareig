@@ -19,10 +19,11 @@ export const Card = styled(FlexCenter)`
 
   // Sets its own width >576px
   @media (min-width: 768px) {
-    min-width: 270px;
+    min-width: 260px;
     width: 100%;
-    max-width: 409px;
+    max-width: 408px;
     margin-block-end: ${fluid(24, 48)};
+    border-radius: ${fluid(24, 40)};
   }
 `;
 
@@ -45,9 +46,9 @@ export const EpisodeCard = styled(Card)`
 
   // Sets its own width >576px
   @media (min-width: 768px) {
-    min-width: 410px;
+    min-width: 436px;
     width: 100%;
-    max-width: 726px;
+    max-width: 728px;
   }
 `;
 
