@@ -88,11 +88,7 @@ const Episode = ({
   const email = data.site.siteMetadata?.social.email;
 
   return (
-    <EpisodeCard
-      flexFlow="column nowrap"
-      alignItems="flex-start"
-      featured={true}
-    >
+    <EpisodeCard flexFlow="column nowrap" alignItems="flex-start">
       <InnerCardContainer>
         <EpisodeDate>{date}</EpisodeDate>
         <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
@@ -113,7 +109,7 @@ const Episode = ({
         ></ShowNotes>
         <LinksContainer>
           <Link to="/">
-            <PillLinkComposer text="Comparteix" />
+            <PillLinkComposer text="Enrere" />
           </Link>
           <FeaturedLinkComposer
             color="black"

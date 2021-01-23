@@ -67,7 +67,7 @@ const Subscribe = () => {
   );
 
   return (
-    <Card flat>
+    <Card>
       <InnerCardContainer>
         <CardTitle>
           <SubscribeSvg />

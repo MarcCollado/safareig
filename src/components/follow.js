@@ -77,7 +77,7 @@ const Follow = () => {
     TwitterLink(p.id, p.avatar.asset.fluid, p.twitterHandle, p.name)
   );
   return (
-    <Card flat>
+    <Card>
       <InnerCardContainer>
         <CardTitle>
           <FollowSvg />

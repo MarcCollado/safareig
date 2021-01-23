@@ -40,7 +40,7 @@ const StartHere = () => {
   });
 
   return (
-    <EpisodeCard featured={true}>
+    <EpisodeCard>
       <InnerCardContainer>
         <CardTitle>
           <StartHereSvg />
