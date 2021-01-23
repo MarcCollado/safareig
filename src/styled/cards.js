@@ -72,21 +72,16 @@ export const CardTitle = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  align-self: flex-start;
-  margin-block-end: -6px; // Reset default p block-start margin
 
   & svg {
     width: 28px;
-    margin-inline-end: 12px; // Separate icon from the h2
+    margin-inline-end: 12px; // Separate svg from the h2
   }
 
   @media (min-width: 768px) {
-    flex-flow: column nowrap; // Display icon on top of h2
-    align-items: flex-start;
-
     & svg {
       width: ${fluid(28, 36)};
-      margin-block-end: ${fluid(16, 20)};
+      margin-inline-end: ${fluid(12, 16)};
     }
   }
 `;
