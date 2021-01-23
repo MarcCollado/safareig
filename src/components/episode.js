@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import {
+  CardTitle,
   EpisodeCard,
   EpisodeDate,
   EpisodeTitle,
@@ -15,21 +16,28 @@ import {
 } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
+import BookmarkSvg from '../../content/assets/bookmark.svg';
+
 // Styled Components
 
 const Audio = styled.audio`
   width: 100%;
   margin-block-start: 24px;
-  margin-block-end: 24px;
-  display: ${(props) => (props.hide ? 'none' : 'block')};
+  margin-block-end: 36px;
+
+  @media (min-width: 768px) {
+    margin-block-start: ${fluid(24, 36)};
+    margin-block-end: ${fluid(36, 48)};
+  }
 `;
 
 const ShowNotes = styled.div`
-  margin-block-end: 32px;
-  display: ${(props) => (props.hide ? 'none' : 'block')};
+  margin-block-start: 24px;
+  margin-block-end: 36px;
 
   @media (min-width: 768px) {
-    margin-block-end: ${fluid(32, 44)};
+    margin-block-start: ${fluid(24, 36)};
+    margin-block-end: ${fluid(36, 48)};
   }
 
   & a {
@@ -42,18 +50,6 @@ const ShowNotes = styled.div`
   }
 `;
 
-const LinksContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-
-  // add space when there are two link items inline
-  & a:last-child {
-    margin-inline-start: ${fluid(24, 32)};
-  }
-`;
-
 // Components
 
 const Episode = ({
@@ -63,6 +59,7 @@ const Episode = ({
   description,
   audioFile,
   showNotes,
+  url,
 }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
@@ -83,7 +80,9 @@ const Episode = ({
     <EpisodeCard flexFlow="column nowrap" alignItems="flex-start">
       <InnerCardContainer>
         <EpisodeDate>{date}</EpisodeDate>
-        <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
+        <EpisodeTitle>
+          <big>{`${episodeNumber}: ${title}`}</big>
+        </EpisodeTitle>
         <p>{description}</p>
         <Audio
           controls
@@ -91,6 +90,10 @@ const Episode = ({
           type="audio/mpeg"
           preload="none"
         ></Audio>
+        <CardTitle>
+          <BookmarkSvg />
+          <h2>Notes del Capítol</h2>
+        </CardTitle>
         <ShowNotes
           dangerouslySetInnerHTML={{
             __html: showNotes.replace(
@@ -100,9 +103,10 @@ const Episode = ({
           }}
         ></ShowNotes>
         <InLineLinksContainer>
-          <Link to="/">
-            <PillLinkComposer text="Tornar Enrere" />
-          </Link>
+          <PillLinkComposer
+            href={`https://twitter.com/intent/tweet?text=Escolta ${title} a ${url}`}
+            text="Comparteix"
+          />
           <FeaturedLinkComposer
             color="black"
             href={`mailto:${email}`}
