@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import Chevron from '../styled/chevron';
 import { fluid } from '../utils/fluid';
 
-// Blue links w/ SVG arrows
+// FEATURED LINKS
+// The ones w/ blue links and arrows
+
 const FeaturedLinkContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -27,25 +29,23 @@ const FeaturedLinkContainer = styled.div`
       width: 6px;
     }
 
-    // Blue text color on hover
-    &:hover > p {
-      color: var(--darkBlue);
-    }
-
-    // Slide arrow on hover
-    // Links inside cards are controlled in the Card component itself
+    // Slides arrow on hover
+    // FeaturedLinks inside cards are controlled w/ the card hover
     &:hover > svg {
       transform: translate3d(4px, 0px, 0px);
     }
 
-    // Arrow turns blue (if text was black) on hover
+    // For black FeaturedLinks, text and arrow turn blue on hover
+    &:hover > p {
+      color: var(--darkBlue);
+    }
     &:hover > svg > path {
       stroke: var(--darkBlue);
     }
   }
 `;
 
-// Featured links inside cards
+// Adds space to FeaturedLinks inside cards
 const CardLinkContainer = styled(FeaturedLinkContainer)`
   padding-block-start: ${fluid(12, 16)};
 `;
@@ -60,6 +60,7 @@ export const FeaturedLinkText = styled.p`
 
 export const FeaturedLinkComposer = ({ color, href, text }) => {
   // color can be either 'black' or 'blue'
+  // href if external link
   return href ? (
     <a href={href} target="_blank" rel="noreferrer">
       <FeaturedLinkContainer>
@@ -68,13 +69,18 @@ export const FeaturedLinkComposer = ({ color, href, text }) => {
       </FeaturedLinkContainer>
     </a>
   ) : (
-    // CardLink defaults to blue
     <CardLinkContainer>
       <FeaturedLinkText>{text}</FeaturedLinkText>
-      <Chevron color="blue" />
+      <Chevron color={color} />
     </CardLinkContainer>
   );
 };
+
+// RICH LINKS
+// The ones images, text, and gray arrows
+
+// props.flat => the ones w/ images
+// !props.flat => the ones w/ text
 
 const RichLinkContainer = styled.div`
   margin: 12px 0px;
@@ -125,13 +131,14 @@ export const RichLinkText = styled.p`
   font-weight: 500;
 `;
 
-export const RichLinkComposer = ({ color, children, flat }) => (
-  // RickLink defaults to gray
+export const RichLinkComposer = ({ children, flat }) => (
   <RichLinkContainer flat={flat}>
     {children}
     <Chevron color="gray" />
   </RichLinkContainer>
 );
+
+// PILL LINKS
 
 const PillText = styled.button`
   border: none;
@@ -146,3 +153,17 @@ const PillText = styled.button`
 `;
 
 export const PillLinkComposer = ({ href, text }) => <PillText>{text}</PillText>;
+
+// MIXING LINKS INLINE
+
+export const InLineLinksContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  // add space when there are two link items inline
+  & a:last-child {
+    margin-inline-start: ${fluid(24, 32)};
+  }
+`;

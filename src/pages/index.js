@@ -110,7 +110,6 @@ export const pageQuery = graphql`
     allFeedSafareigFm(sort: { order: DESC, fields: isoDate }) {
       nodes {
         title
-
         contentSnippet
         isoDate(formatString: "YYYY / MM / DD")
         itunes {
