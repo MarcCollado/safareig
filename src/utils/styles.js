@@ -40,12 +40,12 @@ const GlobalStyles = createGlobalStyle`
     // reset default margins
     margin: 0px;
     font-weight: 800;
-    line-height: normal;
+    line-height: 1.5;
     color: var(--black);
   }
 
   h1 {
-    font-size: 28px;
+    font-size: 32px;
 
     @media (min-width: 768px) {
       font-size: 32px;
