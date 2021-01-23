@@ -8,7 +8,6 @@ import {
   PillLinkComposer,
 } from '../styled/link';
 import { BioContainer } from '../utils/containers';
-import { fluid } from '../utils/fluid';
 import { getRandom } from '../utils/random';
 
 // Styled components
@@ -16,12 +15,23 @@ import { getRandom } from '../utils/random';
 const Description = styled.p`
   // correct for <p> default block margin
   margin-block-start: 12px;
-  font-size: ${fluid(17, 28, 576)};
-  line-height: 1.67;
+  margin-block-end: 24px;
+  font-size: 17px;
+
+  @media (min-width: 576px) {
+    font-size: 20px;
+  }
 
   @media (min-width: 768px) {
-    padding-inline-end: ${fluid(0, 24, 1080)};
-    line-height: 1.5;
+    font-size: 22px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 28px;
   }
 `;
 
