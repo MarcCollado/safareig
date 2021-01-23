@@ -152,7 +152,15 @@ const PillText = styled.button`
   }
 `;
 
-export const PillLinkComposer = ({ href, text }) => <PillText>{text}</PillText>;
+export const PillLinkComposer = ({ href, text }) => {
+  return href ? (
+    <a href={href} target="_blank" rel="noreferrer">
+      <PillText>{text}</PillText>
+    </a>
+  ) : (
+    <PillText>{text}</PillText>
+  );
+};
 
 // MIXING LINKS INLINE
 
