@@ -89,3 +89,21 @@ export const CardTitle = styled.div`
     }
   }
 `;
+
+// Titles for the EpisodeCard
+export const EpisodeDate = styled.p`
+  margin: 0px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  opacity: 0.5;
+  color: var(--black);
+
+  @media (min-width: 768px) {
+    font-size: ${fluid(14, 18)};
+  }
+`;
+
+export const EpisodeTitle = styled.h2`
+  margin-block-start: 16px;
+  margin-block-end: -6px; // Reset default p block-start margin
+`;

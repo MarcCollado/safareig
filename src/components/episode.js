@@ -2,28 +2,20 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { EpisodeCard, InnerCardContainer } from '../styled/cards';
-import { FeaturedLinkComposer, PillLinkComposer } from '../styled/link';
+import {
+  EpisodeCard,
+  EpisodeDate,
+  EpisodeTitle,
+  InnerCardContainer,
+} from '../styled/cards';
+import {
+  FeaturedLinkComposer,
+  InLineLinksContainer,
+  PillLinkComposer,
+} from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 // Styled Components
-
-const EpisodeDate = styled.p`
-  margin: 0px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  opacity: 0.5;
-  color: var(--black);
-
-  @media (min-width: 768px) {
-    font-size: ${fluid(14, 18)};
-  }
-`;
-
-const EpisodeTitle = styled.h2`
-  margin-block-start: 16px;
-  margin-block-end: -6px; // Reset default p block-start margin
-`;
 
 const Audio = styled.audio`
   width: 100%;
@@ -107,16 +99,16 @@ const Episode = ({
             ),
           }}
         ></ShowNotes>
-        <LinksContainer>
+        <InLineLinksContainer>
           <Link to="/">
-            <PillLinkComposer text="Enrere" />
+            <PillLinkComposer text="Tornar Enrere" />
           </Link>
           <FeaturedLinkComposer
             color="black"
             href={`mailto:${email}`}
             text="Contacta'ns"
           />
-        </LinksContainer>
+        </InLineLinksContainer>
       </InnerCardContainer>
     </EpisodeCard>
   );
