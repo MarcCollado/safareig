@@ -25,6 +25,7 @@ const EpisodeCover = styled.div`
 
   @media (min-width: 768px) {
     margin-block-end: ${fluid(24, 48)};
+    border-radius: ${fluid(32, 48)};
   }
 `;
 
@@ -54,14 +55,28 @@ const Cover = ({ location }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
-      mobileCover: file(relativePath: { eq: "cover-mobile.jpg" }) {
+      homeMobileCover: file(relativePath: { eq: "home-mobile.png" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      desktopCover: file(relativePath: { eq: "cover-desktop.jpg" }) {
+      homeDesktopCover: file(relativePath: { eq: "home-desktop.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      episodeMobileCover: file(relativePath: { eq: "episode-mobile.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      episodeDesktopCover: file(relativePath: { eq: "episode-desktop.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
@@ -70,17 +85,24 @@ const Cover = ({ location }) => {
       }
     }
   `);
-  const sources = [
-    data.mobileCover.childImageSharp.fluid,
+  const homeSources = [
+    data.homeMobileCover.childImageSharp.fluid,
     {
-      ...data.desktopCover.childImageSharp.fluid,
+      ...data.homeDesktopCover.childImageSharp.fluid,
+      media: `(min-width: 768px)`,
+    },
+  ];
+  const espisodeSources = [
+    data.episodeMobileCover.childImageSharp.fluid,
+    {
+      ...data.episodeDesktopCover.childImageSharp.fluid,
       media: `(min-width: 768px)`,
     },
   ];
   return location === '/' ? (
     <HomeCover>
       <Img
-        fluid={sources}
+        fluid={homeSources}
         alt="Safareig cover image"
         style={{ width: '100%', height: '100%' }}
       />
@@ -89,8 +111,8 @@ const Cover = ({ location }) => {
     <EpisodeCover>
       <Link to="/">
         <Img
-          fluid={sources}
-          alt="Safareig cover image"
+          fluid={espisodeSources}
+          alt="Safareig episode cover image"
           style={{ width: '100%', height: '100%' }}
         />
       </Link>
