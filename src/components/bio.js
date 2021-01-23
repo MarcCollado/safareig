@@ -2,23 +2,16 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { PillLinkComposer, FeaturedLinkComposer } from '../styled/link';
+import {
+  FeaturedLinkComposer,
+  InLineLinksContainer,
+  PillLinkComposer,
+} from '../styled/link';
 import { BioContainer } from '../utils/containers';
 import { fluid } from '../utils/fluid';
+import { getRandom } from '../utils/random';
 
 // Styled components
-
-const LinksContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-
-  // add space when there are two link items inline
-  & a:last-child {
-    margin-inline-start: ${fluid(24, 32)};
-  }
-`;
 
 const Description = styled.p`
   // correct for <p> default block margin
@@ -47,11 +40,16 @@ const Bio = () => {
           }
         }
       }
+      allFeedSafareigFm {
+        totalCount
+      }
     }
   `);
 
   const header = data.site.siteMetadata?.header;
   const twitter = data.site.siteMetadata?.social.twitter;
+  const totalCount = data.allFeedSafareigFm?.totalCount;
+  const randomEspisode = getRandom(1, totalCount);
 
   return (
     <BioContainer>
@@ -61,12 +59,12 @@ const Bio = () => {
         societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament
         en&nbsp;català.
       </Description>
-      <LinksContainer>
-        <Link to="/">
+      <InLineLinksContainer>
+        <Link to={`/${randomEspisode}`}>
           <PillLinkComposer text="Escolta'ns" />
         </Link>
         <FeaturedLinkComposer color="black" href={twitter} text="Segueix-nos" />
-      </LinksContainer>
+      </InLineLinksContainer>
     </BioContainer>
   );
 };
