@@ -23,7 +23,7 @@ const Press = () => (
           Vols escriure sobre nosaltres? Hem preparat un recull de text amb
           imatges sobre Safareig.
         </p>
-        <FeaturedLinkComposer text="Descarrega'l" />
+        <FeaturedLinkComposer color="blue" text="Descarrega'l" />
       </InnerCardContainer>
     </a>
   </FlatCard>

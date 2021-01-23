@@ -16,7 +16,7 @@ const Share = () => (
           <h2>Fes Safareig</h2>
         </CardTitle>
         <p>Tens algun tema a suggerir? No dubtis en contactar-nos.</p>
-        <FeaturedLinkComposer text="Contacta a Safareig" />
+        <FeaturedLinkComposer color="blue" text="Contacta a Safareig" />
       </InnerCardContainer>
     </a>
   </FlatCard>
