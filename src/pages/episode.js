@@ -27,8 +27,8 @@ const EpisodePage = ({ pageContext, location }) => {
   const renderEpisode = (e) => {
     const descriptionIndex = e.description.indexOf('Show notes:');
     const showDescription = e.description.substring(0, descriptionIndex - 1);
-    const showNotesIndex = e.descriptionHtml.indexOf('<p><strong>Show');
-    const showNotes = e.descriptionHtml.substring(showNotesIndex);
+    const showNotesIndex = e.descriptionHtml.indexOf('notes:</strong></p>');
+    const showNotes = e.descriptionHtml.substring(showNotesIndex + 19);
 
     return (
       <Episode
@@ -38,6 +38,7 @@ const EpisodePage = ({ pageContext, location }) => {
         description={showDescription}
         audioFile={e.audioFile}
         showNotes={showNotes}
+        url={location.href}
       />
     );
   };
