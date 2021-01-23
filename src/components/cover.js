@@ -32,7 +32,6 @@ const HomeCover = styled(EpisodeCover)`
   // Mobile: add space from BioContainer below
   margin-block-end: 32px;
   box-shadow: var(--boxShadow);
-  z-index: 999;
 
   transition: all 300ms ease;
 
