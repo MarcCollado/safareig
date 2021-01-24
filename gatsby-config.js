@@ -116,14 +116,6 @@ export default {
         sv: 6,
       },
     },
-    {
-      resolve: '@sentry/gatsby',
-      options: {
-        dsn:
-          'https://d090893262b643eca5c2379948f66eed@o326719.ingest.sentry.io/5564542',
-        autoSessionTracking: true,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
   ],
