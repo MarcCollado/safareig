@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
 import Cover from '../components/cover';
@@ -9,7 +8,7 @@ import Footer from '../components/footer';
 import Press from '../components/press';
 import SEO from '../components/seo';
 import Share from '../components/share';
-import Start from '../components/start';
+import Related from '../components/related';
 import Subscribe from '../components/subscribe';
 import {
   GlobalContainer,
@@ -18,7 +17,7 @@ import {
   EpisodesContainer,
 } from '../utils/containers';
 
-const EpisodePage = ({ pageContext, location }) => {
+const EpisodePage = ({ location, pageContext }) => {
   const [isReady, setIsReady] = useState(false);
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
@@ -55,7 +54,7 @@ const EpisodePage = ({ pageContext, location }) => {
         </LeftPanelContainer>
         <EpisodesContainer>
           {renderEpisode(pageContext)}
-          <Start />
+          <Related episodeTitle={pageContext.title} />
         </EpisodesContainer>
       </>
     ) : (
@@ -64,7 +63,7 @@ const EpisodePage = ({ pageContext, location }) => {
           <Cover location={location.pathname} />
           <EpisodesContainer>
             {renderEpisode(pageContext)}
-            <Start />
+            <Related episodeTitle={pageContext.title} />
           </EpisodesContainer>
           <Subscribe />
           <Share />
@@ -85,13 +84,3 @@ const EpisodePage = ({ pageContext, location }) => {
 };
 
 export default EpisodePage;
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
