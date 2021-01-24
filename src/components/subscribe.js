@@ -27,7 +27,7 @@ const StyledImage = styled(Img)`
 const PodcastLink = (id, art, link, name) => {
   return (
     <a href={link} target="_blank" rel="noreferrer" key={id}>
-      <RichLinkComposer flat>
+      <RichLinkComposer flat withImage>
         <StyledImage fluid={art}></StyledImage>
         <PodcastProvider>{name}</PodcastProvider>
       </RichLinkComposer>

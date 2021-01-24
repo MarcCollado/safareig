@@ -84,7 +84,7 @@ export const FeaturedLinkComposer = ({ color, href, text }) => {
 
 const RichLinkContainer = styled.div`
   margin: 12px 0px;
-  margin-block-start: ${(props) => (props.flat ? '12px' : '24px')};
+  margin-block-start: ${(props) => (props.withImage ? '12px' : '24px')};
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -96,8 +96,8 @@ const RichLinkContainer = styled.div`
 
   & p {
     margin: 0px 0px 0px 16px;
-    margin-inline-start: ${(props) => (props.flat ? '16px' : '0px')};
-    margin-inline-end: ${(props) => (props.flat ? '0px' : '4px')};
+    margin-inline-start: ${(props) => (props.withImage ? '16px' : '0px')};
+    margin-inline-end: ${(props) => (props.withImage ? '0px' : '4px')};
   }
 
   & svg {
@@ -131,8 +131,10 @@ export const RichLinkText = styled.p`
   font-weight: 500;
 `;
 
-export const RichLinkComposer = ({ children, flat }) => (
-  <RichLinkContainer flat={flat}>
+export const RichLinkComposer = ({ children, flat, withImage }) => (
+  // flat: background:gray — hover:white
+  // withImage: link has image
+  <RichLinkContainer flat={flat} withImage={withImage}>
     {children}
     <Chevron color="gray" />
   </RichLinkContainer>

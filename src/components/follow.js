@@ -35,7 +35,7 @@ const TwitterLink = (id, avatar, twitterHandle, name) => {
       rel="noreferrer"
       key={id}
     >
-      <RichLinkComposer flat>
+      <RichLinkComposer flat withImage>
         <StyledAvatar fluid={avatar}></StyledAvatar>
         <div>
           <HostName>{name}</HostName>

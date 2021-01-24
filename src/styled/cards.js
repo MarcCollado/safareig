@@ -42,7 +42,7 @@ export const FlatCard = styled(Card)`
 `;
 
 export const EpisodeCard = styled(Card)`
-  background-color: var(--white);
+  background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
 
   // Sets its own width >576px
   @media (min-width: 768px) {
