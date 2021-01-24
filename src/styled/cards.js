@@ -3,6 +3,20 @@ import styled from 'styled-components';
 import { FlexCenter } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
+export const FullPageCard = styled(FlexCenter)`
+  margin-block-end: 24px;
+  border-radius: ${fluid(24, 32)};
+  background-color: var(--white);
+  transition: all 300ms ease;
+
+  // Sets its own width >576px
+  @media (min-width: 768px) {
+    width: 100%;
+    margin-block-end: ${fluid(24, 48)};
+    border-radius: ${fluid(24, 40)};
+  }
+`;
+
 export const InnerCardContainer = styled.div`
   margin: 24px;
 
