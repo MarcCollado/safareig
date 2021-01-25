@@ -36,7 +36,7 @@ export const Card = styled(FlexCenter)`
     min-width: 260px;
     width: 100%;
     max-width: 408px;
-    margin-block-end: ${fluid(24, 48)};
+    margin-block-end: ${fluid(24, 40)};
     border-radius: ${fluid(24, 40)};
   }
 `;
