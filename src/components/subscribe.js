@@ -1,13 +1,12 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
 import {
-  FeaturedLink as PodcastProvider,
-  ComposeFeaturedLink,
+  RichLinkText as PodcastProvider,
+  RichLinkComposer,
 } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
@@ -28,10 +27,10 @@ const StyledImage = styled(Img)`
 const PodcastLink = (id, art, link, name) => {
   return (
     <a href={link} target="_blank" rel="noreferrer" key={id}>
-      <ComposeFeaturedLink flat>
+      <RichLinkComposer flat withImage>
         <StyledImage fluid={art}></StyledImage>
         <PodcastProvider>{name}</PodcastProvider>
-      </ComposeFeaturedLink>
+      </RichLinkComposer>
     </a>
   );
 };
@@ -67,14 +66,12 @@ const Subscribe = () => {
     PodcastLink(p.id, p.icon.asset.fluid, p.url, p.name)
   );
 
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
-
   return (
-    <Card flat>
+    <Card>
       <InnerCardContainer>
         <CardTitle>
           <SubscribeSvg />
-          <h2>{isDesktop ? `Subscriu-te a Safareig` : `Subscriu-te`}</h2>
+          <h2>Subscriu-te</h2>
         </CardTitle>
         <p>Des d'allà on siguis, sigues el primer en escoltar-nos.</p>
         {generatePodcastList}

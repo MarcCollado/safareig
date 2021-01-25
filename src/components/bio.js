@@ -1,33 +1,37 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { SimpleLinkComposer } from '../styled/link';
+import {
+  FeaturedLinkComposer,
+  InLineLinksContainer,
+  PillLinkComposer,
+} from '../styled/link';
 import { BioContainer } from '../utils/containers';
-import { fluid } from '../utils/fluid';
+import { getRandom } from '../utils/random';
 
 // Styled components
-
-const LinksContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-
-  // add space when there are two link items inline
-  & a:last-child {
-    margin-inline-start: 24px;
-  }
-`;
 
 const Description = styled.p`
   // correct for <p> default block margin
   margin-block-start: 12px;
-  font-size: ${fluid(17, 28, 576)};
-  line-height: 1.67;
+  margin-block-end: 24px;
+  font-size: 17px;
+
+  @media (min-width: 576px) {
+    font-size: 20px;
+  }
 
   @media (min-width: 768px) {
-    padding-inline-end: ${fluid(0, 24, 1080)};
-    line-height: 1.5;
+    font-size: 22px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 28px;
   }
 `;
 
@@ -40,20 +44,23 @@ const Bio = () => {
       site {
         siteMetadata {
           header
-          description
           social {
             twitter
             email
           }
         }
       }
+      allFeedSafareigFm {
+        totalCount
+      }
     }
   `);
 
   const header = data.site.siteMetadata?.header;
-  // const description = data.site.siteMetadata?.description;
   const twitter = data.site.siteMetadata?.social.twitter;
-  const email = data.site.siteMetadata?.social.email;
+  const totalCount = data.allFeedSafareigFm?.totalCount;
+  const randomEspisode = getRandom(1, totalCount);
+
   return (
     <BioContainer>
       <h1>{header}</h1>
@@ -62,10 +69,12 @@ const Bio = () => {
         societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament
         en&nbsp;català.
       </Description>
-      <LinksContainer>
-        <SimpleLinkComposer href={twitter} text="Segueix-nos" />
-        <SimpleLinkComposer href={`mailto:${email}`} text="Contacta'ns" />
-      </LinksContainer>
+      <InLineLinksContainer>
+        <Link to={`/${randomEspisode}`}>
+          <PillLinkComposer text="Escolta'ns" />
+        </Link>
+        <FeaturedLinkComposer color="black" href={twitter} text="Segueix-nos" />
+      </InLineLinksContainer>
     </BioContainer>
   );
 };

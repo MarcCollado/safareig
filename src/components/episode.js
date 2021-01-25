@@ -1,78 +1,43 @@
-import React, { useRef, useState, useEffect } from 'react';
-// import { Link } from 'gatsby';
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import scrollToElement from 'scroll-to-element';
 
-import { EpisodeCard, InnerCardContainer } from '../styled/cards';
-import { SimpleLinkComposer } from '../styled/link';
+import {
+  CardTitle,
+  EpisodeCard,
+  EpisodeDate,
+  EpisodeTitle,
+  InnerCardContainer,
+} from '../styled/cards';
+import {
+  FeaturedLinkComposer,
+  InLineLinksContainer,
+  PillLinkComposer,
+} from '../styled/link';
 import { fluid } from '../utils/fluid';
 
+import BookmarkSvg from '../../content/assets/bookmark.svg';
+
 // Styled Components
-
-const CardEpisode = styled(EpisodeCard)`
-  background-color: ${(props) =>
-    props.expand ? 'var(--white)' : 'var(--gray)'};
-  box-shadow: ${(props) => (props.expand ? 'var(--boxShadow)' : 'none')};
-  position: ${(props) => (props.expand ? 'relative' : 'static')};
-  z-index: ${(props) => (props.expand ? '999' : '1')};
-
-  & div svg:last-child {
-    transform: rotate3d(
-      0,
-      0,
-      1,
-      ${(props) => (props.expand ? '-90deg' : '0deg')}
-    );
-  }
-
-  @media (min-width: 768px) {
-    &:hover {
-      background-color: var(--white);
-      position: relative;
-      z-index: 998;
-
-      & div svg:last-child {
-        transform: rotate3d(
-          0,
-          0,
-          1,
-          ${(props) => (props.expand ? '-90deg' : '90deg')}
-        );
-      }
-    }
-  }
-`;
-
-const EpisodeDate = styled.p`
-  margin: 0px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  opacity: 0.5;
-  color: var(--black);
-
-  @media (min-width: 768px) {
-    font-size: ${fluid(14, 18)};
-  }
-`;
-
-const EpisodeTitle = styled.h2`
-  margin-block-start: 16px;
-  margin-block-end: -6px; // Reset default p block-start margin
-`;
 
 const Audio = styled.audio`
   width: 100%;
   margin-block-start: 24px;
-  margin-block-end: 24px;
-  display: ${(props) => (props.hide ? 'none' : 'block')};
+  margin-block-end: 36px;
+
+  @media (min-width: 768px) {
+    margin-block-start: ${fluid(24, 36)};
+    margin-block-end: ${fluid(36, 48)};
+  }
 `;
 
 const ShowNotes = styled.div`
-  margin-block-end: 32px;
-  display: ${(props) => (props.hide ? 'none' : 'block')};
+  margin-block-start: 24px;
+  margin-block-end: 36px;
 
   @media (min-width: 768px) {
-    margin-block-end: ${fluid(32, 44)};
+    margin-block-start: ${fluid(24, 36)};
+    margin-block-end: ${fluid(36, 48)};
   }
 
   & a {
@@ -94,68 +59,42 @@ const Episode = ({
   description,
   audioFile,
   showNotes,
-  expandedEpisodeRef,
-  setExpandedEpisodeRef,
+  url,
 }) => {
-  const [expand, setExpand] = useState(false);
-  const episodeRef = useRef();
-
-  useEffect(() => {
-    const thisEpNum = parseInt(episodeNumber);
-    const expEpRef = expandedEpisodeRef;
-    if (!expand && expEpRef === thisEpNum) {
-      setExpand(true);
-      handleScroll();
-    } else if (expEpRef !== thisEpNum) {
-      setExpand(false);
+  // GraphQL
+  const data = useStaticQuery(graphql`
+    query EpisodeQuery {
+      site {
+        siteMetadata {
+          social {
+            email
+          }
+        }
+      }
     }
-  }, [expandedEpisodeRef, expand]);
+  `);
 
-  const handleScroll = (duration = 1500, offset = -16) => {
-    const ref = episodeRef.current;
-    return setTimeout(() => {
-      scrollToElement(ref, {
-        offset: offset,
-        // ease options: https://github.com/component/ease
-        ease: 'inOutCube',
-        duration: duration,
-      });
-    }, 10);
-  };
-
-  const handleOnClick = (e, n = episodeNumber) => {
-    e.preventDefault();
-    if (!expand) {
-      setExpandedEpisodeRef(parseInt(n));
-    } else {
-      setExpandedEpisodeRef(parseInt(0));
-    }
-    handleScroll();
-  };
+  const email = data.site.siteMetadata?.social.email;
 
   return (
-    <CardEpisode
-      flexFlow="column nowrap"
-      alignItems="flex-start"
-      flat={!expand}
-      expand={expand}
-      ref={episodeRef}
-    >
+    <EpisodeCard flexFlow="column nowrap" alignItems="flex-start">
       <InnerCardContainer>
-        <a href={'/'} onClick={(e) => handleOnClick(e)}>
-          <EpisodeDate>{date}</EpisodeDate>
-          <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
-          <p>{description}</p>
-        </a>
+        <EpisodeDate>{date}</EpisodeDate>
+        <EpisodeTitle>
+          <big>{`${episodeNumber}: ${title}`}</big>
+        </EpisodeTitle>
+        <p>{description}</p>
         <Audio
-          hide={!expand}
           controls
           src={audioFile}
           type="audio/mpeg"
           preload="none"
         ></Audio>
+        <CardTitle>
+          <BookmarkSvg />
+          <h2>Notes del Capítol</h2>
+        </CardTitle>
         <ShowNotes
-          hide={!expand}
           dangerouslySetInnerHTML={{
             __html: showNotes.replace(
               /href/g,
@@ -163,11 +102,19 @@ const Episode = ({
             ),
           }}
         ></ShowNotes>
-        <a href={'/'} onClick={(e) => handleOnClick(e)}>
-          <SimpleLinkComposer text={!expand ? `Escoltar Capítol` : `Tancar`} />
-        </a>
+        <InLineLinksContainer>
+          <PillLinkComposer
+            href={`https://twitter.com/intent/tweet?text=Escolta ${title} a ${url}`}
+            text="Comparteix"
+          />
+          <FeaturedLinkComposer
+            color="black"
+            href={`mailto:${email}`}
+            text="Contacta'ns"
+          />
+        </InLineLinksContainer>
       </InnerCardContainer>
-    </CardEpisode>
+    </EpisodeCard>
   );
 };
 

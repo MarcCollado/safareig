@@ -4,8 +4,8 @@ import { createGlobalStyle } from 'styled-components';
 /* font-weight
   800: <h1/>
   700: <h2>CardTitle</h2>, <p>EpisodeDate</p>
-  600: <p>SimpleLink</p>, <a>ShowNotes</a>
-  500: <p>FeaturedLink</p>
+  600: <p>FeaturedLink</p>, <button>PillLink</button>, <a>ShowNotes</a>
+  500: <p>RichLink</p>
   400: <a/>, <p/>
 */
 
@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #FFBD01;
     --blue: #32C5FF;
     --darkBlue: #002CFC;
-    --boxShadow: 32px 100px 60px -52px rgba(0, 0, 0, 0.18);
+    --boxShadow: 80px 140px 130px -60px rgba(0, 0, 0, 0.25);
     --mobile: 576px;
     --tablet: 768px;
     --desktop: 1080px;
@@ -25,8 +25,12 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     width: clamp(320px, 100%, 1440px);
-    font-size: 16px;
     margin: 0px auto;
+    font-family: inter, sans-serif;
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
     background-color: #fafbfc;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -35,17 +39,13 @@ const GlobalStyles = createGlobalStyle`
   h1, h2 {
     // reset default margins
     margin: 0px;
-    font-family: inter, sans-serif;
     font-weight: 800;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    line-height: 1.5;
     color: var(--black);
   }
 
   h1 {
-    font-size: 28px;
+    font-size: 32px;
 
     @media (min-width: 768px) {
       font-size: 32px;
@@ -61,8 +61,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h2 {
-    font-weight: 700;
     font-size: 20px;
+    font-weight: 700;
 
     @media (min-width: 768px) {
       font-size: 16px;
@@ -77,14 +77,10 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  p {
-    font-family: inter, sans-serif;
+  p, a, button {
     font-size: 16px;
     font-weight: 400;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.5;
-    letter-spacing: normal;
     color: var(--black);
 
     @media (min-width: 768px) {
@@ -101,32 +97,29 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    font-family: inter, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: var(--black);
     text-decoration: none;
 
     @media (min-width: 768px) {
-      font-size: 16px;
-
       &:hover {
         color: var(--darkBlue)
       }
     }
+  }
 
-    @media (min-width: 1024px) {
-      font-size: 18px;
-    }
+  button {
+    background-color: var(--gray);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
 
-    @media (min-width: 1280px) {
-      font-size: 20px;
+    @media (min-width: 768px) {
+      &:hover {
+        background-color: var(--darkBlue);
+        color: var(--white);
+      }
     }
   }
+
   /* .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: pixelated;
   } */

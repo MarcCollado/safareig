@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled, { keyframes } from 'styled-components';
 
@@ -16,15 +16,24 @@ const scaleAndRotate = keyframes`
   }
 `;
 
-export const CardCover = styled.div`
-  width: clamp(270px, 100%, 430px);
-  // space from BioContainer below
-  margin-block-end: 32px;
+const EpisodeCover = styled.div`
+  // Shares CSS properties with Cards
+  width: 100%;
+  margin-block-end: 24px;
   border-radius: ${fluid(24, 32)};
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    margin-block-end: ${fluid(24, 48)};
+    border-radius: ${fluid(32, 48)};
+  }
+`;
+
+const HomeCover = styled(EpisodeCover)`
+  // Mobile: add space from BioContainer below
+  margin-block-end: 32px;
   box-shadow: var(--boxShadow);
-  position: relative;
-  z-index: 1000;
+
   transition: all 300ms ease;
 
   transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -2deg);
@@ -42,18 +51,32 @@ export const CardCover = styled.div`
 
 // Main components
 
-const Cover = () => {
+const Cover = ({ location }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
-      mobileCover: file(relativePath: { eq: "cover-mobile.jpg" }) {
+      homeMobileCover: file(relativePath: { eq: "home-mobile.png" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      desktopCover: file(relativePath: { eq: "cover-desktop.jpg" }) {
+      homeDesktopCover: file(relativePath: { eq: "home-desktop.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      episodeMobileCover: file(relativePath: { eq: "episode-mobile.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      episodeDesktopCover: file(relativePath: { eq: "episode-desktop.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
@@ -62,21 +85,38 @@ const Cover = () => {
       }
     }
   `);
-  const sources = [
-    data.mobileCover.childImageSharp.fluid,
+  const homeSources = [
+    data.homeMobileCover.childImageSharp.fluid,
     {
-      ...data.desktopCover.childImageSharp.fluid,
+      ...data.homeDesktopCover.childImageSharp.fluid,
       media: `(min-width: 768px)`,
     },
   ];
-  return (
-    <CardCover>
+  const espisodeSources = [
+    data.episodeMobileCover.childImageSharp.fluid,
+    {
+      ...data.episodeDesktopCover.childImageSharp.fluid,
+      media: `(min-width: 768px)`,
+    },
+  ];
+  return location === '/' ? (
+    <HomeCover>
       <Img
-        fluid={sources}
+        fluid={homeSources}
         alt="Safareig cover image"
         style={{ width: '100%', height: '100%' }}
       />
-    </CardCover>
+    </HomeCover>
+  ) : (
+    <EpisodeCover>
+      <Link to="/">
+        <Img
+          fluid={espisodeSources}
+          alt="Safareig episode cover image"
+          style={{ width: '100%', height: '100%' }}
+        />
+      </Link>
+    </EpisodeCover>
   );
 };
 

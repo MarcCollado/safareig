@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
-import { FeaturedLink as HostName, ComposeFeaturedLink } from '../styled/link';
+import { RichLinkText as HostName, RichLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 
 import FollowSvg from '../../content/assets/follow.svg';
@@ -35,13 +35,13 @@ const TwitterLink = (id, avatar, twitterHandle, name) => {
       rel="noreferrer"
       key={id}
     >
-      <ComposeFeaturedLink flat>
+      <RichLinkComposer flat withImage>
         <StyledAvatar fluid={avatar}></StyledAvatar>
         <div>
           <HostName>{name}</HostName>
           <TwitterHandle>{`@${twitterHandle.toLowerCase()}`}</TwitterHandle>
         </div>
-      </ComposeFeaturedLink>
+      </RichLinkComposer>
     </a>
   );
 };
@@ -50,7 +50,7 @@ const Follow = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     {
-      allSanityHost {
+      allSanityHost(sort: { fields: name, order: ASC }, limit: 3) {
         nodes {
           id
           name
@@ -77,11 +77,11 @@ const Follow = () => {
     TwitterLink(p.id, p.avatar.asset.fluid, p.twitterHandle, p.name)
   );
   return (
-    <Card flat>
+    <Card>
       <InnerCardContainer>
         <CardTitle>
           <FollowSvg />
-          <h2>Segueix als Hosts</h2>
+          <h2>Segueix-nos</h2>
         </CardTitle>
         <p>No siguis tímid, connecta amb nosaltres i fem Safareig.</p>
         {generateHostsList}

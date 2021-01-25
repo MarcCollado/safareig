@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FlatCard, CardTitle, InnerCardContainer } from '../styled/cards';
-import { SimpleLinkComposer } from '../styled/link';
+import { FeaturedLinkComposer } from '../styled/link';
 
 import PressKitIcon from '../../content/assets/press-kit.svg';
 
@@ -23,7 +23,7 @@ const Press = () => (
           Vols escriure sobre nosaltres? Hem preparat un recull de text amb
           imatges sobre Safareig.
         </p>
-        <SimpleLinkComposer text="Descarrega'l" />
+        <FeaturedLinkComposer color="blue" text="Descarrega'l" />
       </InnerCardContainer>
     </a>
   </FlatCard>
