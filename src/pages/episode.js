@@ -54,7 +54,10 @@ const EpisodePage = ({ location, pageContext }) => {
         </LeftPanelContainer>
         <EpisodesContainer>
           {renderEpisode(pageContext)}
-          <Related episodeTitle={pageContext.title} />
+          <Related
+            episodeTitle={pageContext.title}
+            relatedEpisodes={pageContext.relatedEpisodes}
+          />
         </EpisodesContainer>
       </>
     ) : (
@@ -63,7 +66,10 @@ const EpisodePage = ({ location, pageContext }) => {
           <Cover location={location.pathname} />
           <EpisodesContainer>
             {renderEpisode(pageContext)}
-            <Related episodeTitle={pageContext.title} />
+            <Related
+              episodeTitle={pageContext.title}
+              relatedEpisodes={pageContext.relatedEpisodes}
+            />
           </EpisodesContainer>
           <Subscribe />
           <Share />
