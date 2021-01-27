@@ -1,10 +1,30 @@
+// Generate a random Int within a given range
 export const getRandom = (min, max) => {
-  let minInt = parseInt(min);
-  let maxInt = parseInt(max);
+  min = Math.ceil(parseInt(min));
+  max = Math.floor(parseInt(max));
 
-  minInt = Math.ceil(minInt);
-  maxInt = Math.floor(maxInt);
+  // max not inclusive
+  return Math.floor(Math.random() * (max - min) + min);
+};
 
-  // maxInt not inclusive
-  return Math.floor(Math.random() * (maxInt - minInt) + minInt);
+// Generate an array of three random and distinct Ints
+export const getRelatedEpisodes = (min, max, self) => {
+  min = Math.ceil(parseInt(min));
+  max = Math.floor(parseInt(max));
+  self = parseInt(self);
+
+  let relatedEpisodes = [];
+  let newRandomEpisode;
+
+  while (relatedEpisodes.length < 3) {
+    newRandomEpisode = getRandom(min, max);
+    if (
+      newRandomEpisode !== self &&
+      !relatedEpisodes.includes(newRandomEpisode)
+    ) {
+      relatedEpisodes = [...relatedEpisodes, newRandomEpisode];
+    }
+  }
+
+  return relatedEpisodes;
 };
