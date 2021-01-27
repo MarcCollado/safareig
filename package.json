@@ -20,7 +20,7 @@
     "gatsby-plugin-offline": "^3.9.0",
     "gatsby-plugin-react-helmet": "^3.9.0",
     "gatsby-plugin-react-svg": "^3.0.0",
-    "gatsby-plugin-sharp": "^2.13.1",
+    "gatsby-plugin-sharp": "^2.13.2",
     "gatsby-plugin-styled-components": "^3.9.0",
     "gatsby-remark-copy-linked-files": "^2.9.0",
     "gatsby-remark-images": "^3.10.0",
@@ -49,7 +49,7 @@
     "build": "NODE_OPTIONS=\"-r esm\" GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "NODE_OPTIONS=\"-r esm\" gatsby develop -p 8010",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "npm run clean && npm run format && npm run build && npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
