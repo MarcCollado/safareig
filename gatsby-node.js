@@ -3,7 +3,7 @@ const path = require(`path`);
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  const episodePage = path.resolve(`./src/pages/episode.js`);
+  const episodePage = path.resolve(`src/pages/episode.js`);
   const result = await graphql(
     `
       {
@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   );
 
   if (result.errors) {
-    reporter.panicOnBuild(`Error loading episodes`, result.errors);
+    reporter.panicOnBuild(`Error loading episodes:`, result.errors);
     return;
   }
 
@@ -35,6 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const episodesLength = parseInt(episodes.length);
   const episodesCount = parseInt(result.data.allFeedSafareigFm.totalCount);
 
+  // Create a page for each episode through path
   if (episodesLength > 0 && episodesLength === episodesCount) {
     episodes.forEach((e, i) => {
       // Get episode information from XML
@@ -70,19 +71,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
 
       createPage({
-        path: episodeNumber,
         component: episodePage,
         context: {
-          title,
-          descriptionHtml,
+          audioFile,
           description,
+          descriptionHtml,
           date,
           episodeNumber,
-          audioFile,
-          previous,
           next,
+          previous,
           relatedEpisodes,
+          title,
         },
+        path: episodeNumber,
       });
     });
   }
