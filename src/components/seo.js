@@ -21,6 +21,7 @@ const SEO = ({ pageTitle, pageDescription, meta }) => {
             language
             social {
               twitter
+              email
             }
           }
         }
@@ -34,6 +35,7 @@ const SEO = ({ pageTitle, pageDescription, meta }) => {
   const url = site.siteMetadata?.siteUrl;
   const author = site.siteMetadata?.author.name;
   const language = site.siteMetadata?.language || `ca`;
+  const email = site.siteMetadata?.social.email;
   const twitter = site.siteMetadata?.social.twitter;
 
   return (
@@ -48,18 +50,19 @@ const SEO = ({ pageTitle, pageDescription, meta }) => {
         { name: `author`, content: author },
 
         // OG TAGS — https://opengraphprotocol.org
-        { property: `og:url`, content: url },
         { property: `og:title`, content: title },
         { property: `og:description`, content: description },
         { property: `og:image`, content: image },
+        { property: `og:url`, content: url },
+        { property: `og:email`, content: email },
         { property: `og:type`, content: `website` },
 
         // TWITTER CARD
-        { name: `twitter:card`, content: `summary_large_image` },
-        { name: `twitter:creator`, content: twitter },
         { name: `twitter:title`, content: title },
         { name: `twitter:description`, content: description },
         { name: `twitter:image`, content: image },
+        { name: `twitter:creator`, content: twitter },
+        { name: `twitter:card`, content: `summary_large_image` },
       ].concat(meta)}
     >
       <link rel="icon" type="image/x-icon" href={favicon} />
