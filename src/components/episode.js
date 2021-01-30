@@ -67,14 +67,14 @@ const Episode = ({
       site {
         siteMetadata {
           social {
-            email
+            twitter
           }
         }
       }
     }
   `);
 
-  const email = data.site.siteMetadata?.social.email;
+  const twitter = data.site.siteMetadata?.social.twitter;
 
   return (
     <EpisodeCard flexFlow="column nowrap" alignItems="flex-start">
@@ -109,8 +109,8 @@ const Episode = ({
           />
           <FeaturedLinkComposer
             color="black"
-            href={`mailto:${email}`}
-            text="Contacta'ns"
+            href={twitter}
+            text="Segueix-nos"
           />
         </InLineLinksContainer>
       </InnerCardContainer>
