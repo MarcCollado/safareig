@@ -6,6 +6,17 @@ El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societ
 
 # Canvis a la pàgina
 
+## Versió 1.2
+
+### Novetats
+
+- Els capítols relacionats es generen ara de manera totalment aleatòria.
+- Sóm (una mica més) SEO-friendly: el meta de cada pàgina es popula amb les notes del capítol.
+
+### Millores
+
+- Possibilitat de seguir a Safareig des de la pàgina de capítol.
+
 ## Versió 1.1 — 25.01.21
 
 ### Novetats
