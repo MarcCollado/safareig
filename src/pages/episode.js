@@ -24,8 +24,10 @@ const EpisodePage = ({ location, pageContext }) => {
   useEffect(() => setIsReady(true), []);
 
   const renderEpisode = (e) => {
+    // Separate show description and show notes
     const descriptionIndex = e.description.indexOf('Show notes:');
     const showDescription = e.description.substring(0, descriptionIndex - 1);
+    // Show notes
     const showNotesIndex = e.descriptionHtml.indexOf('notes:</strong></p>');
     const showNotes = e.descriptionHtml.substring(showNotesIndex + 19);
 
@@ -80,9 +82,20 @@ const EpisodePage = ({ location, pageContext }) => {
     );
   };
 
+  // Show description
+  const descriptionIndex = pageContext.description.indexOf('Show notes:');
+  const showDescription = pageContext.description.substring(
+    0,
+    descriptionIndex - 1
+  );
+
   return (
     <GlobalContainer>
-      <SEO location={location} pageTitle={pageContext.title} />
+      <SEO
+        location={location}
+        pageTitle={pageContext.title}
+        pageDescription={showDescription}
+      />
       <MainContainer>{isReady && renderResponsiveUI(isDesktop)}</MainContainer>
       {isReady && <Footer />}
     </GlobalContainer>
