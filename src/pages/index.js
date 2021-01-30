@@ -54,6 +54,13 @@ const IndexPage = ({ data, location }) => {
     });
   };
 
+  const generateStartEpisodes = () =>
+    // Update start episodes here
+    [15, 13, 7].map((i) => {
+      const episode = episodes.find((e) => i === parseInt(e.itunes.episode));
+      return { title: episode.title, episodeNumber: i };
+    });
+
   const renderResponsiveUI = (isDesktop) => {
     return isDesktop ? (
       <>
@@ -64,7 +71,7 @@ const IndexPage = ({ data, location }) => {
           <Press />
         </LeftPanelContainer>
         <EpisodesContainer>
-          <Start />
+          <Start startEpisodes={generateStartEpisodes()} />
           {renderEpisodes(episodes)}
         </EpisodesContainer>
       </>
@@ -73,7 +80,7 @@ const IndexPage = ({ data, location }) => {
         <LeftPanelContainer>
           <Subscribe />
           <EpisodesContainer>
-            <Start />
+            <Start startEpisodes={generateStartEpisodes()} />
             {renderEpisodes(episodes)}
           </EpisodesContainer>
           <Share />
