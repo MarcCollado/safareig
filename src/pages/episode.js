@@ -23,22 +23,15 @@ const EpisodePage = ({ location, pageContext }) => {
 
   useEffect(() => setIsReady(true), []);
 
-  const renderEpisode = (e) => {
-    // Separate show description and show notes
-    const descriptionIndex = e.description.indexOf('Show notes:');
-    const showDescription = e.description.substring(0, descriptionIndex - 1);
-    // Show notes
-    const showNotesIndex = e.descriptionHtml.indexOf('notes:</strong></p>');
-    const showNotes = e.descriptionHtml.substring(showNotesIndex + 19);
-
+  const renderEpisode = (e = pageContext) => {
     return (
       <Episode
+        audioFile={e.audioFile}
         date={e.date}
         episodeNumber={e.episodeNumber}
+        showDescription={e.showDescription}
+        showNotes={e.showNotes}
         title={e.title}
-        description={showDescription}
-        audioFile={e.audioFile}
-        showNotes={showNotes}
         url={location.href}
       />
     );
@@ -55,7 +48,7 @@ const EpisodePage = ({ location, pageContext }) => {
           <Press />
         </LeftPanelContainer>
         <EpisodesContainer>
-          {renderEpisode(pageContext)}
+          {renderEpisode()}
           <Related
             episodeTitle={pageContext.title}
             relatedEpisodes={pageContext.relatedEpisodes}
@@ -67,7 +60,7 @@ const EpisodePage = ({ location, pageContext }) => {
         <LeftPanelContainer>
           <Cover location={location.pathname} />
           <EpisodesContainer>
-            {renderEpisode(pageContext)}
+            {renderEpisode()}
             <Related
               episodeTitle={pageContext.title}
               relatedEpisodes={pageContext.relatedEpisodes}
@@ -82,19 +75,12 @@ const EpisodePage = ({ location, pageContext }) => {
     );
   };
 
-  // Show description
-  const descriptionIndex = pageContext.description.indexOf('Show notes:');
-  const showDescription = pageContext.description.substring(
-    0,
-    descriptionIndex - 1
-  );
-
   return (
     <GlobalContainer>
       <SEO
         location={location}
         pageTitle={pageContext.title}
-        pageDescription={showDescription}
+        pageDescription={pageContext.showDescription}
       />
       <MainContainer>{isReady && renderResponsiveUI(isDesktop)}</MainContainer>
       {isReady && <Footer />}
