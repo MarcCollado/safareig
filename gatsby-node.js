@@ -1,5 +1,7 @@
-import { getRelatedEpisodes } from './src/utils/random';
 const path = require(`path`);
+
+import { getRelatedEpisodes } from './src/utils/random';
+import { trimDescriptions } from './src/utils/trim';
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -41,12 +43,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // Get episode information from XML
       const {
         title,
-        content: descriptionHtml,
-        contentSnippet: description,
         isoDate: date,
         itunes: { episode: episodeNumber },
         enclosure: { url: audioFile },
       } = e;
+
+      // Generate show description and show notes
+      const { showDescription } = trimDescriptions(e.contentSnippet, e.content);
+      const { showNotes } = trimDescriptions(e.contentSnippet, e.content);
 
       // Find previous and next episode
       const previous = i === episodesLength - 1 ? null : episodes[i + 1];
@@ -74,8 +78,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: episodePage,
         context: {
           audioFile,
-          description,
-          descriptionHtml,
+          showDescription,
+          showNotes,
           date,
           episodeNumber,
           next,
