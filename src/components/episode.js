@@ -53,12 +53,12 @@ const ShowNotes = styled.div`
 // Components
 
 const Episode = ({
+  audioFile,
   date,
   episodeNumber,
-  title,
-  description,
-  audioFile,
+  showDescription,
   showNotes,
+  title,
   url,
 }) => {
   // GraphQL
@@ -83,7 +83,7 @@ const Episode = ({
         <EpisodeTitle>
           <big>{`${episodeNumber}: ${title}`}</big>
         </EpisodeTitle>
-        <p>{description}</p>
+        <p>{showDescription}</p>
         <Audio
           controls
           src={audioFile}

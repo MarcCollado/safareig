@@ -11,14 +11,14 @@ import { FeaturedLinkComposer } from '../styled/link';
 
 // Components
 
-const EpisodeLink = ({ date, episodeNumber, title, description }) => {
+const EpisodeLink = ({ date, episodeNumber, title, showDescription }) => {
   return (
     <Link to={`/${episodeNumber}`}>
       <EpisodeLinkCard>
         <InnerCardContainer>
           <EpisodeDate>{date}</EpisodeDate>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
-          <p>{description}</p>
+          <p>{showDescription}</p>
           <FeaturedLinkComposer color="blue" text={`Escoltar Capítol`} />
         </InnerCardContainer>
       </EpisodeLinkCard>
