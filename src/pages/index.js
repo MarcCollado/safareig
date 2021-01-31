@@ -19,6 +19,7 @@ import {
   LeftPanelContainer,
   EpisodesContainer,
 } from '../utils/containers';
+import { trimDescriptions } from '../utils/trim';
 
 const IndexPage = ({ data, location }) => {
   const [isReady, setIsReady] = useState(false);
@@ -39,16 +40,15 @@ const IndexPage = ({ data, location }) => {
         itunes: { episode: episodeNumber },
       } = episode;
 
-      const descriptionIndex = description.indexOf('Show notes:');
-      const showDescription = description.substring(0, descriptionIndex - 1);
+      const { showDescription } = trimDescriptions(description);
 
       return (
         <EpisodeLink
           key={episodeNumber}
           date={date}
           episodeNumber={episodeNumber}
+          showDescription={showDescription}
           title={title}
-          description={showDescription}
         />
       );
     });
