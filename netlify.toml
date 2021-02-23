@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   publish = "public/"
-  environment = { NODE_VERSION = "v12.19.0" }
+  environment = { NODE_VERSION = "v14.15.5" }
 
 # [context.production]
 # [context.deploy-preview]
