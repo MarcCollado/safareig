@@ -8,6 +8,7 @@ import {
   RichLinkText as PodcastProvider,
   RichLinkComposer,
 } from '../styled/link';
+import { podcasts } from '../utils/composers';
 import { fluid } from '../utils/fluid';
 
 import SubscribeSvg from '../../content/assets/subscribe.svg';
@@ -24,11 +25,11 @@ const StyledImage = styled(Img)`
 
 // Main components
 
-const PodcastLink = (id, art, link, name) => {
+const PodcastLink = (icon, url, name) => {
   return (
-    <a href={link} target="_blank" rel="noreferrer" key={id}>
+    <a href={url} target="_blank" rel="noreferrer" key={name}>
       <RichLinkComposer flat withImage>
-        <StyledImage fluid={art}></StyledImage>
+        <StyledImage alt={name} fluid={icon}></StyledImage>
         <PodcastProvider>{name}</PodcastProvider>
       </RichLinkComposer>
     </a>
@@ -39,22 +40,74 @@ const Subscribe = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     {
-      allSanityPlayer(sort: { fields: sort, order: ASC }) {
+      ApplePodcasts: allFile(
+        filter: {
+          absolutePath: { regex: "/assets/podcasts/apple-podcasts.png/" }
+        }
+      ) {
         nodes {
-          id
-          name
-          url
-          icon {
-            asset {
-              fluid {
-                sizes
-                src
-                srcSet
-                base64
-                aspectRatio
-                srcSetWebp
-                srcWebp
-              }
+          childImageSharp {
+            fluid(maxWidth: 224) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      GooglePodcasts: allFile(
+        filter: {
+          absolutePath: { regex: "/assets/podcasts/google-podcasts.png/" }
+        }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 224) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      Overcast: allFile(
+        filter: { absolutePath: { regex: "/assets/podcasts/overcast.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 224) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      PocketCasts: allFile(
+        filter: {
+          absolutePath: { regex: "/assets/podcasts/pocket-casts.png/" }
+        }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 224) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      Castro: allFile(
+        filter: { absolutePath: { regex: "/assets/podcasts/castro.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 224) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      RSS: allFile(
+        filter: { absolutePath: { regex: "/assets/podcasts/rss.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 224) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -62,9 +115,10 @@ const Subscribe = () => {
     }
   `);
 
-  const generatePodcastList = data.allSanityPlayer?.nodes.map((p) =>
-    PodcastLink(p.id, p.icon.asset.fluid, p.url, p.name)
-  );
+  const generatePodcastList = podcasts.map((p) => {
+    let icon = data[p.id].nodes[0].childImageSharp.fluid;
+    return PodcastLink(icon, p.url, p.name);
+  });
 
   return (
     <Card>

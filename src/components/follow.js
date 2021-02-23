@@ -51,17 +51,8 @@ const Follow = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     {
-      Marc: allFile(filter: { absolutePath: { regex: "/assets/marc.jpg/" } }) {
-        nodes {
-          childImageSharp {
-            fluid(maxWidth: 256) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      Ramon: allFile(
-        filter: { absolutePath: { regex: "/assets/ramon.png/" } }
+      Marc: allFile(
+        filter: { absolutePath: { regex: "/assets/hosts/marc.jpg/" } }
       ) {
         nodes {
           childImageSharp {
@@ -71,7 +62,18 @@ const Follow = () => {
           }
         }
       }
-      favicon: allFile(
+      Ramon: allFile(
+        filter: { absolutePath: { regex: "/assets/hosts/ramon.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 256) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      Safareig: allFile(
         filter: { absolutePath: { regex: "/assets/favicon.png/" } }
       ) {
         nodes {
