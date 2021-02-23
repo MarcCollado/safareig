@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
 import { RichLinkText as HostName, RichLinkComposer } from '../styled/link';
+import { hosts } from '../utils/composers';
 import { fluid } from '../utils/fluid';
 
 import FollowSvg from '../../content/assets/follow.svg';
@@ -27,19 +28,19 @@ const TwitterHandle = styled.p`
 
 // Main components
 
-const TwitterLink = (id, avatar, twitterHandle, name) => {
+const TwitterLink = (avatar, handle, name) => {
   return (
     <a
-      href={`https://twitter.com/${twitterHandle}`}
+      href={`https://twitter.com/${handle}`}
       target="_blank"
       rel="noreferrer"
-      key={id}
+      key={name}
     >
       <RichLinkComposer flat withImage>
-        <StyledAvatar fluid={avatar}></StyledAvatar>
+        <StyledAvatar alt={name} fluid={avatar}></StyledAvatar>
         <div>
           <HostName>{name}</HostName>
-          <TwitterHandle>{`@${twitterHandle.toLowerCase()}`}</TwitterHandle>
+          <TwitterHandle>{handle}</TwitterHandle>
         </div>
       </RichLinkComposer>
     </a>
@@ -50,22 +51,33 @@ const Follow = () => {
   // GraphQL
   const data = useStaticQuery(graphql`
     {
-      allSanityHost(sort: { fields: name, order: ASC }, limit: 3) {
+      Marc: allFile(filter: { absolutePath: { regex: "/assets/marc.jpg/" } }) {
         nodes {
-          id
-          name
-          twitterHandle
-          avatar {
-            asset {
-              fluid {
-                sizes
-                src
-                srcSet
-                base64
-                aspectRatio
-                srcSetWebp
-                srcWebp
-              }
+          childImageSharp {
+            fluid(maxWidth: 256) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      Ramon: allFile(
+        filter: { absolutePath: { regex: "/assets/ramon.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 256) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      favicon: allFile(
+        filter: { absolutePath: { regex: "/assets/favicon.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 256) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -73,9 +85,11 @@ const Follow = () => {
     }
   `);
 
-  const generateHostsList = data.allSanityHost?.nodes.map((p) =>
-    TwitterLink(p.id, p.avatar.asset.fluid, p.twitterHandle, p.name)
-  );
+  const generateHostsList = hosts.map((h) => {
+    let avatar = data[h.id].nodes[0].childImageSharp.fluid;
+    return TwitterLink(avatar, h.handle, h.name);
+  });
+
   return (
     <Card>
       <InnerCardContainer>
