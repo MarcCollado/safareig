@@ -1,7 +1,3 @@
-import dotenv from 'dotenv';
-
-dotenv.config({ path: '.env' });
-
 export default {
   siteMetadata: {
     header: `Safareig`,
@@ -69,15 +65,6 @@ export default {
         },
       },
     },
-    {
-      resolve: `gatsby-source-sanity`,
-      options: {
-        projectId: `g34v195l`,
-        dataset: `production`,
-        watchmode: true,
-        token: process.env.SANITY_TOKEN,
-      },
-    },
     // OFFLINE
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
@@ -106,14 +93,6 @@ export default {
         // experimentId: 'GOOGLE_EXPERIMENT_ID',
         // variationId: 'GOOGLE_OPTIMIZE_VARIATION_ID',
         defer: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-hotjar`,
-      options: {
-        includeInDevelopment: false,
-        id: 2167877,
-        sv: 6,
       },
     },
     `gatsby-plugin-react-helmet`,
