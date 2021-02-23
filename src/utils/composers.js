@@ -32,7 +32,7 @@ export const podcasts = [
   {
     id: 'Overcast',
     name: 'Overcast',
-    url: 'https://overcast.fm/+lsTKCnx0s',
+    url: 'https://overcast.fm/itunes1539383682/safareig',
   },
   {
     id: 'PocketCasts',
