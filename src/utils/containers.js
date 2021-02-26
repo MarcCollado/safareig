@@ -13,6 +13,8 @@ export const GlobalContainer = styled(FlexCenter)`
 
   @media (min-width: 768px) {
     margin: ${fluid(24, 132)};
+    // Correct for navbar insert
+    margin-block-start: ${fluid(24, 32)};
   }
 `;
 
