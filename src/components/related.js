@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { EpisodeCard, CardTitle, InnerCardContainer } from '../styled/cards';
 import { RichLinkText as EpisodeName, RichLinkComposer } from '../styled/link';
 
-import RelatedSVG from '../../content/assets/related.svg';
+import RelatedSvg from '../../content/assets/related.svg';
 
 // Main components
 
@@ -25,7 +25,7 @@ const RelatedEpisodes = ({ episodeTitle, relatedEpisodes }) => {
     <EpisodeCard flat>
       <InnerCardContainer>
         <CardTitle>
-          <RelatedSVG />
+          <RelatedSvg />
           <h2>Capítols Relacionats</h2>
         </CardTitle>
         <p>
