@@ -139,9 +139,14 @@ export const MobileMenuCard = styled.div`
     margin-block-end: 16px;
   }
 
+  & > a:first-child {
+    // Correct for navbar height
+    margin-block-start: 100px;
+  }
+
   & > a:last-child {
     margin-block-start: 32px;
-    margin-block-end: 32px;
+    margin-block-end: 48px;
   }
 
   @media (min-width: 768px) {
