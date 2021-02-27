@@ -58,7 +58,7 @@ export const FlatCard = styled(Card)`
 export const EpisodeCard = styled(Card)`
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
 
-  // Sets its own width >576px
+  // Sets its own width >768px
   @media (min-width: 768px) {
     min-width: 436px;
     width: 100%;
@@ -116,4 +116,35 @@ export const EpisodeDate = styled.p`
 export const EpisodeTitle = styled.h2`
   margin-block-start: 16px;
   margin-block-end: -6px; // Reset default p block-start margin
+`;
+
+// Mobile Navbar Menu
+export const MobileMenuCard = styled.div`
+  width: 100%;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: absolute;
+  top: ${(props) => (props.show ? '0px' : '-600px')};
+  z-index: -1;
+  backdrop-filter: blur(48px);
+  background-color: var(--white);
+
+  transition: all 500ms ease;
+
+  & > * {
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+  }
+
+  & > a:last-child {
+    margin-block-start: 32px;
+    margin-block-end: 32px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
