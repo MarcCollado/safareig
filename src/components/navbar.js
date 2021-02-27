@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
@@ -63,7 +63,9 @@ const InnerNavbarContainer = styled.div`
 `;
 
 const NavbarLinksContainer = styled.div`
+  // In mobile navlinks are controlled inside the MobileMenuCard
   display: none;
+
   @media (min-width: 768px) {
     display: flex;
     flex-flow: row nowrap;
@@ -74,11 +76,6 @@ const NavbarLinksContainer = styled.div`
       margin-inline-end: ${fluid(16, 32)};
     }
   }
-`;
-
-const OffSet = styled.div`
-  height: 60px;
-  background-color: var(--white);
 `;
 
 // Main components
@@ -93,49 +90,40 @@ const Navbar = () => {
     }
   `);
 
-  const [isReady, setIsReady] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const totalCount = data.allFeedSafareigFm?.totalCount;
   const randomEspisode = getRandom(1, totalCount);
 
-  useEffect(() => setIsReady(true), []);
   const toggleMobileMenu = () =>
     showMenu ? setShowMenu(false) : setShowMenu(true);
 
   return (
-    isReady && (
-      <NavbarContainer>
-        <InnerNavbarContainer>
-          <Link to="/">
-            <NavbarSvg />
+    <NavbarContainer>
+      <InnerNavbarContainer>
+        <Link to="/">
+          <NavbarSvg />
+        </Link>
+        <NavbarLinksContainer>
+          <NavLinks />
+        </NavbarLinksContainer>
+        {isDesktop ? (
+          <Link to={`/${randomEspisode}`}>
+            <PillLinkComposer text="Escolta'ns" />
           </Link>
-          {isDesktop && (
-            <NavbarLinksContainer>
-              <NavLinks />
-            </NavbarLinksContainer>
-          )}
-          {isDesktop ? (
-            <Link to={`/${randomEspisode}`}>
-              <PillLinkComposer text="Escolta'ns" />
-            </Link>
-          ) : (
-            <div onClick={() => toggleMobileMenu()}>
-              <PillLinkComposer text={!showMenu ? 'Menú' : 'X'} />
-            </div>
-          )}
-        </InnerNavbarContainer>
-        {!isDesktop && (
-          <MobileMenuCard show={showMenu}>
-            <OffSet />
-            <NavLinks />
-            <Link to={`/${randomEspisode}`}>
-              <PillLinkComposer text="Escolta'ns" />
-            </Link>
-          </MobileMenuCard>
+        ) : (
+          <div onClick={() => toggleMobileMenu()}>
+            <PillLinkComposer text={!showMenu ? 'Menú' : 'X'} />
+          </div>
         )}
-      </NavbarContainer>
-    )
+      </InnerNavbarContainer>
+      <MobileMenuCard show={showMenu}>
+        <NavLinks />
+        <Link to={`/${randomEspisode}`}>
+          <PillLinkComposer text="Escolta'ns" />
+        </Link>
+      </MobileMenuCard>
+    </NavbarContainer>
   );
 };
 
