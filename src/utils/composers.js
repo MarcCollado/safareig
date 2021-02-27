@@ -1,3 +1,7 @@
+import React from 'react';
+
+import { FeaturedLinkComposer } from '../styled/link';
+
 // id must match its correspondent GraphQL query name
 export const hosts = [
   {
@@ -50,3 +54,31 @@ export const podcasts = [
     url: 'https://media.rss.com/safareig/feed.xml',
   },
 ];
+
+export const NavLinks = () => (
+  <>
+    {/* <Link to='/blog'> */}
+    <FeaturedLinkComposer
+      color="black"
+      text="Llegeix-nos"
+      href="https://blog.safareig.fm"
+      arrow={false}
+      isCard={false}
+    />
+    {/* </Link> */}
+    <FeaturedLinkComposer
+      color="black"
+      text="Segueix-nos"
+      href="https://www.twitter.com/safareigfm"
+      arrow={false}
+      isCard={false}
+    />
+    <FeaturedLinkComposer
+      color="black"
+      text="Contacta'ns"
+      href={'mailto:fem@safareig.fm'}
+      arrow={false}
+      isCard={false}
+    />
+  </>
+);
