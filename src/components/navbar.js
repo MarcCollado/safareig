@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
@@ -10,6 +10,7 @@ import { fluid } from '../utils/fluid';
 import { getRandom } from '../utils/random';
 
 import NavbarSvg from '../../content/assets/navbar.svg';
+import CloseSvg from '../../content/assets/close.svg';
 
 // Styled components
 
@@ -95,8 +96,20 @@ const Navbar = () => {
   const totalCount = data.allFeedSafareigFm?.totalCount;
   const randomEspisode = getRandom(1, totalCount);
 
-  const toggleMobileMenu = () =>
-    showMenu ? setShowMenu(false) : setShowMenu(true);
+  const toggleMobileMenu = () => setShowMenu(!showMenu);
+
+  // Click outside the navbar element closes the menu
+  const globalListener = (e) =>
+    e.target.id !== 'nav-menu' && setShowMenu(!showMenu);
+
+  useEffect(() => {
+    showMenu
+      ? window.addEventListener('click', globalListener)
+      : window.removeEventListener('click', globalListener);
+    return () => {
+      window.removeEventListener('click', globalListener);
+    };
+  }, [showMenu]);
 
   return (
     <NavbarContainer>
@@ -113,11 +126,11 @@ const Navbar = () => {
           </Link>
         ) : (
           <div onClick={() => toggleMobileMenu()}>
-            <PillLinkComposer text={!showMenu ? 'Menú' : 'X'} />
+            <PillLinkComposer text={!showMenu ? 'Menú' : <CloseSvg />} />
           </div>
         )}
       </InnerNavbarContainer>
-      <MobileMenuCard show={showMenu}>
+      <MobileMenuCard id="nav-menu" show={showMenu}>
         <NavLinks />
         <Link to={`/${randomEspisode}`}>
           <PillLinkComposer text="Escolta'ns" />
