@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FlexCenter } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
+// Shared w/ 404.js
 export const FullPageCard = styled(FlexCenter)`
   margin-block-end: 24px;
   border-radius: ${fluid(24, 32)};
@@ -25,6 +26,7 @@ export const InnerCardContainer = styled.div`
   }
 `;
 
+// Shared w/ follow.js && subscribe.js
 export const Card = styled(FlexCenter)`
   margin-block-end: 24px;
   border-radius: ${fluid(24, 32)};
@@ -41,7 +43,7 @@ export const Card = styled(FlexCenter)`
   }
 `;
 
-// Used by share.js, press.js
+// Shared w/ press.js && share.js
 export const FlatCard = styled(Card)`
   @media (min-width: 768px) {
     &:hover {
@@ -55,6 +57,7 @@ export const FlatCard = styled(Card)`
   }
 `;
 
+// Shared w/ related.js && start.js
 export const EpisodeCard = styled(Card)`
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
 
@@ -66,6 +69,7 @@ export const EpisodeCard = styled(Card)`
   }
 `;
 
+// Shared w/ episode-link.js
 export const EpisodeLinkCard = styled(EpisodeCard)`
   background-color: var(--gray);
 
@@ -77,6 +81,19 @@ export const EpisodeLinkCard = styled(EpisodeCard)`
       & div svg:last-child {
         transform: translate3d(4px, 0px, 0px);
       }
+    }
+  }
+`;
+
+// Shared w/ post-link.js
+export const PostLinkCard = styled(Card)`
+  @media (min-width: 768px) {
+    min-width: 348px;
+    width: 100%;
+    max-width: 568px;
+
+    &:hover {
+      background-color: var(--white);
     }
   }
 `;
@@ -97,19 +114,6 @@ export const CardTitle = styled.div`
       width: ${fluid(28, 36)};
       margin-inline-end: ${fluid(12, 16)};
     }
-  }
-`;
-
-// Titles for the EpisodeCard
-export const EpisodeDate = styled.p`
-  margin: 0px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  opacity: 0.5;
-  color: var(--black);
-
-  @media (min-width: 768px) {
-    font-size: ${fluid(14, 18)};
   }
 `;
 
