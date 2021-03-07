@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import { FeaturedLinkComposer } from '../styled/link';
 
@@ -57,15 +58,14 @@ export const podcasts = [
 
 export const NavLinks = () => (
   <>
-    {/* <Link to='/blog'> */}
-    <FeaturedLinkComposer
-      color="black"
-      text="Llegeix-nos"
-      href="https://blog.safareig.fm"
-      arrow={false}
-      isCard={false}
-    />
-    {/* </Link> */}
+    <Link to="/bugada">
+      <FeaturedLinkComposer
+        color="black"
+        text="Llegeix-nos"
+        arrow={false}
+        isCard={false}
+      />
+    </Link>
     <FeaturedLinkComposer
       color="black"
       text="Segueix-nos"
