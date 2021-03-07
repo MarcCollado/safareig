@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { fluid } from '../utils/fluid';
+
 // Shared w/ bio.js && bugada.js
 export const HeaderDescription = styled.p`
   // correct for <p> default block margin
@@ -21,5 +23,18 @@ export const HeaderDescription = styled.p`
 
   @media (min-width: 1280px) {
     font-size: 28px;
+  }
+`;
+
+// Used by episode.js && episode-link.js && post-link.js
+export const Meta = styled.p`
+  margin: 0px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  opacity: 0.5;
+  color: var(--black);
+
+  @media (min-width: 768px) {
+    font-size: ${fluid(14, 18)};
   }
 `;

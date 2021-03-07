@@ -3,9 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 
 /* font-weight
   800: <h1/>
-  700: <h2>CardTitle</h2>, <p>EpisodeDate</p>
+  700: <h2>CardTitle</h2>, <p>Meta</p>
   600: <p>FeaturedLink</p>, <button>PillLink</button>, <a>ShowNotes</a>
-  500: <p>RichLink</p>
+  500: <p>RichLink</p>, <p>PostMeta</p>
   400: <a/>, <p/>
 */
 
