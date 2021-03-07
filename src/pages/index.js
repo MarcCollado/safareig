@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
+import styled from 'styled-components';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -14,12 +15,20 @@ import Start from '../components/start';
 import Subscribe from '../components/subscribe';
 import {
   GlobalContainer,
-  HeaderContainer,
   MainContainer,
   LeftPanelContainer,
   EpisodesContainer,
 } from '../utils/containers';
 import { trimDescriptions } from '../utils/trim';
+
+const HeaderContainer = styled(MainContainer)`
+  margin-block-end: 32px;
+
+  @media (min-width: 768px) {
+    flex-flow: row-reverse nowrap;
+    align-items: center;
+  }
+`;
 
 const IndexPage = ({ data, location }) => {
   const [isReady, setIsReady] = useState(false);
