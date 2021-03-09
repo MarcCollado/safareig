@@ -5,7 +5,7 @@ import { trimDescriptions } from './src/utils/trim';
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  const episodePage = path.resolve(`src/pages/episode.js`);
+  const episodePage = path.resolve(`src/components/episode-page.js`);
   const episodesGQL = await graphql(
     `
       {
