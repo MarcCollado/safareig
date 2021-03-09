@@ -31,6 +31,12 @@ const MetaItems = styled.div`
   }
 `;
 
+const InLine = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: start;
+`;
+
 const PostMeta = styled(Meta)`
   font-weight: 500;
   letter-spacing: 0px;
@@ -58,7 +64,15 @@ const PostLink = ({
           <p>{excerpt}</p>
           <MetaItems>
             <PostMeta>{authorName}</PostMeta>
-            <PostMeta>{`${date} · ${readingTime}min · ${primaryTag}`}</PostMeta>
+            <InLine>
+              <PostMeta
+                // #NotProud
+                style={{ letterSpacing: '-1.5px', marginInlineEnd: '6px' }}
+              >
+                {date}
+              </PostMeta>
+              <PostMeta>{`· ${readingTime}min · ${primaryTag}`}</PostMeta>
+            </InLine>
           </MetaItems>
         </InnerCardContainer>
       </Link>
