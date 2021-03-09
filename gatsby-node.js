@@ -6,7 +6,7 @@ import { trimDescriptions } from './src/utils/trim';
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   const episodePage = path.resolve(`src/pages/episode.js`);
-  const result = await graphql(
+  const episodesGQL = await graphql(
     `
       {
         allFeedSafareigFm(sort: { order: DESC, fields: isoDate }) {
@@ -28,14 +28,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   );
 
-  if (result.errors) {
-    reporter.panicOnBuild(`Error loading episodes:`, result.errors);
+  if (episodesGQL.errors) {
+    reporter.panicOnBuild(`Error loading episodes:`, episodesGQL.errors);
     return;
   }
 
-  const episodes = result.data.allFeedSafareigFm.nodes;
+  const episodes = episodesGQL.data.allFeedSafareigFm.nodes;
   const episodesLength = parseInt(episodes.length);
-  const episodesCount = parseInt(result.data.allFeedSafareigFm.totalCount);
+  const episodesCount = parseInt(episodesGQL.data.allFeedSafareigFm.totalCount);
 
   // Create a page for each episode through path
   if (episodesLength > 0 && episodesLength === episodesCount) {
@@ -88,6 +88,83 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           title,
         },
         path: episodeNumber,
+      });
+    });
+  }
+
+  const postPage = path.resolve(`src/components/post-page.js`);
+  const postsGQL = await graphql(
+    `
+      {
+        allGhostPost(sort: { order: DESC, fields: [published_at] }) {
+          nodes {
+            id
+            authors {
+              cover_image
+              name
+            }
+            excerpt
+            html
+            primary_tag {
+              name
+            }
+            published_at(formatString: "YYYY / MM / DD")
+            reading_time
+            slug
+            tags {
+              name
+            }
+            title
+          }
+        }
+      }
+    `
+  );
+
+  if (postsGQL.errors) {
+    reporter.panicOnBuild(`Error loading posts:`, postsGQL.errors);
+    return;
+  }
+
+  const posts = postsGQL.data.allGhostPost.nodes;
+
+  // Create a page for each post
+  if (posts) {
+    posts.forEach((p, i) => {
+      const {
+        id,
+        authors,
+        excerpt,
+        html,
+        primary_tag,
+        published_at,
+        reading_time,
+        slug,
+        tags,
+        title,
+      } = p;
+
+      // Find previous and next episode
+      // const previous = i === episodesLength - 1 ? null : episodes[i + 1];
+      // const next = i === 0 ? null : episodes[i - 1];
+
+      createPage({
+        component: postPage,
+        context: {
+          id,
+          authors,
+          excerpt,
+          html,
+          // next,
+          // previous,
+          primary_tag,
+          published_at,
+          reading_time,
+          slug,
+          tags,
+          title,
+        },
+        path: `bugada/${slug}`,
       });
     });
   }

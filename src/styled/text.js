@@ -26,7 +26,7 @@ export const HeaderDescription = styled.p`
   }
 `;
 
-// Used by episode.js && episode-link.js && post-link.js
+// Used by episode.js (pages) && episode-link.js && post-link.js
 export const Meta = styled.p`
   margin: 0px;
   font-weight: 700;
