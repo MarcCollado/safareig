@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { CardTitle, InnerCardContainer, PostLinkCard } from '../styled/cards';
 import { Meta } from '../styled/text';
 import { fluid } from '../utils/fluid';
-import PostIcon from '../../content/assets/press-kit.svg';
+import PostIcon from '../../content/assets/post.svg';
 
 // Styled Components
 
@@ -37,8 +37,8 @@ const PostLink = ({
   title,
 }) => {
   return (
-    <Link to={`/bugada/${path}`}>
-      <PostLinkCard>
+    <PostLinkCard>
+      <Link to={`/bugada/${path}`}>
         <InnerCardContainer>
           <CardTitle>
             <PostIcon />
@@ -47,13 +47,11 @@ const PostLink = ({
           <p>{excerpt}</p>
           <InlineItems>
             <PostMeta>{authorName}</PostMeta>
-            <PostMeta>
-              {`${date} • ${readingTime} min • ${primaryTag}`}
-            </PostMeta>
+            <PostMeta>{`${date} · ${readingTime}min · ${primaryTag}`}</PostMeta>
           </InlineItems>
         </InnerCardContainer>
-      </PostLinkCard>
-    </Link>
+      </Link>
+    </PostLinkCard>
   );
 };
 
