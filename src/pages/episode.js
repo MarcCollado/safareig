@@ -17,6 +17,8 @@ import {
   EpisodesContainer,
 } from '../utils/containers';
 
+// Page Component
+
 const EpisodePage = ({ location, pageContext }) => {
   const [isReady, setIsReady] = useState(false);
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
