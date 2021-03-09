@@ -9,14 +9,25 @@ import PostIcon from '../../content/assets/post.svg';
 
 // Styled Components
 
-const InlineItems = styled.div`
+const MetaItems = styled.div`
+  margin-block-start: 24px;
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-flow: column nowrap;
+  align-items: start;
+
+  & p:first-child {
+    margin-block-end: 8px;
+  }
 
   @media (min-width: 768px) {
     margin-block-start: ${fluid(32, 48)};
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    & p:first-child {
+      margin-block-end: 0px;
+    }
   }
 `;
 
@@ -45,10 +56,10 @@ const PostLink = ({
             <h2>{title}</h2>
           </CardTitle>
           <p>{excerpt}</p>
-          <InlineItems>
+          <MetaItems>
             <PostMeta>{authorName}</PostMeta>
             <PostMeta>{`${date} · ${readingTime}min · ${primaryTag}`}</PostMeta>
-          </InlineItems>
+          </MetaItems>
         </InnerCardContainer>
       </Link>
     </PostLinkCard>
