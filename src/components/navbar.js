@@ -125,7 +125,7 @@ const Navbar = () => {
             <PillLinkComposer text="Escolta'ns" />
           </Link>
         ) : (
-          <div onClick={() => toggleMobileMenu()}>
+          <div role="button" tabIndex="0" onClick={() => toggleMobileMenu()}>
             <PillLinkComposer text={!showMenu ? 'Menú' : <CloseSvg />} />
           </div>
         )}
