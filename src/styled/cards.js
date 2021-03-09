@@ -33,7 +33,8 @@ export const Card = styled(FlexCenter)`
   background-color: var(--gray);
   transition: all 300ms ease;
 
-  // Sets its own width >576px
+  // Sets its own width >768px
+  // Nested under LeftPanelContainer
   @media (min-width: 768px) {
     min-width: 260px;
     width: 100%;
@@ -45,11 +46,12 @@ export const Card = styled(FlexCenter)`
 
 // Shared w/ press.js && share.js
 export const FlatCard = styled(Card)`
+  // Nested under LeftPanelContainer
   @media (min-width: 768px) {
     &:hover {
       background-color: var(--white);
 
-      // Controls the arrow link
+      // Controls for the SVG arrow link
       & div svg:last-child {
         transform: translate3d(4px, 0px, 0px);
       }
@@ -62,9 +64,9 @@ export const EpisodeCard = styled(Card)`
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
 
   // Sets its own width >768px
+  // Nested under EpisodesContainer
   @media (min-width: 768px) {
     min-width: 436px;
-    width: 100%;
     max-width: 728px;
   }
 `;
@@ -73,11 +75,12 @@ export const EpisodeCard = styled(Card)`
 export const EpisodeLinkCard = styled(EpisodeCard)`
   background-color: var(--gray);
 
+  // Nested under EpisodesContainer
   @media (min-width: 768px) {
     &:hover {
       background-color: var(--white);
 
-      // Controls the arrow link
+      // Controls for the SVG arrow link
       & div svg:last-child {
         transform: translate3d(4px, 0px, 0px);
       }
@@ -89,7 +92,7 @@ export const EpisodeLinkCard = styled(EpisodeCard)`
 export const PostLinkCard = styled(Card)`
   @media (min-width: 768px) {
     min-width: 348px;
-    width: 100%;
+    width: 48.3%;
     max-width: 568px;
 
     &:hover {
