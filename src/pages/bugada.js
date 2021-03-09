@@ -15,16 +15,20 @@ import {
 // Styled Components
 
 const HeaderContainer = styled(FlexCenter)`
-  width: clamp(272px, 100%, 455px);
+  max-width: 455px;
+  margin-block-end: 24px;
   text-align: center;
-  margin-block-end: 32px;
 
   @media (min-width: 768px) {
-    width: clamp(455px, 100%, 700px);
+    width: 75%;
+    max-width: 664px;
+    margin-block-end: 24px;
   }
 `;
 
 const BugadaContainer = styled(MainContainer)`
+  margin-block-end: 24px;
+
   @media (min-width: 768px) {
     flex-flow: row wrap;
   }

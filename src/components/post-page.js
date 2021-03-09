@@ -14,16 +14,18 @@ import { fluid } from '../utils/fluid';
 // Styled Components
 
 const HeaderContainer = styled(FlexCenter)`
-  width: clamp(272px, 100%, 455px);
+  max-width: 455px;
   text-align: center;
 
   @media (min-width: 768px) {
-    width: clamp(455px, 100%, 664px);
+    width: 75%;
+    max-width: 664px;
   }
 `;
 
 const PostContainer = styled(FlexCenter)`
-  width: clamp(272px, 100%, 455px);
+  max-width: 455px;
+  margin-block-end: 24px;
   align-items: flex-start;
 
   & > p > h2 {
@@ -33,6 +35,7 @@ const PostContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     width: 75%;
     max-width: 708px;
+    margin-block-end: ${fluid(32, 48)};
 
     & > p > h2 {
       margin-block-start: ${fluid(48, 64)};
@@ -45,10 +48,6 @@ const Subtitle = styled.p`
   letter-spacing: -1px;
   opacity: 0.5;
   color: var(--black);
-
-  @media (min-width: 768px) {
-    font-size: ${fluid(14, 18)};
-  }
 `;
 
 // Page Component
