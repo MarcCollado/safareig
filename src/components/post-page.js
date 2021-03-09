@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import Footer from '../components/footer';
 import SEO from '../components/seo';
 import {
-  FlexCenter,
-  GlobalContainer,
-  MainContainer,
-} from '../utils/containers';
+  FeaturedLinkComposer,
+  InLineLinksContainer,
+  PillLinkComposer,
+} from '../styled/link';
+import { FlexCenter, GlobalContainer } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
 // Styled Components
@@ -21,17 +22,21 @@ const HeaderContainer = styled(FlexCenter)`
   }
 `;
 
-const PostContainer = styled(MainContainer)`
+const PostContainer = styled(FlexCenter)`
+  width: clamp(272px, 100%, 455px);
+  align-items: flex-start;
+
   & > p > h2 {
     margin-block-start: 48px;
   }
 
   @media (min-width: 768px) {
-    width: clamp(528px, 100%, 708px);
-  }
+    width: 75%;
+    max-width: 708px;
 
-  & > p > h2 {
-    margin-block-start: ${fluid(48, 64)};
+    & > p > h2 {
+      margin-block-start: ${fluid(48, 64)};
+    }
   }
 `;
 
@@ -69,6 +74,17 @@ const PostPage = ({ location, pageContext }) => {
             ),
           }}
         ></p>
+        <InLineLinksContainer>
+          <PillLinkComposer
+            href={`https://twitter.com/intent/tweet?text=Llegeix ${pageContext.title} a ${location.href}`}
+            text="Comparteix"
+          />
+          <FeaturedLinkComposer
+            color="black"
+            href={`https://twitter.com/safareigfm`}
+            text="Segueix-nos"
+          />
+        </InLineLinksContainer>
       </PostContainer>
       <Footer />
     </GlobalContainer>
