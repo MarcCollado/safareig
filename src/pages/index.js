@@ -65,7 +65,7 @@ const IndexPage = ({ data, location }) => {
 
   const generateStartEpisodes = () =>
     // Update start episodes here
-    [15, 13, 7].map((i) => {
+    [25, 21, 15].map((i) => {
       const episode = episodes.find((e) => i === parseInt(e.itunes.episode));
       return { title: episode.title, episodeNumber: i };
     });
