@@ -1,7 +1,7 @@
 export default {
   siteMetadata: {
     header: `Safareig`,
-    title: `Safareig | El teu podcast en català`,
+    title: `Safareig | El teu podcast de tecnologia en català`,
     description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
     image: `content/assets/meta.png`,
     siteUrl: `https://www.safareig.fm`,
