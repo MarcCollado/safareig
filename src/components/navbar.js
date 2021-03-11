@@ -81,7 +81,7 @@ const NavbarLinksContainer = styled.div`
 
 // Main components
 
-const Navbar = () => {
+const Navbar = ({ path }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query NavQuery {
