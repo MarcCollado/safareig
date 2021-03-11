@@ -30,6 +30,11 @@ export const podcasts = [
       'https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3NhZmFyZWlnL2ZlZWQueG1s',
   },
   {
+    id: 'Spotify',
+    name: 'Spotify',
+    url: 'https://open.spotify.com/show/40BN4LoFtYR6Co15UbAPXf',
+  },
+  {
     id: 'Overcast',
     name: 'Overcast',
     url: 'https://overcast.fm/itunes1539383682/safareig',
@@ -39,11 +44,11 @@ export const podcasts = [
     name: 'Pocket Casts',
     url: 'https://pca.st/o70v2mv0',
   },
-  {
-    id: 'Castro',
-    name: 'Castro',
-    url: 'https://castro.fm/podcast/03163216-961a-430e-9e4d-a0f1b4a91f93',
-  },
+  // {
+  //   id: 'Castro',
+  //   name: 'Castro',
+  //   url: 'https://castro.fm/podcast/03163216-961a-430e-9e4d-a0f1b4a91f93',
+  // },
   {
     id: 'RSS',
     name: 'RSS Feed',

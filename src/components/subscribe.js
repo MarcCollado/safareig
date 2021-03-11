@@ -66,6 +66,17 @@ const Subscribe = () => {
           }
         }
       }
+      Spotify: allFile(
+        filter: { absolutePath: { regex: "/assets/podcasts/spotify.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 224) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
       Overcast: allFile(
         filter: { absolutePath: { regex: "/assets/podcasts/overcast.png/" } }
       ) {
@@ -90,17 +101,17 @@ const Subscribe = () => {
           }
         }
       }
-      Castro: allFile(
-        filter: { absolutePath: { regex: "/assets/podcasts/castro.png/" } }
-      ) {
-        nodes {
-          childImageSharp {
-            fluid(maxWidth: 224) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
+      # Castro: allFile(
+      #   filter: { absolutePath: { regex: "/assets/podcasts/castro.png/" } }
+      # ) {
+      #   nodes {
+      #     childImageSharp {
+      #       fluid(maxWidth: 224) {
+      #         ...GatsbyImageSharpFluid
+      #       }
+      #     }
+      #   }
+      # }
       RSS: allFile(
         filter: { absolutePath: { regex: "/assets/podcasts/rss.png/" } }
       ) {
