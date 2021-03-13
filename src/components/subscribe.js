@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
@@ -13,9 +13,9 @@ import { fluid } from '../utils/fluid';
 
 import SubscribeSvg from '../../content/assets/subscribe.svg';
 
-// Styled components
+// Styled Components
 
-const StyledImage = styled(Img)`
+const StyledImage = styled(GatsbyImage)`
   width: 40px;
 
   @media (min-width: 768px) {
@@ -23,13 +23,13 @@ const StyledImage = styled(Img)`
   }
 `;
 
-// Main components
+// Main Components
 
 const PodcastLink = (icon, url, name) => {
   return (
     <a href={url} target="_blank" rel="noreferrer" key={name}>
       <RichLinkComposer flat withImage>
-        <StyledImage alt={name} fluid={icon}></StyledImage>
+        <StyledImage alt={name} image={icon}></StyledImage>
         <PodcastProvider>{name}</PodcastProvider>
       </RichLinkComposer>
     </a>
@@ -47,9 +47,7 @@ const Subscribe = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 224) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -60,9 +58,7 @@ const Subscribe = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 224) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -71,9 +67,7 @@ const Subscribe = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 224) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -82,9 +76,7 @@ const Subscribe = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 224) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -95,9 +87,7 @@ const Subscribe = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 224) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -106,9 +96,7 @@ const Subscribe = () => {
       # ) {
       #   nodes {
       #     childImageSharp {
-      #       fluid(maxWidth: 224) {
-      #         ...GatsbyImageSharpFluid
-      #       }
+      #       gatsbyImageData
       #     }
       #   }
       # }
@@ -117,9 +105,7 @@ const Subscribe = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 224) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -127,7 +113,7 @@ const Subscribe = () => {
   `);
 
   const generatePodcastList = podcasts.map((p) => {
-    let icon = data[p.id].nodes[0].childImageSharp.fluid;
+    let icon = data[p.id].nodes[0].childImageSharp.gatsbyImageData;
     return PodcastLink(icon, p.url, p.name);
   });
 

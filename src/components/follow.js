@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 import { Card, CardTitle, InnerCardContainer } from '../styled/cards';
@@ -12,7 +12,7 @@ import FollowSvg from '../../content/assets/follow.svg';
 
 // Styled components
 
-const StyledAvatar = styled(Img)`
+const StyledAvatar = styled(GatsbyImage)`
   width: 50px;
   border-radius: 50px;
 
@@ -37,7 +37,7 @@ const TwitterLink = (avatar, handle, name) => {
       key={name}
     >
       <RichLinkComposer flat withImage>
-        <StyledAvatar alt={name} fluid={avatar}></StyledAvatar>
+        <StyledAvatar alt={name} image={avatar}></StyledAvatar>
         <div>
           <HostName>{name}</HostName>
           <TwitterHandle>{handle}</TwitterHandle>
@@ -56,9 +56,7 @@ const Follow = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 256) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -67,9 +65,7 @@ const Follow = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 256) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -78,9 +74,7 @@ const Follow = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(maxWidth: 256) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -88,7 +82,7 @@ const Follow = () => {
   `);
 
   const generateHostsList = hosts.map((h) => {
-    let avatar = data[h.id].nodes[0].childImageSharp.fluid;
+    let avatar = data[h.id].nodes[0].childImageSharp.gatsbyImageData;
     return TwitterLink(avatar, h.handle, h.name);
   });
 

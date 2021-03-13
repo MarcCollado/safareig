@@ -49,8 +49,9 @@ export default {
       },
     },
     // IMAGES & ASSETS
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       // https://github.com/mottox2/gatsby-source-rss-feed
       resolve: `gatsby-source-rss-feed`,
