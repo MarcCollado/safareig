@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "esm": "^3.2.25",
-    "prettier": "2.2.1"
+    "prettier": "2.2.2"
   },
   "scripts": {
     "build": "NODE_OPTIONS=\"-r esm\" GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
