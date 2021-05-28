@@ -31,8 +31,7 @@ export const podcasts = [
   {
     id: 'GooglePodcasts',
     name: 'Google Podcasts',
-    url:
-      'https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3NhZmFyZWlnL2ZlZWQueG1s',
+    url: 'https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3NhZmFyZWlnL2ZlZWQueG1s',
   },
   {
     id: 'Spotify',
