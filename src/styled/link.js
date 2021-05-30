@@ -156,6 +156,11 @@ const PillText = styled.button`
   display: inline-block;
   transition: all 250ms ease-in-out;
 
+  // Support for close (X) SVG on mobile
+  & > svg {
+    margin: -0px -15px -5px;
+  }
+
   @media (min-width: 768px) {
     padding: ${fluid(8, 16)} 24px;
   }
