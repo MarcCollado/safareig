@@ -32,6 +32,20 @@ const PostContainer = styled(FlexCenter)`
     margin-block-start: 48px;
   }
 
+  // Links
+  & > p a {
+    font-weight: 600;
+    color: var(--darkBlue);
+  }
+
+  // Quotes
+  & > p > blockquote {
+    margin-inline-start: 16px;
+    padding-inline-start: 16px;
+    border-inline-start: 3px solid var(--darkBlue);
+    opacity: 0.75;
+  }
+
   // Embed media
   & > p > figure {
     text-align: center;
@@ -52,6 +66,14 @@ const PostContainer = styled(FlexCenter)`
 
     & > p > h2 {
       margin-block-start: ${fluid(48, 64)};
+    }
+
+    // Quotes
+    & > p > blockquote {
+      margin-inline-start: ${fluid(16, 24)};
+      padding-inline-start: ${fluid(16, 24)};
+      border-inline-start: 3px solid var(--darkBlue);
+      opacity: 0.75;
     }
 
     // Embed media
