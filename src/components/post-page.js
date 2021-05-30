@@ -32,13 +32,36 @@ const PostContainer = styled(FlexCenter)`
     margin-block-start: 48px;
   }
 
+  // Embed media
+  & > p > figure {
+    text-align: center;
+    margin: 16px 0px;
+  }
+
+  & > p > figure > iframe {
+    width: 87vw;
+    height: calc(87vw / 1.77);
+    max-width: 455px;
+    max-height: calc(455px / 1.77);
+  }
+
   @media (min-width: 768px) {
-    width: 75%;
+    width: 75vw;
     max-width: 708px;
     margin-block-end: ${fluid(32, 48)};
 
     & > p > h2 {
       margin-block-start: ${fluid(48, 64)};
+    }
+
+    // Embed media
+    & > p > figure {
+      margin: ${fluid(24, 32)} 0px;
+    }
+
+    & > p > figure > iframe {
+      max-width: ${fluid(530, 670)};
+      max-height: calc(${fluid(530, 670)} / 1.77);
     }
   }
 `;
