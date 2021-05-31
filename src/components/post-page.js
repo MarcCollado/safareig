@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Footer from '../components/footer';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import {
   FeaturedLinkComposer,
   InLineLinksContainer,
@@ -100,7 +100,7 @@ const Subtitle = styled.p`
 const PostPage = ({ location, pageContext }) => {
   return (
     <GlobalContainer>
-      <SEO
+      <Seo
         location={location}
         pageTitle={pageContext.title}
         pageDescription={pageContext.excerpt}

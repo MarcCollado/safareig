@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Footer from '../components/footer';
 import PostLink from '../components/post-link';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import { HeaderDescription } from '../styled/text';
 import {
   FlexCenter,
@@ -70,7 +70,7 @@ const BugadaPage = ({ data, location }) => {
 
   return (
     <GlobalContainer>
-      <SEO location={location} pageTitle="La Bugada" />
+      <Seo location={location} pageTitle="La Bugada" />
       <HeaderContainer>
         <h1>La Bugada</h1>
         <HeaderDescription>

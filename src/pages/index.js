@@ -9,7 +9,7 @@ import EpisodeLink from '../components/episode-link';
 import Follow from '../components/follow';
 import Footer from '../components/footer';
 import Press from '../components/press';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Share from '../components/share';
 import Start from '../components/start';
 import Subscribe from '../components/subscribe';
@@ -102,7 +102,7 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <GlobalContainer>
-      <SEO location={location} pageTitle={siteTitle} />
+      <Seo location={location} pageTitle={siteTitle} />
       <HeaderContainer>
         <Cover location={location.pathname} />
         <Bio />
