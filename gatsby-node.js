@@ -97,24 +97,56 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         allGhostPost(sort: { order: DESC, fields: [published_at] }) {
-          nodes {
-            id
-            authors {
-              cover_image
-              name
+          edges {
+            node {
+              id
+              authors {
+                cover_image
+                name
+              }
+              excerpt
+              html
+              primary_tag {
+                name
+              }
+              published_at(formatString: "YYYY / MM / DD")
+              reading_time
+              slug
+              tags {
+                name
+              }
+              title
             }
-            excerpt
-            html
-            primary_tag {
-              name
+            next {
+              id
+              authors {
+                cover_image
+                name
+              }
+              excerpt
+              primary_tag {
+                name
+              }
+              published_at(formatString: "YYYY / MM / DD")
+              reading_time
+              slug
+              title
             }
-            published_at(formatString: "YYYY / MM / DD")
-            reading_time
-            slug
-            tags {
-              name
+            previous {
+              id
+              authors {
+                cover_image
+                name
+              }
+              excerpt
+              primary_tag {
+                name
+              }
+              published_at(formatString: "YYYY / MM / DD")
+              reading_time
+              slug
+              title
             }
-            title
           }
         }
       }
@@ -126,7 +158,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  const posts = postsGQL.data.allGhostPost.nodes;
+  const posts = postsGQL.data.allGhostPost.edges;
 
   // Create a page for each post
   if (posts) {
@@ -142,7 +174,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         slug,
         tags,
         title,
-      } = p;
+      } = p.node;
+      const { next, previous } = p;
 
       // Find previous and next episode
       // const previous = i === episodesLength - 1 ? null : episodes[i + 1];
@@ -155,8 +188,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           authors,
           excerpt,
           html,
-          // next,
-          // previous,
+          next,
+          previous,
           primary_tag,
           published_at,
           reading_time,
