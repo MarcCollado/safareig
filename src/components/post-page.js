@@ -28,6 +28,7 @@ const PostContainer = styled(FlexCenter)`
   margin-block-end: 24px;
   align-items: flex-start;
 
+  // Titles inside the post
   & > p > h2 {
     margin-block-start: 48px;
   }
@@ -36,6 +37,11 @@ const PostContainer = styled(FlexCenter)`
   & > p a {
     font-weight: 600;
     color: var(--darkBlue);
+  }
+
+  // Lists
+  & > p > ul > li {
+    margin-block-end: 1em;
   }
 
   // Quotes
@@ -64,6 +70,7 @@ const PostContainer = styled(FlexCenter)`
     max-width: 708px;
     margin-block-end: ${fluid(32, 48)};
 
+    // Titles inside the post
     & > p > h2 {
       margin-block-start: ${fluid(48, 64)};
     }
