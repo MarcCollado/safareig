@@ -7,7 +7,6 @@ import { fluid } from '../utils/fluid';
 
 const AdjacentContainer = styled(MainContainer)`
   margin-block-start: 24px;
-  margin-block-end: 24px;
 
   @media (min-width: 768px) {
     flex-flow: row wrap;
