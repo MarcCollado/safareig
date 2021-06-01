@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import AdjacentPosts from '../components/adjacent-posts';
 import Footer from '../components/footer';
 import Seo from '../components/seo';
 import {
@@ -105,6 +106,8 @@ const Subtitle = styled.p`
 // Page Component
 
 const PostPage = ({ location, pageContext }) => {
+  const { next, previous } = pageContext;
+
   return (
     <GlobalContainer>
       <Seo
@@ -137,6 +140,7 @@ const PostPage = ({ location, pageContext }) => {
           />
         </InLineLinksContainer>
       </PostContainer>
+      <AdjacentPosts nextPost={next} previousPost={previous} />
       <Footer />
     </GlobalContainer>
   );
