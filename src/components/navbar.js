@@ -29,7 +29,7 @@ const NavbarContainer = styled.nav`
   backdrop-filter: blur(48px);
 
   @media (min-width: 768px) {
-    height: ${fluid(100, 164)};
+    height: ${fluid(100, 144)};
     border-bottom-left-radius: ${fluid(24, 40)};
     border-bottom-right-radius: ${fluid(24, 40)};
   }
