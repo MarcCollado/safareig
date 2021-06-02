@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    width: clamp(320px, 100%, 1440px);
+    width: clamp(375px, 100%, 1440px);
     margin: 0px auto;
     font-family: inter, sans-serif;
     font-size: 16px;
