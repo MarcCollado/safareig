@@ -73,6 +73,7 @@ const PostContainer = styled(FlexCenter)`
 
     // Titles inside the post
     & > p > h2 {
+      font-size: 24px;
       margin-block-start: ${fluid(48, 64)};
     }
 
@@ -92,6 +93,20 @@ const PostContainer = styled(FlexCenter)`
     & > p > figure > iframe {
       max-width: ${fluid(530, 670)};
       max-height: calc(${fluid(530, 670)} / 1.77);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    // Titles inside the post
+    & > p > h2 {
+      font-size: 28px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    // Titles inside the post
+    & > p > h2 {
+      font-size: 32px;
     }
   }
 `;
