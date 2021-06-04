@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { fluid } from '../utils/fluid';
@@ -11,13 +11,13 @@ import ButlletiSvg from '../../content/assets/butlleti.svg';
 const NewsletterContainer = styled(FlexCenter)`
   max-width: 327px;
   // Margin from adjacent-posts.js
-  margin-block-start: 48px;
+  margin-block-start: 32px;
   text-align: center;
 
   @media (min-width: 768px) {
     max-width: ${fluid(408, 492)};
     // Margin from adjacent-posts.js
-    margin-block-start: ${fluid(64, 96)};
+    margin-block-start: ${fluid(32, 64)};
   }
 `;
 
@@ -44,7 +44,7 @@ const ButlletiInput = styled.input`
     color: var(--white);
     background-color: var(--darkBlue);
     // Additional margin for the button
-    margin-top: 4px;
+    margin-top: 8px;
   }
 
   @media (min-width: 768px) {
@@ -64,6 +64,37 @@ const ButlletiInput = styled.input`
 // Main Components
 
 const SubscribeButlleti = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // this.loading = true;
+      const result = await fetch(
+        'https://blog.safareig.fm/members/api/send-magic-link/',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            emailType: 'subscribe',
+          }),
+        }
+      );
+      const r = await result.text();
+      if (r !== 'Created.') alert('bad');
+    } catch (error) {
+      console.error(error);
+    } finally {
+      // this.loading = false;
+    }
+    console.log(e);
+  };
+
   return (
     <NewsletterContainer>
       <ButlletiSvg />
@@ -74,7 +105,9 @@ const SubscribeButlleti = () => {
           id="name"
           placeholder="El teu nom"
           autocomplete="false"
-          minlength="4"
+          // minlength="4"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
         <ButlletiInput
@@ -83,10 +116,17 @@ const SubscribeButlleti = () => {
           id="email"
           placeholder="El teu correu"
           autocomplete="off"
-          minlength="8"
+          // minlength="8"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <ButlletiInput type="submit" value="Subscriu-te al butlletí" />
+        <ButlletiInput
+          type="submit"
+          value="Subscriu-te al butlletí"
+          onClick={handleSubmit}
+          disabled={name === '' && email === ''}
+        />
       </ButlletiForm>
     </NewsletterContainer>
   );
