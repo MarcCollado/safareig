@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { PillLinkComposer } from '../styled/link';
 import { fluid } from '../utils/fluid';
 import { FlexCenter } from '../utils/containers';
 
@@ -44,14 +43,21 @@ const ButlletiInput = styled.input`
   &:last-child {
     color: var(--white);
     background-color: var(--darkBlue);
+    // Additional margin for the button
+    margin-top: 4px;
   }
 
   @media (min-width: 768px) {
     width: ${fluid(360, 420)};
     height: ${fluid(48, 64)};
     padding: 8px ${fluid(24, 36)};
-    border-radius: ${fluid(36, 48)};
+    border-radius: ${fluid(32, 48)};
     margin-bottom: ${fluid(16, 32)};
+
+    &:last-child {
+      // Additional margin for the button
+      margin-top: ${fluid(8, 16)};
+    }
   }
 `;
 
