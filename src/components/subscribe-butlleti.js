@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { fluid } from '../utils/fluid';
@@ -92,7 +92,6 @@ const SubscribeButlleti = () => {
     } finally {
       // this.loading = false;
     }
-    console.log(e);
   };
 
   return (
