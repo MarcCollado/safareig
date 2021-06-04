@@ -77,7 +77,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  p, a, button {
+  p, a, button, input {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
@@ -118,6 +118,11 @@ const GlobalStyles = createGlobalStyle`
         color: var(--white);
       }
     }
+  }
+
+  input {
+    background-color: var(--gray);
+    text-decoration: none;
   }
 
   /* .gatsby-image-wrapper img[src*=base64\\,] {
