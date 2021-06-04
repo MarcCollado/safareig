@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Footer from '../components/footer';
 import PostLink from '../components/post-link';
 import Seo from '../components/seo';
+import SubscribeButlleti from '../components/subscribe-butlleti';
+
 import { HeaderDescription } from '../styled/text';
 import {
   FlexCenter,
@@ -79,6 +81,7 @@ const BugadaPage = ({ data, location }) => {
         </HeaderDescription>
       </HeaderContainer>
       <BugadaContainer>{renderPosts(posts)}</BugadaContainer>
+      <SubscribeButlleti />
       <Footer />
     </GlobalContainer>
   );
