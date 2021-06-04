@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import AdjacentPosts from '../components/adjacent-posts';
 import Footer from '../components/footer';
 import Seo from '../components/seo';
+import SubscribeButlleti from './subscribe-butlleti';
 import {
   FeaturedLinkComposer,
   InLineLinksContainer,
@@ -156,6 +157,7 @@ const PostPage = ({ location, pageContext }) => {
         </InLineLinksContainer>
       </PostContainer>
       <AdjacentPosts nextPost={next} previousPost={previous} />
+      <SubscribeButlleti />
       <Footer />
     </GlobalContainer>
   );
