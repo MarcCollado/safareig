@@ -6,12 +6,24 @@ El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societ
 
 # Canvis a la pàgina
 
-## Versió 1.2
+## Versió 1.3 — 12.06.21
+
+### Novetats
+
+- Donem la benvinguda a [La Bugada](https://www.safareig.fm/bugada), que ara està integrada i forma part de la pàgina de Safareig.
+- A més, si vols rebre el proper article de La Bugada a la teva bústia de correu, podràs subscriure't al butlletí a través d'un formulari al final de la pàgina.
+- Tenim una nova barra de menú que et permetrà navegar pels diferents racons de la pàgina.
+
+### Millores
+
+- Al final de [qualsevol peça de La Bugada](https://www.safareig.fm/bugada/dispo-world), hi apareixen els corresponents articles adjacents.
+
+## Versió 1.2 — 03.03.21
 
 ### Novetats
 
 - Els capítols relacionats es generen ara de manera totalment aleatòria.
-- Sóm (una mica més) SEO-friendly: el meta de cada pàgina es popula amb les notes del capítol.
+- Som (una mica més) SEO-friendly: el meta de cada pàgina es nodreix amb les notes del capítol.
 
 ### Millores
 
@@ -21,7 +33,7 @@ El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societ
 
 ### Novetats
 
-- Navegació per pàgines — cada capítol "viu" a la seva pròpia URL.
+- Navegació per pàgines: cada capítol viu a la seva URL.
 - Cada pàgina de capítol té un mòdul de capítols relacionats. Ara per ara, els capítols són estàtics — que els escollim nosaltres, vaja. En un futur els generarem dinàmicament en funció del capítol relacionat.
 - També a la pàgina de capítol, ara és possible compartir-lo a Twitter.
 - Botó per a escoltar un capítol aleatori a la pàgina d'inici.
