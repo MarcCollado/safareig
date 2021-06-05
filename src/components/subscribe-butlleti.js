@@ -38,13 +38,16 @@ const ButlletiInput = styled.input`
   border: none;
   border-radius: 32px;
   margin-bottom: 16px;
-  outline: none;
 
   &:last-child {
     color: var(--white);
     background-color: var(--darkBlue);
     // Additional margin for the button
     margin-top: 8px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
   }
 
   @media (min-width: 768px) {
