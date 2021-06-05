@@ -83,6 +83,11 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     color: var(--black);
 
+    &:focus {
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     @media (min-width: 768px) {
       font-size: 16px;
     }
