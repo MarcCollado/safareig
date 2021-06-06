@@ -96,10 +96,10 @@ const Episode = ({
         </CardTitle>
         <ShowNotes
           dangerouslySetInnerHTML={{
-            __html: showNotes.replace(
-              /href/g,
-              "target='_blank' rel='noreferrer' href"
-            ),
+            __html: showNotes
+              .replace(/https:\/\/www.safareig.fm/g, '')
+              .replace(/https:\/\/safareig.fm/g, '')
+              .replace(/href="h/g, `target="_blank" rel="noreferrer" href="h`),
           }}
         ></ShowNotes>
         <InLineLinksContainer>
