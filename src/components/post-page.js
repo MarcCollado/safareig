@@ -138,10 +138,10 @@ const PostPage = ({ location, pageContext }) => {
       <PostContainer>
         <p
           dangerouslySetInnerHTML={{
-            __html: pageContext.html.replace(
-              /href/g,
-              "target='_blank' rel='noreferrer' href"
-            ),
+            __html: pageContext.html
+              .replace(/https:\/\/www.safareig.fm/g, '')
+              .replace(/https:\/\/safareig.fm/g, '')
+              .replace(/href="h/g, `target="_blank" rel="noreferrer" href="h`),
           }}
         ></p>
         <InLineLinksContainer>
