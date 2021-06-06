@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import AdjacentPosts from '../components/adjacent-posts';
@@ -122,44 +122,52 @@ const Subtitle = styled.p`
 // Page Component
 
 const PostPage = ({ location, pageContext }) => {
+  const [isReady, setIsReady] = useState(false);
   const { next, previous } = pageContext;
 
+  useEffect(() => setIsReady(true), []);
+
   return (
-    <GlobalContainer>
-      <Seo
-        location={location}
-        pageTitle={pageContext.title}
-        pageDescription={pageContext.excerpt}
-      />
-      <HeaderContainer>
-        <h1>{pageContext.title}</h1>
-        <Subtitle>{pageContext.published_at}</Subtitle>
-      </HeaderContainer>
-      <PostContainer>
-        <p
-          dangerouslySetInnerHTML={{
-            __html: pageContext.html
-              .replace(/https:\/\/www.safareig.fm/g, '')
-              .replace(/https:\/\/safareig.fm/g, '')
-              .replace(/href="h/g, `target="_blank" rel="noreferrer" href="h`),
-          }}
-        ></p>
-        <InLineLinksContainer>
-          <PillLinkComposer
-            href={`https://twitter.com/intent/tweet?text=Llegeix ${pageContext.title} a ${location.href}`}
-            text="Comparteix"
-          />
-          <FeaturedLinkComposer
-            color="black"
-            href={`https://twitter.com/safareigfm`}
-            text="Segueix-nos"
-          />
-        </InLineLinksContainer>
-      </PostContainer>
-      <AdjacentPosts nextPost={next} previousPost={previous} />
-      <SubscribeButlleti />
-      <Footer />
-    </GlobalContainer>
+    isReady && (
+      <GlobalContainer>
+        <Seo
+          location={location}
+          pageTitle={pageContext.title}
+          pageDescription={pageContext.excerpt}
+        />
+        <HeaderContainer>
+          <h1>{pageContext.title}</h1>
+          <Subtitle>{pageContext.published_at}</Subtitle>
+        </HeaderContainer>
+        <PostContainer>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: pageContext.html
+                .replace(/https:\/\/www.safareig.fm/g, '')
+                .replace(/https:\/\/safareig.fm/g, '')
+                .replace(
+                  /href="h/g,
+                  `target="_blank" rel="noreferrer" href="h`
+                ),
+            }}
+          ></p>
+          <InLineLinksContainer>
+            <PillLinkComposer
+              href={`https://twitter.com/intent/tweet?text=Llegeix ${pageContext.title} a ${location.href}`}
+              text="Comparteix"
+            />
+            <FeaturedLinkComposer
+              color="black"
+              href={`https://twitter.com/safareigfm`}
+              text="Segueix-nos"
+            />
+          </InLineLinksContainer>
+        </PostContainer>
+        <AdjacentPosts nextPost={next} previousPost={previous} />
+        <SubscribeButlleti />
+        <Footer />
+      </GlobalContainer>
+    )
   );
 };
 
