@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import {
   CardTitle,
   EpisodeCard,
-  EpisodeDate,
   EpisodeTitle,
   InnerCardContainer,
 } from '../styled/cards';
@@ -14,6 +13,7 @@ import {
   InLineLinksContainer,
   PillLinkComposer,
 } from '../styled/link';
+import { Meta } from '../styled/text';
 import { fluid } from '../utils/fluid';
 
 import BookmarkSvg from '../../content/assets/bookmark.svg';
@@ -79,7 +79,7 @@ const Episode = ({
   return (
     <EpisodeCard flexFlow="column nowrap" alignItems="flex-start">
       <InnerCardContainer>
-        <EpisodeDate>{date}</EpisodeDate>
+        <Meta>{date}</Meta>
         <EpisodeTitle>
           <big>{`${episodeNumber}: ${title}`}</big>
         </EpisodeTitle>

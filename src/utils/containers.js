@@ -10,25 +10,17 @@ export const FlexCenter = styled.div`
 
 export const GlobalContainer = styled(FlexCenter)`
   margin: 24px;
+  // Correct for navbar offset
+  // margin-block-start: 16px;
 
   @media (min-width: 768px) {
     margin: ${fluid(24, 132)};
+    // Correct for navbar offset
+    // margin-block-start: ${fluid(24, 32)};
   }
 `;
 
-export const HeaderContainer = styled(FlexCenter)`
-  // Up to 576px the container sets its own width
-  // and shares width w/ MainContainer
-  width: clamp(272px, 100%, 455px);
-  margin-block-end: 32px;
-
-  @media (min-width: 768px) {
-    width: 100%;
-    flex-flow: row-reverse nowrap;
-    justify-content: space-between;
-  }
-`;
-
+// Shared w/ bio.js && cover.js
 export const BioContainer = styled.div`
   @media (min-width: 768px) {
     width: clamp(400px, 100%, 730px);
@@ -38,8 +30,7 @@ export const BioContainer = styled.div`
 `;
 
 export const MainContainer = styled(FlexCenter)`
-  // Up to 576px the container sets its own width
-  // and shares width w/ HeaderContainer
+  // Up to 768px the container sets its own width
   width: clamp(272px, 100%, 455px);
 
   @media (min-width: 768px) {

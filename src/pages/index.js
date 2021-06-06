@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
+import styled from 'styled-components';
 
 import Bio from '../components/bio';
 import Cover from '../components/cover';
@@ -8,18 +9,26 @@ import EpisodeLink from '../components/episode-link';
 import Follow from '../components/follow';
 import Footer from '../components/footer';
 import Press from '../components/press';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Share from '../components/share';
 import Start from '../components/start';
 import Subscribe from '../components/subscribe';
 import {
   GlobalContainer,
-  HeaderContainer,
   MainContainer,
   LeftPanelContainer,
   EpisodesContainer,
 } from '../utils/containers';
 import { trimDescriptions } from '../utils/trim';
+
+const HeaderContainer = styled(MainContainer)`
+  margin-block-end: 32px;
+
+  @media (min-width: 768px) {
+    flex-flow: row-reverse nowrap;
+    align-items: center;
+  }
+`;
 
 const IndexPage = ({ data, location }) => {
   const [isReady, setIsReady] = useState(false);
@@ -93,7 +102,7 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <GlobalContainer>
-      <SEO location={location} pageTitle={siteTitle} />
+      <Seo location={location} pageTitle={siteTitle} />
       <HeaderContainer>
         <Cover location={location.pathname} />
         <Bio />

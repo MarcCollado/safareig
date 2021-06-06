@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FlexCenter } from '../utils/containers';
 import { fluid } from '../utils/fluid';
 
+// Shared w/ 404.js
 export const FullPageCard = styled(FlexCenter)`
   margin-block-end: 24px;
   border-radius: ${fluid(24, 32)};
@@ -25,13 +26,15 @@ export const InnerCardContainer = styled.div`
   }
 `;
 
+// Shared w/ follow.js && subscribe.js
 export const Card = styled(FlexCenter)`
   margin-block-end: 24px;
   border-radius: ${fluid(24, 32)};
   background-color: var(--gray);
   transition: all 300ms ease;
 
-  // Sets its own width >576px
+  // Sets its own width >768px
+  // Nested under LeftPanelContainer
   @media (min-width: 768px) {
     min-width: 260px;
     width: 100%;
@@ -41,13 +44,14 @@ export const Card = styled(FlexCenter)`
   }
 `;
 
-// Used by share.js, press.js
+// Shared w/ press.js && share.js
 export const FlatCard = styled(Card)`
+  // Nested under LeftPanelContainer
   @media (min-width: 768px) {
     &:hover {
       background-color: var(--white);
 
-      // Controls the arrow link
+      // Controls for the SVG arrow link
       & div svg:last-child {
         transform: translate3d(4px, 0px, 0px);
       }
@@ -55,28 +59,44 @@ export const FlatCard = styled(Card)`
   }
 `;
 
+// Shared w/ related.js && start.js
 export const EpisodeCard = styled(Card)`
   background-color: ${(props) => (props.flat ? 'var(--gray)' : 'var(--white)')};
 
-  // Sets its own width >576px
+  // Sets its own width >768px
+  // Nested under EpisodesContainer
   @media (min-width: 768px) {
     min-width: 436px;
-    width: 100%;
     max-width: 728px;
   }
 `;
 
+// Shared w/ episode-link.js
 export const EpisodeLinkCard = styled(EpisodeCard)`
   background-color: var(--gray);
 
+  // Nested under EpisodesContainer
   @media (min-width: 768px) {
     &:hover {
       background-color: var(--white);
 
-      // Controls the arrow link
+      // Controls for the SVG arrow link
       & div svg:last-child {
         transform: translate3d(4px, 0px, 0px);
       }
+    }
+  }
+`;
+
+// Shared w/ post-link.js
+export const PostLinkCard = styled(Card)`
+  @media (min-width: 768px) {
+    min-width: 348px;
+    width: 48.3%;
+    max-width: 568px;
+
+    &:hover {
+      background-color: var(--white);
     }
   }
 `;
@@ -100,20 +120,43 @@ export const CardTitle = styled.div`
   }
 `;
 
-// Titles for the EpisodeCard
-export const EpisodeDate = styled.p`
-  margin: 0px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  opacity: 0.5;
-  color: var(--black);
-
-  @media (min-width: 768px) {
-    font-size: ${fluid(14, 18)};
-  }
-`;
-
 export const EpisodeTitle = styled.h2`
   margin-block-start: 16px;
   margin-block-end: -6px; // Reset default p block-start margin
+`;
+
+// Mobile Navbar Menu
+export const MobileMenuCard = styled.div`
+  width: 100%;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: absolute;
+  top: ${(props) => (props.show ? '0px' : '-600px')};
+  z-index: -1;
+  backdrop-filter: blur(48px);
+  background-color: var(--white);
+
+  transition: all 500ms ease;
+
+  & > * {
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+  }
+
+  & > a:first-child {
+    // Correct for navbar height
+    margin-block-start: 100px;
+  }
+
+  & > a:last-child {
+    margin-block-start: 32px;
+    margin-block-end: 48px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

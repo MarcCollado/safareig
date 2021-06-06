@@ -3,9 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 
 /* font-weight
   800: <h1/>
-  700: <h2>CardTitle</h2>, <p>EpisodeDate</p>
+  700: <h2>CardTitle</h2>, <p>Meta</p>
   600: <p>FeaturedLink</p>, <button>PillLink</button>, <a>ShowNotes</a>
-  500: <p>RichLink</p>
+  500: <p>RichLink</p>, <p>PostMeta</p>
   400: <a/>, <p/>
 */
 
@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    width: clamp(320px, 100%, 1440px);
+    width: clamp(375px, 100%, 1440px);
     margin: 0px auto;
     font-family: inter, sans-serif;
     font-size: 16px;
@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
     letter-spacing: normal;
     background-color: #fafbfc;
+    scroll-behavior: smooth;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
@@ -77,11 +78,16 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  p, a, button {
+  p, a, button, input {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--black);
+
+    &:focus {
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
 
     @media (min-width: 768px) {
       font-size: 16px;
@@ -118,6 +124,11 @@ const GlobalStyles = createGlobalStyle`
         color: var(--white);
       }
     }
+  }
+
+  input {
+    background-color: var(--gray);
+    text-decoration: none;
   }
 
   /* .gatsby-image-wrapper img[src*=base64\\,] {

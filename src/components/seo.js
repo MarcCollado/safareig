@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import favicon from '../../static/favicon.ico';
 
-const SEO = ({ pageTitle, pageDescription, meta }) => {
+const Seo = ({ pageTitle, pageDescription, meta }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -70,16 +70,16 @@ const SEO = ({ pageTitle, pageDescription, meta }) => {
   );
 };
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   pageTitle: `Safareig | El teu podcast en català`,
   pageDescription: ``,
   meta: [],
 };
 
-SEO.propTypes = {
+Seo.propTypes = {
   pageTitle: PropTypes.string.isRequired,
   pageDescription: PropTypes.string.isRequired,
   meta: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default SEO;
+export default Seo;

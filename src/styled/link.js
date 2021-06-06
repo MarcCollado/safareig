@@ -47,7 +47,8 @@ const FeaturedLinkContainer = styled.div`
 
 // Adds space to FeaturedLinks inside cards
 const CardLinkContainer = styled(FeaturedLinkContainer)`
-  padding-block-start: ${fluid(12, 16)};
+  padding-block-start: ${(props) =>
+    props.isCard ? `${fluid(12, 16)}` : `0px`};
 `;
 
 // Text inside FeaturedLinkContainer
@@ -58,20 +59,26 @@ export const FeaturedLinkText = styled.p`
     props.color === 'black' ? 'var(--black)' : 'var(--darkBlue)'};
 `;
 
-export const FeaturedLinkComposer = ({ color, href, text }) => {
+export const FeaturedLinkComposer = ({
+  color,
+  href = '',
+  text,
+  arrow = true,
+  isCard = true,
+}) => {
   // color can be either 'black' or 'blue'
   // href if external link
   return href ? (
     <a href={href} target="_blank" rel="noreferrer">
       <FeaturedLinkContainer>
         <FeaturedLinkText color={color}>{text}</FeaturedLinkText>
-        <Chevron color={color} />
+        {arrow && <Chevron color={color} />}
       </FeaturedLinkContainer>
     </a>
   ) : (
-    <CardLinkContainer>
-      <FeaturedLinkText>{text}</FeaturedLinkText>
-      <Chevron color={color} />
+    <CardLinkContainer isCard={isCard}>
+      <FeaturedLinkText color={color}>{text}</FeaturedLinkText>
+      {arrow && <Chevron color={color} />}
     </CardLinkContainer>
   );
 };
@@ -148,6 +155,11 @@ const PillText = styled.button`
   padding: 8px 24px;
   display: inline-block;
   transition: all 250ms ease-in-out;
+
+  // Support for close (X) SVG on mobile
+  & > svg {
+    margin: -0px -15px -5px;
+  }
 
   @media (min-width: 768px) {
     padding: ${fluid(8, 16)} 24px;

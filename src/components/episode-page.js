@@ -6,7 +6,7 @@ import Episode from '../components/episode';
 import Follow from '../components/follow';
 import Footer from '../components/footer';
 import Press from '../components/press';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Share from '../components/share';
 import Related from '../components/related';
 import Subscribe from '../components/subscribe';
@@ -16,6 +16,8 @@ import {
   LeftPanelContainer,
   EpisodesContainer,
 } from '../utils/containers';
+
+// Page Component
 
 const EpisodePage = ({ location, pageContext }) => {
   const [isReady, setIsReady] = useState(false);
@@ -77,7 +79,7 @@ const EpisodePage = ({ location, pageContext }) => {
 
   return (
     <GlobalContainer>
-      <SEO
+      <Seo
         location={location}
         pageTitle={pageContext.title}
         pageDescription={pageContext.showDescription}

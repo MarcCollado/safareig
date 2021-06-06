@@ -1,7 +1,7 @@
 export default {
   siteMetadata: {
     header: `Safareig`,
-    title: `Safareig | El teu podcast en català`,
+    title: `Safareig | El teu podcast de tecnologia en català`,
     description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
     image: `content/assets/meta.png`,
     siteUrl: `https://www.safareig.fm`,
@@ -23,6 +23,14 @@ export default {
         name: `assets`,
       },
     },
+    {
+      resolve: `gatsby-source-ghost`,
+      options: {
+        apiUrl: `https://safareig.ghost.io`,
+        contentApiKey: `5fe2b82fda611c2bbdeccb237e`,
+        version: `v3`,
+      },
+    },
     // MARKDOWN
     {
       resolve: `gatsby-transformer-remark`,
@@ -41,8 +49,9 @@ export default {
       },
     },
     // IMAGES & ASSETS
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       // https://github.com/mottox2/gatsby-source-rss-feed
       resolve: `gatsby-source-rss-feed`,
