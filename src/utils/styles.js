@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
     letter-spacing: normal;
     background-color: #fafbfc;
+    scroll-behavior: smooth;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
