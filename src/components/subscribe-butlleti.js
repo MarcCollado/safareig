@@ -75,7 +75,7 @@ const SubscribeButlleti = () => {
     try {
       // this.loading = true;
       const result = await fetch(
-        'https://blog.safareig.fm/members/api/send-magic-link/',
+        'https://safareig.ghost.io/members/api/send-magic-link/',
         {
           method: 'POST',
           headers: {
