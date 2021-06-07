@@ -1,8 +1,8 @@
-name: Monday build
+name: Wednesday build
 on:
   schedule:
-    # Every Monday @ 5am
-    - cron: '0 4 * * 1'
+    # Every Wednesday @ 5am — Bugada
+    - cron: '0 4 * * 3'
 jobs:
   build:
     runs-on: ubuntu-latest
