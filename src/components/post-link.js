@@ -40,6 +40,11 @@ const InLine = styled.div`
 const PostMeta = styled(Meta)`
   font-weight: 500;
   letter-spacing: 0px;
+
+  // Override font-size for tablet
+  @media (min-width: 768px) {
+    font-size: ${fluid(13, 18)};
+  }
 `;
 
 // Main Component
