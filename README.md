@@ -17,6 +17,8 @@ El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societ
 ### Millores
 
 - Al final de [qualsevol peça de La Bugada](https://www.safareig.fm/bugada/dispo-world), hi apareixen els corresponents articles adjacents.
+- El catxe de la web és força més agressiu, fent-la més àgil, disponible sense línia, i donant-li un comportament semblant a una app.
+- Tots els enllaços interns a la pàgina són molt més ràpids, sense necessitat d'obrir una pestanya nova cada vegada.
 
 ## Versió 1.2 — 03.03.21
 
