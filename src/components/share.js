@@ -15,7 +15,10 @@ const Share = () => (
           <ShareSvg />
           <h2>Fes Safareig</h2>
         </CardTitle>
-        <p>Tens algun tema a suggerir? No dubtis en contactar-nos.</p>
+        <p>
+          Tens algun tema a suggerir? Vols donar-nos un cop de mà amb el
+          podcast? No dubtis en contactar-nos.
+        </p>
         <FeaturedLinkComposer color="blue" text="Contacta a Safareig" />
       </InnerCardContainer>
     </a>

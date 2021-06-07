@@ -20,8 +20,8 @@ const Press = () => (
           <h2>Press Kit</h2>
         </CardTitle>
         <p>
-          Vols escriure sobre nosaltres? Hem preparat un recull de text amb
-          imatges sobre Safareig.
+          Hem preparat la descripció de Safareig i un recull d'imatges perquè et
+          sigui fàcil començar.
         </p>
         <FeaturedLinkComposer color="blue" text="Descarrega'l" />
       </InnerCardContainer>

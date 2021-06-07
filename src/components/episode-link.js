@@ -19,7 +19,7 @@ const EpisodeLink = ({ date, episodeNumber, title, showDescription }) => {
           <Meta>{date}</Meta>
           <EpisodeTitle>{`${episodeNumber}: ${title}`}</EpisodeTitle>
           <p>{showDescription}</p>
-          <FeaturedLinkComposer color="blue" text={`Escoltar Capítol`} />
+          <FeaturedLinkComposer color="blue" text={`Escolta el capítol`} />
         </InnerCardContainer>
       </EpisodeLinkCard>
     </Link>
