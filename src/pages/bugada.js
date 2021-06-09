@@ -13,6 +13,7 @@ import {
   GlobalContainer,
   MainContainer,
 } from '../utils/containers';
+import { fluid } from '../utils/fluid';
 
 // Styled Components
 
@@ -24,7 +25,7 @@ const HeaderContainer = styled(FlexCenter)`
   @media (min-width: 768px) {
     width: 75%;
     max-width: 664px;
-    margin-block-end: 24px;
+    margin-block-end: ${fluid(32, 48)};
   }
 `;
 
@@ -76,8 +77,8 @@ const BugadaPage = ({ data, location }) => {
       <HeaderContainer>
         <h1>La Bugada</h1>
         <HeaderDescription>
-          Lorem ipsum... el recull d'escrits, reflexions i pensaments, o l'espai
-          sobre tecnologia en català.
+          El recull d'escrits, reflexions, i pensaments de Safareig. Cada
+          dimecres, en 500 paraules, i exclusivament en català.
         </HeaderDescription>
       </HeaderContainer>
       <BugadaContainer>{renderPosts(posts)}</BugadaContainer>
