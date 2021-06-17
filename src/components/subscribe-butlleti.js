@@ -10,24 +10,24 @@ import ButlletiSvg from '../../content/assets/butlleti.svg';
 
 const NewsletterContainer = styled(FlexCenter)`
   max-width: 327px;
-  // Margin from adjacent-posts.js
-  margin-block-start: 32px;
+  // Margin from post-links above
+  margin: 24px 0px;
   text-align: center;
 
   @media (min-width: 768px) {
     max-width: ${fluid(408, 492)};
-    // Margin from adjacent-posts.js
-    margin-block-start: ${fluid(32, 64)};
+    // Margin from post-links above
+    margin: ${fluid(24, 48)} 0px;
   }
 `;
 
 const ButlletiForm = styled.form`
-  // Margin from ButlletiSvg and footer.js
-  margin: 32px 0px;
+  // Margin from ButlletiSvg above
+  margin-block-start: 24px;
 
   @media (min-width: 768px) {
-    // Margin from ButlletiSvg and footer.js
-    margin: ${fluid(32, 48)} 0px ${fluid(48, 64)};
+    // Margin from ButlletiSvg above
+    margin-block-start: ${fluid(24, 36)};
   }
 `;
 
@@ -42,8 +42,9 @@ const ButlletiInput = styled.input`
   &:last-child {
     color: var(--white);
     background-color: var(--darkBlue);
-    // Additional margin for the button
-    margin-top: 8px;
+    // Compensate the padding
+    width: calc(279px + 2 * 24px);
+    height: calc(48px + 2 * 8px);
   }
 
   &:disabled {
@@ -58,8 +59,9 @@ const ButlletiInput = styled.input`
     margin-bottom: ${fluid(16, 32)};
 
     &:last-child {
-      // Additional margin for the button
-      margin-top: ${fluid(8, 16)};
+      // Compensate the padding
+      width: ${fluid(408, 492)};
+      height: ${fluid(64, 80)};
     }
   }
 `;
