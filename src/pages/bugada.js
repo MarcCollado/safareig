@@ -30,8 +30,6 @@ const HeaderContainer = styled(FlexCenter)`
 `;
 
 const BugadaContainer = styled(MainContainer)`
-  margin-block-end: 24px;
-
   @media (min-width: 768px) {
     flex-flow: row wrap;
   }
