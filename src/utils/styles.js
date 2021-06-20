@@ -3,10 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 
 /* font-weight
   800: <h1/>
-  700: <h2>CardTitle</h2>, <p>Meta</p>
-  600: <p>FeaturedLink</p>, <button>PillLink</button>, <a>ShowNotes</a>
-  500: <p>RichLink</p>, <p>PostMeta</p>
-  400: <a/>, <p/>
+  700: <h2/>, Meta.p
+  600: buttons, links, and blue links inside text
+  500: RichLink.p, PostMeta.Meta (post-link), Subtitle.p (post-page)
+  400: p, a, button, input
 */
 
 const GlobalStyles = createGlobalStyle`
@@ -40,13 +40,13 @@ const GlobalStyles = createGlobalStyle`
   h1, h2 {
     // reset default margins
     margin: 0px;
-    font-weight: 800;
     line-height: 1.5;
     color: var(--black);
   }
 
   h1 {
     font-size: 32px;
+    font-weight: 800;
 
     @media (min-width: 768px) {
       font-size: 32px;
