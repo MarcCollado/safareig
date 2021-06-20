@@ -112,8 +112,18 @@ const PostContainer = styled(FlexCenter)`
   }
 `;
 
+const TextContainer = styled.div`
+  margin-block-start: 16px;
+  margin-block-end: 36px;
+
+  @media (min-width: 768px) {
+    margin-block-end: ${fluid(36, 48)};
+  }
+`;
+
 const Subtitle = styled.p`
   margin-block-end: 0px;
+  font-weight: 500;
   letter-spacing: -1px;
   opacity: 0.5;
   color: var(--black);
@@ -140,17 +150,19 @@ const PostPage = ({ location, pageContext }) => {
           <Subtitle>{pageContext.published_at}</Subtitle>
         </HeaderContainer>
         <PostContainer>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: pageContext.html
-                .replace(/https:\/\/www.safareig.fm/g, '')
-                .replace(/https:\/\/safareig.fm/g, '')
-                .replace(
-                  /href="h/g,
-                  `target="_blank" rel="noreferrer" href="h`
-                ),
-            }}
-          ></p>
+          <TextContainer>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: pageContext.html
+                  .replace(/https:\/\/www.safareig.fm/g, '')
+                  .replace(/https:\/\/safareig.fm/g, '')
+                  .replace(
+                    /href="h/g,
+                    `target="_blank" rel="noreferrer" href="h`
+                  ),
+              }}
+            ></p>
+          </TextContainer>
           <InLineLinksContainer>
             <PillLinkComposer
               href={`https://twitter.com/intent/tweet?text=Llegeix ${pageContext.title} a ${location.href}`}
