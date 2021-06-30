@@ -26,9 +26,22 @@ const HeaderContainer = styled(FlexCenter)`
 `;
 
 const PostContainer = styled(FlexCenter)`
-  max-width: 455px;
-  margin-block-end: 24px;
+  margin-block-start: 16px;
+  margin-block-end: 36px;
   align-items: flex-start;
+
+  @media (min-width: 768px) {
+    margin-block-end: ${fluid(36, 64)};
+  }
+`;
+
+const TextContainer = styled.div`
+  max-width: 455px;
+  margin-block-end: 32px;
+
+  & > p > p {
+    line-height: 1.55;
+  }
 
   // Titles inside the post
   & > p > h2 {
@@ -72,6 +85,10 @@ const PostContainer = styled(FlexCenter)`
     max-width: 708px;
     margin-block-end: ${fluid(32, 48)};
 
+    & > p > p {
+      line-height: 1.6;
+    }
+
     // Titles inside the post
     & > p > h2 {
       font-size: 24px;
@@ -98,6 +115,9 @@ const PostContainer = styled(FlexCenter)`
   }
 
   @media (min-width: 1024px) {
+    & > p > p {
+      line-height: 1.7;
+    }
     // Titles inside the post
     & > p > h2 {
       font-size: 28px;
@@ -109,15 +129,6 @@ const PostContainer = styled(FlexCenter)`
     & > p > h2 {
       font-size: 32px;
     }
-  }
-`;
-
-const TextContainer = styled.div`
-  margin-block-start: 16px;
-  margin-block-end: 36px;
-
-  @media (min-width: 768px) {
-    margin-block-end: ${fluid(36, 48)};
   }
 `;
 
