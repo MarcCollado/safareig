@@ -14,11 +14,17 @@ import FollowSvg from '../../content/assets/follow.svg';
 
 const StyledAvatar = styled(GatsbyImage)`
   width: 50px;
-  border-radius: 50px;
+
+  & img {
+    border-radius: 50px;
+  }
 
   @media (min-width: 768px) {
     width: ${fluid(50, 64)};
-    border-radius: ${fluid(50, 64)};
+
+    & img {
+      border-radius: ${fluid(50, 64)};
+    }
   }
 `;
 
