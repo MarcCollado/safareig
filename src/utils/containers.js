@@ -11,12 +11,12 @@ export const FlexCenter = styled.div`
 export const GlobalContainer = styled(FlexCenter)`
   margin: 24px;
   // Correct for navbar offset
-  margin-block-start: 16px;
+  // margin-block-start: 16px;
 
   @media (min-width: 768px) {
     margin: ${fluid(24, 132)};
     // Correct for navbar offset
-    margin-block-start: ${fluid(24, 32)};
+    // margin-block-start: ${fluid(24, 32)};
   }
 `;
 

@@ -15,7 +15,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <>
       <GlobalStyles />
-      <Navbar path={location.pathname} />
+      {/* <Navbar path={location.pathname} /> */}
       {children}
     </>
   );
