@@ -17,7 +17,7 @@ const Share = () => (
         </CardTitle>
         <p>
           Tens algun tema a suggerir? Vols donar-nos un cop de mà amb el
-          podcast? No dubtis en contactar-nos.
+          podcast? No dubtis en contactar.
         </p>
         <FeaturedLinkComposer color="blue" text="Contacta a Safareig" />
       </InnerCardContainer>
