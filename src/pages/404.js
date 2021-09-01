@@ -66,7 +66,7 @@ const NotFoundPage = ({ data }) => {
             </FourOFourImage>
             <FourOFourContainer>
               <FourOFourText>
-                Aquesta pàgina encara no existeix, però possiblement d’això en
+                Aquesta pàgina encara no existeix, però possiblement d'això en
                 podríem parlar extensament en un capítol.
               </FourOFourText>
               <Link to={`/${randomEspisode}`}>
