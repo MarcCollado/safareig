@@ -19,8 +19,15 @@ export default {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
         name: `assets`,
+        path: `${__dirname}/content/assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `articles`,
+        path: `${__dirname}/content/articles`,
       },
     },
     {
@@ -37,9 +44,21 @@ export default {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              width: 1024,
+              related: false,
+              noIframeBorder: true,
+            },
+          },
+          'gatsby-remark-responsive-iframe',
+          {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 1024,
+              linkImagesToOriginal: false,
+              showCaptions: false,
+              quality: 80,
             },
           },
           `gatsby-remark-prismjs`,
