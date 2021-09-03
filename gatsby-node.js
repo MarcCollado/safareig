@@ -201,4 +201,87 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
     });
   }
+
+  // Fetch markdowns
+
+  const postPageMd = path.resolve(`src/components/post-page-md.js`);
+  // const tagPage = path.resolve(`src/components/tagPage.js`);
+
+  // Fetch all markdown posts
+  const fetchPosts = await graphql(`
+    {
+      postsMd: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/articles/" } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              author
+              date(formatString: "MMMM DD, YYYY")
+              featured
+              meta
+              path
+              published
+              tags
+              title
+            }
+            html
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  if (fetchPosts.errors) {
+    throw fetchPosts.errors;
+  }
+
+  // posts -> [{ node }, { node }, ..., { node }]
+  const postsMd = fetchPosts.data.postsMd.edges;
+
+  // Create a page for each post through path
+  postsMd.forEach((post, index) => {
+    const { author, date, featured, meta, path, published, tags, title } =
+      post.node.frontmatter;
+    const html = post.node.html;
+    const prev =
+      index === postsMd.length - 1
+        ? postsMd[index].node
+        : postsMd[index + 1].node;
+    const next = index === 0 ? postsMd[index].node : postsMd[index - 1].node;
+    createPage({
+      component: postPageMd,
+      context: {
+        author,
+        date,
+        featured,
+        html,
+        meta,
+        next,
+        prev,
+        published,
+        tags,
+        title,
+      },
+      path: path,
+    });
+  });
+
+  // List all unique tags
+  // let allTags = [];
+  // posts.forEach(({ node }) => {
+  //   allTags = [...allTags, ...node.frontmatter.tags];
+  // });
+  // const uniqueTags = [...new Set(allTags)];
+
+  // Create a page for each tag
+  // uniqueTags.forEach((tag) => {
+  //   createPage({
+  //     path: `/tags/${tag}`,
+  //     component: tagPage,
+  //     context: { tag },
+  //   });
+  // });
 };
