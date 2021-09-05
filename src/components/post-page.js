@@ -55,8 +55,9 @@ const TextContainer = styled.div`
   }
 
   // Lists
-  & > p > ul > li {
-    margin-block-end: 1em;
+  & > p ul > li {
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
   }
 
   // Quotes
@@ -65,6 +66,22 @@ const TextContainer = styled.div`
     padding-inline-start: 16px;
     border-inline-start: 3px solid var(--darkBlue);
     opacity: 0.75;
+  }
+
+  // Footnotes
+  // HRs
+  & > p > div > hr {
+    display: none;
+  }
+
+  // Back references
+  & > p sup > a {
+    font-size: smaller;
+    color: var(--black);
+  }
+
+  & > p div.footnotes a.footnote-backref {
+    font-size: smaller;
   }
 
   // Embed media
@@ -144,27 +161,35 @@ const Subtitle = styled.p`
 
 const PostPage = ({ location, pageContext }) => {
   const [isReady, setIsReady] = useState(false);
-  const { next, previous } = pageContext;
+  const {
+    // author,
+    date,
+    // featured,
+    html,
+    meta,
+    next,
+    prev,
+    // published,
+    // readingTime
+    // tags,
+    title,
+  } = pageContext;
 
   useEffect(() => setIsReady(true), []);
 
   return (
     isReady && (
       <GlobalContainer>
-        <Seo
-          location={location}
-          pageTitle={pageContext.title}
-          pageDescription={pageContext.excerpt}
-        />
+        <Seo location={location} pageTitle={title} pageDescription={meta} />
         <HeaderContainer>
-          <h1>{pageContext.title}</h1>
-          <Subtitle>{pageContext.published_at}</Subtitle>
+          <h1>{title}</h1>
+          <Subtitle>{date}</Subtitle>
         </HeaderContainer>
         <PostContainer>
           <TextContainer>
             <p
               dangerouslySetInnerHTML={{
-                __html: pageContext.html
+                __html: html
                   .replace(/https:\/\/www.safareig.fm/g, '')
                   .replace(/https:\/\/safareig.fm/g, '')
                   .replace(
@@ -176,7 +201,7 @@ const PostPage = ({ location, pageContext }) => {
           </TextContainer>
           <InLineLinksContainer>
             <PillLinkComposer
-              href={`https://twitter.com/intent/tweet?text=Llegeix ${pageContext.title} a ${location.href}`}
+              href={`https://twitter.com/intent/tweet?text=Llegeix ${title} a ${location.href}`}
               text="Comparteix"
             />
             <FeaturedLinkComposer
@@ -186,7 +211,7 @@ const PostPage = ({ location, pageContext }) => {
             />
           </InLineLinksContainer>
         </PostContainer>
-        <AdjacentPosts nextPost={next} previousPost={previous} />
+        <AdjacentPosts nextPost={next} previousPost={prev} />
         <SubscribeButlleti />
         <Footer />
       </GlobalContainer>

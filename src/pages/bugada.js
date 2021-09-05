@@ -38,35 +38,28 @@ const BugadaContainer = styled(MainContainer)`
 // Page Component
 
 const BugadaPage = ({ data, location }) => {
-  const posts = data.allGhostPost?.nodes;
+  const posts = data.allMarkdownRemark?.edges;
 
   const renderPosts = (posts) => {
-    return posts.map((post, i) => {
-      const {
-        authors,
-        excerpt,
-        id,
-        primary_tag,
-        published_at,
-        reading_time,
-        slug,
-        title,
-      } = post;
-
-      return (
+    return posts
+      .filter(
+        (post) =>
+          !!post.node.frontmatter?.date && !!post.node.frontmatter?.published
+      )
+      .map((post) => (
         <PostLink
-          key={id}
-          authorName={authors[0].name}
-          // authorImage={authors[0].cover_image}
-          date={published_at}
-          excerpt={excerpt}
-          path={slug}
-          primaryTag={primary_tag.name}
-          readingTime={reading_time}
-          title={title}
+          key={post.node.id}
+          authorName={post.node.frontmatter?.author}
+          // authorImage
+          date={post.node.frontmatter?.date}
+          excerpt={post.node.frontmatter?.meta}
+          // image
+          path={post.node.frontmatter?.path}
+          primaryTag={post.node.frontmatter?.tags[0]}
+          readingTime={post.node.timeToRead}
+          title={post.node.frontmatter?.title}
         />
-      );
-    });
+      ));
   };
 
   return (
@@ -90,21 +83,29 @@ export default BugadaPage;
 
 export const pageQuery = graphql`
   query {
-    allGhostPost(sort: { order: DESC, fields: [published_at] }) {
-      nodes {
-        id
-        authors {
-          cover_image
-          name
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/articles/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date(formatString: "YYYY / MM / DD")
+            featured
+            meta
+            path
+            published
+            tags
+            title
+          }
+          html
+          id
+          timeToRead
+          wordCount {
+            words
+          }
         }
-        excerpt
-        primary_tag {
-          name
-        }
-        published_at(formatString: "YYYY / MM / DD")
-        reading_time
-        slug
-        title
       }
     }
   }
