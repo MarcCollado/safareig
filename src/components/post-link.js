@@ -60,7 +60,7 @@ const PostLink = ({
 }) => {
   return (
     <PostLinkCard>
-      <Link to={`/bugada/${path}`}>
+      <Link to={path}>
         <InnerCardContainer>
           <CardTitle>
             <PostIcon />
