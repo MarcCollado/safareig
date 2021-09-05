@@ -19,27 +19,29 @@ const AdjacentPosts = ({ nextPost, previousPost }) => (
     {nextPost && (
       <PostLink
         key={nextPost.id}
-        authorName={nextPost.authors[0].name}
-        // authorImage={authors[0].cover_image}
-        date={nextPost.published_at}
-        excerpt={nextPost.excerpt}
-        path={nextPost.slug}
-        primaryTag={nextPost.primary_tag.name}
-        readingTime={nextPost.reading_time}
-        title={nextPost.title}
+        authorName={nextPost.frontmatter?.author}
+        // authorImage
+        date={nextPost.frontmatter?.date}
+        excerpt={nextPost.frontmatter?.meta}
+        // image
+        path={nextPost.frontmatter?.path}
+        primaryTag={nextPost.frontmatter?.tags[0]}
+        readingTime={nextPost.timeToRead}
+        title={nextPost.frontmatter?.title}
       />
     )}
     {previousPost && (
       <PostLink
         key={previousPost.id}
-        authorName={previousPost.authors[0].name}
-        // authorImage={authors[0].cover_image}
-        date={previousPost.published_at}
-        excerpt={previousPost.excerpt}
-        path={previousPost.slug}
-        primaryTag={previousPost.primary_tag.name}
-        readingTime={previousPost.reading_time}
-        title={previousPost.title}
+        authorName={previousPost.frontmatter?.author}
+        // authorImage
+        date={previousPost.frontmatter?.date}
+        excerpt={previousPost.frontmatter?.meta}
+        // image
+        path={previousPost.frontmatter?.path}
+        primaryTag={previousPost.frontmatter?.tags[0]}
+        readingTime={previousPost.timeToRead}
+        title={previousPost.frontmatter?.title}
       />
     )}
   </AdjacentContainer>

@@ -30,14 +30,6 @@ export default {
         path: `${__dirname}/content/articles`,
       },
     },
-    {
-      resolve: `gatsby-source-ghost`,
-      options: {
-        apiUrl: `https://safareig.ghost.io`,
-        contentApiKey: `5fe2b82fda611c2bbdeccb237e`,
-        version: `v3`,
-      },
-    },
     // MARKDOWN
     {
       resolve: `gatsby-transformer-remark`,
