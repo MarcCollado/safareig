@@ -92,125 +92,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   }
 
-  const postPage = path.resolve(`src/components/post-page.js`);
-  const postsGQL = await graphql(
-    `
-      {
-        allGhostPost(sort: { order: DESC, fields: [published_at] }) {
-          edges {
-            node {
-              id
-              authors {
-                cover_image
-                name
-              }
-              excerpt
-              html
-              primary_tag {
-                name
-              }
-              published_at(formatString: "YYYY / MM / DD")
-              reading_time
-              slug
-              tags {
-                name
-              }
-              title
-            }
-            next {
-              id
-              authors {
-                cover_image
-                name
-              }
-              excerpt
-              primary_tag {
-                name
-              }
-              published_at(formatString: "YYYY / MM / DD")
-              reading_time
-              slug
-              title
-            }
-            previous {
-              id
-              authors {
-                cover_image
-                name
-              }
-              excerpt
-              primary_tag {
-                name
-              }
-              published_at(formatString: "YYYY / MM / DD")
-              reading_time
-              slug
-              title
-            }
-          }
-        }
-      }
-    `
-  );
-
-  if (postsGQL.errors) {
-    reporter.panicOnBuild(`Error loading posts:`, postsGQL.errors);
-    return;
-  }
-
-  const posts = postsGQL.data.allGhostPost.edges;
-
-  // Create a page for each post
-  if (posts) {
-    posts.forEach((p, i) => {
-      const {
-        id,
-        authors,
-        excerpt,
-        html,
-        primary_tag,
-        published_at,
-        reading_time,
-        slug,
-        tags,
-        title,
-      } = p.node;
-      const { next, previous } = p;
-
-      // Find previous and next episode
-      // const previous = i === episodesLength - 1 ? null : episodes[i + 1];
-      // const next = i === 0 ? null : episodes[i - 1];
-
-      createPage({
-        component: postPage,
-        context: {
-          id,
-          authors,
-          excerpt,
-          html,
-          next,
-          previous,
-          primary_tag,
-          published_at,
-          reading_time,
-          slug,
-          tags,
-          title,
-        },
-        path: `bugada/${slug}`,
-      });
-    });
-  }
-
   // Fetch markdowns
 
-  const postPageMd = path.resolve(`src/components/post-page-md.js`);
+  const postPage = path.resolve(`src/components/post-page.js`);
   // const tagPage = path.resolve(`src/components/tagPage.js`);
 
   // Fetch all markdown posts
-  const fetchPosts = await graphql(`
+  const postsGQL = await graphql(`
     {
-      postsMd: allMarkdownRemark(
+      allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/articles/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -218,7 +108,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             frontmatter {
               author
-              date(formatString: "MMMM DD, YYYY")
+              date(formatString: "YYYY / MM / DD")
               featured
               meta
               path
@@ -228,31 +118,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             html
             id
+            timeToRead
+            wordCount {
+              words
+            }
           }
         }
       }
     }
   `);
 
-  if (fetchPosts.errors) {
-    throw fetchPosts.errors;
+  if (postsGQL.errors) {
+    reporter.panicOnBuild(`Error loading posts:`, postsGQL.errors);
+    return;
   }
 
   // posts -> [{ node }, { node }, ..., { node }]
-  const postsMd = fetchPosts.data.postsMd.edges;
+  const posts = postsGQL.data.allMarkdownRemark.edges;
 
   // Create a page for each post through path
-  postsMd.forEach((post, index) => {
+  posts.forEach((post, index) => {
     const { author, date, featured, meta, path, published, tags, title } =
       post.node.frontmatter;
     const html = post.node.html;
     const prev =
-      index === postsMd.length - 1
-        ? postsMd[index].node
-        : postsMd[index + 1].node;
-    const next = index === 0 ? postsMd[index].node : postsMd[index - 1].node;
+      index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
+    const next = index === 0 ? posts[index].node : posts[index - 1].node;
+    const readingTime = post.node.timeToRead;
     createPage({
-      component: postPageMd,
+      component: postPage,
       context: {
         author,
         date,
@@ -262,6 +156,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         next,
         prev,
         published,
+        readingTime,
         tags,
         title,
       },
