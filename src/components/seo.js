@@ -15,10 +15,10 @@ const Seo = ({ pageTitle, pageDescription, meta }) => {
             description
             image
             siteUrl
+            siteLanguage
             author {
               name
             }
-            language
             social {
               twitter
               email
@@ -33,8 +33,8 @@ const Seo = ({ pageTitle, pageDescription, meta }) => {
   const description = pageDescription || site.siteMetadata?.description;
   const image = `${site.siteMetadata?.siteUrl}/meta.png`;
   const url = site.siteMetadata?.siteUrl;
+  const language = site.siteMetadata?.siteLanguage || `ca`;
   const author = site.siteMetadata?.author.name;
-  const language = site.siteMetadata?.language || `ca`;
   const email = site.siteMetadata?.social.email;
   const twitter = site.siteMetadata?.social.twitter;
 
