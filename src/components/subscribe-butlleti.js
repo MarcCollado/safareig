@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 import { fluid } from '../utils/fluid';
 import { FlexCenter } from '../utils/containers';
@@ -70,28 +71,23 @@ const ButlletiInput = styled.input`
 
 const SubscribeButlleti = () => {
   const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       // this.loading = true;
-      const result = await fetch(
-        'https://safareig.ghost.io/members/api/send-magic-link/',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            emailType: 'subscribe',
-          }),
-        }
-      );
-      const r = await result.text();
-      if (r !== 'Created.') alert('bad');
+      const result = await addToMailchimp(email, {
+        FNAME: name,
+        LNAME: surname,
+      });
+      if (
+        result.msg === `Thank you for subscribing!` &&
+        result.result === `success`
+      ) {
+        console.log(result);
+      }
     } catch (error) {
       console.error(error);
     } finally {
@@ -115,6 +111,17 @@ const SubscribeButlleti = () => {
           required
         />
         <ButlletiInput
+          type="text"
+          name="surname"
+          id="surname"
+          placeholder="El teu cognom"
+          autocomplete="false"
+          // minlength="4"
+          value={surname}
+          onChange={(e) => setSurname(e.target.value)}
+          required
+        />
+        <ButlletiInput
           type="email"
           name="email"
           id="email"
@@ -129,7 +136,7 @@ const SubscribeButlleti = () => {
           type="submit"
           value="Subscriu-te al butlletí"
           onClick={handleSubmit}
-          disabled={name === '' && email === ''}
+          disabled={name === '' && surname === '' && email === ''}
         />
       </ButlletiForm>
     </NewsletterContainer>
