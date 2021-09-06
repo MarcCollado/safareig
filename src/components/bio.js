@@ -21,7 +21,6 @@ const Bio = () => {
           header
           social {
             twitter
-            email
           }
         }
       }
