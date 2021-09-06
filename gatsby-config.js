@@ -5,13 +5,13 @@ export default {
     description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
     image: `content/assets/meta.png`,
     siteUrl: `https://www.safareig.fm`,
+    siteLanguage: `ca`,
     author: {
       name: `Ramon Gilabert & Marc Collado`,
     },
-    language: `ca`,
     social: {
-      twitter: `https://twitter.com/safareigfm`,
       email: `fem@safareig.fm`,
+      twitter: `https://twitter.com/safareigfm`,
     },
   },
   plugins: [
@@ -36,14 +36,14 @@ export default {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-embed-video',
+            resolve: `gatsby-remark-embed-video`,
             options: {
               width: 1024,
               related: false,
               noIframeBorder: true,
             },
           },
-          'gatsby-remark-responsive-iframe',
+          `gatsby-remark-responsive-iframe`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -53,16 +53,14 @@ export default {
               quality: 80,
             },
           },
-          `gatsby-remark-prismjs`,
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
         ],
       },
     },
-    // IMAGES & ASSETS
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    // RSS FEED — PODCAST
     {
       // https://github.com/mottox2/gatsby-source-rss-feed
       resolve: `gatsby-source-rss-feed`,
@@ -77,8 +75,12 @@ export default {
         // },
       },
     },
+    // IMAGES & ASSETS
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
           include: /assets/,
@@ -100,6 +102,14 @@ export default {
       },
     },
     `gatsby-plugin-offline`,
+    // NEWSLETTER
+    {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+        endpoint: `https://safareig.us5.list-manage.com/subscribe/post?u=06724b974bab7aa21dd921241&amp;id=56cedc08e9`,
+        timeout: 3500,
+      },
+    },
     // UTILS & HELPERS
     {
       resolve: `gatsby-plugin-google-analytics`,
