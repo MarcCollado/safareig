@@ -170,8 +170,9 @@ const PostPage = ({ location, pageContext }) => {
     next,
     prev,
     // published,
-    // readingTime
+    rdm,
     // tags,
+    // timeToRead,
     title,
   } = pageContext;
 
@@ -180,7 +181,7 @@ const PostPage = ({ location, pageContext }) => {
   return (
     isReady && (
       <GlobalContainer>
-        <Seo location={location} pageTitle={title} pageDescription={meta} />
+        <Seo pageTitle={title} pageDescription={meta} pageUrl={location.href} />
         <HeaderContainer>
           <h1>{title}</h1>
           <Subtitle>{date}</Subtitle>
@@ -211,7 +212,10 @@ const PostPage = ({ location, pageContext }) => {
             />
           </InLineLinksContainer>
         </PostContainer>
-        <AdjacentPosts nextPost={next} previousPost={prev} />
+        <AdjacentPosts
+          nextPost={title === next.frontmatter.title ? rdm : next}
+          previousPost={prev}
+        />
         <SubscribeButlleti />
         <Footer />
       </GlobalContainer>
