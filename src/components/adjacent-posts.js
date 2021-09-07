@@ -26,7 +26,7 @@ const AdjacentPosts = ({ nextPost, previousPost }) => (
         // image
         path={nextPost.frontmatter?.path}
         primaryTag={nextPost.frontmatter?.tags[0]}
-        readingTime={nextPost.timeToRead}
+        timeToRead={nextPost.timeToRead}
         title={nextPost.frontmatter?.title}
       />
     )}
@@ -40,7 +40,7 @@ const AdjacentPosts = ({ nextPost, previousPost }) => (
         // image
         path={previousPost.frontmatter?.path}
         primaryTag={previousPost.frontmatter?.tags[0]}
-        readingTime={previousPost.timeToRead}
+        timeToRead={previousPost.timeToRead}
         title={previousPost.frontmatter?.title}
       />
     )}

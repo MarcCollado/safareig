@@ -55,7 +55,7 @@ const PostLink = ({
   excerpt,
   path,
   primaryTag,
-  readingTime,
+  timeToRead,
   title,
 }) => {
   return (
@@ -76,7 +76,7 @@ const PostLink = ({
               >
                 {date}
               </PostMeta>
-              <PostMeta>{`· ${readingTime}min · ${primaryTag}`}</PostMeta>
+              <PostMeta>{`· ${timeToRead}min · ${primaryTag}`}</PostMeta>
             </InLine>
           </MetaItems>
         </InnerCardContainer>

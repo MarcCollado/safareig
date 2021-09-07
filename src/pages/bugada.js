@@ -56,7 +56,7 @@ const BugadaPage = ({ data, location }) => {
           // image
           path={post.node.frontmatter?.path}
           primaryTag={post.node.frontmatter?.tags[0]}
-          readingTime={post.node.timeToRead}
+          timeToRead={post.node.timeToRead}
           title={post.node.frontmatter?.title}
         />
       ));
