@@ -80,9 +80,9 @@ const EpisodePage = ({ location, pageContext }) => {
   return (
     <GlobalContainer>
       <Seo
-        location={location}
-        pageTitle={pageContext.title}
         pageDescription={pageContext.showDescription}
+        pageTitle={pageContext.title}
+        pageUrl={location.href}
       />
       <MainContainer>{isReady && renderResponsiveUI(isDesktop)}</MainContainer>
       {isReady && <Footer />}
