@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import favicon from '../../static/favicon.ico';
 
-const Seo = ({ pageTitle, pageDescription, meta }) => {
+const Seo = ({ pageDescription, pageTitle, pageUrl, meta }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -32,7 +32,7 @@ const Seo = ({ pageTitle, pageDescription, meta }) => {
   const title = pageTitle || site.siteMetadata?.title;
   const description = pageDescription || site.siteMetadata?.description;
   const image = `${site.siteMetadata?.siteUrl}/meta.png`;
-  const url = site.siteMetadata?.siteUrl;
+  const url = pageUrl || site.siteMetadata?.siteUrl;
   const language = site.siteMetadata?.siteLanguage || `ca`;
   const author = site.siteMetadata?.author.name;
   const email = site.siteMetadata?.social.email;
