@@ -1,6 +1,6 @@
 const path = require(`path`);
 
-import { getRelatedEpisodes } from './src/utils/random';
+import { getRandom, getRelatedEpisodes } from './src/utils/random';
 import { trimDescriptions } from './src/utils/trim';
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -140,11 +140,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   posts.forEach((post, index) => {
     const { author, date, featured, meta, path, published, tags, title } =
       post.node.frontmatter;
-    const html = post.node.html;
+    const { html, timeToRead } = post.node;
+    // Get the previous and next post
     const prev =
       index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
     const next = index === 0 ? posts[index].node : posts[index - 1].node;
-    const readingTime = post.node.timeToRead;
+    // Get a random post for the last post since there's no "next" for it
+    const rdm = posts[getRandom(0, posts.length - 1)].node;
+
     createPage({
       component: postPage,
       context: {
@@ -156,8 +159,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         next,
         prev,
         published,
-        readingTime,
+        rdm,
         tags,
+        timeToRead,
         title,
       },
       path: path,
