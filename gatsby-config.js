@@ -77,7 +77,16 @@ export default {
     },
     // IMAGES & ASSETS
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 100,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-react-svg`,
@@ -98,7 +107,7 @@ export default {
         background_color: `#FFFFFF`,
         theme_color: `#32C5FF`,
         display: `minimal-ui`,
-        icon: `content/assets/favicon.png`,
+        icon: `content/assets/manifest.png`,
       },
     },
     `gatsby-plugin-offline`,
