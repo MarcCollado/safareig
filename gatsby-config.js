@@ -108,6 +108,7 @@ export default {
         theme_color: `#32C5FF`,
         display: `minimal-ui`,
         icon: `content/assets/manifest.png`,
+        lang: `ca`,
       },
     },
     `gatsby-plugin-offline`,
