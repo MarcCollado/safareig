@@ -63,6 +63,9 @@ const Seo = ({ pageDescription, pageTitle, pageUrl, meta }) => {
         { name: `twitter:image`, content: image },
         { name: `twitter:creator`, content: twitter },
         { name: `twitter:card`, content: `summary_large_image` },
+
+        // COLORED TABS
+        { name: `theme-color`, content: `#32C5FF` },
       ].concat(meta)}
     >
       <link rel="icon" type="image/x-icon" href={favicon} />
