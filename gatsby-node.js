@@ -1,7 +1,7 @@
 const path = require(`path`);
-
-import { getRandom, getRelatedEpisodes } from './src/utils/random';
-import { trimDescriptions } from './src/utils/trim';
+// import { getRandom, getRelatedEpisodes } from './src/utils/random';
+// import { trimDescriptions } from './src/utils/trim';
+const utils = require('./src/utils/node');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -49,8 +49,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       } = e;
 
       // Generate show description and show notes
-      const { showDescription } = trimDescriptions(e.contentSnippet, e.content);
-      const { showNotes } = trimDescriptions(e.contentSnippet, e.content);
+      const { showDescription } = utils.trimDescriptions(
+        e.contentSnippet,
+        e.content
+      );
+      const { showNotes } = utils.trimDescriptions(e.contentSnippet, e.content);
 
       // Find previous and next episode
       const previous = i === episodesLength - 1 ? null : episodes[i + 1];
@@ -58,10 +61,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
       // Generate related episodes
       let relatedEpisodes = [];
-      const relatedEpisodesNumbers = getRelatedEpisodes(
+
+      // Use getRandom function to use with commonJS
+      // The ES6 version doesn't require the function
+      const relatedEpisodesNumbers = utils.getRelatedEpisodes(
         2,
         episodesCount,
-        episodeNumber
+        episodeNumber,
+        utils.getRandom
       );
       relatedEpisodesNumbers.forEach((relatedEpisodeNumber) => {
         const relatedEpisode = episodes.find(
@@ -146,7 +153,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
     const next = index === 0 ? posts[index].node : posts[index - 1].node;
     // Get a random post for the last post since there's no "next" for it
-    const rdm = posts[getRandom(0, posts.length - 1)].node;
+    const rdm = posts[utils.getRandom(0, posts.length - 1)].node;
 
     createPage({
       component: postPage,
