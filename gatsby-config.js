@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   siteMetadata: {
     header: `Safareig`,
     title: `Safareig | El teu podcast de tecnologia en català`,
