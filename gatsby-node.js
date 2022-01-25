@@ -1,4 +1,4 @@
-const path = require(`path`);
+const path = require('path');
 // import { getRandom, getRelatedEpisodes } from './src/utils/random';
 // import { trimDescriptions } from './src/utils/trim';
 const utils = require('./src/utils/node');
