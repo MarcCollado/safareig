@@ -135,6 +135,7 @@ module.exports = {
         defer: false,
       },
     },
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
