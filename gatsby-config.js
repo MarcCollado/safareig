@@ -135,6 +135,7 @@ module.exports = {
         defer: false,
       },
     },
+    // Netlify integration -> https://github.com/netlify/netlify-plugin-gatsby
     `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
