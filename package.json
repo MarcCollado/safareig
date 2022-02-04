@@ -45,7 +45,6 @@
   },
   "devDependencies": {
     "esm": "^3.2.25",
-    "gatsby-plugin-netlify": "^4.0.0",
     "prettier": "2.5.1"
   },
   "scripts": {
