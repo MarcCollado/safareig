@@ -130,10 +130,6 @@ const GlobalStyles = createGlobalStyle`
     background-color: var(--gray);
     text-decoration: none;
   }
-
-  /* .gatsby-image-wrapper img[src*=base64\\,] {
-    image-rendering: pixelated;
-  } */
 `;
 
 export default GlobalStyles;
