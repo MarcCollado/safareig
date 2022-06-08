@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { useMediaQuery } from 'react-responsive';
 import styled, { keyframes } from 'styled-components';
 
 import { fluid } from '../utils/fluid';
@@ -18,13 +19,15 @@ const scaleAndRotate = keyframes`
 
 const EpisodeCover = styled.div`
   // Shares CSS properties with Cards
-  width: 100%;
   margin-block-end: 24px;
   border-radius: ${fluid(24, 32)};
   overflow: hidden;
 
   @media (min-width: 768px) {
-    margin-block-end: ${fluid(24, 48)};
+    min-width: 260px;
+    width: 100%;
+    max-width: 408px;
+    margin-block-end: ${fluid(24, 40)};
     border-radius: ${fluid(32, 48)};
   }
 `;
@@ -52,57 +55,62 @@ const HomeCover = styled(EpisodeCover)`
 // Main components
 
 const Cover = ({ location }) => {
+  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
-      homeMobileCover: file(relativePath: { eq: "home-mobile.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1024) {
-            ...GatsbyImageSharpFluid
+      homeMobileCover: allFile(
+        filter: { absolutePath: { regex: "/assets/home-mobile.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
-      homeDesktopCover: file(relativePath: { eq: "home-desktop.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1024) {
-            ...GatsbyImageSharpFluid
+      homeDesktopCover: allFile(
+        filter: { absolutePath: { regex: "/assets/home-desktop.png/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
-      episodeMobileCover: file(relativePath: { eq: "episode-mobile.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1024) {
-            ...GatsbyImageSharpFluid
+      episodeMobileCover: allFile(
+        filter: { absolutePath: { regex: "/assets/episode-mobile.jpg/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
-      episodeDesktopCover: file(relativePath: { eq: "episode-desktop.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1024) {
-            ...GatsbyImageSharpFluid
+      episodeDesktopCover: allFile(
+        filter: { absolutePath: { regex: "/assets/episode-desktop.jpg/" } }
+      ) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
     }
   `);
-  const homeSources = [
-    data.homeMobileCover.childImageSharp.fluid,
-    {
-      ...data.homeDesktopCover.childImageSharp.fluid,
-      media: `(min-width: 768px)`,
-    },
-  ];
-  const espisodeSources = [
-    data.episodeMobileCover.childImageSharp.fluid,
-    {
-      ...data.episodeDesktopCover.childImageSharp.fluid,
-      media: `(min-width: 768px)`,
-    },
-  ];
+
+  const homeDesktopCover =
+    data.homeDesktopCover.nodes[0].childImageSharp.gatsbyImageData;
+  const homeMobileCover =
+    data.homeMobileCover.nodes[0].childImageSharp.gatsbyImageData;
+  const episodeDesktopCover =
+    data.episodeDesktopCover.nodes[0].childImageSharp.gatsbyImageData;
+  const episodeMobileCover =
+    data.episodeMobileCover.nodes[0].childImageSharp.gatsbyImageData;
+
   return location === '/' ? (
     <HomeCover>
-      <Img
-        fluid={homeSources}
+      <GatsbyImage
+        image={isDesktop ? homeDesktopCover : homeMobileCover}
         alt="Safareig cover image"
         style={{ width: '100%', height: '100%' }}
       />
@@ -110,8 +118,8 @@ const Cover = ({ location }) => {
   ) : (
     <EpisodeCover>
       <Link to="/">
-        <Img
-          fluid={espisodeSources}
+        <GatsbyImage
+          image={isDesktop ? episodeDesktopCover : episodeMobileCover}
           alt="Safareig episode cover image"
           style={{ width: '100%', height: '100%' }}
         />

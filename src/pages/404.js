@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 import Footer from '../components/footer';
@@ -42,15 +43,13 @@ const FourOFourText = styled.p`
 `;
 
 const NotFoundPage = ({ data }) => {
+  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const totalCount = data.allFeedSafareigFm?.totalCount;
   const randomEspisode = getRandom(1, totalCount);
-  const sources = [
-    data.FourOFourMobile.childImageSharp.fluid,
-    {
-      ...data.FourOFourDesktop.childImageSharp.fluid,
-      media: `(min-width: 768px)`,
-    },
-  ];
+  const fourOFourDesktop =
+    data.fourOFourDesktop.nodes[0].childImageSharp.gatsbyImageData;
+  const fourOFourMobile =
+    data.fourOFourMobile.nodes[0].childImageSharp.gatsbyImageData;
 
   return (
     <GlobalContainer>
@@ -58,8 +57,8 @@ const NotFoundPage = ({ data }) => {
         <FullPageCard>
           <InnerCardContainer>
             <FourOFourImage>
-              <Img
-                fluid={sources}
+              <GatsbyImage
+                image={isDesktop ? fourOFourDesktop : fourOFourMobile}
                 alt="Safareig 404 image"
                 style={{ width: '100%', height: '100%' }}
               />
@@ -88,17 +87,21 @@ export const pageQuery = graphql`
     allFeedSafareigFm {
       totalCount
     }
-    FourOFourMobile: file(relativePath: { eq: "404-mobile.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid
+    fourOFourMobile: allFile(
+      filter: { absolutePath: { regex: "/assets/404-mobile.png/" } }
+    ) {
+      nodes {
+        childImageSharp {
+          gatsbyImageData
         }
       }
     }
-    FourOFourDesktop: file(relativePath: { eq: "404-desktop.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid
+    fourOFourDesktop: allFile(
+      filter: { absolutePath: { regex: "/assets/404-desktop.png/" } }
+    ) {
+      nodes {
+        childImageSharp {
+          gatsbyImageData
         }
       }
     }
