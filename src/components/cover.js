@@ -134,7 +134,9 @@ const Cover = ({ isReady, location }) => {
     <EpisodeCover>
       <Link to="/">
         <GatsbyImage
-          image={isReady && isDesktop ? homeDesktopCover : homeMobileCover}
+          image={
+            isReady && isDesktop ? episodeDesktopCover : episodeMobileCover
+          }
           alt="Safareig episode cover image"
           style={{ width: '100%', height: '100%' }}
         />
