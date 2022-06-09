@@ -54,8 +54,9 @@ const HomeCover = styled(EpisodeCover)`
 
 // Main components
 
-const Cover = ({ location }) => {
+const Cover = ({ isReady, location }) => {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
@@ -110,13 +111,13 @@ const Cover = ({ location }) => {
   // Art directed images implementation
   const homeImages = withArtDirection(getImage(homeMobileCover), [
     {
-      media: '(max-width: 768px)',
+      media: '(min-width: 768px)',
       image: getImage(homeDesktopCover),
     },
   ]);
   const episodeImages = withArtDirection(getImage(episodeMobileCover), [
     {
-      media: '(max-width: 768px)',
+      media: '(min-width: 768px)',
       image: getImage(episodeDesktopCover),
     },
   ]);
@@ -124,7 +125,7 @@ const Cover = ({ location }) => {
   return location === '/' ? (
     <HomeCover>
       <GatsbyImage
-        image={homeImages}
+        image={isReady && !isDesktop ? homeMobileCover : homeDesktopCover}
         alt="Safareig cover image"
         style={{ width: '100%', height: '100%' }}
       />
@@ -133,7 +134,9 @@ const Cover = ({ location }) => {
     <EpisodeCover>
       <Link to="/">
         <GatsbyImage
-          image={episodeImages}
+          image={
+            isReady && !isDesktop ? episodeMobileCover : episodeDesktopCover
+          }
           alt="Safareig episode cover image"
           style={{ width: '100%', height: '100%' }}
         />
