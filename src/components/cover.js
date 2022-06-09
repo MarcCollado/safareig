@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, withArtDirection } from 'gatsby-plugin-image';
 import { useMediaQuery } from 'react-responsive';
 import styled, { keyframes } from 'styled-components';
 
@@ -107,10 +107,24 @@ const Cover = ({ location }) => {
   const episodeMobileCover =
     data.episodeMobileCover.nodes[0].childImageSharp.gatsbyImageData;
 
+  // Art directed images implementation
+  const homeImages = withArtDirection(getImage(homeMobileCover), [
+    {
+      media: '(min-width: 768px)',
+      image: getImage(homeDesktopCover),
+    },
+  ]);
+  const episodeImages = withArtDirection(getImage(episodeMobileCover), [
+    {
+      media: '(min-width: 768px)',
+      image: getImage(episodeDesktopCover),
+    },
+  ]);
+
   return location === '/' ? (
     <HomeCover>
       <GatsbyImage
-        image={isDesktop ? homeDesktopCover : homeMobileCover}
+        image={homeImages}
         alt="Safareig cover image"
         style={{ width: '100%', height: '100%' }}
       />
@@ -119,7 +133,7 @@ const Cover = ({ location }) => {
     <EpisodeCover>
       <Link to="/">
         <GatsbyImage
-          image={isDesktop ? episodeDesktopCover : episodeMobileCover}
+          image={episodeImages}
           alt="Safareig episode cover image"
           style={{ width: '100%', height: '100%' }}
         />
