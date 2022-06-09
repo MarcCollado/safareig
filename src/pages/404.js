@@ -55,13 +55,15 @@ const NotFoundPage = ({ data }) => {
   const fourOFourMobile =
     data.fourOFourMobile.nodes[0].childImageSharp.gatsbyImageData;
 
-  // Art directed images implementation
-  // const fourOFourImages = withArtDirection(getImage(fourOFourMobile), [
-  //   {
-  //     media: '(min-width: 768px)',
-  //     image: getImage(fourOFourDesktop),
-  //   },
-  // ]);
+  /*
+  Art directed images implementation
+  const fourOFourImages = withArtDirection(getImage(fourOFourMobile), [
+    {
+      media: '(min-width: 768px)',
+      image: getImage(fourOFourDesktop),
+    },
+  ]);
+  */
 
   return (
     <GlobalContainer>

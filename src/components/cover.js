@@ -108,19 +108,21 @@ const Cover = ({ isReady, location }) => {
   const episodeMobileCover =
     data.episodeMobileCover.nodes[0].childImageSharp.gatsbyImageData;
 
-  // Art directed images implementation
-  // const homeImages = withArtDirection(getImage(homeMobileCover), [
-  //   {
-  //     media: '(min-width: 768px)',
-  //     image: getImage(homeDesktopCover),
-  //   },
-  // ]);
-  // const episodeImages = withArtDirection(getImage(episodeMobileCover), [
-  //   {
-  //     media: '(min-width: 768px)',
-  //     image: getImage(episodeDesktopCover),
-  //   },
-  // ]);
+  /*
+  Art directed images implementation
+  const homeImages = withArtDirection(getImage(homeMobileCover), [
+    {
+      media: '(min-width: 768px)',
+      image: getImage(homeDesktopCover),
+    },
+  ]);
+  const episodeImages = withArtDirection(getImage(episodeMobileCover), [
+    {
+      media: '(min-width: 768px)',
+      image: getImage(episodeDesktopCover),
+    },
+  ]);
+  */
 
   return location === '/' ? (
     <HomeCover>
