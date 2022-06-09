@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useMediaQuery } from 'react-responsive';
@@ -43,13 +43,25 @@ const FourOFourText = styled.p`
 `;
 
 const NotFoundPage = ({ data }) => {
+  const [isReady, setIsReady] = useState(false);
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+
+  useEffect(() => setIsReady(true), []);
+
   const totalCount = data.allFeedSafareigFm?.totalCount;
   const randomEspisode = getRandom(1, totalCount);
   const fourOFourDesktop =
     data.fourOFourDesktop.nodes[0].childImageSharp.gatsbyImageData;
   const fourOFourMobile =
     data.fourOFourMobile.nodes[0].childImageSharp.gatsbyImageData;
+
+  // Art directed images implementation
+  // const fourOFourImages = withArtDirection(getImage(fourOFourMobile), [
+  //   {
+  //     media: '(min-width: 768px)',
+  //     image: getImage(fourOFourDesktop),
+  //   },
+  // ]);
 
   return (
     <GlobalContainer>
@@ -58,7 +70,9 @@ const NotFoundPage = ({ data }) => {
           <InnerCardContainer>
             <FourOFourImage>
               <GatsbyImage
-                image={isDesktop ? fourOFourDesktop : fourOFourMobile}
+                image={
+                  isReady && isDesktop ? fourOFourDesktop : fourOFourMobile
+                }
                 alt="Safareig 404 image"
                 style={{ width: '100%', height: '100%' }}
               />
