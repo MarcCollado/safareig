@@ -110,13 +110,13 @@ const Cover = ({ location }) => {
   // Art directed images implementation
   const homeImages = withArtDirection(getImage(homeMobileCover), [
     {
-      media: '(min-width: 768px)',
+      media: '(max-width: 768px)',
       image: getImage(homeDesktopCover),
     },
   ]);
   const episodeImages = withArtDirection(getImage(episodeMobileCover), [
     {
-      media: '(min-width: 768px)',
+      media: '(max-width: 768px)',
       image: getImage(episodeDesktopCover),
     },
   ]);
