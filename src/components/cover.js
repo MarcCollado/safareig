@@ -20,15 +20,23 @@ const scaleAndRotate = keyframes`
 const EpisodeCover = styled.div`
   // Shares CSS properties with Cards
   margin-block-end: 24px;
-  border-radius: ${fluid(24, 32)};
   overflow: hidden;
+
+  // Safari compatibility
+  & img {
+    border-radius: ${fluid(24, 32)};
+  }
 
   @media (min-width: 768px) {
     min-width: 260px;
     width: 100%;
     max-width: 408px;
     margin-block-end: ${fluid(24, 40)};
-    border-radius: ${fluid(32, 48)};
+
+    // Safari compatibility
+    & img {
+      border-radius: ${fluid(32, 48)};
+    }
   }
 `;
 
@@ -36,7 +44,7 @@ const HomeCover = styled(EpisodeCover)`
   // Mobile: add space from BioContainer below
   margin-block-end: 32px;
   box-shadow: var(--boxShadow);
-
+  border-radius: ${fluid(24, 32)};
   transition: all 300ms ease;
 
   transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -2deg);
@@ -49,6 +57,7 @@ const HomeCover = styled(EpisodeCover)`
     margin-block-start: 0px;
     // 1/2 inner space from BioContainer
     margin-inline-start: ${fluid(16, 32)};
+    border-radius: ${fluid(32, 48)};
   }
 `;
 
