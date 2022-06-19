@@ -96,6 +96,27 @@ module.exports = {
         },
       },
     },
+    // OFFLINE
+    // To learn more, visit: https://gatsby.dev/offline
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Safareig | El teu podcast en català`,
+        short_name: `Safareig`,
+        start_url: `/`,
+        background_color: `#FFFFFF`,
+        theme_color: `#32C5FF`,
+        display: `minimal-ui`,
+        icon: `content/assets/manifest.png`,
+        lang: `ca`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/*`],
+      },
+    },
     // NEWSLETTER
     {
       resolve: `gatsby-plugin-mailchimp`,
