@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const episodesGQL = await graphql(
     `
       {
-        allFeedSafareigFm(sort: { order: DESC, fields: isoDate }) {
+        allFeedSafareigFm(sort: { isoDate: DESC }) {
           nodes {
             title
             content
@@ -109,7 +109,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/articles/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { frontmatter: { date: DESC } }
       ) {
         edges {
           node {

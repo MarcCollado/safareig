@@ -123,7 +123,7 @@ export const pageQuery = graphql`
       }
     }
     # Episodes
-    allFeedSafareigFm(sort: { order: DESC, fields: isoDate }) {
+    allFeedSafareigFm(sort: { isoDate: DESC }) {
       nodes {
         title
         contentSnippet
