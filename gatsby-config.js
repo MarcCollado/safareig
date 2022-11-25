@@ -144,4 +144,5 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
   ],
+  trailingSlash: `never`,
 };
