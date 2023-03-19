@@ -1,7 +1,7 @@
 import React from 'react';
 import 'normalize.css';
 
-import Navbar from '../components/navbar';
+// import Navbar from '../components/navbar';
 import GlobalStyles from '../utils/styles';
 
 const Layout = ({ location, title, children }) => {
@@ -15,7 +15,8 @@ const Layout = ({ location, title, children }) => {
   return (
     <>
       <GlobalStyles />
-      <Navbar path={location.pathname} />
+      {/* Hide Navbar */}
+      {/* <Navbar path={location.pathname} /> */}
       {children}
     </>
   );
