@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import addToMailchimp from 'gatsby-plugin-mailchimp';
+// import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 import { fluid } from '../utils/fluid';
 import { FlexCenter } from '../utils/containers';
@@ -74,6 +74,7 @@ const SubscribeButlleti = () => {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
 
+  /*
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -94,6 +95,7 @@ const SubscribeButlleti = () => {
       // this.loading = false;
     }
   };
+*/
 
   return (
     <NewsletterContainer>
@@ -138,7 +140,7 @@ const SubscribeButlleti = () => {
         <ButlletiInput
           type="submit"
           value="Subscriu-te al butlletí"
-          onClick={handleSubmit}
+          // onClick={handleSubmit} — Deprecate newsletter
           disabled={name === '' && surname === '' && email === ''}
         />
       </ButlletiForm>
