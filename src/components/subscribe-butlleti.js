@@ -109,6 +109,7 @@ const SubscribeButlleti = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          disabled
         />
         <ButlletiInput
           type="text"
@@ -120,6 +121,7 @@ const SubscribeButlleti = () => {
           value={surname}
           onChange={(e) => setSurname(e.target.value)}
           required
+          disabled
         />
         <ButlletiInput
           type="email"
@@ -131,6 +133,7 @@ const SubscribeButlleti = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          disabled
         />
         <ButlletiInput
           type="submit"
