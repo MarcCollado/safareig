@@ -117,29 +117,7 @@ module.exports = {
         precachePages: [`/`, `/*`],
       },
     },
-    // NEWSLETTER
-    {
-      resolve: `gatsby-plugin-mailchimp`,
-      options: {
-        endpoint: `https://safareig.us5.list-manage.com/subscribe/post?u=06724b974bab7aa21dd921241&amp;id=56cedc08e9`,
-        timeout: 3500,
-      },
-    },
     // UTILS & HELPERS
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-184751048-1',
-        head: false,
-        // anonymize: true,
-        // respectDNT: true,
-        // exclude: ["/**/*", "/"],
-        // optimizeId: 'LE_OPTIMIZE_TRACKING_ID',
-        // experimentId: 'GOOGLE_EXPERIMENT_ID',
-        // variationId: 'GOOGLE_OPTIMIZE_VARIATION_ID',
-        defer: false,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
