@@ -60,6 +60,63 @@ module.exports = {
         ],
       },
     },
+    // RSS FEED — BUGADA
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+              {
+                site {
+                  siteMetadata {
+                    title
+                    description
+                    siteUrl
+                    site_url: siteUrl
+                  }
+                }
+              }
+            `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.frontmatter.meta,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.frontmatter.path,
+                  guid: site.siteMetadata.siteUrl + node.frontmatter.path,
+                  custom_elements: [{ 'content:encoded': node.html }],
+                });
+              });
+            },
+            query: `
+                  {
+                    allMarkdownRemark(
+                      filter: {
+                        fileAbsolutePath: { regex: "/content/articles/" } }
+                      sort: { frontmatter: { date: DESC } }
+                    ) {
+                      nodes {
+                        frontmatter {
+                          date
+                          meta
+                          path
+                          tags
+                          title
+                        }
+                        html
+                        id
+                      }
+                    }
+                  }
+                `,
+            match: '^/bugada',
+            output: '/rss.xml',
+            title: 'La Bugada',
+          },
+        ],
+      },
+    },
     // RSS FEED — PODCAST
     {
       // https://github.com/mottox2/gatsby-source-rss-feed
