@@ -2,7 +2,7 @@
   # Installs the Lighthouse Build Plugin for all deploy contexts
   # package = "@netlify/plugin-lighthouse"
 
-# branch = main
+# branch = master
 [build.environment]
   NODE_VERSION = "19.9.0"
   NPM_VERSION = "9.6.6"
