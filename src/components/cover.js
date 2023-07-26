@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { useMediaQuery } from 'react-responsive';
 import styled, { keyframes } from 'styled-components';
 
 import { fluid } from '../utils/fluid';
@@ -63,14 +62,12 @@ const HomeCover = styled(EpisodeCover)`
 
 // Main components
 
-const Cover = ({ isReady, location }) => {
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
-
+const Cover = ({ location }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
     query CoverImageQuery {
-      homeMobileCover: allFile(
-        filter: { absolutePath: { regex: "/assets/home-mobile.png/" } }
+      homeCover: allFile(
+        filter: { absolutePath: { regex: "/assets/home-cover.png/" } }
       ) {
         nodes {
           childImageSharp {
@@ -78,26 +75,8 @@ const Cover = ({ isReady, location }) => {
           }
         }
       }
-      homeDesktopCover: allFile(
-        filter: { absolutePath: { regex: "/assets/home-desktop.png/" } }
-      ) {
-        nodes {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
-      episodeMobileCover: allFile(
-        filter: { absolutePath: { regex: "/assets/episode-mobile.jpg/" } }
-      ) {
-        nodes {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
-      episodeDesktopCover: allFile(
-        filter: { absolutePath: { regex: "/assets/episode-desktop.jpg/" } }
+      episodeCover: allFile(
+        filter: { absolutePath: { regex: "/assets/episode-cover.jpg/" } }
       ) {
         nodes {
           childImageSharp {
@@ -108,35 +87,14 @@ const Cover = ({ isReady, location }) => {
     }
   `);
 
-  const homeDesktopCover =
-    data.homeDesktopCover.nodes[0].childImageSharp.gatsbyImageData;
-  const homeMobileCover =
-    data.homeMobileCover.nodes[0].childImageSharp.gatsbyImageData;
-  const episodeDesktopCover =
-    data.episodeDesktopCover.nodes[0].childImageSharp.gatsbyImageData;
-  const episodeMobileCover =
-    data.episodeMobileCover.nodes[0].childImageSharp.gatsbyImageData;
-
-  /*
-  Art directed images implementation
-  const homeImages = withArtDirection(getImage(homeMobileCover), [
-    {
-      media: '(min-width: 768px)',
-      image: getImage(homeDesktopCover),
-    },
-  ]);
-  const episodeImages = withArtDirection(getImage(episodeMobileCover), [
-    {
-      media: '(min-width: 768px)',
-      image: getImage(episodeDesktopCover),
-    },
-  ]);
-  */
+  const homeCover = data.homeCover.nodes[0].childImageSharp.gatsbyImageData;
+  const episodeCover =
+    data.episodeCover.nodes[0].childImageSharp.gatsbyImageData;
 
   return location === '/' ? (
     <HomeCover>
       <GatsbyImage
-        image={isReady && isDesktop ? homeDesktopCover : homeMobileCover}
+        image={homeCover}
         alt="Safareig cover image"
         style={{ width: '100%', height: '100%' }}
       />
@@ -145,9 +103,7 @@ const Cover = ({ isReady, location }) => {
     <EpisodeCover>
       <Link to="/">
         <GatsbyImage
-          image={
-            isReady && isDesktop ? episodeDesktopCover : episodeMobileCover
-          }
+          image={episodeCover}
           alt="Safareig episode cover image"
           style={{ width: '100%', height: '100%' }}
         />
