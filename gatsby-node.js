@@ -6,27 +6,25 @@ const utils = require('./src/utils/node');
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   const episodePage = path.resolve(`src/components/episode-page.js`);
-  const episodesGQL = await graphql(
-    `
-      {
-        allFeedSafareigFm(sort: { isoDate: DESC }) {
-          nodes {
-            title
-            content
-            contentSnippet
-            isoDate(formatString: "YYYY / MM / DD")
-            itunes {
-              episode
-            }
-            enclosure {
-              url
-            }
+  const episodesGQL = await graphql(`
+    {
+      allFeedSafareigFm(sort: { isoDate: DESC }) {
+        nodes {
+          title
+          content
+          contentSnippet
+          isoDate(formatString: "YYYY / MM / DD")
+          itunes {
+            episode
           }
-          totalCount
+          enclosure {
+            url
+          }
         }
+        totalCount
       }
-    `
-  );
+    }
+  `);
 
   if (episodesGQL.errors) {
     reporter.panicOnBuild(`Error loading episodes:`, episodesGQL.errors);
@@ -51,7 +49,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // Generate show description and show notes
       const { showDescription } = utils.trimDescriptions(
         e.contentSnippet,
-        e.content
+        e.content,
       );
       const { showNotes } = utils.trimDescriptions(e.contentSnippet, e.content);
 
@@ -68,11 +66,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         2,
         episodesCount,
         episodeNumber,
-        utils.getRandom
+        utils.getRandom,
       );
       relatedEpisodesNumbers.forEach((relatedEpisodeNumber) => {
         const relatedEpisode = episodes.find(
-          (e) => e.itunes.episode == relatedEpisodeNumber
+          (e) => e.itunes.episode == relatedEpisodeNumber,
         );
         const relatedEpisodeTitle = relatedEpisode.title;
         relatedEpisodes = [

@@ -195,7 +195,7 @@ const PostPage = ({ location, pageContext }) => {
                   .replace(/https:\/\/safareig.fm/g, '')
                   .replace(
                     /href="h/g,
-                    `target="_blank" rel="noreferrer" href="h`
+                    `target="_blank" rel="noreferrer" href="h`,
                   ),
               }}
             ></p>

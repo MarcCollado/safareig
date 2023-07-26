@@ -44,7 +44,7 @@ const BugadaPage = ({ data, location }) => {
     return posts
       .filter(
         (post) =>
-          !!post.node.frontmatter?.date && !!post.node.frontmatter?.published
+          !!post.node.frontmatter?.date && !!post.node.frontmatter?.published,
       )
       .map((post) => (
         <PostLink

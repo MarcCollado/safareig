@@ -31,7 +31,7 @@ exports.getRelatedEpisodes = function (min, max, self, getRandomFunc) {
 
 exports.trimDescriptions = function (
   fullDescription,
-  fullDescriptionHtml = ''
+  fullDescriptionHtml = '',
 ) {
   // Show description as string
   fullDescription = fullDescription.toString();

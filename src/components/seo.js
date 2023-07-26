@@ -6,28 +6,26 @@ import { useStaticQuery, graphql } from 'gatsby';
 import favicon from '../../static/favicon.ico';
 
 const Seo = ({ pageDescription, pageTitle, pageUrl, meta }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            image
-            siteUrl
-            siteLanguage
-            author {
-              name
-            }
-            social {
-              twitter
-              email
-            }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          image
+          siteUrl
+          siteLanguage
+          author {
+            name
+          }
+          social {
+            twitter
+            email
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   const title = pageTitle || site.siteMetadata?.title;
   const description = pageDescription || site.siteMetadata?.description;
