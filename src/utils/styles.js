@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2 {
-    // reset default margins
+    // Reset default margins
     margin: 0px;
     line-height: 1.5;
     color: var(--black);
@@ -78,7 +78,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  p, a, button, input {
+  li, p, a, button, input {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;

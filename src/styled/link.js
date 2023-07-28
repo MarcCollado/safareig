@@ -184,7 +184,7 @@ export const InLineLinksContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  // add space when there are two link items inline
+  // Add space when there are two link items inline
   & a:last-child {
     margin-inline-start: ${fluid(24, 32)};
   }
