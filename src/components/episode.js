@@ -48,6 +48,12 @@ const ShowNotes = styled.div`
   & ul {
     padding-inline-start: 24px;
   }
+
+  // TO-DO: Fix for RSS.com parser update
+  & li {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
 `;
 
 // Components
