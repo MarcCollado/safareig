@@ -104,7 +104,7 @@ const Episode = ({
           dangerouslySetInnerHTML={{
             __html: showNotes
               .replace(/https:\/\/www.safareig.fm/g, '')
-              .replace(/https:\/\/safareig.fm/g, '')
+              .replace(/https:\/\/safareig.netlify.app/g, '')
               .replace(/href="h/g, `target="_blank" rel="noreferrer" href="h`),
           }}
         ></ShowNotes>
