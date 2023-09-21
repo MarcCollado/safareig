@@ -4,7 +4,7 @@ module.exports = {
     title: `Safareig | El teu podcast de tecnologia en català`,
     description: `El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta. Cada dilluns, en 20 minuts, i exclusivament en català.`,
     image: `content/assets/meta.png`,
-    siteUrl: `https://www.safareig.fm`,
+    siteUrl: `https://safareig.netlify.app`,
     siteLanguage: `ca`,
     author: {
       name: `Ramon Gilabert & Marc Collado`,
