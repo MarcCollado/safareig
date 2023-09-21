@@ -1,6 +1,4 @@
 const path = require('path');
-// import { getRandom, getRelatedEpisodes } from './src/utils/random';
-// import { trimDescriptions } from './src/utils/trim';
 const utils = require('./src/utils/node');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -92,7 +90,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           relatedEpisodes,
           title,
         },
-        path: episodeNumber,
+        path: `${episodeNumber}/`,
       });
     });
   }
@@ -100,7 +98,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Fetch markdowns
 
   const postPage = path.resolve(`src/components/post-page.js`);
-  // const tagPage = path.resolve(`src/components/tagPage.js`);
 
   // Fetch all markdown posts
   const postsGQL = await graphql(`
@@ -172,20 +169,4 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path: path,
     });
   });
-
-  // List all unique tags
-  // let allTags = [];
-  // posts.forEach(({ node }) => {
-  //   allTags = [...allTags, ...node.frontmatter.tags];
-  // });
-  // const uniqueTags = [...new Set(allTags)];
-
-  // Create a page for each tag
-  // uniqueTags.forEach((tag) => {
-  //   createPage({
-  //     path: `/tags/${tag}`,
-  //     component: tagPage,
-  //     context: { tag },
-  //   });
-  // });
 };
