@@ -9,11 +9,7 @@ import PressKitIcon from '../../content/assets/press-kit.svg';
 
 const Press = () => (
   <FlatCard>
-    <a
-      href="https://www.icloud.com/iclouddrive/0iobVuMuVWWs5pBiSTMLbtvgQ"
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a href="https://twitter.com/safareigfm">
       <InnerCardContainer>
         <CardTitle>
           <PressKitIcon />

@@ -9,7 +9,7 @@ import ShareSvg from '../../content/assets/share.svg';
 
 const Share = () => (
   <FlatCard>
-    <a href={'mailto:fem@safareig.fm'}>
+    <a href="https://twitter.com/safareigfm">
       <InnerCardContainer>
         <CardTitle>
           <ShareSvg />
