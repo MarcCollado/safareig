@@ -4,8 +4,8 @@
 
 # branch = master
 [build.environment]
-  NODE_VERSION = "19.9.0"
-  NPM_VERSION = "9.6.6"
+  NODE_VERSION = "20.11.0"
+  NPM_VERSION = "10.3.0"
 
 # branch
 # [context.staging]
