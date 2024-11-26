@@ -1,6 +1,7 @@
-.cache
-.npm
-node_modules
-public
+/.cache
 .DS_Store
-.netlify
+.env
+/.netlify
+/.npm
+/node_modules
+/public
