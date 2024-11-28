@@ -1,8 +1,7 @@
 {
   "name": "safareig",
   "description": "El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societat que ens envolta",
-  "author": "Marc Collado <marc@collado.io>",
-  "homepage": "https://safareig.netlify.app",
+  "author": "Marc Collado",
   "license": "MIT",
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",
@@ -38,18 +37,15 @@
   },
   "devDependencies": {
     "esm": "^3.2.25",
-    "prettier": "3.3.3"
+    "prettier": "3.4.1"
   },
   "scripts": {
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,css,md,json}\" ",
-    "start": "npm run clean && npm run format && npm run build && npm run develop",
+    "start": "gatsby clean && netlify build && netlify dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "prettier": {
-    "singleQuote": true
   }
 }
