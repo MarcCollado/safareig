@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 import Footer from '../components/footer';
@@ -9,6 +8,7 @@ import { FullPageCard, InnerCardContainer } from '../styled/cards';
 import { PillLinkComposer } from '../styled/link';
 import { GlobalContainer, MainContainer } from '../utils/containers';
 
+import useIsDesktop from '../utils/useIsDesktop';
 import { fluid } from '../utils/fluid';
 import { getRandom } from '../utils/random';
 
@@ -44,7 +44,7 @@ const FourOFourText = styled.p`
 
 const NotFoundPage = ({ data }) => {
   const [isReady, setIsReady] = useState(false);
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+  const isDesktop = useIsDesktop();
 
   useEffect(() => setIsReady(true), []);
 
