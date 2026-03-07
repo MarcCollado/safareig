@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 import Bio from '../components/bio';
@@ -19,6 +18,7 @@ import {
   LeftPanelContainer,
   EpisodesContainer,
 } from '../utils/containers';
+import useIsDesktop from '../utils/useIsDesktop';
 import { trimDescriptions } from '../utils/trim';
 
 const HeaderContainer = styled(MainContainer)`
@@ -32,7 +32,7 @@ const HeaderContainer = styled(MainContainer)`
 
 const IndexPage = ({ data, location }) => {
   const [isReady, setIsReady] = useState(false);
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+  const isDesktop = useIsDesktop();
 
   useEffect(() => setIsReady(true), []);
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
-
 import { MobileMenuCard } from '../styled/cards';
 import { PillLinkComposer } from '../styled/link';
+import useIsDesktop from '../utils/useIsDesktop';
 import { NavLinks } from '../utils/composers';
 import { fluid } from '../utils/fluid';
 import { getRandom } from '../utils/random';
@@ -92,7 +91,7 @@ const Navbar = ({ path }) => {
   `);
 
   const [showMenu, setShowMenu] = useState(false);
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+  const isDesktop = useIsDesktop();
   const totalCount = data.allFeedSafareigFm?.totalCount;
   const randomEspisode = getRandom(1, totalCount);
 

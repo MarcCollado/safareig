@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
-
 import Cover from '../components/cover';
 import Episode from '../components/episode';
 import Follow from '../components/follow';
@@ -10,6 +8,7 @@ import Seo from '../components/seo';
 import Share from '../components/share';
 import Related from '../components/related';
 import Subscribe from '../components/subscribe';
+import useIsDesktop from '../utils/useIsDesktop';
 import {
   GlobalContainer,
   MainContainer,
@@ -21,7 +20,7 @@ import {
 
 const EpisodePage = ({ location, pageContext }) => {
   const [isReady, setIsReady] = useState(false);
-  const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+  const isDesktop = useIsDesktop();
 
   useEffect(() => setIsReady(true), []);
 
